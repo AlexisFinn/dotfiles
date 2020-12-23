@@ -1,0 +1,57 @@
+- clean: ['~']
+
+- link:
+      ~/.bashrc: bashrc
+      ~/.bash_logout: bash_logout
+      ~/.config/i3:
+          path: config/i3/
+          create: true
+      ~/.config/alacritty:
+          path: config/alacritty/
+          create: true
+      ~/.config/broot:
+          path: config/broot/
+          create: true
+      ~/.config/dunst:
+          path: config/dunst/
+          create: true
+      ~/.config/kitty:
+          path: config/kitty/
+          create: true
+      ~/.config/nvim/after:
+          path: config/nvim/after/
+          create: true
+      ~/.config/nvim/autoload:
+          path: config/nvim/autoload/
+          create: true
+      ~/.config/nvim/init.vim:
+          path: config/nvim/init.vim
+          create: true
+      ~/.config/nvim/coc-settings.json:
+          path: config/nvim/coc-settings.json
+          create: true
+      ~/.config/picom.conf:
+          path: config/picom.conf
+          create: true
+      ~/.config/pulse/daemon.conf:
+          path: config/pulse/daemon.conf
+          create: true
+      ~/.config/rofi:
+          path: config/rofi/
+          create: true
+      ~/.config/conky:
+          path: config/conky/
+          create: true
+      ~/.gitconfig: gitconfig
+      ~/.profile: profile
+      ~/.tmux.conf: tmux.conf
+      ~/.tmate.conf: tmate.conf
+      ~/.zshrc: zshrc
+      ~/.zshrc.d: zshrc.d
+      ~/.zgen-local-plugins: zgen-local-plugins
+- shell:
+      - [
+            cd ~ && git clone unixorn/zsh-quickstart-kit.git && ln -s
+            ~/zsh-quickstart-kit/zsh/.zgen-setup ~/.zgen-setup,
+            Setting up zsh quickstart kit,
+        ]

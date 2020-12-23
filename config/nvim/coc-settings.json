@@ -1,0 +1,11 @@
+{
+    "suggest.noselect": false,
+    "suggest.enablePreview": true,
+    "diagnostic.displayByAle": true,
+    "prettier.formatterPriority": 2,
+    "prettier.disableLanguages": [],
+    "prettier.stylelintIntegration": false,
+    "coc.preferences.formatOnSaveFiletypes": ["*"],
+    "prettier.disableSuccessMessage": false,
+    "vetur.completion.autoImport": true
+}

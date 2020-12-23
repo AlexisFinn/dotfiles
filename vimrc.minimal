@@ -1,0 +1,308 @@
+" Gotta be first
+set nocompatible
+
+if empty(glob('~/.vim/autoload/plug.vim'))
+  silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
+    \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
+filetype off
+
+call plug#begin('~/.vim/plugged')
+" ---------- GENERAL FUNCTIONALITY PLUGINS -----------
+
+" a set of default configs and fixes to start of with
+Plug 'sheerun/vim-polyglot'
+" Lightweight and simple status line
+Plug 'itchyny/lightline.vim'
+" allows to delete a buffer without closing the window
+Plug 'rbgrouleff/bclose.vim'
+" quickly move around a file using <leader><leader>
+Plug 'easymotion/vim-easymotion'
+" Show trailing whitespaces in red
+Plug 'ntpeters/vim-better-whitespace'
+" Indentation guides
+Plug 'nathanaelkane/vim-indent-guides'
+" show VCS changes in sign column beside opened file
+Plug 'mhinz/vim-signify'
+" auto-close braces etc..
+Plug 'Raimondi/delimitMate'
+" read and process .editorconfig file
+Plug 'editorconfig/editorconfig-vim'
+" auto trim trailing whitespace on save
+Plug 'derekprior/vim-trimmer'
+" Lightweight status bar
+Plug 'mengelbrecht/lightline-bufferline'
+" Ranger integration into vim
+Plug 'francoiscabrol/ranger.vim'
+" Display current file tags in side window
+Plug 'majutsushi/tagbar'
+" Highligt the enclosing or matching xml/html tags
+Plug 'Valloric/MatchTagAlways'
+" Fuzzy find and open with Ctrl+p
+Plug 'ctrlpvim/ctrlp.vim'
+" Sidebar project navigation
+Plug 'preservim/nerdtree'
+
+" ----------- SYNTAX -------------
+Plug 'evidens/vim-twig'
+Plug 'cakebaker/scss-syntax.vim'
+Plug 'posva/vim-vue'
+Plug 'leafgarland/typescript-vim'
+
+" --------- Color Schemes -----------
+Plug 'drewtempelmeyer/palenight.vim'
+Plug 'jacoborus/tender.vim'
+Plug 'dracula/vim'
+Plug 'arcticicestudio/nord-vim'
+Plug 'altercation/vim-colors-solarized'
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
+Plug 'kaicataldo/material.vim', {'branch': 'main'}
+Plug 'haishanh/night-owl.vim'
+
+" --------- FUN -----------
+
+call plug#end()
+
+
+filetype plugin indent on
+
+" ----- PERFORMANCE -----
+" cool but way to many redraws
+set cursorcolumn!
+set cursorline!
+
+" disable slow php syntax regexes
+let php_html_load=0
+let php_html_in_heredoc=0
+let php_html_in_nowdoc=0
+
+let php_sql_query=0
+let php_sql_heredoc=0
+let php_sql_nowdoc=0
+
+" less realtime, more performance
+set lazyredraw
+
+" --- General settings ---
+set backspace=indent,eol,start
+set ruler
+set number
+set showcmd
+set incsearch
+set hlsearch
+set ignorecase
+set smartcase
+set expandtab
+set list
+set shiftwidth=4
+set softtabstop=4
+set hid
+set mouse=a
+set noswapfile
+set splitright splitbelow
+
+" Tell vim how many colors he can use
+" Note that this is a hack in case the terminal was not recognised
+" typically via tmux or tmate
+" The proper solution is to correctly set the TERM environment variable
+" either in your .bashrc/.zshrc or in your .tmux.conf/.tmate.conf, but
+" if you can't edit those values for some reason then activate this hack
+
+set term=xterm-256color
+"set t_Co=256
+
+" correct syntax highlighting in large files
+autocmd BufEnter * :syntax sync minlines=10000
+
+set number relativenumber
+if (has("termguicolors"))
+ set termguicolors
+endif
+
+syntax enable
+
+" ----- hard mode (disable arrow keys) ----
+"noremap <Up> <nop>
+"noremap <Down> <nop>
+"noremap <Left> <nop>
+"noremap <Right> <nop>
+
+
+" We need this for plugins like Syntastic and vim-gitgutter which put symbols
+" in the sign column.
+hi clear SignColumn
+
+" ----- Inform noevim of pyhton path -----
+"let g:python_host_prog = '/usr/bin/python'
+"let g:pyhton3_host_prog = '/usr/bin/python3'
+
+" ----- Colorscheme settings -----
+" Toggle this to "light" for light colorscheme
+set background=dark
+
+" Uncomment the next line if your terminal is not configured for solarized
+"let g:solarized_termcolors=256
+
+" Gruvbox theme config
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_strings=1
+let g:gruvbox_contrast_light='soft'
+let g:gruvbox_contrast_dark='soft'
+
+" Palenight theme config
+let g:palenight_terminal_italics=1
+
+" Material theme config
+let g:material_terminal_italics=1
+" availabel material styles are
+" 'default'
+" 'palenight'
+" 'ocean'
+" 'lighter'
+" 'darker'
+" 'default-community'
+" 'palenight-community'
+" 'ocean-community'
+" 'lighter-community'
+" 'darker-community'
+let g:material_theme_style = 'ocean'
+
+" Set the colorscheme
+"colorscheme palenight
+"colorscheme tender
+"colorscheme nord
+colorscheme solarized
+"colorscheme dracula
+"colorscheme gruvbox
+"colorscheme onedark
+"colorscheme material
+"colorscheme night-owl
+
+" ----------------------------------------
+" ----- Plugin-Specific Settings ---------
+" ----------------------------------------
+
+" ----- vim-indent-guides -----
+let g:indent_guides_enable_on_vim_startup = 1
+
+" ----- syntastic settings -----
+"let g:syntastic_error_symbol = '✘'
+"let g:syntastic_warning_symbol = "▲"
+augroup mySyntastic
+  au!
+  au FileType tex let b:syntastic_mode = "passive"
+augroup END
+
+" ----- majutsushi/tagbar settings -----
+" Open/close tagbar with \b
+nmap <silent> <leader>b :TagbarToggle<CR>
+" Uncomment to open tagbar automatically whenever possible
+"autocmd BufEnter * nested :call tagbar#autoopen(0)
+
+" ----- Raimondi/delimitMate settings -----
+let delimitMate_expand_cr = 1
+augroup mydelimitMate
+  au!
+  au FileType markdown let b:delimitMate_nesting_quotes = ["`"]
+  au FileType tex let b:delimitMate_quotes = ""
+  au FileType tex let b:delimitMate_matchpairs = "(:),[:],{:},`:'"
+  au FileType python let b:delimitMate_nesting_quotes = ['"', "'"]
+augroup END
+
+" ----- ctrlP -----
+set wildignore+=*/tests/*,*/node_modules/*,*/node/*,*/vendor/*,*/var/*,*/cache/*,*/tmp/*
+
+let g:ctrl_p_custom_ignore = {
+    \ 'dir': '\v[\/][\.](git|svn|hg)$',
+    \ 'file': '\v.(exe|so|dll|png|jpg|jpeg)$',
+\}
+" Include hidden dotfiles
+let g:ctrlp_show_hidden = 1
+let g:ctrlp_use_caching = 1
+let g:ctrlp_clear_cache_on_exit = 1
+let g:ctrlp_max_depth = 40
+let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+let g:ctrlp_max_files = 40000
+
+" Use the nearest .git directory as the cwd
+" This makes a lot of sense if you are working on a project that is in version
+" control. It also supports works with .svn, .hg, .bzr.
+let g:ctrlp_working_path_mode = 'r'
+
+" Use a leader instead of the actual named binding
+nmap <C-p> :CtrlP<cr>
+
+" Easy bindings for its various modes
+nmap <leader>bb :CtrlPBuffer<cr>
+nmap <leader>bm :CtrlPMixed<cr>
+
+" ----- vim-vue -----
+let g:vue_pre_processors = ['scss', 'typescript']
+
+" ----- MatchTagAlways -----
+let g:mta_use_matchparen_group = 1
+let g:mta_filetypes = {'html' : 1,'html.twig' : 1,'vue' : 1,'js' : 1,'xhtml' : 1,'xml' : 1}
+
+" ----- lightline -----
+set laststatus=2
+set showtabline=2
+let g:lightline = {
+      \ 'colorscheme': 'solarized',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'git', 'modified' ]]
+      \ },
+      \ 'tabline': {
+      \   'left': [ ['buffers'] ],
+      \   'right': [ ['close'] ]
+      \ },
+      \ 'component_expand': {
+      \   'buffers': 'lightline#bufferline#buffers',
+      \ },
+      \ 'component_function': {
+      \   'git': 'FugitiveStatusline'
+      \ },
+      \ 'component_type': {
+      \   'buffers': 'tabsel'
+      \ }
+\ }
+
+nmap <C-PageUp> :bp<CR>
+nmap <C-PageDown> :bn<CR>
+
+" ------- lightline-buffer --------
+let g:lightline#bufferline#clickable=1
+let g:lightline.component_raw = {'buffers': 1}
+
+" ------- NerdTree -------
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
+map <C-n> :NERDTreeToggle<CR>
+
+" -----------------------------
+" ------- Extra settings ------
+" -----------------------------
+
+" use system clipboard
+set clipboard+=unnamedplus
+
+" Disable line wrapping
+set nowrap
+set sidescroll=5
+set listchars=precedes:-,extends:+
+
+" Auto save
+set autowriteall
+au FocusLost * :wa
+
+" NO MORE EX MODE
+nnoremap Q <nop>
+
+" Remap buffer close
+cnoreabbrev dd bd
+:command W w
+
+" configure custom indent per filetype
+autocmd FileType vue setlocal shiftwidth=4 tabstop=4
