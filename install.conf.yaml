@@ -18,6 +18,7 @@
       ~/.config/kitty:
           path: config/kitty/
           create: true
+          force: true
       ~/.config/nvim/after:
           path: config/nvim/after/
           create: true
