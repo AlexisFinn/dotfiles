@@ -32,15 +32,17 @@
     pushtrack = push -u
     files = diff --name-only
 [diff]
-	tool = meld
+    tool = meld
 [merge]
-	tool = meld
+    tool = meld
 [http]
     #proxy = http://127.0.0.1:3128
 [credential]
     helper = cache --timeout=28800
 [push]
     default = simple
+[pull]
+    rebase = false
 [gui]
     spellingdictionary = none
     tabsize = 4
