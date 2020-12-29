@@ -7,68 +7,89 @@
       ~/.zshrc.d:
           path: zshrc.d
           force: true
+          relink: true
       ~/.zgen-local-plugins:
           path: zgen-local-plugins
           force: true
+          relink: true
       ~/.tmux.conf:
           path: tmux.conf
           force: true
+          relink: true
       ~/.tmate.conf:
           path: tmate.conf
           force: true
+          relink: true
       ~/.config/i3:
           path: config/i3/
           create: true
           force: true
+          relink: true
       ~/.config/alacritty:
           path: config/alacritty/
           create: true
           force: true
+          relink: true
       ~/.config/broot:
           path: config/broot/
           create: true
           force: true
+          relink: true
       ~/.config/dunst:
           path: config/dunst/
           create: true
           force: true
+          relink: true
       ~/.config/kitty:
           path: config/kitty/
           create: true
           force: true
+          relink: true
       ~/.config/nvim/after:
           path: config/nvim/after/
           create: true
           force: true
+          relink: true
       ~/.config/nvim/autoload:
           path: config/nvim/autoload/
           create: true
           force: true
+          relink: true
       ~/.config/nvim/init.vim:
           path: config/nvim/init.vim
           create: true
           force: true
+          relink: true
       ~/.config/nvim/coc-settings.json:
           path: config/nvim/coc-settings.json
           create: true
           force: true
+          relink: true
       ~/.config/picom.conf:
           path: config/picom.conf
           create: true
           force: true
+          relink: true
       ~/.config/pulse/daemon.conf:
           path: config/pulse/daemon.conf
           create: true
           force: true
+          relink: true
       ~/.config/rofi:
           path: config/rofi/
           create: true
           force: true
+          relink: true
       ~/.config/conky:
           path: config/conky/
           create: true
           force: true
-      ~/.gitconfig: gitconfig
+          relink: true
+      ~/.gitconfig:
+          path: gitconfig
+          create: true
+          force: true
+          relink: true
       ~/.profile: profile
 - shell:
       - [
