@@ -3,18 +3,35 @@
 - link:
       ~/.bashrc: bashrc
       ~/.bash_logout: bash_logout
+      ~/.zshrc: zshrc
+      ~/.zshrc.d:
+          path: zshrc.d
+          force: true
+      ~/.zgen-local-plugins:
+          path: zgen-local-plugins
+          force: true
+      ~/.tmux.conf:
+          path: tmux.conf
+          force: true
+      ~/.tmate.conf:
+          path: tmate.conf
+          force: true
       ~/.config/i3:
           path: config/i3/
           create: true
+          force: true
       ~/.config/alacritty:
           path: config/alacritty/
           create: true
+          force: true
       ~/.config/broot:
           path: config/broot/
           create: true
+          force: true
       ~/.config/dunst:
           path: config/dunst/
           create: true
+          force: true
       ~/.config/kitty:
           path: config/kitty/
           create: true
@@ -22,34 +39,37 @@
       ~/.config/nvim/after:
           path: config/nvim/after/
           create: true
+          force: true
       ~/.config/nvim/autoload:
           path: config/nvim/autoload/
           create: true
+          force: true
       ~/.config/nvim/init.vim:
           path: config/nvim/init.vim
           create: true
+          force: true
       ~/.config/nvim/coc-settings.json:
           path: config/nvim/coc-settings.json
           create: true
+          force: true
       ~/.config/picom.conf:
           path: config/picom.conf
           create: true
+          force: true
       ~/.config/pulse/daemon.conf:
           path: config/pulse/daemon.conf
           create: true
+          force: true
       ~/.config/rofi:
           path: config/rofi/
           create: true
+          force: true
       ~/.config/conky:
           path: config/conky/
           create: true
+          force: true
       ~/.gitconfig: gitconfig
       ~/.profile: profile
-      ~/.tmux.conf: tmux.conf
-      ~/.tmate.conf: tmate.conf
-      ~/.zshrc: zshrc
-      ~/.zshrc.d: zshrc.d
-      ~/.zgen-local-plugins: zgen-local-plugins
 - shell:
       - [
             cd ~ && git clone unixorn/zsh-quickstart-kit.git && ln -s
