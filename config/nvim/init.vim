@@ -86,7 +86,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 " Preview color codes
 Plug 'RRethy/vim-hexokinase', {'do': 'make'}
 " Color picker
-Plug 'KabbAmine/vCoolor.vim'
+"Plug 'KabbAmine/vCoolor.vim'
 " ----------- SYNTAX -------------
 Plug 'evidens/vim-twig'
 Plug 'cakebaker/scss-syntax.vim'

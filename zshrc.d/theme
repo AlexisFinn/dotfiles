@@ -88,10 +88,10 @@
 #zgen oh-my-zsh themes/wuffers
 #zgen oh-my-zsh themes/xiong-chiamiov
 #zgen oh-my-zsh themes/xiong-chiamiov-plus
-#zgen oh-my-zsh themes/ys
+zgen oh-my-zsh themes/ys
 #zgen oh-my-zsh themes/zhann
 # --------- EXTERNAL THEMES ---------- #
-zgen load dracula/zsh dracula
+#zgen load dracula/zsh dracula
 
 # *** powerlevel10k ***
 #zgen load romkatv/powerlevel10k powerlevel10k
@@ -99,7 +99,7 @@ zgen load dracula/zsh dracula
 # Bullet train prompt setup
 #zgen load caiogondim/bullet-train-oh-my-zsh-theme bullet-train
 
-ZSH_THEME="dracula"
+#ZSH_THEME="dracula"
 DRACULA_DISPLAY_TIME=1
 DRACULA_DISPLAY_CONTEXT=1
 #DRACULA_ARROW_ICON="->"
