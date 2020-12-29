@@ -93,7 +93,7 @@
       ~/.profile: profile
 - shell:
       - [
-            cd ~ && git clone unixorn/zsh-quickstart-kit.git && ln -s
+            cd ~ && git clone https://github.com/unixorn/zsh-quickstart-kit.git && ln -s
             ~/zsh-quickstart-kit/zsh/.zgen-setup ~/.zgen-setup,
             Setting up zsh quickstart kit,
         ]
