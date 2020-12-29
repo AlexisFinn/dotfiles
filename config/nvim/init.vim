@@ -473,10 +473,10 @@ nmap <leader>bb :CtrlPBuffer<cr>
 nmap <leader>bm :CtrlPMixed<cr>
 
 " ----- vim-hexokinase ------
-let g:Hexokinase_highlighters = ['foreground']
+let g:Hexokinase_highlighters = ['virtual']
+
 " ----- vim-vue -----
 let g:vue_pre_processors = ['scss', 'typescript']
-
 
 " ----- NERDCommenter -----
 let g:NERDDefaultAlign = 'left'
