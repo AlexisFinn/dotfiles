@@ -16,8 +16,8 @@
           path: tmux.conf
           force: true
           relink: true
-      ~/.local/share/broot/launcher:
-          path: local/share/broot/launcher/
+      ~/.local/share/broot:
+          path: local/share/broot/
           force: true
           relink: true
       ~/.tmate.conf:
