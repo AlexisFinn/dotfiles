@@ -14,11 +14,11 @@ endif
 
 filetype off
 
-call plug#begin('~/.config/nvim/plugged')
-" ------ ALE / COC working together -----------
+"/ ------ ALE / COC working together -----------
 let g:ale_disable_lsp = 1
-" ---------- GENERAL FUNCTIONALITY PLUGINS -----------
 
+call plug#begin('~/.config/nvim/plugged')
+" ---------- GENERAL FUNCTIONALITY PLUGINS -----------
 " a set of default configs and fixes to start of with
 " Plug 'tpope/vim-sensible' (included in polyglot)
 Plug 'sheerun/vim-polyglot'
@@ -72,7 +72,10 @@ Plug 'derekprior/vim-trimmer'
 " Lightweight status bar
 Plug 'mengelbrecht/lightline-bufferline'
 " Ranger integration into vim
-Plug 'francoiscabrol/ranger.vim'
+" Plug 'francoiscabrol/ranger.vim'
+" Vifm integration
+Plug 'vifm/vifm.vim'
+
 " Display current file tags in side window
 Plug 'majutsushi/tagbar'
 " Highligt the enclosing or matching xml/html tags
@@ -82,7 +85,7 @@ Plug 'stephpy/vim-php-cs-fixer'
 " Generate phpdoc blocks
 Plug 'sumpygump/php-documentor-vim'
 " Fuzzy find and open with Ctrl+p
-Plug 'ctrlpvim/ctrlp.vim'
+"Plug 'ctrlpvim/ctrlp.vim'
 " Preview color codes
 Plug 'RRethy/vim-hexokinase', {'do': 'make'}
 " Color picker
@@ -91,8 +94,10 @@ Plug 'RRethy/vim-hexokinase', {'do': 'make'}
 Plug 'evidens/vim-twig'
 Plug 'cakebaker/scss-syntax.vim'
 Plug 'posva/vim-vue'
-Plug 'leafgarland/typescript-vim'
+"Plug 'leafgarland/typescript-vim'
 Plug 'dense-analysis/ale'
+" Plug 'neovimhaskell/haskell-vim'
+" Plug 'davidhalter/jedi-vim'
 
 " --------- Color Schemes -----------
 Plug 'drewtempelmeyer/palenight.vim'
@@ -104,6 +109,12 @@ Plug 'morhetz/gruvbox'
 Plug 'joshdick/onedark.vim'
 Plug 'kaicataldo/material.vim', {'branch': 'main'}
 Plug 'haishanh/night-owl.vim'
+Plug 'megantiu/true.vim'
+Plug 'lifepillar/vim-wwdc16-theme'
+Plug 'lifepillar/vim-wwdc17-theme'
+Plug 'rakr/vim-one'
+Plug 'doki-theme/doki-theme-vim'
+Plug 'dylanaraps/wal.vim'
 
 " --------- FUN -----------
 
@@ -139,8 +150,8 @@ set ignorecase
 set smartcase
 set expandtab
 set list
-set shiftwidth=4
-set softtabstop=4
+set shiftwidth=2
+set softtabstop=2
 set hid
 set mouse=a
 set noswapfile
@@ -159,7 +170,7 @@ set number relativenumber
 "set t_Co=256
 
 if (has("termguicolors"))
- set termguicolors
+  set termguicolors
 endif
 
 " correct syntax highlighting in large files
@@ -225,14 +236,16 @@ let g:material_theme_style = 'ocean'
 
 " Set the colorscheme
 "colorscheme palenight
-"colorscheme tender
+colorscheme tender
 "colorscheme nord
 "colorscheme solarized
-colorscheme dracula
+"colorscheme dracula
 "colorscheme gruvbox
 "colorscheme onedark
 "colorscheme material
 "colorscheme night-owl
+"colorscheme yuri_dark
+"colorscheme wal
 
 " ----- Plugin-Specific Settings --------------------------------------
 " ----- Coc-vim -----
@@ -435,9 +448,12 @@ let g:php_cs_fixer_config_file='.php_cs'
 autocmd BufWritePost *.php silent! call PhpCsFixerFixFile()
 
 " ----- ALE ------
-let g:ale_pattern_options = {
-    \ '.*\.php$': {'ale_enabled': 0}
-\}
+let g:ale_javascript_prettier_use_local_config = 1
+"let g:ale_pattern_options = {
+"    \ '.*\.php$': {'ale_enabled': 0}
+"\}
+"let g:ale_linter_aliases = {'vue': ['typescript', 'html', 'scss']}
+"let g:ale_linters = {'typescript': ['tsserver'], 'vuejs': ['vetur']}
 
 " ----- mattn/emmet-vim settings -----
 " remap expand to Ctrl+E & ,
@@ -446,31 +462,35 @@ let g:user_emmet_leader_key='<C-E>'
 let g:user_emmet_mode='inv'
 
 " ----- ctrlP -----
-set wildignore+=*/tests/*,*/node_modules/*,*/node/*,*/vendor/*,*/var/*,*/cache/*,*/tmp/*
+"set wildignore+=*/node/*,*/var/*,*/cache/*,*/tmp/*
 
-let g:ctrl_p_custom_ignore = {
-    \ 'dir': '\v[\/][\.](git|svn|hg)$',
-    \ 'file': '\v.(exe|so|dll|png|jpg|jpeg)$',
-\}
+"let g:ctrl_p_custom_ignore = {
+""    \ 'dir': '\.git$\|node_modules\|vendor$',
+""    \ 'file': '\v.(exe|so|dll|png|jpg|jpeg)$',
+""\}
 " Include hidden dotfiles
-let g:ctrlp_show_hidden = 1
-let g:ctrlp_use_caching = 1
-let g:ctrlp_clear_cache_on_exit = 1
-let g:ctrlp_max_depth = 40
-let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
-let g:ctrlp_max_files = 40000
+"let g:ctrlp_show_hidden = 1
+"let g:ctrlp_use_caching = 1
+"let g:ctrlp_clear_cache_on_exit = 1
+"let g:ctrlp_max_depth = 40
+"let g:ctrlp_match_window = 'bottom,order:btt,min:1,max:20,results:20'
+"let g:ctrlp_max_files = 40000
 
 " Use the nearest .git directory as the cwd
 " This makes a lot of sense if you are working on a project that is in version
 " control. It also supports works with .svn, .hg, .bzr.
-let g:ctrlp_working_path_mode = 'r'
+"let g:ctrlp_working_path_mode = 'r'
 
 " Use a leader instead of the actual named binding
-nmap <C-p> :CtrlP<cr>
+"nmap <C-p> :CtrlP<cr>
 
 " Easy bindings for its various modes
-nmap <leader>bb :CtrlPBuffer<cr>
-nmap <leader>bm :CtrlPMixed<cr>
+"nmap <leader>bb :CtrlPBuffer<cr>
+"nmap <leader>bm :CtrlPMixed<cr>
+
+" instead of CtrlP why not just use fzf
+nmap <C-p> :FZF<cr>
+nmap <leader>s :FZF<cr>
 
 " ----- vim-hexokinase ------
 let g:Hexokinase_highlighters = ['virtual']
@@ -509,11 +529,11 @@ let g:mta_use_matchparen_group = 1
 let g:mta_filetypes = {'html' : 1,'html.twig' : 1,'vue' : 1,'js' : 1,'xhtml' : 1,'xml' : 1}
 
 " ----- Coc-Prettier -----
-command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
+"command! -nargs=0 Prettier :call CocAction('runCommand', 'prettier.formatFile')
 "let g:prettier#autoformat = 0
 "let g:prettier#config#config_precedence = 'file-override'
 "let g:prettier#config#autoformat_config_present = 1
-let g:prettier#config#autoformat_config_files = ['.prettierrc']
+"let g:prettier#config#autoformat_config_files = ['.prettierrc']
 "autocmd BufWritePost *.vue,*.ts,*.js,*.css,*.scss,*.json,*.html,*.md PrettierAsync
 " max line length that prettier will wrap on
 "let g:prettier#config#print_width = 120
@@ -571,16 +591,20 @@ let g:lightline.component_raw = {'buffers': 1}
 
 " ----- alexis/custom -----
 "map <F9> :NnnPicker<CR>
-map <F9> :RangerCurrentFile<CR>
-map <C-N> :tabnew<CR>
-noremap <C-W> :q<CR>
-vmap <C-c> \c <CR>
+"map <F9> :RangerCurrentFile<CR>
+map <F9> :Vifm<CR>
+"map <C-N> :tabnew<CR>
+"noremap <C-W> :q<CR>
+"vmap <C-c> \c <CR>
 
 " Remap split window switching
 nnoremap <C-J> <C-W><C-J>
 nnoremap <C-K> <C-W><C-K>
 nnoremap <C-L> <C-W><C-L>
 nnoremap <C-H> <C-W><C-H>
+
+" Remap \\ in visual mode to search for currently selected text
+vnoremap // y/\V<C-R>=escape(@",'/\')<CR><CR>
 
 " use system clipboard
 set clipboard+=unnamedplus

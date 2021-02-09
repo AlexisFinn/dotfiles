@@ -1,4 +1,6 @@
 alias c=clear
+alias b=fg
+alias cdc='cd && clear'
 alias C=qalc
 alias calculator=qalculate
 alias tig='tig status'
@@ -19,7 +21,8 @@ alias top='ytop -c monokai -s -a -m'
 alias fulltop='ytop -c vice -s -r 2'
 alias cat='bat'
 alias cam='qv4l2'
-alias ll='ls -alh'
+alias ls=exa
+alias ll='exa -alh'
 alias gitprune="git branch -vv | grep ': disparue]' | grep -v \"\\*\" | awk '{ print \$1; }' | xargs -r git branch -D"
 alias t='todo.sh'
 alias tadd='todo.sh add'
@@ -27,6 +30,7 @@ alias tl='todo.sh ls'
 alias trm='todo.sh rm'
 alias tdo='todo.sh do'
 alias time='tty-clock -c'
+alias grep=rg
 
 function chpwd() {
     if [ -r $PWD/bash_aliases.sh ]; then

@@ -26,4 +26,5 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
-export PATH="$HOME/.cargo/bin:$PATH:/usr/local/go/bin"
+export PATH="$HOME/.cargo/bin:$HOME/.cabal/bin:$PATH:/usr/local/go/bin"
+source "$HOME/.cargo/env"

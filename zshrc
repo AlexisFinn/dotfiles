@@ -1,4 +1,9 @@
-export PATH="$HOME/.gem/ruby/2.7.0/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$PATH"
+export PATH="$HOME/.gem/ruby/2.7.0/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
+export SPICETIFY_INSTALL="/home/alexis/spicetify-cli"
+export PATH="$SPICETIFY_INSTALL:$PATH"
+
+# pymal custom colors
+(cat ~/.cache/wal/sequences &)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -48,3 +53,5 @@ PERL_MM_OPT="INSTALL_BASE=/home/alexis/perl5"; export PERL_MM_OPT;
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 source /home/alexis/.config/broot/launcher/bash/br
+
+eval "$(starship init zsh)"

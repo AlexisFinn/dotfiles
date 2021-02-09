@@ -119,3 +119,4 @@ fi
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 
 source /home/alexis/.config/broot/launcher/bash/br
+source "$HOME/.cargo/env"

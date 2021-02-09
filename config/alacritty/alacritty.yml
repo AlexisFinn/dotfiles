@@ -99,44 +99,17 @@ font:
         #   - (macOS) Menlo
         #   - (Linux/BSD) monospace
         #   - (Windows) Consolas
-        #family: Heavy Data Nerd Font Mono
-        #family: Hack Nerd FontMono
-        #family: iosevka TermLig SS05
-        #family: Office Code Pro D
-        #family: MesloLGS NF
-        family: Fira Code
-        #family: Hack Nerd FontMono
-        #family: Firicico
-        #family: Input Mono
-        #family: Input Serif
+        family: FiraCode Nerd Font Mono
         # The `style` can be specified to pick a specific face.
-        #family: Input Mono
         style: regular
+        #style: book
     italic:
-        #family: Hack NF
-        #family: Gohu Font Nerd Font
-        #family: Firicico
-        family: Fira Code
-        #family: Birds of Paradise Personal use
-        #family: Pacifico
-        #family: Office Code Pro D
-        #family: FantasqueSansMono NF
-        #family: iosevka TermLig SS05
-        #family: Input Mono Condensed
-        #family: Input Mono
+        family: FiraCode Nerd Font Mono
         style: italic
     bold:
-        #family: Hack NF
-        family: Fira Code
-        #family: Firicico
-        #family: Birds of Paradise Personal use
-        #family: Pacifico
-        #family: Office Code Pro D
-        #family: FantasqueSansMono NF
-        #family: iosevka TermLig SS05
-        #family: Input Mono
+        family: Hack Nerd Font Mono
         style: bold
-    size: 11
+    size: 10
     offset:
         x: 0
         y: 0
