@@ -1,0 +1,12 @@
+Config {
+  font = "xft:FantasqueSansMono Nerd Font Mono:pixelsize=16:antialias=true"
+  , additionalFonts = ["xft:Symbola:pixelsize=20:antialias=true:hinting=true"]
+  , bgColor = "$background"
+  , position = Top
+  , commands = [
+    Run Com "playerctl" ["metadata","xesam:title"] "track" 30,
+    Run Com "playerctl" ["metadata","xesam:album"] "album" 30,
+    Run Com "playerctl" ["metadata","xesam:artist"] "artist" 30,
+    Run StdinReader
+  ]
+}

@@ -1,0 +1,15 @@
+Config {
+  font = "xft:FantasqueSansMono Nerd Font Mono:pixelsize=20:antialias=true"
+  -- font = "xft:FiraCode Nerd Font Mono:style=Regular:size=16:antialias=true"
+  , additionalFonts = ["xft:Symbola:pixelsize=20:antialias=true:hinting=true"]
+  , bgColor = "$background"
+  , position = Top
+  , commands = [
+    Run Cpu [ "--template" , "<fn=1>🙤</fn> <box type=Bottom width=3><total>%</box> <fn=1>🙚</fn>"] 50,
+    Run Memory [ "--template", "<fn=1>🙙</fn> <box type=Bottom width=3><used>Mb (<usedratio>%)</box> <fn=1>🙚</fn>"] 50,
+    Run Network "wlp2s0" [ "--template", "<fn=1>🙙</fn> <box type=Bottom width=3><tx>kB/s<rx>kB/s</box> <fn=1>🙚</fn>"] 10,
+    Run DiskU [("/", "<fn=1>🙙</fn> <box type=Bottom width=3><free></box> <fn=1>🙚</fn>")] [] 600,
+    Run Date "<fn=1>🙙</fn> <box type=Bottom width=3>%F %T</box> <fn=1>🙦</fn> " "date" 10,
+    Run StdinReader
+  ]
+}

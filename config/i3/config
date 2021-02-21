@@ -354,8 +354,8 @@ exec --no-startup-id "/home/alexis/bin/setArandr.sh"
 # set the wallpaper PS: pywal will take care of this
 
 #nitrogen --restore &
-exec --no-startup-id "variety"
-#exec --no-startup-id "wal -R"
+#exec --no-startup-id "variety"
+exec_always --no-startup-id "wal -R"
 
 # Turn on dunst daemon
 exec --no-startup-id "dunst"

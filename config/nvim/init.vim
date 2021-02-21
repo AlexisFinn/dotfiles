@@ -96,7 +96,9 @@ Plug 'cakebaker/scss-syntax.vim'
 Plug 'posva/vim-vue'
 "Plug 'leafgarland/typescript-vim'
 Plug 'dense-analysis/ale'
-" Plug 'neovimhaskell/haskell-vim'
+Plug 'neovimhaskell/haskell-vim'
+"Plug 'alx741/vim-hindent'
+Plug 'alx741/vim-stylishask'
 " Plug 'davidhalter/jedi-vim'
 
 " --------- Color Schemes -----------
@@ -115,8 +117,11 @@ Plug 'lifepillar/vim-wwdc17-theme'
 Plug 'rakr/vim-one'
 Plug 'doki-theme/doki-theme-vim'
 Plug 'dylanaraps/wal.vim'
+Plug 'b4skyx/serenade'
 
 " --------- FUN -----------
+Plug 'hugolgst/vimsence'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -236,7 +241,7 @@ let g:material_theme_style = 'ocean'
 
 " Set the colorscheme
 "colorscheme palenight
-colorscheme tender
+"colorscheme tender
 "colorscheme nord
 "colorscheme solarized
 "colorscheme dracula
@@ -246,6 +251,7 @@ colorscheme tender
 "colorscheme night-owl
 "colorscheme yuri_dark
 "colorscheme wal
+colorscheme serenade
 
 " ----- Plugin-Specific Settings --------------------------------------
 " ----- Coc-vim -----
@@ -588,6 +594,39 @@ nmap <C-PageDown> :bn<CR>
 " ------- lightline-buffer --------
 let g:lightline#bufferline#clickable=1
 let g:lightline.component_raw = {'buffers': 1}
+
+" -------- discord --------
+"let g:vimsence_client_id = '439476230543245312'
+let g:vimsence_client_id = '809133261569523793'
+let g:vimsence_small_text = 'vim'
+let g:vimsence_small_image = 'vim'
+"let g:vimsence_editing_details = '{}'
+"let g:vimsence_editing_state = 'Working on: {}'
+"let g:vimsence_file_explorer_text = 'In NERDTree'
+"let g:vimsence_file_explorer_details = 'Looking for files'
+let g:vimsence_custom_icons = {
+      \'php': 'php',
+      \'vim': 'nvim',
+      \'vue': 'vue',
+      \'javascript': 'js',
+      \'typescript': 'ts',
+      \'html.twig': 'twig',
+      \'html': 'html',
+      \'sh': 'sh',
+      \'rust': 'rust',
+      \'yaml': 'yaml',
+      \'python': 'python',
+      \'Dockerfile': 'docker',
+      \'yaml.docker-compose': 'docker',
+      \'nginx': 'nginx',
+      \'conf': 'conf',
+      \'toml': 'toml',
+      \'scss': 'sass',
+      \'sass': 'sass',
+      \'css': 'css',
+      \'json': 'json',
+      \'haskell': 'haskell'
+      \}
 
 " ----- alexis/custom -----
 "map <F9> :NnnPicker<CR>

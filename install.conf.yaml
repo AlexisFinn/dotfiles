@@ -29,6 +29,16 @@
           create: true
           force: true
           relink: true
+      ~/.config/xmobar:
+          path: config/xmobar/
+          create: true
+          force: true
+          relink: true
+      ~/.xmonad:
+          path: xmonad/
+          create: true
+          force: true
+          relink: true
       ~/.config/alacritty:
           path: config/alacritty/
           create: true
@@ -101,3 +111,17 @@
             ~/zsh-quickstart-kit/zsh/.zgen-setup ~/.zgen-setup,
             Setting up zsh quickstart kit,
         ]
+# TO INSTALL
+# xmonad
+# xmobar
+# pywal
+# zsh
+# git
+# neovim
+# feh
+# nitrogen
+# php
+# rofi
+# picom
+# alacritty
+# dunst

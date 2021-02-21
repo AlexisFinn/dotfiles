@@ -1,0 +1,1 @@
+/home/alexis/.cache/wal/colors.hs
