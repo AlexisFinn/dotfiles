@@ -5,7 +5,7 @@
     "prettier.formatterPriority": 2,
     "prettier.disableLanguages": [],
     "prettier.stylelintIntegration": false,
-    "coc.preferences.formatOnSaveFiletypes": ["*"],
+    "coc.preferences.formatOnSaveFiletypes": ["php", "typescript", "js", "vue", "scss", "css", "html"],
     "prettier.disableSuccessMessage": false,
     "vetur.completion.autoImport": true
 }

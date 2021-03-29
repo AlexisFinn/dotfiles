@@ -6,6 +6,9 @@
 " Gotta be first
 set nocompatible
 
+" if you nead to remap the leader char
+" let mapleader=","
+
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -37,6 +40,8 @@ Plug 'rbgrouleff/bclose.vim'
 " quick filtering of results
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
+" awesome preview in fzf search
+" Plug 'chengzeyi/fzf-preview.vim'
 " quickly move around a file using <leader><leader>
 Plug 'easymotion/vim-easymotion'
 " Show trailing whitespaces in red
@@ -90,6 +95,8 @@ Plug 'sumpygump/php-documentor-vim'
 Plug 'RRethy/vim-hexokinase', {'do': 'make'}
 " Color picker
 "Plug 'KabbAmine/vCoolor.vim'
+" VimWiki (your personal wiki)
+Plug 'vimwiki/vimwiki'
 " ----------- SYNTAX -------------
 Plug 'evidens/vim-twig'
 Plug 'cakebaker/scss-syntax.vim'
@@ -115,12 +122,15 @@ Plug 'megantiu/true.vim'
 Plug 'lifepillar/vim-wwdc16-theme'
 Plug 'lifepillar/vim-wwdc17-theme'
 Plug 'rakr/vim-one'
-Plug 'doki-theme/doki-theme-vim'
-Plug 'dylanaraps/wal.vim'
+Plug 'typkrft/wal.vim'
 Plug 'b4skyx/serenade'
+Plug 'pineapplegiant/spaceduck'
+Plug 'cocopon/iceberg.vim'
+"Plug 'doki-theme/doki-theme-vim'
+
 
 " --------- FUN -----------
-Plug 'hugolgst/vimsence'
+"Plug 'hugolgst/vimsence'
 Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
@@ -129,8 +139,8 @@ filetype plugin indent on
 
 " ----- PERFORMANCE -----
 " cool but way to many redraws
-set cursorcolumn!
-set cursorline!
+"set nocursorcolumn " see with colorschemes
+set nocursorline
 
 " disable slow php syntax regexes
 let php_html_load=0
@@ -143,6 +153,9 @@ let php_sql_nowdoc=0
 
 " less realtime, more performance
 set lazyredraw
+
+" Speed up scrolling in Vim
+set ttyfast
 
 " --- General settings ---
 set backspace=indent,eol,start
@@ -248,10 +261,15 @@ let g:material_theme_style = 'ocean'
 "colorscheme gruvbox
 "colorscheme onedark
 "colorscheme material
-"colorscheme night-owl
+colorscheme night-owl
 "colorscheme yuri_dark
-"colorscheme wal
-colorscheme serenade
+"colorscheme gupywal
+"colorscheme serenade
+" Some colorscheme seem to active this by default, I don't want it
+set nocursorcolumn
+
+" set gui font
+set guifont=Hack\ Nerd\ Font\ Mono:h14:Regular
 
 " ----- Plugin-Specific Settings --------------------------------------
 " ----- Coc-vim -----
@@ -431,6 +449,12 @@ augroup mySyntastic
   au FileType tex let b:syntastic_mode = "passive"
 augroup END
 
+" ----- VimWiki -----
+let wiki = {}
+let wiki.path = "~/vimwiki/"
+let wiki.nestend_syntaxes = {'php': 'php'}
+let g:vimwiki_list = [wiki]
+
 " ----- majutsushi/tagbar settings -----
 " Open/close tagbar with \b
 nmap <silent> <leader>b :TagbarToggle<CR>
@@ -495,8 +519,9 @@ let g:user_emmet_mode='inv'
 "nmap <leader>bm :CtrlPMixed<cr>
 
 " instead of CtrlP why not just use fzf
-nmap <C-p> :FZF<cr>
-nmap <leader>s :FZF<cr>
+nmap <C-p> :Files<cr>
+nmap <leader>s :Files<cr>
+let g:fzf_preview_window = ['right:50%', 'ctrl-/']
 
 " ----- vim-hexokinase ------
 let g:Hexokinase_highlighters = ['virtual']
@@ -566,7 +591,7 @@ let g:mta_filetypes = {'html' : 1,'html.twig' : 1,'vue' : 1,'js' : 1,'xhtml' : 1
 set laststatus=2
 set showtabline=2
 let g:lightline = {
-      \ 'colorscheme': 'dracula',
+      \ 'colorscheme': 'nord',
       \ 'active': {
       \   'left': [ [ 'mode', 'paste' ], [ 'readonly', 'filename', 'git', 'modified' ], ['cocst'] ]
       \ },
@@ -595,38 +620,38 @@ nmap <C-PageDown> :bn<CR>
 let g:lightline#bufferline#clickable=1
 let g:lightline.component_raw = {'buffers': 1}
 
-" -------- discord --------
+" -------- discord via vimsence --------
 "let g:vimsence_client_id = '439476230543245312'
-let g:vimsence_client_id = '809133261569523793'
-let g:vimsence_small_text = 'vim'
-let g:vimsence_small_image = 'vim'
+"let g:vimsence_client_id = '809133261569523793'
+"let g:vimsence_small_text = 'vim'
+"let g:vimsence_small_image = 'vim'
 "let g:vimsence_editing_details = '{}'
 "let g:vimsence_editing_state = 'Working on: {}'
 "let g:vimsence_file_explorer_text = 'In NERDTree'
 "let g:vimsence_file_explorer_details = 'Looking for files'
-let g:vimsence_custom_icons = {
-      \'php': 'php',
-      \'vim': 'nvim',
-      \'vue': 'vue',
-      \'javascript': 'js',
-      \'typescript': 'ts',
-      \'html.twig': 'twig',
-      \'html': 'html',
-      \'sh': 'sh',
-      \'rust': 'rust',
-      \'yaml': 'yaml',
-      \'python': 'python',
-      \'Dockerfile': 'docker',
-      \'yaml.docker-compose': 'docker',
-      \'nginx': 'nginx',
-      \'conf': 'conf',
-      \'toml': 'toml',
-      \'scss': 'sass',
-      \'sass': 'sass',
-      \'css': 'css',
-      \'json': 'json',
-      \'haskell': 'haskell'
-      \}
+"let g:vimsence_custom_icons = {
+"      \'php': 'php',
+"      \'vim': 'nvim',
+"      \'vue': 'vue',
+"      \'javascript': 'js',
+"      \'typescript': 'ts',
+"      \'html.twig': 'twig',
+"      \'html': 'html',
+"      \'sh': 'sh',
+"      \'rust': 'rust',
+"      \'yaml': 'yaml',
+"      \'python': 'python',
+"      \'Dockerfile': 'docker',
+"      \'yaml.docker-compose': 'docker',
+"      \'nginx': 'nginx',
+"      \'conf': 'conf',
+"      \'toml': 'toml',
+"      \'scss': 'sass',
+"      \'sass': 'sass',
+"      \'css': 'css',
+"      \'json': 'json',
+"      \'haskell': 'haskell'
+"      \}
 
 " ----- alexis/custom -----
 "map <F9> :NnnPicker<CR>
@@ -668,4 +693,4 @@ cnoreabbrev dd bd
 com! FormatJSON %!python -m json.tool
 
 " configure custom indent per filetype
-autocmd FileType vue setlocal shiftwidth=4 tabstop=4
+" autocmd FileType vue setlocal shiftwidth=4 tabstop=4

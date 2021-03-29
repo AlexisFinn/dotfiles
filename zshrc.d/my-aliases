@@ -7,10 +7,11 @@ alias tig='tig status'
 alias weather='curl -H "Accept-Language: fr" wttr.in/paris'
 alias vi='nvim'
 alias vim='nvim'
+alias vide='nohup neovide >/dev/null 2>&1 &'
 alias svim='nvim -u /home/alexis/Applications/SpaceVim/vimrc'
 #alias vim='/usr/bin/vim -u /home/alexis/.config/nvim/init.vim'
 #alias vim='/home/alexis/bin/nvim.appimage'
-#alias nvim='/home/alexis/bin/nvim.appimage'
+alias neovim='/home/alexis/bin/nvim.appimage -u /home/alexis/.config/nvim/init.lua'
 alias sudo='sudo -EH'
 alias net='nmtui'
 alias dup='docker-compose up -d'
@@ -34,6 +35,9 @@ alias grep=rg
 
 function chpwd() {
     if [ -r $PWD/bash_aliases.sh ]; then
+        source $PWD/bash_aliases.sh
+    fi
+    if [ -r $PWD/bash-aliases.sh ]; then
         source $PWD/bash_aliases.sh
     fi
 }

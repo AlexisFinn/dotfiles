@@ -1,6 +1,7 @@
 export PATH="$HOME/.gem/ruby/2.7.0/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
 export SPICETIFY_INSTALL="/home/alexis/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
+export FZF_DEFAULT_COMMAND='ag -al'
 
 # pymal custom colors
 (cat ~/.cache/wal/sequences &)

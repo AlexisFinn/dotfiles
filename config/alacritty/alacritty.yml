@@ -99,12 +99,12 @@ font:
         #   - (macOS) Menlo
         #   - (Linux/BSD) monospace
         #   - (Windows) Consolas
-        family: FiraCode Nerd Font Mono
+        family: Hack Nerd Font Mono
         # The `style` can be specified to pick a specific face.
         style: regular
         #style: book
     italic:
-        family: FiraCode Nerd Font Mono
+        family: Hack Nerd Font Mono
         style: italic
     bold:
         family: Hack Nerd Font Mono
@@ -566,7 +566,7 @@ colors:
 #
 # If the same trigger is assigned to multiple actions, all of them are executed
 # in the order they were defined in.
-#key_bindings:
+key_bindings:
 #- { key: Paste,                                action: Paste          }
 #- { key: Copy,                                 action: Copy           }
 #- { key: L,         mods: Control,             action: ClearLogNotice }
@@ -632,10 +632,10 @@ colors:
 #- { key: C,        mods: Control|Shift, mode: Vi, action: ClearSelection   }
 #- { key: Insert,   mods: Shift,                   action: PasteSelection   }
 #- { key: Key0,     mods: Control,                 action: ResetFontSize    }
-#- { key: Equals,   mods: Control,                 action: IncreaseFontSize }
-#- { key: Add,      mods: Control,                 action: IncreaseFontSize }
-#- { key: Subtract, mods: Control,                 action: DecreaseFontSize }
-#- { key: Minus,    mods: Control,                 action: DecreaseFontSize }
+- { key: Equals,   mods: Control,                 action: IncreaseFontSize }
+- { key: Add,      mods: Control,                 action: IncreaseFontSize }
+- { key: Subtract, mods: Control,                 action: DecreaseFontSize }
+- { key: Minus,    mods: Control,                 action: DecreaseFontSize }
 
 # (Windows only)
 #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
