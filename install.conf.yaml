@@ -59,23 +59,13 @@
           create: true
           force: true
           relink: true
-      ~/.config/nvim/after:
-          path: config/nvim/after/
+      ~/.config/nvim/lua:
+          path: config/nvim/lua/
           create: true
           force: true
           relink: true
-      ~/.config/nvim/autoload:
-          path: config/nvim/autoload/
-          create: true
-          force: true
-          relink: true
-      ~/.config/nvim/init.vim:
-          path: config/nvim/init.vim
-          create: true
-          force: true
-          relink: true
-      ~/.config/nvim/coc-settings.json:
-          path: config/nvim/coc-settings.json
+      ~/.config/nvim/init.lua:
+          path: config/nvim/init.lua
           create: true
           force: true
           relink: true
