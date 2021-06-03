@@ -7,6 +7,7 @@ Config {
     Run Com "playerctl" ["metadata","xesam:title"] "track" 30,
     Run Com "playerctl" ["metadata","xesam:album"] "album" 30,
     Run Com "playerctl" ["metadata","xesam:artist"] "artist" 30,
+    Run Com "/home/alexis/.xmonad/scripts/getVolume.php" [] "volume" 1,
     Run StdinReader
   ]
 }

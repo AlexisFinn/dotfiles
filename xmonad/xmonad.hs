@@ -1,5 +1,6 @@
 import           Colors
 import           Data.Ratio
+import           Data.Map as M
 --import           Graphics.X11
 import           XMonad
 import           XMonad.Actions.SpawnOn
@@ -24,16 +25,20 @@ import           XMonad.Util.WindowProperties
 myConfig = azertyConfig
   { modMask = mod4Mask
   , terminal = "alacritty"
-  , borderWidth = 4
+  , borderWidth = 0
   , normalBorderColor = color9
   , focusedBorderColor = color8
   , XMonad.workspaces = myWorkspaces
   , layoutHook = avoidStruts $ myLayouts
   , manageHook = myHooks
   , startupHook = myStartHooks
+  , XMonad.keys = \c -> baseKeys c `M.union` XMonad.keys defaultConfig c
   } `additionalKeysP` myKeys
 
+modm = mod4Mask
+
 myStartHooks = spawn "$HOME/.xmonad/scripts/autostart.sh"
+
 
 myHooks = composeAll
   [propertyToQuery (Role "GtkFileChooserDialog") --> doRectFloat(RationalRect (1 % 4) (1 % 4) (1 % 2) (1 % 2)) -- for navigator file browser dialog
@@ -55,6 +60,13 @@ xmobarTemplateTwo = "'<fc="
                   ++ color7
                   ++ ">%track% (%album%), by %artist%</fc>'"
 
+-- this is necessary for azerty keys as well as my custom ergodox layout to work
+myAzertyKeys = [0x26,0xe9,0x22,0x27,0x28,0x2d,0xe8,0x5f,0xe7,0xe0]
+baseKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
+          [((m .|. modm, k), windows $ f i)
+            | (i, k) <- zip (XMonad.workspaces myConfig) (Prelude.take 5 myAzertyKeys),
+            (f, m) <- [(W.shift, 0), (W.greedyView, shiftMask)]]
+
 myKeys = [ ("M-x", spawnHere "rofi -combi-modi drun,run -show combi -modi combi -show-icons")
          , ("M-<Return>", spawnHere "alacritty")
          , ("M-<Space>", windows W.swapMaster)
@@ -65,18 +77,20 @@ myKeys = [ ("M-x", spawnHere "rofi -combi-modi drun,run -show combi -modi combi 
          , ("<XF86AudioPlay>", spawn "playerctl play-pause")
          , ("<XF86AudioNext>", spawn "playerctl next")
          , ("<XF86AudioPrev>", spawn "playerctl previous")
+         , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +3%")
+         , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -3%")
          ]
-         ++
+          ++
           [ (mask ++ "M-" ++ [key], screenWorkspace scr >>= flip whenJust (windows . action))
-            | (key, scr)  <- zip "te" [0..] -- change to match your screen order
+             | (key, scr)  <- zip "te" [0..] -- change to match your screen order
               , (action, mask) <- [ (W.view, "") , (W.shift, "S-")]
           ]
 
-myWorkspaces = [ "1\61524\59285"
-               , "2\61524\59285"
-               , "3\61524\59190"
-               , "4\61524\61888"
-               , "5\61524\61736"
+myWorkspaces = [ "1"
+               , "2"
+               , "3"
+               , "4"
+               , "5"
                ]
 
 -- myBarOne = "xmobar -x 0 --bgcolor=" ++ background ++ " --template=" ++ xmobarTemplate
@@ -92,14 +106,14 @@ myPP = xmobarPP { ppCurrent = xmobarColor background color1 . wrap " " " "
                 , ppWsSep = ""}
 
 -- reminder: Border top bottom right left
-myLayouts = spacingRaw True (Border 0 0 10 10 ) True (Border 5 5 10 10) True $
+myLayouts = spacingRaw True (Border 5 5 10 10 ) True (Border 5 5 10 10) True $
   mkToggle (NOBORDERS ?? FULL ?? EOT) $
     layoutTall |||
     mirroredTall |||
     simpleTabbed |||
     customLayout
         where
-          layoutTall = Tall 1 (3/100) (2/3)
+          layoutTall = Tall 1 (3/100) (3/4)
           mirroredTall = Mirror layoutTall
           mainHeight = (8/12)
           secWidth = (2/12)
