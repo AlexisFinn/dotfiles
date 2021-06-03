@@ -1,0 +1,3 @@
+# ignore everything that isn't explicitely versionned
+# this folder contains un bunch of compiled files
+xmonad/**/*
