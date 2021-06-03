@@ -69,6 +69,11 @@
           create: true
           force: true
           relink: true
+      ~/.config/nvim/after:
+          path: config/nvim/after/
+          create: true
+          force: true
+          relink: true
       ~/.config/picom.conf:
           path: config/picom.conf
           create: true
@@ -107,7 +112,7 @@
 # pywal
 # zsh
 # git
-# neovim
+# neovim 0.5
 # feh
 # nitrogen
 # php
@@ -116,3 +121,4 @@
 # alacritty
 # dunst
 # nerdfonts
+# LSP: intelephense, vue-vls, typescript-language-server, prettier, stylelint-lsp

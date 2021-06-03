@@ -4,6 +4,8 @@ vim.api.nvim_command('set termguicolors')
 vim.api.nvim_command('set lazyredraw')
 -- Speed up scrolling in Vim
 vim.api.nvim_command('set ttyfast')
+-- correct syntax highlighting in large files
+vim.api.nvim_command('autocmd BufEnter * :syntax sync minlines=10000')
 --- General settings ---
 vim.api.nvim_command('set ruler') -- show percentage of file
 vim.api.nvim_command('set nowrap') -- don't wrap long lines
