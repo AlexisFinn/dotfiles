@@ -21,3 +21,9 @@ backing up my config files using https://dotfiles.github.io/
 - PHP (status bar scripts)
 - pulseaudio-utils (for volume control)
 - NerdFonts https://www.nerdfonts.com/
+- rofi (launcher) https://github.com/davatorium/rofi
+- alacritty (terminal) https://github.com/alacritty/alacritty
+- playerctl (player control) https://github.com/altdesktop/playerctl
+## Zsh
+### Dependencies
+- Zgen https://github.com/tarjoilija/zgen
