@@ -60,7 +60,10 @@ xmobarTemplateTwo = "'<fc="
                   ++ color7
                   ++ ">%track% (%album%), by %artist%</fc>'"
 
--- this is necessary for azerty keys as well as my custom ergodox layout to work
+-- I need to do this to get my keyboard to respond properly as it's a french azerty
+-- customised through QMK (I use an ergodox).
+-- If you encounter issues with moving windows or switching between workspaces
+-- just comment all this and try going from there.
 myAzertyKeys = [0x26,0xe9,0x22,0x27,0x28,0x2d,0xe8,0x5f,0xe7,0xe0]
 baseKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
           [((m .|. modm, k), windows $ f i)
