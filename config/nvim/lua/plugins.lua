@@ -57,8 +57,8 @@ return require('packer').startup(function(use)
   use 'ntpeters/vim-better-whitespace'
   -- vifm integration into vim
   use 'vifm/vifm.vim'
-  -- best git integration into vim
-  use 'tpope/vim-fugitive'
+  -- best git integration into vim, must intall https://github.com/jesseduffield/lazygit
+  use 'kdheepak/lazygit.nvim'
   -- git diff indications in gutter column
   use 'airblade/vim-gitgutter'
   -- use .editorconfig file if found

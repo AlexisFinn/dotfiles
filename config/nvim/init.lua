@@ -9,7 +9,7 @@ require('config')
 require('keymap')
 -- colorscheme
 require('colorscheme')
--- plugins
+-- plugins configs
 require('plugin-configs/nvim-lspconfig')
 require('plugin-configs/nvim-lsputils')
 require('plugin-configs/nvim-compe')
@@ -22,7 +22,7 @@ require('plugin-configs/peekaboo')
 require('plugin-configs/emmet')
 require('plugin-configs/barbar')
 require('plugin-configs/colorizer')
-require('plugin-configs/vim-fugitive')
+require('plugin-configs/lazygit')
 require('plugin-configs/telescope')
 require('plugin-configs/hop')
 require('plugin-configs/specs')
