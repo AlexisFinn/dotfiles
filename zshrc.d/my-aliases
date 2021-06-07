@@ -30,6 +30,7 @@ alias trm='todo.sh rm'
 alias tdo='todo.sh do'
 alias time='tty-clock -c'
 alias grep=rg
+alias lg=lazygit
 
 function chpwd() {
     if [ -r $PWD/bash_aliases.sh ]; then
