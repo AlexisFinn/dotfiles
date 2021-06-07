@@ -37,6 +37,8 @@ return require('packer').startup(function(use)
       {'nvim-lua/plenary.nvim'},
     }
   }
+  -- markdown preview
+  use 'npxbr/glow.nvim'
   -- status line in lua
   use {
     'hoob3rt/lualine.nvim',

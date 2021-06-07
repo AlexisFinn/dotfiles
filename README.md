@@ -16,6 +16,7 @@ backing up my config files using https://dotfiles.github.io/
 - php-cs-fixer https://github.com/FriendsOfPHP/PHP-CS-Fixer
 - NerdFonts https://www.nerdfonts.com/
 - LazyGit https://github.com/jesseduffield/lazygit
+- Glow (markdow previewer) https://github.com/npxbr/glow.nvim
 ## Xmonad (tiling window manager) https://xmonad.org/
 ### Dependencies
 - Xmobar (status bar) https://hackage.haskell.org/package/xmobar
