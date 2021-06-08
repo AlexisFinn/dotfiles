@@ -80,8 +80,8 @@ myKeys = [ ("M-x", spawnHere "rofi -combi-modi drun,run -show combi -modi combi 
          , ("<XF86AudioPlay>", spawn "playerctl play-pause")
          , ("<XF86AudioNext>", spawn "playerctl next")
          , ("<XF86AudioPrev>", spawn "playerctl previous")
-         , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +3%")
-         , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -3%")
+         , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
+         , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
          ]
           ++
           [ (mask ++ "M-" ++ [key], screenWorkspace scr >>= flip whenJust (windows . action))
