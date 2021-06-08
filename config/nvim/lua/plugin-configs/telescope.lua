@@ -55,5 +55,6 @@ require('telescope').setup{
   }
 }
 
-
+-- load in utilsnips to telescope
+require('telescope').load_extension('ultisnips')
 

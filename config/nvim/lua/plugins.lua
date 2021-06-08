@@ -9,8 +9,19 @@ return require('packer').startup(function(use)
   use 'bluz71/vim-moonfly-colors'
   use 'rafamadriz/neon'
   use 'marko-cerovac/material.nvim'
+  use 'sainnhe/gruvbox-material'
+  use 'sainnhe/sonokai'
+  -- some nice icons
+  use 'kyazdani42/nvim-web-devicons'
+  use 'ryanoasis/vim-devicons'
   -- Language Server Protocol integration (this is so cool)
   use 'neovim/nvim-lspconfig'
+  -- snippets
+  use 'SirVer/ultisnips'
+  use 'fhill2/telescope-ultisnips.nvim' -- integrate utilsnips with telescope
+  use 'honza/vim-snippets'
+  -- auto change matching html tags
+  use 'AndrewRadev/tagalong.vim'
   -- better defaults for builtin lsp
   use {
     'RishabhRD/nvim-lsputils',
@@ -18,8 +29,6 @@ return require('packer').startup(function(use)
   }
   -- autocomplete
   use 'hrsh7th/nvim-compe'
-  -- some nice icons
-  use 'kyazdani42/nvim-web-devicons'
   -- manage registers (clipboard)
   use 'junegunn/vim-peekaboo'
   -- indent guides
@@ -40,15 +49,9 @@ return require('packer').startup(function(use)
   -- markdown preview
   use 'npxbr/glow.nvim'
   -- status line in lua
-  use {
-    'hoob3rt/lualine.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+  use 'hoob3rt/lualine.nvim'
   -- tab line
-  use {
-    'romgrk/barbar.nvim',
-    requires = {'kyazdani42/nvim-web-devicons', opt = true}
-  }
+  use 'romgrk/barbar.nvim'
   -- php-cs-fixer
   use 'aeke/vim-php-cs-fixer'
   -- emmet
@@ -59,7 +62,9 @@ return require('packer').startup(function(use)
   use 'ntpeters/vim-better-whitespace'
   -- vifm integration into vim
   use 'vifm/vifm.vim'
-  -- best git integration into vim, must intall https://github.com/jesseduffield/lazygit
+  -- best git commands integration for vim
+  use 'tpope/vim-fugitive'
+  -- use lazygit inside vim, must intall https://github.com/jesseduffield/lazygit
   use 'kdheepak/lazygit.nvim'
   -- git diff indications in gutter column
   use 'airblade/vim-gitgutter'
@@ -73,6 +78,8 @@ return require('packer').startup(function(use)
   use 'phaazon/hop.nvim'
   -- show some animation on cursor jumping to ease following the cursor
   use 'edluffy/specs.nvim'
+  -- fancy start screen
+  use 'mhinz/vim-startify'
   -- treesitter the new language parser
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'

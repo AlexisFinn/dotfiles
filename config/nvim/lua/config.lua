@@ -1,5 +1,9 @@
 -- get colors right
-vim.api.nvim_command('set termguicolors')
+if vim.fn.has("termguicolors") == 1 then
+  vim.go.t_8f = "[[38;2;%lu;%lu;%lum"
+  vim.go.t_8b = "[[48;2;%lu;%lu;%lum"
+  vim.opt.termguicolors = true
+end
 -- less realtime, more performance
 vim.api.nvim_command('set lazyredraw')
 -- Speed up scrolling in Vim
@@ -17,6 +21,7 @@ vim.api.nvim_command('set smartcase') -- if search contains an uppercase do a ca
 vim.api.nvim_command('set expandtab') -- expand tab to spaces
 --vim.api.nvim_command('set list') -- display whitespaces as characters when editing
 --vim.api.nvim_command('set listchars = "tab:>,trail:.,nbsp:+"') -- customise characters used for whitespaces
+vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→",eol = "↲", nbsp = "␣" }
 vim.api.nvim_command('set hid') -- hide inactive buffers instead of unloading them
 vim.api.nvim_command('set noswapfile') -- disable creating swap files
 vim.api.nvim_command('set splitbelow') -- create a split below
