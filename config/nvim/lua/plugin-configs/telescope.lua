@@ -1,6 +1,6 @@
 -- fuzzy find files in project
-vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', {}) -- crtl-p
-vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<CR>', { noremap = true}) -- leader f
+--vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', {})
+vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<CR>', { noremap = true})
 -- live grep for string in project
 vim.api.nvim_set_keymap('n', '<leader>rg', ':Telescope live_grep<CR>', { noremap = true})
 -- search for string under cursor

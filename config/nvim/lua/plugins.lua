@@ -35,7 +35,8 @@ return require('packer').startup(function(use)
   use 'glepnir/indent-guides.nvim'
   -- Comment/uncomment multiple lines with <leader>c<space>
   use 'preservim/nerdcommenter'
-  -- fzf because it's the best
+  -- fzf because it's the best fuzzy finder
+  -- I actually prefer using fzf directly than telescope
   use 'vijaymarupudi/nvim-fzf' -- lua api
   use 'vijaymarupudi/nvim-fzf-commands' -- actual vim commands
   -- telescope, an awesome fuzzy-finder that leverages all the new nvim functions
@@ -46,6 +47,8 @@ return require('packer').startup(function(use)
       {'nvim-lua/plenary.nvim'},
     }
   }
+  -- ripgrep for fastest ever grep directly in vim
+  use 'jremmen/vim-ripgrep'
   -- markdown preview
   use 'npxbr/glow.nvim'
   -- status line in lua
@@ -79,7 +82,7 @@ return require('packer').startup(function(use)
   -- show some animation on cursor jumping to ease following the cursor
   use 'edluffy/specs.nvim'
   -- fancy start screen
-  use 'mhinz/vim-startify'
+  -- use 'mhinz/vim-startify'
   -- treesitter the new language parser
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
