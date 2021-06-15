@@ -63,6 +63,8 @@ return require('packer').startup(function(use)
   use 'mattn/emmet-vim'
   -- twig
   use 'qbbr/vim-twig'
+  -- haskell
+  use 'neovimhaskell/haskell-vim'
   -- Show trailing whitespaces in red
   use 'ntpeters/vim-better-whitespace'
   -- vifm integration into vim
@@ -83,6 +85,8 @@ return require('packer').startup(function(use)
   use 'phaazon/hop.nvim'
   -- show some animation on cursor jumping to ease following the cursor
   use 'edluffy/specs.nvim'
+  -- discord rich presence
+  use 'andweeb/presence.nvim'
   -- fancy start screen
   -- use 'mhinz/vim-startify'
   -- treesitter the new language parser

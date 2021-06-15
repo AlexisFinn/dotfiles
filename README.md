@@ -6,18 +6,22 @@ backing up my config files using https://dotfiles.github.io/
 - NeoVim 0.5 https://github.com/neovim/neovim/releases
 - fzf https://github.com/junegunn/fzf
 - ripgrep https://github.com/BurntSushi/ripgrep
-- prettier (formatting) https://prettier.io/
-- typescript-language-server https://github.com/theia-ide/typescript-language-server
-- vetur (vuejs) https://github.com/vuejs/vetur/tree/master/server
-- yaml-unist-parser https://github.com/ikatyang/yaml-unist-parser
-- vifm https://vifm.info/
-- intelephense (php) https://www.npmjs.com/package/intelephense
-- stylelint-lsp https://www.npmjs.com/package/stylelint-lsp
-- efm-langserver (general purpose language server) https://github.com/mattn/efm-langserver
-- php-cs-fixer https://github.com/FriendsOfPHP/PHP-CS-Fixer
-- NerdFonts https://www.nerdfonts.com/
-- LazyGit https://github.com/jesseduffield/lazygit
+#### language configs
+- prettier ([formatting] html, css, scss, js, ts, vue) https://prettier.io/
+- php-cs-fixer ([formatting] php) https://github.com/FriendsOfPHP/PHP-CS-Fixer
+- hindent ([formatting] haskell) https://hackage.haskell.org/package/hindent
+- typescript-language-server ([lsp] typescript) https://github.com/theia-ide/typescript-language-server
+- vetur ([lsp] vuejs) https://github.com/vuejs/vetur/tree/master/server
+- yaml-unist-parser ([lsp] yaml) https://github.com/ikatyang/yaml-unist-parser
+- intelephense ([lsp] php) https://www.npmjs.com/package/intelephense
+- stylelint-lsp ([lsp] css/scss) https://www.npmjs.com/package/stylelint-lsp
+- haskell-language-server ([lsp] haskell) https://github.com/haskell/haskell-language-server
+- efm-langserver ([lsp] general purpose language server, used for prettier formatting) https://github.com/mattn/efm-langserver
 - Glow (markdow previewer) https://github.com/npxbr/glow.nvim
+#### extra
+- vifm https://vifm.info/ integrate vifm into vim
+- NerdFonts https://www.nerdfonts.com/ you should just always have nerdfonts installed
+- LazyGit https://github.com/jesseduffield/lazygit definitely one of the best terminal ui for git
 ## Xmonad (tiling window manager) https://xmonad.org/
 ### Dependencies
 - Xmobar (status bar) https://hackage.haskell.org/package/xmobar

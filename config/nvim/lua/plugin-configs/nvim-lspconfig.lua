@@ -35,6 +35,7 @@ end)
 local capabilities = vim.lsp.protocol.make_client_capabilities()
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 require('lspconfig').html.setup{
+  cmd = {"html-languageserver", "--stdio"},
   on_attach = onAttachNoFormatting,
   capabilities = capabilities, -- does not provide completion if there are no snippets
   filetype = {"html"},
@@ -110,9 +111,12 @@ require('lspconfig').sumneko_lua.setup {
   }
 }
 
+-- haskell
+require('lspconfig').hls.setup{}
+
 -- other linters
 require('lspconfig').efm.setup {
-  filetypes = {"typescript", "vue", "scss", "css", "html", "yaml", "php", "javascript"},
+  filetypes = {"typescript", "vue", "scss", "css", "html", "yaml", "php", "javascript", "haskell"},
   init_options = {documentFormatting = true},
   settings = {
     rootMarkers = {".git/"},
@@ -137,6 +141,9 @@ require('lspconfig').efm.setup {
       },
       javascript = {
         {formatCommand = "prettier --parser typescript", formatStdin = true}
+      },
+      haskell = {
+        {formatCommand = "hindent", formatStdin = true}
       }
     }
   }
