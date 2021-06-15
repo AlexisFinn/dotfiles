@@ -19,6 +19,7 @@ vim.api.nvim_command('set hlsearch') -- highlight all search results after searc
 vim.api.nvim_command('set ignorecase') -- by default ignore case when searching
 vim.api.nvim_command('set smartcase') -- if search contains an uppercase do a case-sensitive search
 vim.api.nvim_command('set expandtab') -- expand tab to spaces
+vim.api.nvim_set_option('guifont', 'Hack Nerd Font Mono')
 --vim.api.nvim_command('set list') -- display whitespaces as characters when editing
 --vim.api.nvim_command('set listchars = "tab:>,trail:.,nbsp:+"') -- customise characters used for whitespaces
 vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→",eol = "↲", nbsp = "␣" }

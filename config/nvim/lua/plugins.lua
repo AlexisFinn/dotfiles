@@ -21,6 +21,8 @@ return require('packer').startup(function(use)
   use 'SirVer/ultisnips'
   use 'fhill2/telescope-ultisnips.nvim' -- integrate utilsnips with telescope
   use 'honza/vim-snippets'
+  -- better diagnostics
+  use 'folke/trouble.nvim'
   -- auto change matching html tags
   use 'AndrewRadev/tagalong.vim'
   -- better defaults for builtin lsp
@@ -30,8 +32,6 @@ return require('packer').startup(function(use)
   }
   -- autocomplete
   use 'hrsh7th/nvim-compe'
-  -- manage registers (clipboard)
-  use 'junegunn/vim-peekaboo'
   -- indent guides
   use 'glepnir/indent-guides.nvim'
   -- Comment/uncomment multiple lines with <leader>c<space>
@@ -55,7 +55,6 @@ return require('packer').startup(function(use)
   -- status line in lua
   use 'hoob3rt/lualine.nvim'
   -- tab line
-  --use 'romgrk/barbar.nvim'
   use 'pacha/vem-tabline'
   -- php-cs-fixer
   use 'aeke/vim-php-cs-fixer'
@@ -71,8 +70,6 @@ return require('packer').startup(function(use)
   use 'vifm/vifm.vim'
   -- best git commands integration for vim
   use 'tpope/vim-fugitive'
-  -- use lazygit inside vim, must intall https://github.com/jesseduffield/lazygit
-  use 'kdheepak/lazygit.nvim'
   -- git diff indications in gutter column
   use 'airblade/vim-gitgutter'
   -- use .editorconfig file if found
@@ -80,15 +77,17 @@ return require('packer').startup(function(use)
   -- color highlighter
   use 'norcalli/nvim-colorizer.lua'
   -- cursor highlighter
-  use 'yamatsum/nvim-cursorline'
+--  use 'yamatsum/nvim-cursorline'
   -- easyMotion clone for newer Nvim 0.5
   use 'phaazon/hop.nvim'
   -- show some animation on cursor jumping to ease following the cursor
   use 'edluffy/specs.nvim'
   -- discord rich presence
   use 'andweeb/presence.nvim'
-  -- fancy start screen
-  -- use 'mhinz/vim-startify'
+  -- shortcuts helper including registers, marks, keymaps, folds...
+  use 'folke/which-key.nvim'
+  -- highlight matching words
+  use 'RRethy/vim-illuminate'
   -- treesitter the new language parser
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
