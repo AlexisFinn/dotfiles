@@ -1,6 +1,7 @@
 # dotfiles
 backing up my config files using https://dotfiles.github.io/
 ## Neovim:
+`:checkhealth` to see what language servers and parsers are correctly installed and configured
 ### Dependencies
 - NeoVim 0.5 https://github.com/neovim/neovim/releases
 - fzf https://github.com/junegunn/fzf
@@ -28,4 +29,18 @@ backing up my config files using https://dotfiles.github.io/
 - playerctl (player control) https://github.com/altdesktop/playerctl
 ## Zsh
 ### Dependencies
-- Zgen https://github.com/tarjoilija/zgen
+- Zgen https://github.com/tarjoilija/zgen (it will install the rest)
+# Extra recommended programs
+- Git: lazygit https://github.com/jesseduffield/lazygit (terminal ui)
+- Git: git-gui (`sudo apt-get install git-gui`)
+- Web Browser: vivaldi https://vivaldi.com/
+- Terminal Emulator: https://github.com/alacritty/alacritty (fast gpu-rendered terminal, awesome)
+- Terminal Emulator: https://sw.kovidgoyal.net/kitty/ (fast gpu-rendered terminal, awesome, more featurefull than alacritty but if you don't use/need those extra features it's just bloated)
+- Terminal: fzf https://github.com/junegunn/fzf (quickly narrow down result with a fuzzy search)
+- Terminal: ripgrep https://github.com/BurntSushi/ripgrep (faster, better grep, works even better when combined with fzf)
+- Terminal: z https://github.com/rupa/z (quickly jump between your most used directories, this is awesome)
+- Terminal: bat https://github.com/sharkdp/bat (like `cat` but with line numbers and syntax coloring, you'll never use `cat` again)
+- Terminal: tmux https://doc.ubuntu-fr.org/tmux (split a terminal into windows/tabs, if you don't use a tiling windo manager this is going to make your day)
+- Remote Collaboration: tmate https://tmate.io/ (basically tmux and ssh combined in an easy way)
+
+
