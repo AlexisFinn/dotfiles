@@ -9,6 +9,7 @@ import           XMonad.Hooks.DynamicLog
 import           XMonad.Hooks.ManageDocks
 import           XMonad.Hooks.ManageHelpers
 import           XMonad.Layout.Column
+import           XMonad.Layout.ThreeColumns
 import           XMonad.Layout.Grid
 import           XMonad.Layout.LayoutBuilder
 import           XMonad.Layout.MultiToggle
@@ -114,19 +115,22 @@ myLayouts = spacingRaw True (Border 5 5 10 10 ) True (Border 5 5 10 10) True $
     layoutTall |||
     mirroredTall |||
     simpleTabbed |||
-    customLayout
+    mirroredThreeColumns
+    --customLayout
         where
           layoutTall = Tall 1 (3/100) (3/4)
           mirroredTall = Mirror layoutTall
-          mainHeight = (8/12)
-          secWidth = (2/12)
-          terWidth = (8/12)
-          finalOffset = secWidth + terWidth * (1 - secWidth)
-          customLayout = reflectVert ( cLayout1 $ cLayout2 $ cLayout3 $ cLayoutFinal )
-          cLayout1 = (layoutN 1 (relBox 0 0 1 mainHeight) (Just $ relBox 0 0 1 1) $ Tall 1 0.01 1)
-          cLayout2 = (layoutN 1 (relBox 0 mainHeight secWidth 1) (Just $ relBox 0 mainHeight 1 1) $ Tall 1 0.01 1)
-          cLayout3 = (layoutN 1 (relBox secWidth mainHeight terWidth 1) (Just $ relBox secWidth mainHeight 1 1) $ Tall 1 0.01 1)
-          cLayoutFinal = (layoutAll (relBox finalOffset mainHeight 1 1) $ Grid)
+          threeColumns = ThreeCol 1 (3/100) (2/3)
+          mirroredThreeColumns = Mirror threeColumns
+          --mainHeight = (8/12)
+          --secWidth = (2/12)
+          --terWidth = (8/12)
+          --finalOffset = secWidth + terWidth * (1 - secWidth)
+          --customLayout = reflectVert ( cLayout1 $ cLayout2 $ cLayout3 $ cLayoutFinal )
+          --cLayout1 = (layoutN 1 (relBox 0 0 1 mainHeight) (Just $ relBox 0 0 1 1) $ Tall 1 0.01 1)
+          --cLayout2 = (layoutN 1 (relBox 0 mainHeight secWidth 1) (Just $ relBox 0 mainHeight 1 1) $ Tall 1 0.01 1)
+          --cLayout3 = (layoutN 1 (relBox secWidth mainHeight terWidth 1) (Just $ relBox secWidth mainHeight 1 1) $ Tall 1 0.01 1)
+          --cLayoutFinal = (layoutAll (relBox finalOffset mainHeight 1 1) $ Grid)
 -- reminder: relBox x y width height
 
 
