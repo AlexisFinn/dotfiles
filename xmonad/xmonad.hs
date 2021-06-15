@@ -114,13 +114,13 @@ myLayouts = spacingRaw True (Border 5 5 10 10 ) True (Border 5 5 10 10) True $
   mkToggle (NOBORDERS ?? FULL ?? EOT) $
     layoutTall |||
     mirroredTall |||
-    simpleTabbed |||
+--    simpleTabbed |||
     mirroredThreeColumns
     --customLayout
         where
           layoutTall = Tall 1 (3/100) (3/4)
           mirroredTall = Mirror layoutTall
-          threeColumns = ThreeCol 1 (3/100) (2/3)
+          threeColumns = ThreeColMid 1 (3/100) (2/3)
           mirroredThreeColumns = Mirror threeColumns
           --mainHeight = (8/12)
           --secWidth = (2/12)
