@@ -22,7 +22,7 @@ vim.api.nvim_command('set expandtab') -- expand tab to spaces
 --vim.api.nvim_command('set list') -- display whitespaces as characters when editing
 --vim.api.nvim_command('set listchars = "tab:>,trail:.,nbsp:+"') -- customise characters used for whitespaces
 vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→",eol = "↲", nbsp = "␣" }
-vim.api.nvim_command('set hid') -- hide inactive buffers instead of unloading them
+vim.api.nvim_command('set hidden') -- hide inactive buffers instead of unloading them, without this you will need to save your changes before changing buffers
 vim.api.nvim_command('set noswapfile') -- disable creating swap files
 vim.api.nvim_command('set splitbelow') -- create a split below
 vim.api.nvim_command('set relativenumber') -- show line numbers relative to cursor position
@@ -39,3 +39,7 @@ vim.o.directory = '/home/alexis/.vim/swap//'
 vim.o.undodir = '/home/alexis/.vim/undo//'
 vim.o.updatetime = 1000 -- number of miliseconds before updating, usefull for CursorHold autocmd
 --vim.o.pumblend = 15 -- transparency for popup windows if you want (yay!)
+--Add a command to reformat json
+vim.cmd([[
+com! FormatJSON %!python -m json.tool
+]], false)

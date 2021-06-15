@@ -11,6 +11,7 @@ return require('packer').startup(function(use)
   use 'marko-cerovac/material.nvim'
   use 'sainnhe/gruvbox-material'
   use 'sainnhe/sonokai'
+  use 'romgrk/doom-one.vim'
   -- some nice icons
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
@@ -54,7 +55,8 @@ return require('packer').startup(function(use)
   -- status line in lua
   use 'hoob3rt/lualine.nvim'
   -- tab line
-  use 'romgrk/barbar.nvim'
+  --use 'romgrk/barbar.nvim'
+  use 'pacha/vem-tabline'
   -- php-cs-fixer
   use 'aeke/vim-php-cs-fixer'
   -- emmet

@@ -18,7 +18,8 @@ vim.g.neon_italic_variable = false
 vim.g.neon_bold = true
 vim.g.gruvbox_material_enable_italic = 1
 vim.g.gruvbox_material_sign_column_background = 'none'
-vim.cmd 'color gruvbox-material'
+--vim.cmd 'color gruvbox-material'
+vim.cmd 'color doom-one'
 --vim.api.nvim_command('colorscheme dracula')
 --vim.api.nvim_command('colorscheme xshado')
 --vim.api.nvim_command('colorscheme night-owl')
