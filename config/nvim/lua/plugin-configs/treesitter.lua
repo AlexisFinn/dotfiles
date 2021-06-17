@@ -1,1 +1,5 @@
-require'nvim-treesitter.configs'.setup {}
+require'nvim-treesitter.configs'.setup {
+  rainbow = {
+    enable = true
+  }
+}

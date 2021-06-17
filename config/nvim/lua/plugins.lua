@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   -- better diagnostics
   use 'folke/trouble.nvim'
   -- auto change matching html tags
-  use 'AndrewRadev/tagalong.vim'
+  -- use 'AndrewRadev/tagalong.vim'
   -- better defaults for builtin lsp
   use {
     'RishabhRD/nvim-lsputils',
@@ -34,6 +34,8 @@ return require('packer').startup(function(use)
   use 'hrsh7th/nvim-compe'
   -- indent guides
   use 'glepnir/indent-guides.nvim'
+  -- rainbow parentheses
+  use 'p00f/nvim-ts-rainbow'
   -- Comment/uncomment multiple lines with <leader>c<space>
   use 'preservim/nerdcommenter'
   -- fzf because it's the best fuzzy finder
@@ -55,7 +57,7 @@ return require('packer').startup(function(use)
   -- status line in lua
   use 'hoob3rt/lualine.nvim'
   -- tab line
-  use 'pacha/vem-tabline'
+  use 'romgrk/barbar.nvim'
   -- php-cs-fixer
   use 'aeke/vim-php-cs-fixer'
   -- emmet
