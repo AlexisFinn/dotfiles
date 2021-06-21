@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/alexis/.config/wpg/wallpapers/pastel-wall.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#3c4041",
+        "foreground": "#e1e9e7",
+        "cursor": "#e1e9e7"
+    },
+    "colors": {
+        "color0": "#3c4041",
+        "color1": "#E2CAB5",
+        "color2": "#B3B5C3",
+        "color3": "#ACD2CF",
+        "color4": "#D4D1CC",
+        "color5": "#E9D8CE",
+        "color6": "#F2E6D8",
+        "color7": "#e1e9e7",
+        "color8": "#9da3a1",
+        "color9": "#E2CAB5",
+        "color10": "#B3B5C3",
+        "color11": "#ACD2CF",
+        "color12": "#D4D1CC",
+        "color13": "#E9D8CE",
+        "color14": "#F2E6D8",
+        "color15": "#e1e9e7"
+    }
+}

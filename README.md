@@ -35,6 +35,7 @@ backing up my config files using https://dotfiles.github.io/
 ### Dependencies
 - Zgen https://github.com/tarjoilija/zgen (it will install the rest)
 # Extra recommended programs
+- Theming: wpgtk https://deviantfero.github.io/wpgtk/
 - Git: lazygit https://github.com/jesseduffield/lazygit (terminal ui)
 - Git: git-gui (`sudo apt-get install git-gui`)
 - Web Browser: vivaldi https://vivaldi.com/

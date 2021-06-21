@@ -6,100 +6,106 @@
       ~/.zshrc: zshrc
       ~/.zshrc.d:
           path: zshrc.d
-          force: true
+          force: false
           relink: true
       ~/.zgen-local-plugins:
           path: zgen-local-plugins
-          force: true
+          force: false
           relink: true
       ~/.tmux.conf:
           path: tmux.conf
-          force: true
+          force: false
           relink: true
       ~/.local/share/broot:
           path: local/share/broot/
-          force: true
+          force: false
           relink: true
       ~/.tmate.conf:
           path: tmate.conf
-          force: true
+          force: false
           relink: true
       ~/.config/i3:
           path: config/i3/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/xmobar:
           path: config/xmobar/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.xmonad:
           path: xmonad/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/alacritty:
           path: config/alacritty/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/broot:
           path: config/broot/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/dunst:
           path: config/dunst/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/kitty:
           path: config/kitty/
           create: true
-          force: true
+          force: false
+          relink: true
+      ~/.config/wpg:
+          path: config/wpg/
+          create: true
+          force: false
           relink: true
       ~/.config/nvim/lua:
           path: config/nvim/lua/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/nvim/init.lua:
           path: config/nvim/init.lua
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/nvim/after:
           path: config/nvim/after/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/picom.conf:
           path: config/picom.conf
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/pulse/daemon.conf:
           path: config/pulse/daemon.conf
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/rofi:
           path: config/rofi/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.config/conky:
           path: config/conky/
           create: true
-          force: true
+          force: false
           relink: true
       ~/.gitconfig:
           path: gitconfig
           create: true
-          force: true
+          force: false
           relink: true
       ~/.profile: profile
+      ~/wallpapers: wallpapers
 - shell:
       - [
             cd ~ && git clone https://github.com/unixorn/zsh-quickstart-kit.git && ln -s
