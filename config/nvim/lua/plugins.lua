@@ -24,7 +24,7 @@ return require('packer').startup(function(use)
   -- better diagnostics
   use 'folke/trouble.nvim'
   -- auto change matching html tags
-  -- use 'AndrewRadev/tagalong.vim'
+  use 'AndrewRadev/tagalong.vim'
   -- better defaults for builtin lsp
   use {
     'RishabhRD/nvim-lsputils',

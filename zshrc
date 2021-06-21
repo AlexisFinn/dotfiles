@@ -4,7 +4,9 @@ export PATH="$SPICETIFY_INSTALL:$PATH"
 export FZF_DEFAULT_COMMAND='ag -al'
 
 # pymal custom colors
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
+# wpgtk with haishoku backend
+(cat ~/.config/wpg/templates/sequences &)
 
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
@@ -56,3 +58,4 @@ PERL_MM_OPT="INSTALL_BASE=/home/alexis/perl5"; export PERL_MM_OPT;
 source /home/alexis/.config/broot/launcher/bash/br
 
 eval "$(starship init zsh)"
+

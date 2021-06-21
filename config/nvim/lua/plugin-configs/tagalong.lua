@@ -1,1 +1,1 @@
-vim.g.tagalong_filetypes = {'html', 'vue'}
+--vim.g.tagalong_filetypes = {'html', 'vue'}
