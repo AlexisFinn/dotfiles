@@ -8,4 +8,4 @@
     padding:            5;
 }
 
-@import "~/.cache/wal/colors-rofi-dark.rasi"
+@import "~/.cache/wpg/colors-rofi-dark.rasi"
