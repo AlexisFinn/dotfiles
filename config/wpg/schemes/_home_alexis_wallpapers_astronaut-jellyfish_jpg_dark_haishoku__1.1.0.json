@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/astronaut-jellyfish.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#161718",
+        "foreground": "#c4c5c5",
+        "cursor": "#c4c5c5"
+    },
+    "colors": {
+        "color0": "#161718",
+        "color1": "#3a3e4a",
+        "color2": "#663b32",
+        "color3": "#704253",
+        "color4": "#308057",
+        "color5": "#78722c",
+        "color6": "#6e7263",
+        "color7": "#c4c5c5",
+        "color8": "#505151",
+        "color9": "#3a3e4a",
+        "color10": "#663b32",
+        "color11": "#704253",
+        "color12": "#308057",
+        "color13": "#78722c",
+        "color14": "#6e7263",
+        "color15": "#c4c5c5"
+    }
+}
