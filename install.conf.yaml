@@ -105,6 +105,7 @@
           force: false
           relink: true
       ~/.profile: profile
+      ~/bin/theming-wpgtk.sh: scripts/theming-wpgtk.sh
       ~/wallpapers: wallpapers
 - shell:
       - [

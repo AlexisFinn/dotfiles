@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/animeBW.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#181818",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#181818",
+        "color1": "#664146",
+        "color2": "#6f5059",
+        "color3": "#7e7d7d",
+        "color4": "#b1969c",
+        "color5": "#a9a8aa",
+        "color6": "#caa1ad",
+        "color7": "#c5c5c5",
+        "color8": "#515151",
+        "color9": "#664146",
+        "color10": "#6f5059",
+        "color11": "#7e7d7d",
+        "color12": "#b1969c",
+        "color13": "#a9a8aa",
+        "color14": "#caa1ad",
+        "color15": "#c5c5c5"
+    }
+}

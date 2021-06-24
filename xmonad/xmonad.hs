@@ -1,128 +1,129 @@
-import           Colors
-import           Data.Ratio
-import           Data.Map as M
---import           Graphics.X11
-import           XMonad
-import           XMonad.Actions.SpawnOn
-import           XMonad.Config.Azerty
-import           XMonad.Hooks.DynamicLog
-import           XMonad.Hooks.ManageDocks
-import           XMonad.Hooks.ManageHelpers
-import           XMonad.Layout.Column
-import           XMonad.Layout.ThreeColumns
-import           XMonad.Layout.Grid
-import           XMonad.Layout.LayoutBuilder
-import           XMonad.Layout.MultiToggle
-import           XMonad.Layout.MultiToggle.Instances
-import           XMonad.Layout.Reflect
-import           XMonad.Layout.Spacing
-import           XMonad.Layout.Spiral
-import           XMonad.Layout.Tabbed
-import           XMonad.StackSet                     as W
-import           XMonad.Util.EZConfig
-import           XMonad.Util.Run
-import           XMonad.Util.WindowProperties
+import Colors
+import Data.Map as M
+import Data.Ratio
 
-myConfig = azertyConfig
-  { modMask = mod4Mask
-  , terminal = "alacritty"
-  , borderWidth = 0
-  , normalBorderColor = color9
-  , focusedBorderColor = color8
-  , XMonad.workspaces = myWorkspaces
-  , layoutHook = avoidStruts $ myLayouts
-  , manageHook = myHooks
-  , startupHook = myStartHooks
-  , XMonad.keys = \c -> baseKeys c `M.union` XMonad.keys defaultConfig c
-  } `additionalKeysP` myKeys
+--import           Graphics.X11
+import XMonad
+import XMonad.Actions.SpawnOn
+import XMonad.Config.Azerty
+import XMonad.Hooks.DynamicLog
+import XMonad.Hooks.ManageDocks
+import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.Column
+import XMonad.Layout.Grid
+import XMonad.Layout.LayoutBuilder
+import XMonad.Layout.MultiToggle
+import XMonad.Layout.MultiToggle.Instances
+import XMonad.Layout.Reflect
+import XMonad.Layout.Spacing
+import XMonad.Layout.Spiral
+import XMonad.Layout.Tabbed
+import XMonad.Layout.ThreeColumns
+import XMonad.StackSet as W
+import XMonad.Util.EZConfig
+import XMonad.Util.Run
+import XMonad.Util.WindowProperties
+
+myConfig =
+  azertyConfig
+    { modMask = mod4Mask
+    , terminal = "alacritty"
+    , borderWidth = 4
+    , normalBorderColor = background
+    , focusedBorderColor = color6
+    , XMonad.workspaces = myWorkspaces
+    , layoutHook = avoidStruts $ myLayouts
+    , manageHook = myHooks
+    , startupHook = myStartHooks
+    , XMonad.keys = \c -> baseKeys c `M.union` XMonad.keys defaultConfig c
+    } `additionalKeysP`
+  myKeys
 
 modm = mod4Mask
 
 myStartHooks = spawn "$HOME/.xmonad/scripts/autostart.sh"
 
+myHooks =
+  composeAll
+    [ propertyToQuery (Role "GtkFileChooserDialog") -->
+      doRectFloat (RationalRect (1 % 4) (1 % 4) (1 % 2) (1 % 2)) -- for navigator file browser dialog
+    ]
 
-myHooks = composeAll
-  [propertyToQuery (Role "GtkFileChooserDialog") --> doRectFloat(RationalRect (1 % 4) (1 % 4) (1 % 2) (1 % 2)) -- for navigator file browser dialog
-  ]
+xmobarTemplate =
+  "'%StdinReader%}{<fc=" ++
+  color3 ++
+  ">%cpu%</fc><fc=" ++
+  color4 ++
+  ">%memory%</fc><fc=" ++
+  color5 ++
+  ">%disku%</fc><fc=" ++
+  color6 ++ ">%wlp2s0%</fc><fc=" ++ color7 ++ ">%date%</fc>'"
 
-xmobarTemplate = "'%StdinReader%}{<fc="
-                  ++ color3
-                  ++ ">%cpu%</fc><fc="
-                  ++ color4
-                  ++ ">%memory%</fc><fc="
-                  ++ color5
-                  ++ ">%disku%</fc><fc="
-                  ++ color6
-                  ++ ">%wlp2s0%</fc><fc="
-                  ++ color7
-                  ++ ">%date%</fc>'"
-
-xmobarTemplateTwo = "'<fc="
-                  ++ color7
-                  ++ ">%track% (%album%), by %artist%</fc>'"
+xmobarTemplateTwo = "'<fc=" ++ color7 ++ ">%track% (%album%), by %artist%</fc>'"
 
 -- I need to do this to get my keyboard to respond properly as it's a french azerty
 -- customised through QMK (I use an ergodox).
 -- If you encounter issues with moving windows or switching between workspaces
 -- just comment all this and try going from there.
-myAzertyKeys = [0x26,0xe9,0x22,0x27,0x28,0x2d,0xe8,0x5f,0xe7,0xe0]
-baseKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
-          [((m .|. modm, k), windows $ f i)
-            | (i, k) <- zip (XMonad.workspaces myConfig) (Prelude.take 5 myAzertyKeys),
-            (f, m) <- [(W.shift, 0), (W.greedyView, shiftMask)]]
+myAzertyKeys = [0x26, 0xe9, 0x22, 0x27, 0x28, 0x2d, 0xe8, 0x5f, 0xe7, 0xe0]
 
-myKeys = [ ("M-x", spawnHere "rofi -combi-modi drun,run -show combi -modi combi -show-icons")
-         , ("M-<Return>", spawnHere "alacritty")
-         , ("M-<Space>", windows W.swapMaster)
-         , ("M-S-r", spawn "killall xmobar; xmonad --recompile; xmonad --restart")
-         , ("M-S-s", sendMessage NextLayout)
-         , ("M-f", sendMessage $ Toggle FULL)
-         , ("M-z", withFocused $ windows . W.sink)
-         , ("<XF86AudioPlay>", spawn "playerctl play-pause")
-         , ("<XF86AudioNext>", spawn "playerctl next")
-         , ("<XF86AudioPrev>", spawn "playerctl previous")
-         , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
-         , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
-         ]
-          ++
-          [ (mask ++ "M-" ++ [key], screenWorkspace scr >>= flip whenJust (windows . action))
-             | (key, scr)  <- zip "te" [0..] -- change to match your screen order
-              , (action, mask) <- [ (W.view, "") , (W.shift, "S-")]
-          ]
+baseKeys conf@(XConfig {XMonad.modMask = modm}) =
+  M.fromList $
+  [ ((m .|. modm, k), windows $ f i)
+  | (i, k) <- zip (XMonad.workspaces myConfig) (Prelude.take 5 myAzertyKeys)
+  , (f, m) <- [(W.shift, 0), (W.greedyView, shiftMask)]
+  ]
 
-myWorkspaces = [ "1"
-               , "2"
-               , "3"
-               , "4"
-               , "5"
-               ]
+myKeys =
+  [ ( "M-x"
+    , spawnHere "rofi -combi-modi drun,run -show combi -modi combi -show-icons")
+  , ("M-<Return>", spawnHere "alacritty")
+  , ("M-<Space>", windows W.swapMaster)
+  , ("M-S-r", spawn "killall xmobar; xmonad --recompile; xmonad --restart")
+  , ("M-S-s", sendMessage NextLayout)
+  , ("M-f", sendMessage $ Toggle FULL)
+  , ("M-z", withFocused $ windows . W.sink)
+  , ("<XF86AudioPlay>", spawn "playerctl play-pause")
+  , ("<XF86AudioNext>", spawn "playerctl next")
+  , ("<XF86AudioPrev>", spawn "playerctl previous")
+  , ("<XF86AudioRaiseVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ +2%")
+  , ("<XF86AudioLowerVolume>", spawn "pactl set-sink-volume @DEFAULT_SINK@ -2%")
+  ] ++
+  [ ( mask ++ "M-" ++ [key]
+    , screenWorkspace scr >>= flip whenJust (windows . action))
+  | (key, scr) <- zip "te" [0 ..] -- change to match your screen order
+  , (action, mask) <- [(W.view, ""), (W.shift, "S-")]
+  ]
+
+myWorkspaces = ["1", "2", "3", "4", "5"]
 
 -- myBarOne = "xmobar -x 0 --bgcolor=" ++ background ++ " --template=" ++ xmobarTemplate
 myBarOne = "/home/alexis/.xmonad/scripts/xmobarOne.php"
+
 --myBarTwo = "xmobar -x 1 --bgcolor=" ++ background ++ " --template=" ++ xmobarTemplateTwo ++ " /home/alexis/.config/xmobar/xmobarrc2"
 myBarTwo = "/home/alexis/.xmonad/scripts/xmobarTwo.php"
 
-myPP = xmobarPP { ppCurrent = xmobarColor background color1 . wrap " " " "
-                , ppVisible = xmobarColor background color2 . wrap " " " "
-                , ppHidden = xmobarColor color2 background . wrap " " " "
-                , ppHiddenNoWindows = xmobarColor color2 background . wrap " " " "
-                , ppOrder = \(ws:l:t) -> [ws]
-                , ppWsSep = ""}
+myPP =
+  xmobarPP
+    { ppCurrent = xmobarColor background color1 . wrap " " " "
+    , ppVisible = xmobarColor background color2 . wrap " " " "
+    , ppHidden = xmobarColor color2 background . wrap " " " "
+    , ppHiddenNoWindows = xmobarColor color2 background . wrap " " " "
+    , ppOrder = \(ws:l:t) -> [ws]
+    , ppWsSep = ""
+    }
 
 -- reminder: Border top bottom right left
-myLayouts = spacingRaw True (Border 5 5 10 10 ) True (Border 5 5 10 10) True $
+myLayouts =
+  spacingRaw True (Border 5 5 10 10) True (Border 5 5 10 10) True $
   mkToggle (NOBORDERS ?? FULL ?? EOT) $
-    layoutTall |||
-    mirroredTall |||
---    simpleTabbed |||
-    mirroredThreeColumns
+  layoutTall ||| mirroredTall ||| mirroredThreeColumns
     --customLayout
-        where
-          layoutTall = Tall 1 (3/100) (3/4)
-          mirroredTall = Mirror layoutTall
-          threeColumns = ThreeColMid 1 (3/100) (2/3)
-          mirroredThreeColumns = Mirror threeColumns
-          --mainHeight = (8/12)
+  where
+    layoutTall = Tall 1 (3 / 100) (3 / 4)
+    mirroredTall = Mirror layoutTall
+    threeColumns = ThreeColMid 1 (3 / 100) (2 / 3)
+    mirroredThreeColumns = Mirror threeColumns --mainHeight = (8/12)
           --secWidth = (2/12)
           --terWidth = (8/12)
           --finalOffset = secWidth + terWidth * (1 - secWidth)
@@ -131,20 +132,14 @@ myLayouts = spacingRaw True (Border 5 5 10 10 ) True (Border 5 5 10 10) True $
           --cLayout2 = (layoutN 1 (relBox 0 mainHeight secWidth 1) (Just $ relBox 0 mainHeight 1 1) $ Tall 1 0.01 1)
           --cLayout3 = (layoutN 1 (relBox secWidth mainHeight terWidth 1) (Just $ relBox secWidth mainHeight 1 1) $ Tall 1 0.01 1)
           --cLayoutFinal = (layoutAll (relBox finalOffset mainHeight 1 1) $ Grid)
+
+--    simpleTabbed |||
 -- reminder: relBox x y width height
-
-
-
-
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 main = do
   xmproc <- spawnPipe myBarOne
   musicBar <- spawnPipe myBarTwo
-  xmonad $ docks myConfig
-    { logHook = dynamicLogWithPP myPP { ppOutput = hPutStrLn xmproc }
-    }
-
-
-
-
+  xmonad $
+    docks
+      myConfig {logHook = dynamicLogWithPP myPP {ppOutput = hPutStrLn xmproc}}
