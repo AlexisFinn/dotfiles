@@ -1,4 +1,5 @@
-return require('packer').startup(function(use)
+local packer = require 'packer'
+return packer.startup(function(use)
   -- packer can manage itself
   use 'wbthomason/packer.nvim'
   -- colorschemes, load them first for proper integration with other plugins
@@ -12,6 +13,7 @@ return require('packer').startup(function(use)
   use 'sainnhe/gruvbox-material'
   use 'sainnhe/sonokai'
   use 'romgrk/doom-one.vim'
+  use 'wadackel/vim-dogrun'
   -- some nice icons
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'

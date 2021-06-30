@@ -1,5 +1,6 @@
--- auto format on save ?
+-- auto format on save running whatever lsp is configured for current file
 vim.api.nvim_command('autocmd BufWritePost * silent! lua vim.lsp.buf.formatting()')
+
 -- auto show diagnostic messages in popup
 -- vim.api.nvim_command('autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()')
 -- define signs
@@ -9,6 +10,7 @@ vim.api.nvim_command('autocmd BufWritePost * silent! lua vim.lsp.buf.formatting(
 --vim.api.nvim_command('sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=')
 
 
+-- base handler configuration, to override default settings
 local handlerNoVirtualText = {
   ["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -20,6 +22,7 @@ local handlerNoVirtualText = {
   )
 }
 
+-- onAttach callback to disable formatting and setting keymaps
 local onAttachNoFormatting = (function(client)
   -- disable formating as that will be taken care of elsewhere
   client.resolved_capabilities.document_formatting = false
@@ -114,7 +117,7 @@ require('lspconfig').sumneko_lua.setup {
 -- haskell
 require('lspconfig').hls.setup{}
 
--- other linters
+-- efm is a general purpose lsp, I use it to centralise and cutomise the auto-formatting tools for each language
 require('lspconfig').efm.setup {
   filetypes = {"typescript", "vue", "scss", "css", "html", "yaml", "php", "javascript", "haskell"},
   init_options = {documentFormatting = true},

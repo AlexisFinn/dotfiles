@@ -1,13 +1,16 @@
 -- fuzzy find files in project
---vim.api.nvim_set_keymap('n', '<C-p>', ':Telescope find_files<CR>', {})
-vim.api.nvim_set_keymap('n', '<leader>f', ':Telescope find_files<CR>', { noremap = true})
+local keymap = vim.api.nvim_set_keymap
+local telescope = require 'telescope'
+
+--keymap('n', '<C-p>', ':Telescope find_files<CR>', {}) -- I prefer using fzf for ctrl+p functionality
+keymap('n', '<leader>f', ':Telescope find_files<CR>', { noremap = true}) -- same as ctrl+p function but using telescope
 -- live grep for string in project
-vim.api.nvim_set_keymap('n', '<leader>rg', ':Telescope live_grep<CR>', { noremap = true})
+keymap('n', '<leader>rg', ':Telescope live_grep<CR>', { noremap = true})
 -- search for string under cursor
-vim.api.nvim_set_keymap('n', '<leader>F', ':Telescope grep_string<CR>', { noremap = true})
+keymap('n', '<leader>F', ':Telescope grep_string<CR>', { noremap = true})
 
 -- default setup
-require('telescope').setup{
+telescope.setup{
   defaults = {
     vimgrep_arguments = {
       'rg',
@@ -45,7 +48,7 @@ require('telescope').setup{
     results_width = 0.8,
     border = {},
     borderchars = { '═', '│', '═', '│', '╒', '╕', '╛', '╘' },
-    --borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' },
+    --borderchars = { '─', '│', '─', '│', '╭', '╮', '╯', '╰' }, -- default
     color_devicons = true,
     use_less = true,
     set_env = { ['COLORTERM'] = 'truecolor' }, -- default = nil,
@@ -56,5 +59,5 @@ require('telescope').setup{
 }
 
 -- load in utilsnips to telescope
-require('telescope').load_extension('ultisnips')
+telescope.load_extension 'ultisnips'
 

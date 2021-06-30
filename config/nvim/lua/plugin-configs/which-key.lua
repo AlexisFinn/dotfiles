@@ -1,4 +1,4 @@
-require('which-key').setup{
+require 'which-key'.setup{
   window = {
     border = "single", -- none, single, double, shadow
     position = "bottom", -- bottom, top
