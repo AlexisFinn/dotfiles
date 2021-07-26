@@ -9,7 +9,9 @@ $template = "%StdinReader%}{"
     . "<fc={$walColors->colors->color4}>%memory%</fc>"
     . "<fc={$walColors->colors->color5}>%disku%</fc>"
     . "<fc={$walColors->colors->color6}>%wlp2s0%</fc>"
-    . "<fc={$walColors->colors->color7}>%date%</fc>";
+    . "<fc={$walColors->colors->color7}>%battery%</fc>"
+    . "<fc={$walColors->colors->color9}><fn=1>🙙 <box type=Bottom width=3>%volume%</box> 🙚</fn></fc>"
+    . "<fc={$walColors->colors->color10}>%date%</fc>";
 
 //xmobar -x 0 --bgcolor="$background" --template="$xmobarTemplate"
 exec("xmobar -x 0 --bgcolor='{$walColors->special->background}' --template='$template'");

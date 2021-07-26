@@ -123,7 +123,7 @@ myLayouts =
     layoutTall = Tall 1 (3 / 100) (3 / 4)
     mirroredTall = Mirror layoutTall
     threeColumns = ThreeColMid 1 (3 / 100) (2 / 3)
-    mirroredThreeColumns = Mirror threeColumns --mainHeight = (8/12)
+    mirroredThreeColumns = reflectVert $ Mirror threeColumns --mainHeight = (8/12)
           --secWidth = (2/12)
           --terWidth = (8/12)
           --finalOffset = secWidth + terWidth * (1 - secWidth)
@@ -139,7 +139,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 main = do
   xmproc <- spawnPipe myBarOne
-  musicBar <- spawnPipe myBarTwo
+  -- musicBar <- spawnPipe myBarTwo
   xmonad $
     docks
       myConfig {logHook = dynamicLogWithPP myPP {ppOutput = hPutStrLn xmproc}}
