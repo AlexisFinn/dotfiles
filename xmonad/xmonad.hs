@@ -139,7 +139,7 @@ toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 main = do
   xmproc <- spawnPipe myBarOne
-  -- musicBar <- spawnPipe myBarTwo
+  musicBar <- spawnPipe myBarTwo
   xmonad $
     docks
       myConfig {logHook = dynamicLogWithPP myPP {ppOutput = hPutStrLn xmproc}}

@@ -59,7 +59,8 @@ return packer.startup(function(use)
   -- status line in lua
   use 'hoob3rt/lualine.nvim'
   -- tab line
-  use 'romgrk/barbar.nvim'
+  --use 'romgrk/barbar.nvim'
+  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   -- php-cs-fixer
   use 'aeke/vim-php-cs-fixer'
   -- emmet

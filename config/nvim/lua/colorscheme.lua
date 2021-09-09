@@ -27,8 +27,8 @@ vim.g.gruvbox_material_sign_column_background = 'none'
 ---- uncomment one ----
 
 --vim.cmd 'color material'
-vim.cmd 'color dogrun'
---vim.cmd 'color gruvbox-material'
+--vim.cmd 'color dogrun'
+vim.cmd 'color gruvbox-material'
 --vim.cmd 'color doom-one'
 --vim.cmd 'color dracula'
 --vim.cmd 'color xshado'

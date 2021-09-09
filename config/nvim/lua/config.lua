@@ -26,13 +26,14 @@ vim.o.hlsearch = true -- highlight all search results after search
 vim.o.ignorecase = true -- by default ignore case when searching
 vim.o.smartcase = true -- if search contains an uppercase do a case-sensitive search
 vim.o.expandtab = true -- expand tab to spaces
-vim.o.guifont = 'Hack Nerd Font Mono' -- not using gui but some plugins might need this
+vim.o.guifont = 'Hack Nerd Font Mono:h12' -- not using gui but some plugins might need this
 --vim.o.list = true -- display whitespaces as characters when editing
 vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→",eol = "↲", nbsp = "␣" }
 vim.o.hidden = true -- hide inactive buffers instead of unloading them, without this you will need to save your changes before changing buffers
 vim.o.swapfile = false -- disable creating swap files
 vim.o.splitbelow = true -- create a split below
 vim.o.relativenumber = true -- show line numbers relative to cursor position
+vim.o.number = true -- show non-relative line number at cursor position
 vim.o.clipboard = vim.o.clipboard .. 'unnamedplus' -- use system clipboard by default
 vim.o.backspace = 'indent,eol,start'
 vim.o.foldcolumn = '1' -- gutter left padding

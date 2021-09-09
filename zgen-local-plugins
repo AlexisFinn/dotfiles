@@ -82,7 +82,7 @@ zgen load sharat87/pip-app
 zgen load chrissicool/zsh-256color
 
 # Load more completion files for zsh from the zsh-lovers github repo
-zgen load zsh-users/zsh-completions src
+#zgen load zsh-users/zsh-completions src
 
 # Docker completion
 zgen load srijanshetty/docker-zsh

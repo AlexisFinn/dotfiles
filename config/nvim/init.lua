@@ -19,7 +19,8 @@ require 'plugin-configs/php-cs-fixer' -- auto-fix php files on save
 require 'plugin-configs/indent-guides' -- add lines to make indentation easier to follow
 require 'plugin-configs/fzf' -- ctrl+p will launch the fzf fuzzy finder
 require 'plugin-configs/lualine' -- status line configuration
-require 'plugin-configs/barbar' -- buffer line (tabs)
+--require 'plugin-configs/barbar' -- buffer line (tabs)
+require 'plugin-configs/bufferline' -- buffer line (tabs)
 require 'plugin-configs/emmet' -- make writting html easier
 require 'plugin-configs/colorizer' -- highlight colors in code
 require 'plugin-configs/telescope' -- awesome fuzzy finder, but slower than fzf

@@ -36,11 +36,13 @@ end)
 
 -- html
 local capabilities = vim.lsp.protocol.make_client_capabilities()
+
 capabilities.textDocument.completion.completionItem.snippetSupport = true
+
 require('lspconfig').html.setup{
   cmd = {"html-languageserver", "--stdio"},
   on_attach = onAttachNoFormatting,
-  capabilities = capabilities, -- does not provide completion if there are no snippets
+--  capabilities = capabilities, -- does not provide completion if there are no snippets
   filetype = {"html"},
 }
 
