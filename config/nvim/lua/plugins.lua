@@ -22,7 +22,7 @@ return packer.startup(function(use)
   -- snippets
   use 'SirVer/ultisnips'
   use 'fhill2/telescope-ultisnips.nvim' -- integrate utilsnips with telescope
-  use 'honza/vim-snippets'
+  --use 'honza/vim-snippets'
   -- better diagnostics
   use 'folke/trouble.nvim'
   -- auto change matching html tags
@@ -53,7 +53,8 @@ return packer.startup(function(use)
     }
   }
   -- ripgrep for fastest ever grep directly in vim
-  use 'jremmen/vim-ripgrep'
+  --use 'jremmen/vim-ripgrep'
+  use {'tacahiroy/vim-ripgrep', branch = 'fix-e1208'}
   -- markdown preview
   use 'npxbr/glow.nvim'
   -- status line in lua
@@ -66,7 +67,7 @@ return packer.startup(function(use)
   -- emmet
   use 'mattn/emmet-vim'
   -- twig
-  use 'qbbr/vim-twig'
+  use 'nelsyeung/twig.vim'
   -- haskell
   use 'neovimhaskell/haskell-vim'
   -- Show trailing whitespaces in red
@@ -88,7 +89,7 @@ return packer.startup(function(use)
   -- show some animation on cursor jumping to ease following the cursor
   use 'edluffy/specs.nvim'
   -- discord rich presence
-  use 'andweeb/presence.nvim'
+  --use 'andweeb/presence.nvim'
   -- shortcuts helper including registers, marks, keymaps, folds...
   use 'folke/which-key.nvim'
   -- highlight matching words

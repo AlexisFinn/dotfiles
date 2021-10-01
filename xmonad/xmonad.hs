@@ -83,6 +83,7 @@ myKeys =
   , ("M-S-s", sendMessage NextLayout)
   , ("M-f", sendMessage $ Toggle FULL)
   , ("M-z", withFocused $ windows . W.sink)
+  , ("M-<F12>", spawn "lock")
   , ("<XF86AudioPlay>", spawn "playerctl play-pause")
   , ("<XF86AudioNext>", spawn "playerctl next")
   , ("<XF86AudioPrev>", spawn "playerctl previous")
