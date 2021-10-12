@@ -2,7 +2,6 @@ import Colors
 import Data.Map as M
 import Data.Ratio
 
---import           Graphics.X11
 import XMonad
 import XMonad.Actions.SpawnOn
 import XMonad.Config.Azerty
@@ -32,7 +31,7 @@ myConfig =
     , normalBorderColor = background
     , focusedBorderColor = color6
     , XMonad.workspaces = myWorkspaces
-    , layoutHook = avoidStruts $ myLayouts
+    , layoutHook = myLayouts
     , manageHook = myHooks
     , startupHook = myStartHooks
     , XMonad.keys = \c -> baseKeys c `M.union` XMonad.keys defaultConfig c
@@ -98,10 +97,11 @@ myKeys =
 
 myWorkspaces = ["1", "2", "3", "4", "5"]
 
--- myBarOne = "xmobar -x 0 --bgcolor=" ++ background ++ " --template=" ++ xmobarTemplate
+-- configure my xmobar panel through php script
+-- mainly because I know how to program in php so I can easily
+-- achieve the desired result
 myBarOne = "/home/alexis/.xmonad/scripts/xmobarOne.php"
 
---myBarTwo = "xmobar -x 1 --bgcolor=" ++ background ++ " --template=" ++ xmobarTemplateTwo ++ " /home/alexis/.config/xmobar/xmobarrc2"
 myBarTwo = "/home/alexis/.xmonad/scripts/xmobarTwo.php"
 
 myPP =
@@ -116,7 +116,8 @@ myPP =
 
 -- reminder: Border top bottom right left
 myLayouts =
-  spacingRaw True (Border 5 5 10 10) True (Border 5 5 10 10) True $
+  avoidStruts $ -- leave some space for the panel
+  spacingRaw True (Border 5 5 10 10) True (Border 5 5 10 10) True $ -- space the windows for effect
   mkToggle (NOBORDERS ?? FULL ?? EOT) $
   layoutTall ||| mirroredTall ||| mirroredThreeColumns
     --customLayout
@@ -124,18 +125,8 @@ myLayouts =
     layoutTall = Tall 1 (3 / 100) (3 / 4)
     mirroredTall = Mirror layoutTall
     threeColumns = ThreeColMid 1 (3 / 100) (2 / 3)
-    mirroredThreeColumns = reflectVert $ Mirror threeColumns --mainHeight = (8/12)
-          --secWidth = (2/12)
-          --terWidth = (8/12)
-          --finalOffset = secWidth + terWidth * (1 - secWidth)
-          --customLayout = reflectVert ( cLayout1 $ cLayout2 $ cLayout3 $ cLayoutFinal )
-          --cLayout1 = (layoutN 1 (relBox 0 0 1 mainHeight) (Just $ relBox 0 0 1 1) $ Tall 1 0.01 1)
-          --cLayout2 = (layoutN 1 (relBox 0 mainHeight secWidth 1) (Just $ relBox 0 mainHeight 1 1) $ Tall 1 0.01 1)
-          --cLayout3 = (layoutN 1 (relBox secWidth mainHeight terWidth 1) (Just $ relBox secWidth mainHeight 1 1) $ Tall 1 0.01 1)
-          --cLayoutFinal = (layoutAll (relBox finalOffset mainHeight 1 1) $ Grid)
+    mirroredThreeColumns = reflectVert $ Mirror threeColumns
 
---    simpleTabbed |||
--- reminder: relBox x y width height
 toggleStrutsKey XConfig {XMonad.modMask = modMask} = (modMask, xK_b)
 
 main = do

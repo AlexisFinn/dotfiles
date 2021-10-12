@@ -61,4 +61,4 @@ source /home/alexis/.config/broot/launcher/bash/br
 
 eval "$(starship init zsh)"
 
-colorscript -e mouseface 
+fortune -s | lolcat 

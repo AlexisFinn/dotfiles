@@ -55,6 +55,12 @@ require('lspconfig').intelephense.setup{
   on_attach = onAttachNoFormatting,
 }
 
+-- python
+require('lspconfig').pylsp.setup{
+  handlers = handlerNoVirtualText,
+  on_attach = onAttachNoFormatting,
+}
+
 -- vue
 require('lspconfig').vuels.setup{
   handlers = handlerNoVirtualText,
@@ -121,7 +127,7 @@ require('lspconfig').hls.setup{}
 
 -- efm is a general purpose lsp, I use it to centralise and cutomise the auto-formatting tools for each language
 require('lspconfig').efm.setup {
-  filetypes = {"typescript", "vue", "scss", "css", "html", "yaml", "php", "javascript", "haskell"},
+  filetypes = {"typescript", "vue", "scss", "css", "html", "yaml", "php", "javascript", "haskell", "python"},
   init_options = {documentFormatting = true},
   settings = {
     rootMarkers = {".git/"},
@@ -149,6 +155,9 @@ require('lspconfig').efm.setup {
       },
       haskell = {
         {formatCommand = "hindent", formatStdin = true}
+      },
+      python = {
+        {formatCommand="autopep8 --ignore E501 -", formatStdin = true} -- E501 = line over 80 chars
       }
     }
   }

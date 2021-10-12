@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/mononoke.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1a181a",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#1a181a",
+        "color1": "#3a3f77",
+        "color2": "#793343",
+        "color3": "#3b4eaf",
+        "color4": "#774673",
+        "color5": "#3d68b7",
+        "color6": "#c34f4a",
+        "color7": "#c5c5c5",
+        "color8": "#535153",
+        "color9": "#3a3f77",
+        "color10": "#793343",
+        "color11": "#3b4eaf",
+        "color12": "#774673",
+        "color13": "#3d68b7",
+        "color14": "#c34f4a",
+        "color15": "#c5c5c5"
+    }
+}

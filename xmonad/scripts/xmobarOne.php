@@ -13,5 +13,4 @@ $template = "%StdinReader%}{"
     . "<fc={$walColors->colors->color9}><fn=1>🙙 <box type=Bottom width=3>%volume%</box> 🙚</fn></fc>"
     . "<fc={$walColors->colors->color10}>%date%</fc>";
 
-//xmobar -x 0 --bgcolor="$background" --template="$xmobarTemplate"
 exec("xmobar -x 0 --bgcolor='{$walColors->special->background}' --template='$template'");

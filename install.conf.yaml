@@ -99,6 +99,21 @@
           create: true
           force: false
           relink: true
+      ~/.config/qtile/config.py:
+          path: config/qtile/config.py
+          create: true
+          force: false
+          relink: true
+      ~/.config/qtile/autostart.sh:
+          path: config/qtile/autostart.sh
+          create: true
+          force: false
+          relink: true
+      ~/.config/qtile/PyColors.py:
+          path: config/qtile/PyColors.py
+          create: true
+          force: false
+          relink: true
       ~/.gitconfig:
           path: gitconfig
           create: true
@@ -116,6 +131,7 @@
 # TO INSTALL
 # xmonad
 # xmobar
+# qtile
 # pywal
 # zsh
 # git
