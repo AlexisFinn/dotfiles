@@ -59,7 +59,7 @@ bar_padding = 4
 bar_size = 26
 
 # app launchers
-laucher = "rofi -combi-modi drun,run -show combi -modi combi -show-icons"
+laucher = "rofi -combi-modi drun,run -show combi -modi combi -show-icons -normal-window"
 alt_launcher = "dmenu_run"
 
 # layout settings
@@ -360,6 +360,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
+    Match(wm_class='rofi'),  # rofi launcher
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"
