@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/Images/Top/obito.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#181817",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#181817",
+        "color1": "#634333",
+        "color2": "#47611d",
+        "color3": "#726541",
+        "color4": "#867366",
+        "color5": "#bd9578",
+        "color6": "#e1bc90",
+        "color7": "#c5c5c5",
+        "color8": "#515151",
+        "color9": "#634333",
+        "color10": "#47611d",
+        "color11": "#726541",
+        "color12": "#867366",
+        "color13": "#bd9578",
+        "color14": "#e1bc90",
+        "color15": "#c5c5c5"
+    }
+}

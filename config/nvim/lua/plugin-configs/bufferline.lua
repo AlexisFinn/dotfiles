@@ -1,4 +1,10 @@
-require("bufferline").setup{}
+require("bufferline").setup{
+  options = {
+    diagnostics = "nvim_lsp",
+    separator_style = "slant",
+    always_show_bufferline = false
+  }
+}
 
 local keymap = vim.api.nvim_set_keymap
 

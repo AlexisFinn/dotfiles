@@ -27,6 +27,6 @@ if [ -d "$HOME/.local/bin" ] ; then
 fi
 
 #export $GOPATH="$HOME/go"
-export PATH="$HOME/.cargo/bin:$HOME/.cabal/bin:$PATH:/usr/local/go/bin:$HOME/go/bin"
+export PATH="$HOME/.cargo/bin:$HOME/.cabal/bin:$PATH:/usr/local/go/bin:$HOME/go/bin:$HOME/vendor/bin"
 source "$HOME/.cargo/env"
 if [ -e /home/alexis/.nix-profile/etc/profile.d/nix.sh ]; then . /home/alexis/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer

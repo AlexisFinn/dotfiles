@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/Images/Top/abstract-dark-waves.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#17181a",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#17181a",
+        "color1": "#2c4063",
+        "color2": "#553b48",
+        "color3": "#385b81",
+        "color4": "#516483",
+        "color5": "#3d79a0",
+        "color6": "#587f9f",
+        "color7": "#c5c5c5",
+        "color8": "#515153",
+        "color9": "#2c4063",
+        "color10": "#553b48",
+        "color11": "#385b81",
+        "color12": "#516483",
+        "color13": "#3d79a0",
+        "color14": "#587f9f",
+        "color15": "#c5c5c5"
+    }
+}

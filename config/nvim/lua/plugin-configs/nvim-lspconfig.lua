@@ -4,10 +4,10 @@ vim.api.nvim_command('autocmd BufWritePost * silent! lua vim.lsp.buf.formatting(
 -- auto show diagnostic messages in popup
 -- vim.api.nvim_command('autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()')
 -- define signs
---vim.api.nvim_command('sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=')
---vim.api.nvim_command('sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=')
---vim.api.nvim_command('sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=')
---vim.api.nvim_command('sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=')
+vim.api.nvim_command('sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=')
+vim.api.nvim_command('sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=')
+vim.api.nvim_command('sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=')
+vim.api.nvim_command('sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=')
 
 
 -- base handler configuration, to override default settings
@@ -24,6 +24,8 @@ local handlerNoVirtualText = {
 
 -- onAttach callback to disable formatting and setting keymaps
 local onAttachNoFormatting = (function(client)
+  -- add nvim-cmp (autocomplete) to lsp capabilities
+  client.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- disable formating as that will be taken care of elsewhere
   client.resolved_capabilities.document_formatting = false
   -- show doc with 'K'
@@ -54,6 +56,17 @@ require('lspconfig').intelephense.setup{
   handlers = handlerNoVirtualText,
   on_attach = onAttachNoFormatting,
 }
+
+require('lspconfig').psalm.setup{
+  handlers = handlerNoVirtualText,
+  on_attach = onAttachNoFormatting,
+}
+
+-- require('lspconfig').phan.setup{
+  -- handlers = handlerNoVirtualText,
+  -- on_attach = onAttachNoFormatting,
+-- }
+
 
 -- python
 require('lspconfig').pylsp.setup{
@@ -95,11 +108,10 @@ require('lspconfig').stylelint_lsp.setup{
 
 -- lua
 local sumneko_root_path = '/home/alexis/Applications/lua-language-server'
-local sumneko_binary = sumneko_root_path..'/bin/Linux/lua-language-server'
 require('lspconfig').sumneko_lua.setup {
   handlers = handlerNoVirtualText,
   filetypes = {"lua"},
-  cmd = {sumneko_binary, "-E", sumneko_root_path..'/main.lua'},
+  cmd = {"lua-language-server", "-E", sumneko_root_path..'/main.lua'},
   settings = {
     Lua = {
       runtime = {
@@ -110,10 +122,11 @@ require('lspconfig').sumneko_lua.setup {
         globals = {'vim'},
       },
       workspace = {
-        library = {
-          [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-          [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        }
+        library = vim.api.nvim_get_runtime_file("", true),
+        -- library = {
+          -- [vim.fn.expand('$VIMRUNTIME/lua')] = true,
+          -- [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
+        -- }
       },
       telementry = {
         enable = false,
@@ -127,11 +140,25 @@ require('lspconfig').hls.setup{}
 
 -- efm is a general purpose lsp, I use it to centralise and cutomise the auto-formatting tools for each language
 require('lspconfig').efm.setup {
-  filetypes = {"typescript", "vue", "scss", "css", "html", "yaml", "php", "javascript", "haskell", "python"},
-  init_options = {documentFormatting = true},
+  filetypes = {
+    "typescript",
+    "vue",
+    "scss",
+    "css",
+    "html",
+    "yaml",
+--  "php",
+    "javascript",
+    "haskell",
+    "python"
+  },
+  init_options = {documentFormatting = true, documentSymbol = true, completion = false, codeAction = false},
   settings = {
     rootMarkers = {".git/"},
     languages = {
+      -- php = {
+        -- {lintCommand = 'phpstan analyse --error-format raw --no-progress'},
+      -- },
       typescript = {
         {formatCommand = "prettier --parser typescript", formatStdin = true}
       },

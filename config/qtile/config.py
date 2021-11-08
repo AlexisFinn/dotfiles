@@ -42,9 +42,10 @@ def autostart():
 
 class myGroup:
     # create a class to contain group name and keycode independently
-    def __init__(self, name, key):
+    def __init__(self, name, key, layout=None):
         self.name = name
         self.key = key
+        self.default_layout = layout
 
 
 # modifier key (mod4 = super)
@@ -77,11 +78,11 @@ inactive_color_alt = PyColors.color8
 # configure groups (workspaces)
 # list of myGroup, first argument is group name second is keycode
 myGroups = [
-    myGroup("chat", "ampersand"),
-    myGroup("dev", "eacute"),
-    myGroup("www", "quotedbl"),
-    myGroup("db", "apostrophe"),
-    myGroup("other", "parenleft")
+    myGroup("chat", "ampersand", "monadwide"),
+    myGroup("dev", "eacute", "monadwide"),
+    myGroup("www", "quotedbl", "monadtall"),
+    myGroup("db", "apostrophe", "max"),
+    myGroup("other", "parenleft", "max")
 ]
 
 # modifiers that combined with previously configured keycodes per group
@@ -133,6 +134,9 @@ keys = [
     # kill focused window
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
 
+    # toggle floating
+    Key([mod], "z", lazy.window.toggle_floating(), desc="Toggle floating for currently selected window"),
+
     # switch layouts
     Key([mod, "shift"], "s", lazy.next_layout(), desc="Toggle between layouts"),
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
@@ -152,14 +156,23 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn(
         "pactl set-sink-volume @DEFAULT_SINK@ +2%")),
     Key([], "XF86AudioLowerVolume", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ -2%"))
+        "pactl set-sink-volume @DEFAULT_SINK@ -2%")),
+
+    # stuff
+    Key([mod], "F12", lazy.spawn("lock"))
 ]
 
 # define groups
-groups = [Group(i.name) for i in myGroups]
+# groups = [Group(i.name) for i in myGroups]
+groups = []
 
 # define keyboard shortcuts for group switching and moving focused window
 for i in myGroups:
+    if i.default_layout:
+        groups.append(Group(name=i.name, layout=i.default_layout))
+    else:
+        groups.append(Group(i.name))
+
     keys.extend([
         # switch to group
         Key(focusGroup, i.key, lazy.group[i.name].toscreen(toggle=False),
@@ -233,6 +246,7 @@ for name, color in powerlineWidgets.items():
                 **separator
             ),
         )
+
     if name == 'memory':
         powerlineBar.append(
             widget.Memory(
@@ -276,6 +290,7 @@ for name, color in powerlineWidgets.items():
         )
 
     previousColor = color
+
 
 powerlineBar.append(
     widget.TextBox(
@@ -360,7 +375,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
     Match(title='pinentry'),  # GPG key password entry
-    Match(wm_class='rofi'),  # rofi launcher
+    # Match(wm_class='rofi'),  # rofi launcher
 ])
 auto_fullscreen = True
 focus_on_window_activation = "smart"

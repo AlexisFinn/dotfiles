@@ -33,7 +33,9 @@ return packer.startup(function(use)
     requires = {'RishabhRD/popfix'}
   }
   -- autocomplete
-  use 'hrsh7th/nvim-compe'
+  use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-buffer'
+  use 'hrsh7th/nvim-cmp'
   -- indent guides
   use 'glepnir/indent-guides.nvim'
   -- rainbow parentheses
@@ -60,7 +62,6 @@ return packer.startup(function(use)
   -- status line in lua
   use 'hoob3rt/lualine.nvim'
   -- tab line
-  --use 'romgrk/barbar.nvim'
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   -- php-cs-fixer
   use 'aeke/vim-php-cs-fixer'
@@ -72,8 +73,15 @@ return packer.startup(function(use)
   use 'neovimhaskell/haskell-vim'
   -- Show trailing whitespaces in red
   use 'ntpeters/vim-better-whitespace'
-  -- vifm integration into vim
+  -- file manager
   use 'vifm/vifm.vim'
+  -- use {
+    -- 'kyazdani42/nvim-tree.lua',
+    -- requires = {
+      -- 'kyazdani42/nvim-web-devicons',
+    -- }
+  -- }
+  --use 'TimUntersberger/neofs'
   -- best git commands integration for vim
   use 'tpope/vim-fugitive'
   -- git diff indications in gutter column

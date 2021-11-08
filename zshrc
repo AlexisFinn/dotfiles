@@ -61,4 +61,6 @@ source /home/alexis/.config/broot/launcher/bash/br
 
 eval "$(starship init zsh)"
 
-fortune -s | lolcat 
+#fortune -s | lolcat 
+
+alias luamake=/home/alexis/Applications/lua-language-server/3rd/luamake/luamake

@@ -31,14 +31,7 @@ require('lualine').setup({
     lualine_y = {},
     lualine_z = {}
   },
-  tabline = {
-    lualine_a = {diagnosticMessage},
-    lualine_b = {},
-    lualine_c = {'filename'},
-    lualine_x = {'location'},
-    lualine_y = {},
-    lualine_z = {}
-  },
-  extensions = {}
+  tabline = {},
+  extensions = {'fugitive'}
 })
 

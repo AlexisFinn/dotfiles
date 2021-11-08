@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/Images/Top/totoro.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#181819",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#181819",
+        "color1": "#363b51",
+        "color2": "#723836",
+        "color3": "#6f4651",
+        "color4": "#8b625d",
+        "color5": "#cb7e61",
+        "color6": "#e9b97b",
+        "color7": "#c5c5c5",
+        "color8": "#515152",
+        "color9": "#363b51",
+        "color10": "#723836",
+        "color11": "#6f4651",
+        "color12": "#8b625d",
+        "color13": "#cb7e61",
+        "color14": "#e9b97b",
+        "color15": "#c5c5c5"
+    }
+}
