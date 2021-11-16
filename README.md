@@ -3,7 +3,7 @@ backing up my config files using https://dotfiles.github.io/
 ## Neovim:
 `:checkhealth` to see what language servers and parsers are correctly installed and configured
 ### Dependencies
-- NeoVim 0.5 https://github.com/neovim/neovim/releases
+- NeoVim 0.5+ https://github.com/neovim/neovim/releases
 - fzf https://github.com/junegunn/fzf
 - ripgrep https://github.com/BurntSushi/ripgrep
 #### language configs
@@ -26,6 +26,13 @@ backing up my config files using https://dotfiles.github.io/
 ### Dependencies
 - Xmobar (status bar) https://hackage.haskell.org/package/xmobar
 - PHP (status bar scripts)
+- pulseaudio-utils (for volume control)
+- NerdFonts https://www.nerdfonts.com/
+- rofi (launcher) https://github.com/davatorium/rofi
+- alacritty (terminal) https://github.com/alacritty/alacritty
+- playerctl (player control) https://github.com/altdesktop/playerctl
+## QTile (tiling window manager) https://qtile.org/
+### Dependencies
 - pulseaudio-utils (for volume control)
 - NerdFonts https://www.nerdfonts.com/
 - rofi (launcher) https://github.com/davatorium/rofi

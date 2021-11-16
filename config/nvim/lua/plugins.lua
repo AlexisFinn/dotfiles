@@ -36,6 +36,8 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
+  -- autocomplete tabnine (AI)
+  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
   -- indent guides
   use 'glepnir/indent-guides.nvim'
   -- rainbow parentheses
@@ -75,13 +77,8 @@ return packer.startup(function(use)
   use 'ntpeters/vim-better-whitespace'
   -- file manager
   use 'vifm/vifm.vim'
-  -- use {
-    -- 'kyazdani42/nvim-tree.lua',
-    -- requires = {
-      -- 'kyazdani42/nvim-web-devicons',
-    -- }
-  -- }
-  --use 'TimUntersberger/neofs'
+  -- Run terminal commands in floating windows
+  --use 'voldikss/vim-floaterm'
   -- best git commands integration for vim
   use 'tpope/vim-fugitive'
   -- git diff indications in gutter column
