@@ -19,6 +19,8 @@ return packer.startup(function(use)
   use 'ryanoasis/vim-devicons'
   -- Language Server Protocol integration (this is so cool)
   use 'neovim/nvim-lspconfig'
+  -- auto-formatting
+  use 'lukas-reineke/format.nvim'
   -- snippets
   use 'SirVer/ultisnips'
   use 'fhill2/telescope-ultisnips.nvim' -- integrate utilsnips with telescope
@@ -37,7 +39,7 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
   -- autocomplete tabnine (AI)
-  use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+  -- use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
   -- indent guides
   use 'glepnir/indent-guides.nvim'
   -- rainbow parentheses
@@ -66,7 +68,7 @@ return packer.startup(function(use)
   -- tab line
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
   -- php-cs-fixer
-  use 'aeke/vim-php-cs-fixer'
+  -- use 'aeke/vim-php-cs-fixer'
   -- emmet
   use 'mattn/emmet-vim'
   -- twig

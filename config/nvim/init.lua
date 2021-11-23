@@ -14,9 +14,9 @@ require 'plugin-configs/nvim-lsputils' -- lsp helper
 require 'plugin-configs/nvim-lspconfig' -- configure language server protocols
 require 'plugin-configs/trouble' -- show linter errors
 require 'plugin-configs/nvim-cmp' -- autocomplete
-require 'plugin-configs/nvim-cmp-tabnine' -- Tabnine autocomplete (AI)
+-- require 'plugin-configs/nvim-cmp-tabnine' -- Tabnine autocomplete (AI)
 require 'plugin-configs/better-whitespace' -- highlight all trailing whitespaces, and trim them on save
-require 'plugin-configs/php-cs-fixer' -- auto-fix php files on save
+--require 'plugin-configs/php-cs-fixer' -- auto-fix php files on save
 require 'plugin-configs/indent-guides' -- add lines to make indentation easier to follow
 require 'plugin-configs/fzf' -- ctrl+p will launch the fzf fuzzy finder
 require 'plugin-configs/lualine' -- status line configuration
@@ -33,3 +33,4 @@ require 'plugin-configs/vim-illuminate' -- highlight all instances of the word u
 require 'plugin-configs/nerdcommenter' -- easily comment/uncomment lines of code
 require 'colorscheme-picker' -- pick among installed colorschemes with live preview
 require 'plugin-configs/treesitter' -- global syntax parser
+require 'plugin-configs/format' -- auto-formatting
