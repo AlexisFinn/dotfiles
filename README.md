@@ -2,6 +2,12 @@
 backing up my config files using https://dotfiles.github.io/
 ## Neovim:
 `:checkhealth` to see what language servers and parsers are correctly installed and configured
+
+some keybindings:
+- `ctrl + p` = fuzzy file finder (uses fzf)
+- `:Rg` = search for pattern in files (uses ripgrep)
+- `\c + Enter` = toggle selected/current line comments
+- in *Normal mode*, `s` to quickly search forward, `S` to quicly search backward
 ### Dependencies
 - NeoVim 0.5+ https://github.com/neovim/neovim/releases
 - fzf https://github.com/junegunn/fzf
@@ -32,6 +38,15 @@ backing up my config files using https://dotfiles.github.io/
 - alacritty (terminal) https://github.com/alacritty/alacritty
 - playerctl (player control) https://github.com/altdesktop/playerctl
 ## QTile (tiling window manager) https://qtile.org/
+some keybindings:
+- `Super + t` = focus primary display
+- `Super + e` = focus secondary display
+- `Super + 1 2 3 4 5` = move chosen workspace to currently focused display
+- `Super + Shift + 1 2 3 4 6` = move currently focused windot to chosen workspace (doesn't change current workspace)
+- `Super + j` | `Super + Tab` = focus next window mooving down the stack
+- `Super + k` = focus next window mooving up the stack
+- `Super + Space` = move currently focused window to main stack space
+- `Super + Enter` = open a terminal (uses alacritty)
 ### Dependencies
 - pulseaudio-utils (for volume control)
 - NerdFonts https://www.nerdfonts.com/
