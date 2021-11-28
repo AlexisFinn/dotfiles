@@ -14,6 +14,12 @@ return packer.startup(function(use)
   use 'sainnhe/sonokai'
   use 'romgrk/doom-one.vim'
   use 'wadackel/vim-dogrun'
+  use 'arcticicestudio/nord-vim'
+  use 'jnurmine/Zenburn'
+  use 'gosukiwi/vim-atom-dark'
+  use 'NLKNguyen/papercolor-theme'
+  use 'jacoborus/tender.vim'
+  use 'rakr/vim-one'
   -- some nice icons
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
@@ -24,7 +30,6 @@ return packer.startup(function(use)
   -- snippets
   use 'SirVer/ultisnips'
   use 'fhill2/telescope-ultisnips.nvim' -- integrate utilsnips with telescope
-  --use 'honza/vim-snippets'
   -- better diagnostics
   use 'folke/trouble.nvim'
   -- auto change matching html tags
@@ -38,16 +43,14 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
-  -- autocomplete tabnine (AI)
-  -- use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
   -- indent guides
-  use 'glepnir/indent-guides.nvim'
-  -- rainbow parentheses
-  use 'p00f/nvim-ts-rainbow'
+  use 'lukas-reineke/indent-blankline.nvim'
   -- Comment/uncomment multiple lines with <leader>c<space>
   use 'preservim/nerdcommenter'
+  -- determine comment syntax by the line, usefull for embedded syntax typically in javascript frameworks
+  use 'JoosepAlviste/nvim-ts-context-commentstring'
   -- fzf because it's the best fuzzy finder
-  -- I actually prefer using fzf directly than telescope
+  -- I actually prefer using fzf directly rather than telescope
   use 'vijaymarupudi/nvim-fzf' -- lua api
   use 'vijaymarupudi/nvim-fzf-commands' -- actual vim commands
   -- telescope, an awesome fuzzy-finder that leverages all the new nvim functions
@@ -67,8 +70,6 @@ return packer.startup(function(use)
   use 'hoob3rt/lualine.nvim'
   -- tab line
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-  -- php-cs-fixer
-  -- use 'aeke/vim-php-cs-fixer'
   -- emmet
   use 'mattn/emmet-vim'
   -- twig
@@ -89,10 +90,9 @@ return packer.startup(function(use)
   use 'editorconfig/editorconfig-vim'
   -- color highlighter
   use 'norcalli/nvim-colorizer.lua'
-  -- cursor highlighter
---  use 'yamatsum/nvim-cursorline'
   -- easyMotion clone for newer Nvim 0.5
-  use 'phaazon/hop.nvim'
+  --use 'phaazon/hop.nvim'
+  use 'ggandor/lightspeed.nvim'
   -- show some animation on cursor jumping to ease following the cursor
   use 'edluffy/specs.nvim'
   -- discord rich presence
@@ -105,4 +105,6 @@ return packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
   }
+  -- games
+  use 'ThePrimeagen/vim-be-good' -- type :VimBeGood
 end)

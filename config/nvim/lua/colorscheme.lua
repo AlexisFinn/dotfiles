@@ -23,17 +23,26 @@ vim.g.neon_bold = true
 -- gruvbox-material config --
 vim.g.gruvbox_material_enable_italic = 1
 vim.g.gruvbox_material_sign_column_background = 'none'
-
+-- sonokai config --
+vim.g.sonokai_style = 'espresso' -- 'default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'
+vim.g.sonokai_enable_italic = 1
+vim.g.sonokai_disable_italic_comment = 0
 ---- uncomment one ----
 
---vim.cmd 'color material'
---vim.cmd 'color dogrun'
-vim.cmd 'color gruvbox-material'
---vim.cmd 'color doom-one'
---vim.cmd 'color dracula'
---vim.cmd 'color xshado'
---vim.cmd 'color night-owl'
---vim.cmd 'color moonfly'
---vim.cmd 'color OceanicNext'
---vim.cmd 'color neon'
-
+-- vim.cmd 'color material'
+vim.cmd 'color dogrun'
+-- vim.cmd 'color gruvbox-material'
+-- vim.cmd 'color doom-one'
+-- vim.cmd 'color dracula'
+-- vim.cmd 'color xshado'
+-- vim.cmd 'color night-owl'
+-- vim.cmd 'color moonfly'
+-- vim.cmd 'color OceanicNext'
+-- vim.cmd 'color neon'
+-- vim.cmd 'color sonokai'
+-- vim.cmd 'color nord'
+-- vim.cmd 'color atom-dark'
+-- vim.cmd 'color zenburn'
+-- vim.cmd 'color PaperColor'
+-- vim.cmd 'color tender'
+-- vim.cmd 'color one'

@@ -4,6 +4,6 @@ require 'which-key'.setup{
     position = "bottom", -- bottom, top
   },
   layout = {
-    height = { min = 4, max = 50 }
+    height = { min = 4, max = 10 }
   }
 }
