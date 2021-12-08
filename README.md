@@ -28,7 +28,7 @@ some keybindings:
 - vifm https://vifm.info/ integrate vifm into vim
 - NerdFonts https://www.nerdfonts.com/ you should just always have nerdfonts installed
 - LazyGit https://github.com/jesseduffield/lazygit definitely one of the best terminal ui for git
-## Xmonad (tiling window manager) https://xmonad.org/
+## Xmonad (tiling window manager) https://xmonad.org/ *(No longer using this, see QTile below)*
 ### Dependencies
 - Xmobar (status bar) https://hackage.haskell.org/package/xmobar
 - PHP (status bar scripts)
