@@ -138,54 +138,16 @@ require('lspconfig').sumneko_lua.setup {
 -- haskell
 require('lspconfig').hls.setup{}
 
--- efm is a general purpose lsp, I use it to centralise and cutomise the auto-formatting tools for each language
--- require('lspconfig').efm.setup {
-  -- filetypes = {
-    -- "typescript",
-    -- "vue",
-    -- "scss",
-    -- "css",
-    -- "html",
-    -- "yaml",
--- --  "php",
--- --  "javascript",
-    -- "haskell",
-    -- "python"
-  -- },
-  -- init_options = {documentFormatting = true, documentSymbol = true, completion = false, codeAction = false},
-  -- settings = {
-    -- rootMarkers = {".git/"},
-    -- languages = {
-      -- -- php = {
-        -- -- {lintCommand = 'phpstan analyse --error-format raw --no-progress'},
-      -- -- },
-      -- typescript = {
-        -- {formatCommand = "prettier --parser typescript", formatStdin = true}
-      -- },
-      -- vue = {
-        -- {formatCommand = "prettier --parser vue", formatStdin = true}
-      -- },
-      -- scss = {
-        -- {formatCommand = "prettier --parser scss", formatStdin = true}
-      -- },
-      -- css = {
-        -- {formatCommand = "prettier --parser css", formatStdin = true}
-      -- },
-      -- html = {
-        -- {formatCommand = "prettier --parser html", formatStdin = true}
-      -- },
-      -- yaml = {
-        -- {formatCommand = "prettier --parser yaml", formatStdin = true}
-      -- },
-      -- javascript = {
-        -- {formatCommand = "prettier --parser typescript", formatStdin = true}
-      -- },
-      -- haskell = {
-        -- {formatCommand = "hindent", formatStdin = true}
-      -- },
-      -- python = {
-        -- {formatCommand="autopep8 --ignore E501 -", formatStdin = true} -- E501 = line over 80 chars
-      -- }
-    -- }
-  -- }
--- }
+-- C++
+require('lspconfig').ccls.setup {
+  init_options = {
+    compilationDatabaseDirectory = "build";
+    index = {
+      threads = 0;
+    };
+    clang = {
+      excludeArgs = {"-frounding-math"};
+    }
+  }
+}
+

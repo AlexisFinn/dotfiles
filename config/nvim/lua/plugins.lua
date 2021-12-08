@@ -62,8 +62,7 @@ return packer.startup(function(use)
     }
   }
   -- ripgrep for fastest ever grep directly in vim
-  --use 'jremmen/vim-ripgrep'
-  use {'tacahiroy/vim-ripgrep', branch = 'fix-e1208'}
+  use 'jremmen/vim-ripgrep'
   -- markdown preview
   use 'npxbr/glow.nvim'
   -- status line in lua

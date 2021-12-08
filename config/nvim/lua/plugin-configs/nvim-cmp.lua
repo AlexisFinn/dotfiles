@@ -18,8 +18,7 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'utilsnips' },
-    { name = 'buffer' },
-    { name = 'cmp_tabnine'}
+    { name = 'buffer' }
   },
   experimental = {
     ghost_text = true,
