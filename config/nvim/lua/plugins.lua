@@ -61,6 +61,8 @@ return packer.startup(function(use)
       {'nvim-lua/plenary.nvim'},
     }
   }
+  -- use fzf in telescope instead of builtin fuzzy finder (fzf is much faster)
+  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
   -- ripgrep for fastest ever grep directly in vim
   use 'jremmen/vim-ripgrep'
   -- markdown preview

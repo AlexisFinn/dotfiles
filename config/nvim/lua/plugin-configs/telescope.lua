@@ -17,10 +17,10 @@ telescope.setup{
     prompt_prefix = ' ',
     selection_caret = ' ',
     entry_prefix = '   ',
-    path_display = {"smart"},
-    dynamic_preview_title = true
+    path_display = {"tail"},
   }
 }
 
--- load in utilsnips to telescope
+-- load extensions into telescope
 -- telescope.load_extension 'ultisnips'
+telescope.load_extension 'fzf'
