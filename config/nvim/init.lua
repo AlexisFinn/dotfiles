@@ -19,6 +19,7 @@ require 'plugin-configs/indent-blankline' -- add line to make indentation easier
 require 'plugin-configs/fzf' -- ctrl+p will launch the fzf fuzzy finder
 require 'plugin-configs/lualine' -- status line configuration
 require 'plugin-configs/bufferline' -- buffer line (tabs)
+-- require 'plugin-configs/nvim-bufbar' -- alternative buffer line
 require 'plugin-configs/emmet' -- make writting html easier
 require 'plugin-configs/colorizer' -- highlight colors in code
 require 'plugin-configs/telescope' -- awesome fuzzy finder, but slower than fzf

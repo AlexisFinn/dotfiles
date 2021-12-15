@@ -14,3 +14,6 @@ keymap('n', '<C-J>', '<C-W><C-J>', {noremap = true})
 keymap('n', '<C-K>', '<C-W><C-K>', {noremap = true})
 keymap('n', '<C-L>', '<C-W><C-L>', {noremap = true})
 keymap('n', '<C-H>', '<C-W><C-H>', {noremap = true})
+
+-- ctrl + l to remove highlights (after search typically)
+keymap('n', '<C-l>', ':noh<CR>', {noremap = true})

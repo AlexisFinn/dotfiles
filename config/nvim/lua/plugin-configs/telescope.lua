@@ -12,7 +12,7 @@ keymap('n', '<leader>F', ':Telescope grep_string<CR>', { noremap = true})
 -- default setup, see :help telescope.setup
 telescope.setup{
   defaults = {
-    layout_strategy = 'vertical', -- see :help telescope.layout
+    -- layout_strategy = 'vertical', -- see :help telescope.layout
     winblend = 10,
     prompt_prefix = ' ',
     selection_caret = ' ',

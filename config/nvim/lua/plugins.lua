@@ -71,6 +71,8 @@ return packer.startup(function(use)
   use 'hoob3rt/lualine.nvim'
   -- tab line
   use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  -- light alternative
+  -- use 'ojroques/nvim-bufbar'
   -- emmet
   use 'mattn/emmet-vim'
   -- twig

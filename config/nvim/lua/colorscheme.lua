@@ -30,9 +30,9 @@ vim.g.sonokai_disable_italic_comment = 0
 ---- uncomment one ----
 
 -- vim.cmd 'color material'
-vim.cmd 'color dogrun'
+-- vim.cmd 'color dogrun'
 -- vim.cmd 'color gruvbox-material'
--- vim.cmd 'color doom-one'
+vim.cmd 'color doom-one'
 -- vim.cmd 'color dracula'
 -- vim.cmd 'color xshado'
 -- vim.cmd 'color night-owl'
