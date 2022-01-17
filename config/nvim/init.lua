@@ -9,11 +9,13 @@ require 'config'
 require 'keymap'
 ---- set colorscheme ----
 require 'colorscheme'
+require 'plugin-configs/catppuccin'
 ---- plugins configs ----
 require 'plugin-configs/nvim-lsputils' -- lsp helper
 require 'plugin-configs/nvim-lspconfig' -- configure language server protocols
 require 'plugin-configs/trouble' -- show linter errors
 require 'plugin-configs/nvim-cmp' -- autocomplete
+require 'plugin-configs/lsp-signature' -- function signature as you type
 require 'plugin-configs/better-whitespace' -- highlight all trailing whitespaces, and trim them on save
 require 'plugin-configs/indent-blankline' -- add line to make indentation easier to follow
 require 'plugin-configs/fzf' -- ctrl+p will launch the fzf fuzzy finder
@@ -32,3 +34,4 @@ require 'plugin-configs/nerdcommenter' -- easily comment/uncomment lines of code
 require 'colorscheme-picker' -- pick among installed colorschemes with live preview
 require 'plugin-configs/treesitter' -- global syntax parser
 require 'plugin-configs/format' -- auto-formatting
+require 'plugin-configs/rnvimr' -- ranger as file manager config

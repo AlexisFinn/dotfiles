@@ -27,12 +27,18 @@ vim.g.gruvbox_material_sign_column_background = 'none'
 vim.g.sonokai_style = 'espresso' -- 'default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'
 vim.g.sonokai_enable_italic = 1
 vim.g.sonokai_disable_italic_comment = 0
+-- tokyonight config --
+vim.g.tokyonight_style = 'night' -- 'storm', 'night'
+vim.g.tokyonight_enable_italic = 1
+vim.g.tokyonight_transparent_background = 0
+vim.g.tokyonight_disable_italic_comment = 0
+vim.g.tokyonight_current_word = 'bold' -- 'bold', 'italic', 'underline', 'grey background'
 ---- uncomment one ----
 
 -- vim.cmd 'color material'
 -- vim.cmd 'color dogrun'
 -- vim.cmd 'color gruvbox-material'
-vim.cmd 'color doom-one'
+-- vim.cmd 'color doom-one'
 -- vim.cmd 'color dracula'
 -- vim.cmd 'color xshado'
 -- vim.cmd 'color night-owl'
@@ -46,3 +52,11 @@ vim.cmd 'color doom-one'
 -- vim.cmd 'color PaperColor'
 -- vim.cmd 'color tender'
 -- vim.cmd 'color one'
+-- vim.cmd 'color palenight'
+-- vim.cmd 'color catppuccin'
+-- vim.cmd 'color tokyonight'
+-- vim.cmd 'color gotham'
+-- vim.cmd 'color iceberg'
+vim.cmd 'color spaceduck'
+-- vim.cmd 'color everforest'
+-- vim.cmd 'color seoul256'

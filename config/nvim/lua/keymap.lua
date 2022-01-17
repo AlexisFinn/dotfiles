@@ -6,8 +6,9 @@ cmd 'cnoreabbrev dd bd'
 -- also alow to write with uppercase W
 cmd 'command! W w'
 
--- open Vifm with F9
-keymap('n', '<F9>', ':Vifm<CR>', {})
+-- open File Manager with F9
+--keymap('n', '<F9>', ':Vifm<CR>', {})
+keymap('n', '<F9>', ':RnvimrToggle<CR>', {})
 
 -- split window switching, just map Ctrl + J,K,L,H without having to type Crtl + W before
 keymap('n', '<C-J>', '<C-W><C-J>', {noremap = true})

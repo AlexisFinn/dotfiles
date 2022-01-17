@@ -20,6 +20,14 @@ return packer.startup(function(use)
   use 'NLKNguyen/papercolor-theme'
   use 'jacoborus/tender.vim'
   use 'rakr/vim-one'
+  use 'drewtempelmeyer/palenight.vim'
+  use 'ghifarit53/tokyonight-vim'
+  use 'whatyouhide/vim-gotham'
+  use 'cocopon/iceberg.vim'
+  use 'pineapplegiant/spaceduck'
+  use 'sainnhe/everforest'
+  use 'junegunn/seoul256.vim'
+  use ({'catppuccin/nvim', as = 'catppuccin'})
   -- some nice icons
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
@@ -27,6 +35,8 @@ return packer.startup(function(use)
   use 'neovim/nvim-lspconfig'
   -- auto-formatting
   use 'lukas-reineke/format.nvim'
+  -- convert to multiline
+  use 'AndrewRadev/splitjoin.vim'
   -- snippets
   use 'SirVer/ultisnips'
   use 'fhill2/telescope-ultisnips.nvim' -- integrate utilsnips with telescope
@@ -43,12 +53,18 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
+  -- language specific plugins
+  use {'fatih/vim-go', run = ':GoUpdateBinaries'}
+  -- show function signature as you type
+  use 'ray-x/lsp_signature.nvim'
   -- indent guides
   use 'lukas-reineke/indent-blankline.nvim'
   -- Comment/uncomment multiple lines with <leader>c<space>
   use 'preservim/nerdcommenter'
   -- determine comment syntax by the line, usefull for embedded syntax typically in javascript frameworks
   use 'JoosepAlviste/nvim-ts-context-commentstring'
+  -- documentation generator
+  use {'kkoomen/vim-doge', run = ':call doge#install()'}
   -- fzf because it's the best fuzzy finder
   -- I actually prefer using fzf directly rather than telescope
   use 'vijaymarupudi/nvim-fzf' -- lua api
@@ -82,7 +98,8 @@ return packer.startup(function(use)
   -- Show trailing whitespaces in red
   use 'ntpeters/vim-better-whitespace'
   -- file manager
-  use 'vifm/vifm.vim'
+  --use 'vifm/vifm.vim' -- using vifm
+  use 'kevinhwang91/rnvimr' -- using ranger
   -- Run terminal commands in floating windows
   --use 'voldikss/vim-floaterm'
   -- best git commands integration for vim

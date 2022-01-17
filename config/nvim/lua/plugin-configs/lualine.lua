@@ -10,17 +10,17 @@ end
 require('lualine').setup({
   options = {
     icons_enabled = true,
-    theme = 'material-nvim',
-    component_separators = {"", ""},
-    section_separators = {"", ""},
+    theme = 'catppuccin',
+    component_separators = {left = "", right = ""},
+    section_separators = {left = "", right = ""},
     disabled_filetypes = {}
   },
   sections = {
     lualine_a = {'mode'},
     lualine_b = {'branch'},
-    lualine_c = {diagnosticMessage},
-    lualine_x = {'filetype'},
-    lualine_y = {},
+    lualine_c = {'diagnostics'},
+    lualine_x = {'fileformat'},
+    lualine_y = {'filetype'},
     lualine_z = {'location'}
   },
   inactive_sections = {

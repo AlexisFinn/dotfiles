@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/Images/Top/fate-stay-night.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1a191b",
+        "foreground": "#c5c5c6",
+        "cursor": "#c5c5c6"
+    },
+    "colors": {
+        "color0": "#1a191b",
+        "color1": "#514e62",
+        "color2": "#68474f",
+        "color3": "#6d5164",
+        "color4": "#85767b",
+        "color5": "#be908e",
+        "color6": "#c8b197",
+        "color7": "#c5c5c6",
+        "color8": "#535254",
+        "color9": "#514e62",
+        "color10": "#68474f",
+        "color11": "#6d5164",
+        "color12": "#85767b",
+        "color13": "#be908e",
+        "color14": "#c8b197",
+        "color15": "#c5c5c6"
+    }
+}

@@ -112,6 +112,9 @@ zgen load zsh-users/zsh-syntax-highlighting
 #bindkey "^[OA" history-substring-search-up
 #bindkey "^[OB" history-substring-search-down
 
+# auto-source any .zsh_source file found in the directory
+zgen load maximux13/zsh-auto-source-file
+
 # Load me last
 GENCOMPL_FPATH=$HOME/.zsh/complete
 
