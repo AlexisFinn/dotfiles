@@ -13,6 +13,7 @@ require 'plugin-configs/catppuccin'
 ---- plugins configs ----
 require 'plugin-configs/nvim-lsputils' -- lsp helper
 require 'plugin-configs/nvim-lspconfig' -- configure language server protocols
+require 'plugin-configs/vim-go' -- configure golang plugin
 require 'plugin-configs/trouble' -- show linter errors
 require 'plugin-configs/nvim-cmp' -- autocomplete
 require 'plugin-configs/lsp-signature' -- function signature as you type

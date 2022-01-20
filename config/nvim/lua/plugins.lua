@@ -54,7 +54,7 @@ return packer.startup(function(use)
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
   -- language specific plugins
-  use {'fatih/vim-go', run = ':GoUpdateBinaries'}
+  use {'ray-x/go.nvim'}
   -- show function signature as you type
   use 'ray-x/lsp_signature.nvim'
   -- indent guides

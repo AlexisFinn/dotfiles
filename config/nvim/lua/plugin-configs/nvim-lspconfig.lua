@@ -11,7 +11,7 @@ vim.api.nvim_command('sign define LspDiagnosticsSignHint text= texthl=LspDiag
 
 
 -- base handler configuration, to override default settings
-local handlerNoVirtualText = {
+local handlerVirtualText = {
   ["textDocument/publishDiagnostics"] = vim.lsp.with(
     vim.lsp.diagnostic.on_publish_diagnostics, {
       virtual_text = true,
@@ -53,49 +53,49 @@ require('lspconfig').dockerls.setup {}
 
 -- php
 require('lspconfig').intelephense.setup{
-  handlers = handlerNoVirtualText,
+  handlers = handlerVirtualText,
   on_attach = onAttachNoFormatting,
 }
 
 require('lspconfig').psalm.setup{
-  handlers = handlerNoVirtualText,
+  handlers = handlerVirtualText,
   on_attach = onAttachNoFormatting,
 }
 
 -- require('lspconfig').phan.setup{
-  -- handlers = handlerNoVirtualText,
+  -- handlers = handlerVirtualText,
   -- on_attach = onAttachNoFormatting,
 -- }
 
 
 -- python
 require('lspconfig').pylsp.setup{
-  handlers = handlerNoVirtualText,
+  handlers = handlerVirtualText,
   on_attach = onAttachNoFormatting,
 }
 
 -- vue
 require('lspconfig').vuels.setup{
-  handlers = handlerNoVirtualText,
+  handlers = handlerVirtualText,
   on_attach = onAttachNoFormatting,
 }
 
 -- typescript
 require('lspconfig').tsserver.setup{
-  handlers = handlerNoVirtualText,
+  handlers = handlerVirtualText,
   on_attach = onAttachNoFormatting,
 }
 
 -- yaml
 require('lspconfig').yamlls.setup{
-  handlers = handlerNoVirtualText,
+  handlers = handlerVirtualText,
   on_attach = onAttachNoFormatting,
 }
 
 -- stylelint
 require('lspconfig').stylelint_lsp.setup{
   on_attach = onAttachNoFormatting,
-  handlers = handlerNoVirtualText,
+  handlers = handlerVirtualText,
   filetypes = {"css", "scss", "vue"},
   settings = {
     stylelintplus = {
@@ -106,10 +106,15 @@ require('lspconfig').stylelint_lsp.setup{
   }
 }
 
+-- golang
+require('lspconfig').gopls.setup{
+  on_attach = onAttachNoFormatting,
+}
+
 -- lua
 local sumneko_root_path = '/home/alexis/Applications/lua-language-server'
 require('lspconfig').sumneko_lua.setup {
-  handlers = handlerNoVirtualText,
+  handlers = handlerVirtualText,
   filetypes = {"lua"},
   cmd = {"lua-language-server", "-E", sumneko_root_path..'/main.lua'},
   settings = {

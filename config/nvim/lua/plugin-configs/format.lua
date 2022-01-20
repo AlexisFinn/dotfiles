@@ -31,5 +31,8 @@ require("format").setup {
   },
   php = {
     {cmd = {"php-cs-fixer fix"}}
+  },
+  go = {
+    {cmd = {"goimports -w"}}
   }
 }

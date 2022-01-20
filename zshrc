@@ -1,4 +1,5 @@
-export PATH="$HOME/go/bin:$HOME/.gem/ruby/2.7.0/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
+export GOPATH="$HOME/go"
+export PATH="$GOPATH/bin:$HOME/.gem/ruby/2.7.0/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
 export SPICETIFY_INSTALL="/home/alexis/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
 export FZF_DEFAULT_COMMAND='ag -al'
@@ -28,10 +29,9 @@ done
 
 
 function chpwd() {
+    printf "hello"
     if [ -e $PWD/bash_aliases.sh ]; then
         source $PWD/bash_aliases.sh
-    else
-        unalias -m 'bb-*'
     fi
 }
 
@@ -61,6 +61,9 @@ source /home/alexis/.config/broot/launcher/bash/br
 
 eval "$(starship init zsh)"
 
-#fortune -s | lolcat 
+#fortune -s | lolcat
 
 alias luamake=/home/alexis/Applications/lua-language-server/3rd/luamake/luamake
+
+# setup funky
+command -v funky &>/dev/null && eval "$(funky --init zsh)"
