@@ -31,6 +31,8 @@ return packer.startup(function(use)
   -- some nice icons
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
+  -- smooth scrolling
+  use 'psliwka/vim-smoothie'
   -- Language Server Protocol integration (this is so cool)
   use 'neovim/nvim-lspconfig'
   -- auto-formatting

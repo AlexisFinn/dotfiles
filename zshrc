@@ -18,7 +18,7 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
-source "${HOME}/.zgen-setup"
+source "${HOME}/zsh-setup.zsh"
 
 # Set Zsh option
 setopt correct
@@ -29,7 +29,6 @@ done
 
 
 function chpwd() {
-    printf "hello"
     if [ -e $PWD/bash_aliases.sh ]; then
         source $PWD/bash_aliases.sh
     fi
@@ -64,6 +63,3 @@ eval "$(starship init zsh)"
 #fortune -s | lolcat
 
 alias luamake=/home/alexis/Applications/lua-language-server/3rd/luamake/luamake
-
-# setup funky
-command -v funky &>/dev/null && eval "$(funky --init zsh)"

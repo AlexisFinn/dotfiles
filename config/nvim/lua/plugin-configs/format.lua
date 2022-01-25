@@ -34,5 +34,8 @@ require("format").setup {
   },
   go = {
     {cmd = {"goimports -w"}}
+  },
+  rust = {
+    {cmd = {"rustfmt"}}
   }
 }

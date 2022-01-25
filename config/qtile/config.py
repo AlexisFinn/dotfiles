@@ -223,8 +223,9 @@ powerlineBar = []
 powerlineWidgets = {
     'memory': PyColors.color1,
     'cpu': PyColors.color2,
-    'net': PyColors.color3,
-    'volume': PyColors.color4,
+    'disk': PyColors.color3,
+    'net': PyColors.color4,
+    'volume': PyColors.color5,
     'calendar': PyColors.color8
 }
 
@@ -261,6 +262,16 @@ for name, color in powerlineWidgets.items():
                 format=icons['cpu'] + " {load_percent}%"
             ),
         )
+    elif name == 'disk':
+        powerlineBar.append(
+            widget.DF(
+                background=color,
+                format="{uf}{m}",
+                measure='G',
+                visible_on_warn=False,
+                warn_color=PyColors.foreground
+            )
+        )
     elif name == 'net':
         powerlineBar.append(
             widget.Net(
@@ -278,7 +289,7 @@ for name, color in powerlineWidgets.items():
         )
         powerlineBar.append(
             widget.PulseVolume(
-                background=color
+                background=color,
             ),
         )
     elif name == 'calendar':

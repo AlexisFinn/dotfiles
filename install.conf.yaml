@@ -4,12 +4,9 @@
       ~/.bashrc: bashrc
       ~/.bash_logout: bash_logout
       ~/.zshrc: zshrc
+      ~/zsh-setup.zsh: zsh-setup.zsh
       ~/.zshrc.d:
           path: zshrc.d
-          force: false
-          relink: true
-      ~/.zgen-local-plugins:
-          path: zgen-local-plugins
           force: false
           relink: true
       ~/.tmux.conf:
@@ -124,9 +121,8 @@
       ~/wallpapers: wallpapers
 - shell:
       - [
-            cd ~ && git clone https://github.com/unixorn/zsh-quickstart-kit.git && ln -s
-            ~/zsh-quickstart-kit/zsh/.zgen-setup ~/.zgen-setup,
-            Setting up zsh quickstart kit,
+            cd ~ && git clone https://github.com/jandamm/zgenom.git .zgenom,
+            retrieve zgenom plugin manager for zsh,
         ]
 # TO INSTALL
 # xmonad
