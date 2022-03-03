@@ -1,7 +1,7 @@
 vim.cmd('autocmd BufWritePost * FormatWrite')
 --vim.g.format_debug = true
 
-require("format").setup {
+require("lsp-format").setup {
   javascript = {
     {cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}
   },

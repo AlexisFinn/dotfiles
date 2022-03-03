@@ -51,7 +51,8 @@ class myGroup:
 # modifier key (mod4 = super)
 mod = "mod4"
 # what terminal to try and use
-terminal = "alacritty"
+# terminal = "alacritty"
+terminal = "kitty"
 
 # task bar configuration
 bar_font = "FiraCode Nerd Font Mono"
