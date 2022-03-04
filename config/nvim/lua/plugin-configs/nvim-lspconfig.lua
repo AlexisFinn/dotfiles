@@ -9,6 +9,46 @@ vim.api.nvim_command('sign define LspDiagnosticsSignWarning text= texthl=LspD
 vim.api.nvim_command('sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=')
 vim.api.nvim_command('sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=')
 
+-- formatting configuration
+require("lsp-format").setup {
+  javascript = {
+    {cmd = {"prettier -w", "./node_modules/.bin/eslint --fix"}}
+  },
+  typescript = {
+    {cmd = {"prettier --parser typescript -w"}}
+  },
+  vue = {
+    {cmd = {"prettier --parser vue -w"}}
+  },
+  scss = {
+    {cmd = {"prettier --parser scss -w"}}
+  },
+  css = {
+    {cmd = {"prettier --parser css -w"}}
+  },
+  yaml = {
+    {cmd = {"prettier --parser yaml -w"}}
+  },
+  html = {
+    {cmd = {"prettier --parser html -w"}}
+  },
+  haskell = {
+    {cmd = {"hindent"}}
+  },
+  python = {
+    {cmd = {"autopep8 --ignore E501"}}
+  },
+  php = {
+    {cmd = {"php-cs-fixer fix"}}
+  },
+  go = {
+    {cmd = {"goimports -w"}}
+  },
+  rust = {
+    {cmd = {"rustfmt"}}
+  }
+}
+
 
 -- base handler configuration, to override default settings
 local handlerVirtualText = {
@@ -27,7 +67,8 @@ local onAttachNoFormatting = (function(client)
   -- add nvim-cmp (autocomplete) to lsp capabilities
   client.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
   -- disable formating as that will be taken care of elsewhere
-  client.resolved_capabilities.document_formatting = false
+  -- client.resolved_capabilities.document_formatting = false
+  require('lsp-format').on_attach(client)
   -- show doc with 'K'
   vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', {noremap = true, silent = true})
   -- jump to definition
