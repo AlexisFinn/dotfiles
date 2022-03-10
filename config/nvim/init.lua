@@ -16,6 +16,7 @@ require 'plugin-configs/nvim-lspconfig' -- configure language server protocols
 require 'plugin-configs/vim-go' -- configure golang plugin
 require 'plugin-configs/trouble' -- show linter errors
 require 'plugin-configs/nvim-cmp' -- autocomplete
+require 'plugin-configs/formatter' -- format on save config
 require 'plugin-configs/lsp-signature' -- function signature as you type
 require 'plugin-configs/better-whitespace' -- highlight all trailing whitespaces, and trim them on save
 require 'plugin-configs/indent-blankline' -- add line to make indentation easier to follow

@@ -36,7 +36,8 @@ return packer.startup(function(use)
   -- Language Server Protocol integration (this is so cool)
   use 'neovim/nvim-lspconfig'
   -- auto-formatting
-  use 'lukas-reineke/format.nvim'
+  --use 'lukas-reineke/lsp-format.nvim'
+  use 'mhartington/formatter.nvim'
   -- convert to multiline
   use 'AndrewRadev/splitjoin.vim'
   -- snippets
