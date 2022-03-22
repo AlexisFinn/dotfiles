@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/Images/Top/elden-ring-lion.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#191919",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#191919",
+        "color1": "#5b5042",
+        "color2": "#4b5e60",
+        "color3": "#6b604e",
+        "color4": "#838075",
+        "color5": "#b0a290",
+        "color6": "#beb1a1",
+        "color7": "#c5c5c5",
+        "color8": "#525252",
+        "color9": "#5b5042",
+        "color10": "#4b5e60",
+        "color11": "#6b604e",
+        "color12": "#838075",
+        "color13": "#b0a290",
+        "color14": "#beb1a1",
+        "color15": "#c5c5c5"
+    }
+}

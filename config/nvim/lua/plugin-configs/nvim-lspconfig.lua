@@ -9,6 +9,8 @@ vim.api.nvim_command('sign define LspDiagnosticsSignWarning text= texthl=LspD
 vim.api.nvim_command('sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=')
 vim.api.nvim_command('sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=')
 
+local util = require('lspconfig').util
+
 -- base handler configuration, to override default settings
 local handlerVirtualText = {
   ["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -26,7 +28,7 @@ local onAttach = (function(client)
 
   -- add custom formatting
   -- require('lsp-format').on_attach(client)
-  
+
   -- disable formating as that will be taken care of elsewhere
   client.resolved_capabilities.document_formatting = false
 
@@ -59,11 +61,19 @@ require('lspconfig').dockerls.setup {}
 require('lspconfig').intelephense.setup{
   handlers = handlerVirtualText,
   on_attach = onAttach,
+  root_dir = util.root_pattern("vendor")
 }
 
 require('lspconfig').psalm.setup{
   handlers = handlerVirtualText,
   on_attach = onAttach,
+  root_dir = util.root_pattern("vendor")
+}
+
+require('lspconfig').phpactor.setup{
+  handlers = handlerVirtualText,
+  on_attach = onAttach,
+  root_dir = util.root_pattern("vendor")
 }
 
 -- require('lspconfig').phan.setup{

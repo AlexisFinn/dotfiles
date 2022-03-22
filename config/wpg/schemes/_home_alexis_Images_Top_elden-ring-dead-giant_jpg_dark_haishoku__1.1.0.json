@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/Images/Top/elden-ring-dead-giant.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#161818",
+        "foreground": "#c4c5c5",
+        "cursor": "#c4c5c5"
+    },
+    "colors": {
+        "color0": "#161818",
+        "color1": "#24383c",
+        "color2": "#2b4145",
+        "color3": "#40595b",
+        "color4": "#507074",
+        "color5": "#5c7370",
+        "color6": "#567679",
+        "color7": "#c4c5c5",
+        "color8": "#505151",
+        "color9": "#24383c",
+        "color10": "#2b4145",
+        "color11": "#40595b",
+        "color12": "#507074",
+        "color13": "#5c7370",
+        "color14": "#567679",
+        "color15": "#c4c5c5"
+    }
+}
