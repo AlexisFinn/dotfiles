@@ -85,7 +85,8 @@ return packer.startup(function(use)
   -- ripgrep for fastest ever grep directly in vim
   use 'jremmen/vim-ripgrep'
   -- markdown preview
-  use 'npxbr/glow.nvim'
+  -- use 'npxbr/glow.nvim'
+  use {'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()'}
   -- status line in lua
   use 'hoob3rt/lualine.nvim'
   -- tab line

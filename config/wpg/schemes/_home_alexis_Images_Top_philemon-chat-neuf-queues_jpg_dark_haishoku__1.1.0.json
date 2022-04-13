@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/Images/Top/philemon-chat-neuf-queues.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#191819",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#191819",
+        "color1": "#83311d",
+        "color2": "#b63414",
+        "color3": "#8b817a",
+        "color4": "#cc980c",
+        "color5": "#b49b86",
+        "color6": "#c2b29e",
+        "color7": "#c5c5c5",
+        "color8": "#525152",
+        "color9": "#83311d",
+        "color10": "#b63414",
+        "color11": "#8b817a",
+        "color12": "#cc980c",
+        "color13": "#b49b86",
+        "color14": "#c2b29e",
+        "color15": "#c5c5c5"
+    }
+}

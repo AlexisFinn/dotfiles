@@ -143,8 +143,8 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
 
     # switch focused screen
-    Key([mod], "t", lazy.to_screen(0), desc="Focus main screen"),
-    Key([mod], "e", lazy.to_screen(1), desc="Focus secondary screen"),
+    Key([mod], "e", lazy.to_screen(0), desc="Focus main screen"),
+    Key([mod], "t", lazy.to_screen(1), desc="Focus secondary screen"),
 
     # qtile functions
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),

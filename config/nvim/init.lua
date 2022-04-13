@@ -29,6 +29,7 @@ require 'plugin-configs/colorizer' -- highlight colors in code
 require 'plugin-configs/telescope' -- awesome fuzzy finder, but slower than fzf
 --require 'plugin-configs/hop' -- hop to any word/line in the viewport easily (easymotion clone in lua)
 require 'plugin-configs/lightspeed'
+require 'plugin-configs/markdown-preview'
 require 'plugin-configs/specs' -- animate the cursor when it changes position to follow it easier
 require 'plugin-configs/which-key' -- shortucs auto-suggestions (pretty awesome)
 require 'plugin-configs/vim-illuminate' -- highlight all instances of the word under the cursor

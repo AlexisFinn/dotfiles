@@ -64,11 +64,11 @@ require('lspconfig').intelephense.setup{
   root_dir = util.root_pattern("vendor")
 }
 
-require('lspconfig').psalm.setup{
-  handlers = handlerVirtualText,
-  on_attach = onAttach,
-  root_dir = util.root_pattern("vendor")
-}
+-- require('lspconfig').psalm.setup{
+  -- handlers = handlerVirtualText,
+  -- on_attach = onAttach,
+  -- root_dir = util.root_pattern("vendor")
+-- }
 
 require('lspconfig').phpactor.setup{
   handlers = handlerVirtualText,
