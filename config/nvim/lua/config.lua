@@ -47,6 +47,9 @@ vim.o.directory = '/home/alexis/.vim/swap//'
 vim.o.undodir = '/home/alexis/.vim/undo//'
 vim.o.updatetime = 1000 -- number of miliseconds before updating, usefull for CursorHold autocmd
 --vim.o.pumblend = 15 -- transparency for popup windows if you want (yay!)
+--use new experimental filetype detection
+vim.g.do_filetype_lua = 1
+vim.g.did_lead_filetypes = 0
 
 --Add a command to reformat json using python
 cmd([[
