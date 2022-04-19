@@ -90,7 +90,7 @@ return packer.startup(function(use)
   -- status line in lua
   use 'hoob3rt/lualine.nvim'
   -- tab line
-  use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+  use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
   -- light alternative
   -- use 'ojroques/nvim-bufbar'
   -- emmet
