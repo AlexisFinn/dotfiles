@@ -52,6 +52,4 @@ vim.g.do_filetype_lua = 1
 vim.g.did_lead_filetypes = 0
 
 --Add a command to reformat json using python
-cmd([[
-com! FormatJSON %!python -m json.tool
-]], false)
+vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {})
