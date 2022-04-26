@@ -13,7 +13,7 @@ require('formatter').setup {
       function()
         return {
           exe = "prettier",
-          args = {"--parser vue", "-w"},
+          args = {"--parser typescript", "-w"},
           stdin = true
         }
       end
