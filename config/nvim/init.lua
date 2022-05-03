@@ -37,3 +37,4 @@ require 'plugin-configs/nerdcommenter' -- easily comment/uncomment lines of code
 require 'colorscheme-picker' -- pick among installed colorschemes with live preview
 require 'plugin-configs/treesitter' -- global syntax parser
 require 'plugin-configs/rnvimr' -- ranger as file manager config
+require 'plugin-configs/neogen' -- doc comment generator

@@ -66,8 +66,6 @@ return packer.startup(function(use)
   use 'preservim/nerdcommenter'
   -- determine comment syntax by the line, usefull for embedded syntax typically in javascript frameworks
   use 'JoosepAlviste/nvim-ts-context-commentstring'
-  -- documentation generator
-  use {'kkoomen/vim-doge', run = ':call doge#install()'}
   -- fzf because it's the best fuzzy finder
   -- I actually prefer using fzf directly rather than telescope
   use 'vijaymarupudi/nvim-fzf' -- lua api
@@ -129,6 +127,9 @@ return packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
   }
+  -- documentation generator
+  --use {'kkoomen/vim-doge', run = ':call doge#install()'}
+  use {'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter' }
   -- games
   use 'ThePrimeagen/vim-be-good' -- type :VimBeGood
 end)
