@@ -1,0 +1,5 @@
+1 - Make your requirements less dumb (what is really required, what is superfluous)
+2 - Delete the part or Process (if you aren't occasionally un-deleting things, you're not deleting enough)
+3 - Simplify or Optimize (Must come after 1 & 2 otherwise you end up optimizing things that will be deleted)
+4 - Accelerate (Now 1, 2 and 3 are dealt with you can consider increasing speed)
+5 - Automate (Last step is automate)
