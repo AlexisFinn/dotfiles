@@ -46,7 +46,7 @@
 [gui]
     spellingdictionary = none
     tabsize = 4
-    fontui = -family \"Source Code Pro\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
-    fontdiff = -family \"Source Code Pro for Powerline\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontui = -family \"Source Code Pro\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
+	fontdiff = -family \"Source Code Pro for Powerline\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [url "https://"]
     insteadOf = git://

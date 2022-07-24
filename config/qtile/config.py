@@ -26,18 +26,76 @@
 
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget, hook
-from libqtile.config import Click, Drag, Group, Key, Match, Screen
+from libqtile import bar, layout, widget, hook, extension
+from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
+from colour import Color
 import PyColors
 import os
 import subprocess
 
+def make_inactive_color(active_color):
+    InactiveColor = Color(active_color)
+    if (InactiveColor.get_saturation() >= 0.3):
+        InactiveColor.set_saturation(InactiveColor.get_saturation() - 0.3)
+    if (InactiveColor.get_red() >= 0.2):
+        InactiveColor.set_red(InactiveColor.get_red() - 0.2)
+    if (InactiveColor.get_green() >= 0.2):
+        InactiveColor.set_green(InactiveColor.get_green() - 0.2)
+    if (InactiveColor.get_blue() >= 0.2):
+        InactiveColor.set_blue(InactiveColor.get_blue() - 0.2)
+
+    return InactiveColor.get_hex_l()
+
+def color_contrast_difference(color1, color2):
+    Color1 = Color(color1)
+    Color2 = Color(color2)
+    redVal = (Color1.get_red() * 255) - (Color2.get_red() * 255)
+    greenVal = (Color1.get_green() * 255) - (Color2.get_green() * 255)
+    blueVal = (Color1.get_blue() * 255) - (Color2.get_blue() * 255)
+
+    return abs(redVal) + abs(greenVal) + abs(blueVal)
+
+def color_brightness(color):
+    GivenColor = Color(color)
+    red = GivenColor.get_red()*255
+    green = GivenColor.get_green()*255
+    blue = GivenColor.get_blue()*255
+
+    return ((red*299) + (green*587) + (blue*114))/1000
+
+def make_foreground_color(background_color):
+    if (color_contrast_difference(background_color, PyColors.foreground) > 280):
+        return PyColors.foreground
+
+    return PyColors.background
+
+def get_complementary_color(color):
+    GivenColor = Color(color)
+    GivenColor.set_hue(((GivenColor.get_hue()*360) + 180)/360)
+    return GivenColor.get_hex_l()
+
+def colorsEqual(color1, color2):
+    Color1 = Color(color1)
+    Color2 = Color(color2)
+
+    return Color1.get_hex_l() == Color2.get_hex_l()
+
+def make_widget(name, color, **kwargs):
+    foregroundColor = make_foreground_color(color)
+    shadow = None if colorsEqual(foregroundColor, PyColors.background) else PyColors.background
+    return getattr(widget, name)(
+            foreground=foregroundColor,
+            fontshadow=shadow,
+            background=color,
+            **kwargs
+            )
+
 
 @hook.subscribe.startup_once
 def autostart():
-    home = os.path.expanduser('~/.config/qtile/autostart.sh')
-    subprocess.call([home])
+    script = os.path.expanduser('~/.config/qtile/autostart.sh')
+    subprocess.call([script])
 
 
 class myGroup:
@@ -55,13 +113,19 @@ mod = "mod4"
 terminal = "kitty"
 
 # task bar configuration
-bar_font = "FiraCode Nerd Font Mono"
-bar_fontsize = 16
-bar_padding = 4
-bar_size = 26
+#  bar_font = "GohuFont Nerd Font Mono Medium"
+#bar_font = "OpenDyslexicMono Nerd Font"
+#bar_font = "C059"
+#  bar_font = "ProggyCleanTT Nerd Font Mono"
+bar_font = "Cascadia Code PL"
+bar_fontsize = 14
+bar_padding = 2
+bar_size = 22
+bar_default_fontshadow = PyColors.background
+
 
 # app launchers
-laucher = "rofi -combi-modi drun,run -show combi -modi combi -show-icons -normal-window"
+laucher = "rofi -m -1 -combi-modi drun,run -show combi -modi combi -show-icons"
 alt_launcher = "dmenu_run"
 
 # layout settings
@@ -69,21 +133,22 @@ preferred_ratio = 80 / 100
 max_ratio = 90 / 100
 min_ratio = 20 / 100
 resize_step_ratio = 2 / 100
-gap = 10
-border = 3
+gap = 5
+border = 2
+
 active_color = PyColors.color6
 active_color_alt = PyColors.color5
-inactive_color = PyColors.color1
-inactive_color_alt = PyColors.color8
+inactive_color = make_inactive_color(PyColors.color6)
+inactive_color_alt = make_inactive_color(PyColors.color5)
 
 # configure groups (workspaces)
 # list of myGroup, first argument is group name second is keycode
 myGroups = [
-    myGroup("chat", "ampersand", "monadwide"),
-    myGroup("dev", "eacute", "monadwide"),
-    myGroup("www", "quotedbl", "monadtall"),
-    myGroup("db", "apostrophe", "max"),
-    myGroup("other", "parenleft", "max")
+    myGroup(" chat ", "ampersand", "monadwide"),
+    myGroup(" dev ", "eacute", "monadwide"),
+    myGroup(" www ", "quotedbl", "monadtall"),
+    myGroup(" database ", "apostrophe", "max"),
+    myGroup(" other ", "parenleft", "max")
 ]
 
 # modifiers that combined with previously configured keycodes per group
@@ -96,14 +161,15 @@ shiftToMoveWindow = False
 
 # icons
 icons = dict(
-    separator='',
-    mem='',
-    cpu='',
-    net='鷺',
-    netArrows='⬇⬆',
-    vol='',
-    date='',
-    time='',
+    separator= '┌┺┽╀┮┩',#'╵╹▚▞▜▕', #'', #'',#'',#'░▒▓',
+    mem='RAM: ',#'',
+    cpu='CPU: ',#'',
+    disk='HD: ',
+    net='NET: ',#'鷺',
+    netArrows='↓↑',#'⬇⬆',
+    vol='VOL:',#'',
+    date='',#'',
+    time='',#'',
     color='●'
 )
 
@@ -130,7 +196,16 @@ keys = [
     # launchers
     Key([mod], "Return", lazy.spawn(terminal), desc="Launch terminal"),
     Key([mod], "x", lazy.spawn(laucher), desc="Show rofi launcher"),
-    Key([mod], "p", lazy.spawn(alt_launcher), desc="Show dmenu launcher"),
+#    Key([mod], "p", lazy.spawn(alt_launcher), desc="Show dmenu launcher"),
+
+    Key([mod], "p", lazy.run_extension(extension.DmenuRun(
+        font = "Cascadia Code PL",
+        fontsize="14",
+        background=PyColors.background,
+        foreground=PyColors.foreground,
+        selected_background=PyColors.color3,
+        selected_foreground=PyColors.color7
+    )), desc="Show dmenu launcher"),
 
     # kill focused window
     Key([mod, "shift"], "c", lazy.window.kill(), desc="Kill focused window"),
@@ -148,19 +223,23 @@ keys = [
 
     # qtile functions
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
-    Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
+    Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # multimedia
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ +2%")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn(
-        "pactl set-sink-volume @DEFAULT_SINK@ -2%")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")),
 
-    # stuff
-    Key([mod], "F12", lazy.spawn("lock"))
+    # stuffj4-dmenu-desktop
+    Key([mod], "F12", lazy.spawn("lock")),
+    # apps
+    KeyChord([mod], "o", [
+       Key([], "t", lazy.spawn(terminal)),
+       Key([], "w", lazy.spawn("google-chrome-stable")),
+       Key([], "p", lazy.spawn("pcmanfm"))
+    ])
 ]
 
 # define groups
@@ -209,7 +288,8 @@ widget_defaults = dict(
     fontsize=bar_fontsize,
     padding=bar_padding,
     background=PyColors.background,
-    foreground=PyColors.foreground
+    foreground=PyColors.foreground,
+    fontshadow=bar_default_fontshadow,
 )
 extension_defaults = widget_defaults.copy()
 
@@ -232,6 +312,7 @@ powerlineWidgets = {
 
 previousColor = None
 
+
 for name, color in powerlineWidgets.items():
     if previousColor:
         powerlineBar.append(
@@ -251,23 +332,18 @@ for name, color in powerlineWidgets.items():
 
     if name == 'memory':
         powerlineBar.append(
-            widget.Memory(
-                background=color,
-                format=icons['mem'] + " {MemUsed: .0f}{mm}"
-            ),
+            make_widget('Memory', color, format=icons['mem'] + " {MemUsed: .0f}{mm}")
         )
     elif name == 'cpu':
         powerlineBar.append(
-            widget.CPU(
-                background=color,
-                format=icons['cpu'] + " {load_percent}%"
-            ),
+            make_widget('CPU', color, format=icons['cpu'] + " {load_percent}%")
         )
     elif name == 'disk':
         powerlineBar.append(
-            widget.DF(
-                background=color,
-                format="{uf}{m}",
+            make_widget(
+                'DF',
+                color,
+                format=icons['disk'] + "{uf}{m}",
                 measure='G',
                 visible_on_warn=False,
                 warn_color=PyColors.foreground
@@ -275,30 +351,34 @@ for name, color in powerlineWidgets.items():
         )
     elif name == 'net':
         powerlineBar.append(
-            widget.Net(
-                background=color,
+            make_widget(
+                'Net',
+                color,
                 interface='wlp2s0',
                 format=icons['net'] + " {down} " + icons['netArrows'] + " {up}"
-            ),
+            )
         )
     elif name == 'volume':
         powerlineBar.append(
-            widget.TextBox(
-                background=color,
-                text=icons['vol'],
-            ),
+            make_widget(
+                'TextBox',
+                color,
+                text=icons['vol']
+            )
         )
         powerlineBar.append(
-            widget.PulseVolume(
-                background=color,
-            ),
+            make_widget(
+                'PulseVolume',
+                color
+            )
         )
     elif name == 'calendar':
         powerlineBar.append(
-            widget.Clock(
-                format=icons['date'] + ' %a %d/%m ' + icons['time'] + ' %H:%M',
-                background=PyColors.color8
-            ),
+            make_widget(
+                'Clock',
+                PyColors.color8,
+                format=icons['date'] + ' %a %d/%m ' + icons['time'] + ' %H:%M'
+            )
         )
 
     previousColor = color
@@ -321,6 +401,12 @@ mainBar = [
         inactive=inactive_color_alt,
         this_current_screen_border=active_color,
         this_screen_border=inactive_color,
+        highlight_method='line',
+        #  font="Analecta",
+        font="Cascadia Code PL",
+        #fontsize=18,
+        fontshadow=None,
+        borderwidth=3
     ),
     widget.Spacer(),
 ] + powerlineBar
@@ -340,6 +426,11 @@ screens = [
                     inactive=inactive_color_alt,
                     this_current_screen_border=active_color,
                     this_screen_border=inactive_color,
+                    highlight_method='line',
+                    font="Cascadia Code PL",
+                    #  fontsize=18,
+                    fontshadow=None,
+                    borderwidth=3
                 ),
                 widget.Mpris2(objname="org.mpris.MediaPlayer2.spotify",
                               name="spotify",

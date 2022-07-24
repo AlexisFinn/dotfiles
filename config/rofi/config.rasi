@@ -1,5 +1,5 @@
 * {
-    font:               "Input Serif 12";
+    font:               "Cascadia Code PL 14";
 }
 
 #window {
@@ -8,4 +8,4 @@
     padding:            5;
 }
 
-@import "~/.cache/wpg/colors-rofi-dark.rasi"
+@import "./colors-rofi-dark.rasi"

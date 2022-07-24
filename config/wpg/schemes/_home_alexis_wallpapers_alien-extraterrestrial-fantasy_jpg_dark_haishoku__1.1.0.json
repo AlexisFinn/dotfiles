@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/alien-extraterrestrial-fantasy.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#141414",
+        "foreground": "#c4c4c4",
+        "cursor": "#c4c4c4"
+    },
+    "colors": {
+        "color0": "#141414",
+        "color1": "#211070",
+        "color2": "#691d42",
+        "color3": "#8503c1",
+        "color4": "#7c1875",
+        "color5": "#0c82cc",
+        "color6": "#bd3a72",
+        "color7": "#c4c4c4",
+        "color8": "#4e4e4e",
+        "color9": "#211070",
+        "color10": "#691d42",
+        "color11": "#8503c1",
+        "color12": "#7c1875",
+        "color13": "#0c82cc",
+        "color14": "#bd3a72",
+        "color15": "#c4c4c4"
+    }
+}

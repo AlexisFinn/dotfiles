@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/lone-watchtower.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#15141a",
+        "foreground": "#c4c4c5",
+        "cursor": "#c4c4c5"
+    },
+    "colors": {
+        "color0": "#15141a",
+        "color1": "#0c3d86",
+        "color2": "#045eab",
+        "color3": "#0884cf",
+        "color4": "#7078c9",
+        "color5": "#1bbbf5",
+        "color6": "#7bd9fa",
+        "color7": "#c4c4c5",
+        "color8": "#4f4e53",
+        "color9": "#0c3d86",
+        "color10": "#045eab",
+        "color11": "#0884cf",
+        "color12": "#7078c9",
+        "color13": "#1bbbf5",
+        "color14": "#7bd9fa",
+        "color15": "#c4c4c5"
+    }
+}

@@ -5,9 +5,10 @@ alias C=qalc
 alias calculator=qalculate
 alias tig='tig status'
 alias weather='curl -H "Accept-Language: fr" wttr.in/paris'
-alias vi='nvim'
-alias vim='nvim'
-alias vide='nohup neovide >/dev/null 2>&1 &'
+alias vi='neovide'
+alias vim='neovide'
+alias neo='neovide'
+#alias vide='nohup neovide >/dev/null 2>&1 &'
 alias svim='nvim -u /home/alexis/Applications/SpaceVim/vimrc'
 #alias vim='/usr/bin/vim -u /home/alexis/.config/nvim/init.vim'
 alias sudo='sudo -EH'
@@ -16,8 +17,7 @@ alias dup='docker-compose up -d'
 alias ddown='docker-compose down'
 alias searchfor='grep -rnw . -e'
 alias lognav=lnav
-alias top='ytop -c monokai -s -a -m'
-alias fulltop='ytop -c vice -s -r 2'
+alias top='btop'
 alias cat='bat'
 alias cam='qv4l2'
 alias ls=exa
@@ -31,6 +31,9 @@ alias tdo='todo.sh do'
 alias time='tty-clock -c'
 alias grep=rg
 alias lg=lazygit
+alias logout='dm-tool switch-to-greeter'
+alias php="php7"
+alias em="emacsclient -c &"
 
 function chpwd() {
     if [ -r $PWD/bash_aliases.sh ]; then

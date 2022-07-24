@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/alien-psychedelic.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#171b15",
+        "foreground": "#c5c6c4",
+        "cursor": "#c5c6c4"
+    },
+    "colors": {
+        "color0": "#171b15",
+        "color1": "#419ea5",
+        "color2": "#7e9b96",
+        "color3": "#49b5c1",
+        "color4": "#61b1a8",
+        "color5": "#9aa07e",
+        "color6": "#76beba",
+        "color7": "#c5c6c4",
+        "color8": "#51544f",
+        "color9": "#419ea5",
+        "color10": "#7e9b96",
+        "color11": "#49b5c1",
+        "color12": "#61b1a8",
+        "color13": "#9aa07e",
+        "color14": "#76beba",
+        "color15": "#c5c6c4"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/mob.png",
+    "alpha": "100",
+    "special": {
+        "background": "#13131b",
+        "foreground": "#dbcfdd",
+        "cursor": "#dbcfdd"
+    },
+    "colors": {
+        "color0": "#13131b",
+        "color1": "#65619D",
+        "color2": "#5749AB",
+        "color3": "#985E9E",
+        "color4": "#B654CD",
+        "color5": "#5BA1C0",
+        "color6": "#9E95A5",
+        "color7": "#dbcfdd",
+        "color8": "#99909a",
+        "color9": "#65619D",
+        "color10": "#5749AB",
+        "color11": "#985E9E",
+        "color12": "#B654CD",
+        "color13": "#5BA1C0",
+        "color14": "#9E95A5",
+        "color15": "#dbcfdd"
+    }
+}

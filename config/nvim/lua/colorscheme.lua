@@ -33,17 +33,19 @@ vim.g.tokyonight_enable_italic = 1
 vim.g.tokyonight_transparent_background = 0
 vim.g.tokyonight_disable_italic_comment = 0
 vim.g.tokyonight_current_word = 'bold' -- 'bold', 'italic', 'underline', 'grey background'
+-- nightfox config --
+
 ---- uncomment one ----
 
 -- vim.cmd 'color material'
 -- vim.cmd 'color dogrun'
 -- vim.cmd 'color gruvbox-material'
--- vim.cmd 'color doom-one'
+vim.cmd 'color doom-one' -- *
 -- vim.cmd 'color dracula'
 -- vim.cmd 'color xshado'
 -- vim.cmd 'color night-owl'
 -- vim.cmd 'color moonfly'
--- vim.cmd 'color OceanicNext'
+-- vim.cmd 'color OceanicNext' -- *
 -- vim.cmd 'color neon'
 -- vim.cmd 'color sonokai'
 -- vim.cmd 'color nord'
@@ -51,12 +53,20 @@ vim.g.tokyonight_current_word = 'bold' -- 'bold', 'italic', 'underline', 'grey b
 -- vim.cmd 'color zenburn'
 -- vim.cmd 'color PaperColor'
 -- vim.cmd 'color tender'
--- vim.cmd 'color one'
--- vim.cmd 'color palenight'
+-- vim.cmd 'color one' -- *
+-- vim.cmd 'color palenight' -- *
 -- vim.cmd 'color catppuccin'
 -- vim.cmd 'color tokyonight'
 -- vim.cmd 'color gotham'
--- vim.cmd 'color iceberg'
-vim.cmd 'color spaceduck'
+-- vim.cmd 'color iceberg' -- *
+-- vim.cmd 'color spaceduck' -- *
 -- vim.cmd 'color everforest'
 -- vim.cmd 'color seoul256'
+-- vim.cmd 'color nightfox'
+-- vim.cmd 'color dayfox'
+-- vim.cmd 'color dawnfox'
+-- vim.cmd 'color duskfox'
+-- vim.cmd 'color nordfox'
+-- vim.cmd 'color terafox'
+-- vim.cmd 'color ayu'
+-- vim.cmd 'color melange'

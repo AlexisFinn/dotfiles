@@ -27,14 +27,29 @@ return packer.startup(function(use)
   use 'pineapplegiant/spaceduck'
   use 'sainnhe/everforest'
   use 'junegunn/seoul256.vim'
-  use ({'catppuccin/nvim', as = 'catppuccin'})
+  use 'EdenEast/nightfox.nvim'
+  use 'ayu-theme/ayu-vim'
+  use 'savq/melange'
+  use({ 'catppuccin/nvim', as = 'catppuccin' })
   -- some nice icons
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
   -- smooth scrolling
   use 'psliwka/vim-smoothie'
+  ---------------
+  -- LSP SETUP --
+  ---------------
+  -- manage installed lsp servers
+  -- use 'williamboman/nvim-lsp-installer'
   -- Language Server Protocol integration (this is so cool)
   use 'neovim/nvim-lspconfig'
+  -- better defaults for builtin lsp
+  use {
+    'RishabhRD/nvim-lsputils',
+    requires = { 'RishabhRD/popfix' }
+  }
+  -- show function signature as you type
+  use 'ray-x/lsp_signature.nvim'
   -- auto-formatting
   --use 'lukas-reineke/lsp-format.nvim'
   use 'mhartington/formatter.nvim'
@@ -47,19 +62,13 @@ return packer.startup(function(use)
   use 'folke/trouble.nvim'
   -- auto change matching html tags
   use 'AndrewRadev/tagalong.vim'
-  -- better defaults for builtin lsp
-  use {
-    'RishabhRD/nvim-lsputils',
-    requires = {'RishabhRD/popfix'}
-  }
   -- autocomplete
   use 'hrsh7th/cmp-nvim-lsp'
   use 'hrsh7th/cmp-buffer'
   use 'hrsh7th/nvim-cmp'
+  use 'hrsh7th/cmp-path'
   -- language specific plugins
-  use {'ray-x/go.nvim'}
-  -- show function signature as you type
-  use 'ray-x/lsp_signature.nvim'
+  use { 'ray-x/go.nvim' }
   -- indent guides
   use 'lukas-reineke/indent-blankline.nvim'
   -- Comment/uncomment multiple lines with <leader>c<space>
@@ -74,21 +83,26 @@ return packer.startup(function(use)
   use {
     'nvim-telescope/telescope.nvim',
     requires = {
-      {'nvim-lua/popup.nvim'},
-      {'nvim-lua/plenary.nvim'},
+      { 'nvim-lua/popup.nvim' },
+      { 'nvim-lua/plenary.nvim' },
     }
   }
   -- use fzf in telescope instead of builtin fuzzy finder (fzf is much faster)
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make'}
+  use { 'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
+  -- better telescope
+  use 'nvim-telescope/telescope-ui-select.nvim'
+  -- project management with telescope
+  use 'nvim-telescope/telescope-project.nvim'
   -- ripgrep for fastest ever grep directly in vim
   use 'jremmen/vim-ripgrep'
   -- markdown preview
   -- use 'npxbr/glow.nvim'
-  use {'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()'}
+  use { 'iamcco/markdown-preview.nvim', run = ':call mkdp#util#install()' }
   -- status line in lua
   use 'hoob3rt/lualine.nvim'
   -- tab line
-  use {'akinsho/bufferline.nvim', tag = "*", requires = 'kyazdani42/nvim-web-devicons'}
+  use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  -- use { 'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   -- light alternative
   -- use 'ojroques/nvim-bufbar'
   -- emmet
@@ -97,11 +111,12 @@ return packer.startup(function(use)
   use 'nelsyeung/twig.vim'
   -- haskell
   use 'neovimhaskell/haskell-vim'
-  -- Show trailing whitespaces in red
-  use 'ntpeters/vim-better-whitespace'
+  -- rust
+  use 'simrat39/rust-tools.nvim'
   -- file manager
   --use 'vifm/vifm.vim' -- using vifm
   use 'kevinhwang91/rnvimr' -- using ranger
+  use 'kyazdani42/nvim-tree.lua' -- builtin
   -- Run terminal commands in floating windows
   --use 'voldikss/vim-floaterm'
   -- best git commands integration for vim
@@ -129,7 +144,15 @@ return packer.startup(function(use)
   }
   -- documentation generator
   --use {'kkoomen/vim-doge', run = ':call doge#install()'}
-  use {'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter' }
+  use { 'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter' }
+  -- bookmarks
+  use 'MattesGroeger/vim-bookmarks'
   -- games
   use 'ThePrimeagen/vim-be-good' -- type :VimBeGood
+  -- discord rich presence integration
+  -- use 'vimsence/vimsence'
+  -- session management made easy
+  use 'tpope/vim-obsession'
+  -- Emacs Org Mode for Vim
+  use { 'nvim-orgmode/orgmode', requires = 'nvim-treesitter/nvim-treesitter' }
 end)

@@ -3,6 +3,6 @@ vim.api.nvim_exec([[
 augroup illuminate_augroup
     autocmd!
     autocmd VimEnter * hi illuminatedCurWord cterm=italic gui=italic
-    autocmd VimEnter * hi illuminatedWord cterm=bold gui=bold
+    autocmd VimEnter * hi illuminatedWord cterm=italic,bold gui=italic,bold
 augroup END
 ]], false)

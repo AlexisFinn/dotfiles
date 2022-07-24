@@ -1,5 +1,7 @@
 export GOPATH="$HOME/go"
-export PATH="$GOPATH/bin:$HOME/.gem/ruby/2.7.0/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
+export GHCUPPATH="$HOME/.ghcup"
+export GEMPATH="$HOME/.local/share/gem/ruby/3.0.0"
+export PATH="$GEMPATH/bin:$GHCUPPATH/bin:$GOPATH/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
 export SPICETIFY_INSTALL="/home/alexis/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
 export FZF_DEFAULT_COMMAND='ag -al'
@@ -63,3 +65,5 @@ eval "$(starship init zsh)"
 #fortune -s | lolcat
 
 alias luamake=/home/alexis/Applications/lua-language-server/3rd/luamake/luamake
+
+[ -f "/home/alexis/.ghcup/env" ] && source "/home/alexis/.ghcup/env" # ghcup-env

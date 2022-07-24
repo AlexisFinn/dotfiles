@@ -4,7 +4,7 @@ require('formatter').setup {
       function()
         return {
           exe = "prettier",
-          args = {"--parser typescript", "-w"},
+          args = { "--parser typescript", "-w" },
           stdin = true
         }
       end
@@ -13,7 +13,7 @@ require('formatter').setup {
       function()
         return {
           exe = "prettier",
-          args = {"--parser typescript", "-w"},
+          args = { "--parser typescript", "-w" },
           stdin = true
         }
       end
@@ -22,7 +22,7 @@ require('formatter').setup {
       function()
         return {
           exe = "prettier",
-          args = {"--parser vue", "-w"},
+          args = { "--parser vue", "-w" },
           stdin = true
         }
       end
@@ -31,7 +31,7 @@ require('formatter').setup {
       function()
         return {
           exe = "prettier",
-          args = {"--parser scss", "-w"},
+          args = { "--parser scss", "-w" },
           stdin = true
         }
       end
@@ -40,7 +40,7 @@ require('formatter').setup {
       function()
         return {
           exe = "prettier",
-          args = {"--parser css", "-w"},
+          args = { "--parser css", "-w" },
           stdin = true
         }
       end
@@ -49,7 +49,7 @@ require('formatter').setup {
       function()
         return {
           exe = "prettier",
-          args = {"--parser yaml", "-w"},
+          args = { "--parser yaml", "-w" },
           stdin = true
         }
       end
@@ -58,7 +58,7 @@ require('formatter').setup {
       function()
         return {
           exe = "prettier",
-          args = {"--parser html", "-w"},
+          args = { "--parser html", "-w" },
           stdin = true
         }
       end
@@ -75,7 +75,7 @@ require('formatter').setup {
       function()
         return {
           exe = "autopep",
-          args = {"--ignore E501"},
+          args = { "--ignore E501" },
           stdin = true
         }
       end
@@ -84,7 +84,7 @@ require('formatter').setup {
       function()
         return {
           exe = "php-cs-fixer",
-          args = {"fix"},
+          args = { "fix" },
           stdin = false
         }
       end
@@ -93,7 +93,6 @@ require('formatter').setup {
       function()
         return {
           exe = "goimports",
-          args = {"-w"},
           stdin = true
         }
       end
@@ -102,7 +101,7 @@ require('formatter').setup {
       function()
         return {
           exe = "rustfmt",
-          args = {"--emit=stdout"},
+          args = { "--emit=stdout" },
           stdin = true
         }
       end

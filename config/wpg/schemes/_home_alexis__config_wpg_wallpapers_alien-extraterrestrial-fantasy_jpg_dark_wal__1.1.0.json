@@ -1,0 +1,28 @@
+{
+    "wallpaper": "/home/alexis/.config/wpg/wallpapers/alien-extraterrestrial-fantasy.jpg",
+    "alpha": "100",
+
+    "special": {
+        "background": "#000001",
+        "foreground": "#87cde7",
+        "cursor": "#87cde7"
+    },
+    "colors": {
+        "color0": "#000001",
+        "color1": "#35495F",
+        "color2": "#A32E61",
+        "color3": "#181990",
+        "color4": "#59039A",
+        "color5": "#1057B6",
+        "color6": "#A112BF",
+        "color7": "#87cde7",
+        "color8": "#5e8fa1",
+        "color9": "#35495F",
+        "color10": "#A32E61",
+        "color11": "#181990",
+        "color12": "#59039A",
+        "color13": "#1057B6",
+        "color14": "#A112BF",
+        "color15": "#87cde7"
+    }
+}

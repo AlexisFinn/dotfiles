@@ -1,4 +1,4 @@
-source "${HOME}/zgenom/zgenom.zsh"
+source "${HOME}/.zgenom/zgenom.zsh"
 if ! zgenom saved; then
   zgenom oh-my-zsh
   # Load async plugin

@@ -4,7 +4,8 @@ require 'nvim-treesitter.configs'.setup {
     enable = true
   },
   highlight = {
-    enable = false
+    enable = false,
+    additional_vim_regex_highlighting = {'org'}
   },
   rainbow = {
     enable = true

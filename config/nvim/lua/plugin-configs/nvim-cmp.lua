@@ -20,7 +20,8 @@ cmp.setup({
   sources = {
     { name = 'nvim_lsp' },
     { name = 'utilsnips' },
-    { name = 'buffer' }
+    { name = 'buffer' },
+    { name = 'orgmode' }
   },
   experimental = {
     ghost_text = true,

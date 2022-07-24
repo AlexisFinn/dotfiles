@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/celestial-cat.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#211e18",
+        "foreground": "#c7c6c5",
+        "cursor": "#c7c6c5"
+    },
+    "colors": {
+        "color0": "#211e18",
+        "color1": "#aa9879",
+        "color2": "#aa9d85",
+        "color3": "#a3a3a3",
+        "color4": "#1852aa",
+        "color5": "#4c70aa",
+        "color6": "#798baa",
+        "color7": "#c7c6c5",
+        "color8": "#585651",
+        "color9": "#aa9879",
+        "color10": "#aa9d85",
+        "color11": "#a3a3a3",
+        "color12": "#1852aa",
+        "color13": "#4c70aa",
+        "color14": "#798baa",
+        "color15": "#c7c6c5"
+    }
+}

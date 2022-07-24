@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/alien.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#121b1c",
+        "foreground": "#c3c6c6",
+        "cursor": "#c3c6c6"
+    },
+    "colors": {
+        "color0": "#121b1c",
+        "color1": "#4e9bab",
+        "color2": "#62aebe",
+        "color3": "#83aea4",
+        "color4": "#97bab6",
+        "color5": "#7fc7c3",
+        "color6": "#8cd1e0",
+        "color7": "#c3c6c6",
+        "color8": "#4d5454",
+        "color9": "#4e9bab",
+        "color10": "#62aebe",
+        "color11": "#83aea4",
+        "color12": "#97bab6",
+        "color13": "#7fc7c3",
+        "color14": "#8cd1e0",
+        "color15": "#c3c6c6"
+    }
+}

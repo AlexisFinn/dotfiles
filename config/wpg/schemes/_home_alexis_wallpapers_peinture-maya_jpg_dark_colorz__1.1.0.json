@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/peinture-maya.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#242020",
+        "foreground": "#c8c7c7",
+        "cursor": "#c8c7c7"
+    },
+    "colors": {
+        "color0": "#242020",
+        "color1": "#b7a4a1",
+        "color2": "#bec0bf",
+        "color3": "#ac4094",
+        "color4": "#c37faf",
+        "color5": "#ba63a0",
+        "color6": "#c5a0b8",
+        "color7": "#c8c7c7",
+        "color8": "#5a5757",
+        "color9": "#b7a4a1",
+        "color10": "#bec0bf",
+        "color11": "#ac4094",
+        "color12": "#c37faf",
+        "color13": "#ba63a0",
+        "color14": "#c5a0b8",
+        "color15": "#c8c7c7"
+    }
+}
