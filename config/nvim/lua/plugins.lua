@@ -140,7 +140,7 @@ return packer.startup(function(use)
   use 'RRethy/vim-illuminate'
   -- treesitter the new language parser
   use {
-    'nvim-treesitter/nvim-treesitter', run = ':TSUpdate'
+    'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = "master"
   }
   -- documentation generator
   --use {'kkoomen/vim-doge', run = ':call doge#install()'}
@@ -154,5 +154,5 @@ return packer.startup(function(use)
   -- session management made easy
   use 'tpope/vim-obsession'
   -- Emacs Org Mode for Vim
-  use { 'nvim-orgmode/orgmode', requires = 'nvim-treesitter/nvim-treesitter' }
+  -- use { 'nvim-orgmode/orgmode', requires = 'nvim-treesitter/nvim-treesitter' }
 end)

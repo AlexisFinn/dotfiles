@@ -43,4 +43,4 @@ require 'plugin-configs/nvim-tree' -- integrated file manager written in lua
 require 'plugin-configs/neogen' -- doc comment generator
 -- require 'plugin-configs/vimsense' -- discord rich presence integration
 require 'plugin-configs/vim-obsession' -- auto-save session
-require 'plugin-configs/org-mode' -- Emacs Org Mode for Nvim
+-- require 'plugin-configs/org-mode' -- Emacs Org Mode for Nvim

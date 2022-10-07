@@ -98,6 +98,12 @@ require('lspconfig').vuels.setup {
   on_attach = onAttach,
 }
 
+-- vue 3
+-- require('lspconfig').volar.setup {
+-- handlers = handlerVirtualText,
+-- on_attach = onAttach,
+-- }
+
 -- typescript
 require('lspconfig').tsserver.setup {
   handlers = handlerVirtualText,

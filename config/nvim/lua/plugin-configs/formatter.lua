@@ -1,5 +1,14 @@
 require('formatter').setup {
   filetype = {
+    json = {
+      function()
+        return {
+          exe = "prettier",
+          args = { "--parser json", "-w" },
+          stdin = true
+        }
+      end
+    },
     javascript = {
       function()
         return {
@@ -112,6 +121,6 @@ require('formatter').setup {
 vim.api.nvim_exec([[
 augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.js,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css FormatWrite
+  autocmd BufWritePost *.json,*.js,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html FormatWrite
 augroup END
 ]], true)

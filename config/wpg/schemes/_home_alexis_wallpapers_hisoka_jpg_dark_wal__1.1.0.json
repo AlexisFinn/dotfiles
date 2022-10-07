@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/hisoka.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#071632",
+        "foreground": "#97c8db",
+        "cursor": "#97c8db"
+    },
+    "colors": {
+        "color0": "#071632",
+        "color1": "#294D6D",
+        "color2": "#4E4267",
+        "color3": "#226793",
+        "color4": "#63618C",
+        "color5": "#9E5598",
+        "color6": "#318AB3",
+        "color7": "#97c8db",
+        "color8": "#698c99",
+        "color9": "#294D6D",
+        "color10": "#4E4267",
+        "color11": "#226793",
+        "color12": "#63618C",
+        "color13": "#9E5598",
+        "color14": "#318AB3",
+        "color15": "#97c8db"
+    }
+}

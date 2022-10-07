@@ -5,6 +5,7 @@ export PATH="$GEMPATH/bin:$GHCUPPATH/bin:$GOPATH/bin:$HOME/.config/composer/vend
 export SPICETIFY_INSTALL="/home/alexis/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
 export FZF_DEFAULT_COMMAND='ag -al'
+export EDITOR="nvim"
 
 # pymal custom colors
 #(cat ~/.cache/wal/sequences &)

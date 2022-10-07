@@ -273,7 +273,7 @@ layoutConfig = dict(
     margin=gap,
     max_ratio=max_ratio,
     min_ratio=min_ratio,
-    new_client_position='top'
+    new_client_position='top',
 )
 
 # define layouts
@@ -368,7 +368,7 @@ for name, color in powerlineWidgets.items():
         )
         powerlineBar.append(
             make_widget(
-                'PulseVolume',
+                'Volume',
                 color
             )
         )
@@ -432,13 +432,13 @@ screens = [
                     fontshadow=None,
                     borderwidth=3
                 ),
-                widget.Mpris2(objname="org.mpris.MediaPlayer2.spotify",
-                              name="spotify",
-                              max_chars=60,
-                              display_metadata=['xesam:album', 'xesam:title'],
-                              stop_pause_text="Spotify not playing",
-                              scroll_interval=0
-                              ),
+                #  widget.Mpris2(objname="org.mpris.MediaPlayer2.spotify",
+                              #  name="spotify",
+                              #  max_chars=60,
+                              #  display_metadata=['xesam:album', 'xesam:title'],
+                              #  stop_pause_text="Spotify not playing",
+                              #  scroll_interval=0
+                              #  ),
                 widget.Spacer(),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color1),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color2),
@@ -448,7 +448,13 @@ screens = [
                 widget.TextBox(text=icons['color'], foreground=PyColors.color6),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color7),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color8),
-                widget.TextBox(text=icons['color'], foreground=PyColors.color9)
+                widget.TextBox(text=icons['color'], foreground=PyColors.color9),
+                widget.Spacer(),
+                make_widget(
+                    'Clock',
+                    PyColors.background,
+                    format=icons['date'] + ' %a %d/%m ' + icons['time'] + ' %H:%M'
+                    ),
             ],
             bar_size,
         ),

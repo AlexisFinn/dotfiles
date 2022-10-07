@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/mountain-sky.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0f0d13",
+        "foreground": "#cae1e5",
+        "cursor": "#cae1e5"
+    },
+    "colors": {
+        "color0": "#0f0d13",
+        "color1": "#A4748A",
+        "color2": "#CC7E85",
+        "color3": "#5CB6D7",
+        "color4": "#AA8FA2",
+        "color5": "#D18B90",
+        "color6": "#EEDC9D",
+        "color7": "#cae1e5",
+        "color8": "#8d9da0",
+        "color9": "#A4748A",
+        "color10": "#CC7E85",
+        "color11": "#5CB6D7",
+        "color12": "#AA8FA2",
+        "color13": "#D18B90",
+        "color14": "#EEDC9D",
+        "color15": "#cae1e5"
+    }
+}

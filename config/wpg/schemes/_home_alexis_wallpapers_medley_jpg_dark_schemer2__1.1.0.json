@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/medley.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#261b12",
+        "foreground": "#c8c6c3",
+        "cursor": "#c8c6c3"
+    },
+    "colors": {
+        "color0": "#261b12",
+        "color1": "#97979f",
+        "color2": "#ff8945",
+        "color3": "#d5a284",
+        "color4": "#f39d6a",
+        "color5": "#b2b3b9",
+        "color6": "#fab854",
+        "color7": "#c8c6c3",
+        "color8": "#5c544d",
+        "color9": "#97979f",
+        "color10": "#ff8945",
+        "color11": "#d5a284",
+        "color12": "#f39d6a",
+        "color13": "#b2b3b9",
+        "color14": "#fab854",
+        "color15": "#c8c6c3"
+    }
+}

@@ -55,7 +55,7 @@ vim.cmd 'color doom-one' -- *
 -- vim.cmd 'color tender'
 -- vim.cmd 'color one' -- *
 -- vim.cmd 'color palenight' -- *
--- vim.cmd 'color catppuccin'
+-- vim.cmd 'color catppuccin' -- *
 -- vim.cmd 'color tokyonight'
 -- vim.cmd 'color gotham'
 -- vim.cmd 'color iceberg' -- *
