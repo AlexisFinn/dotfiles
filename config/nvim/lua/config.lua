@@ -54,7 +54,6 @@ vim.o.updatetime = 1000 -- number of miliseconds before updating, usefull for Cu
 --use new experimental filetype detection
 vim.g.do_filetype_lua = 1
 vim.g.did_lead_filetypes = 0
-vim.o.ch = 0
 
 
 --Add a command to reformat json using python
