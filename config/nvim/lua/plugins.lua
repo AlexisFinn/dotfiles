@@ -102,6 +102,8 @@ return packer.startup(function(use)
   use 'hoob3rt/lualine.nvim'
   -- tab line
   use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
+  -- buffer switcher
+  use 'matbme/JABS.nvim'
   -- use { 'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
   -- light alternative
   -- use 'ojroques/nvim-bufbar'
@@ -118,9 +120,10 @@ return packer.startup(function(use)
   use 'kevinhwang91/rnvimr' -- using ranger
   use 'kyazdani42/nvim-tree.lua' -- builtin
   -- Run terminal commands in floating windows
-  --use 'voldikss/vim-floaterm'
+  use 'voldikss/vim-floaterm'
   -- best git commands integration for vim
   use 'tpope/vim-fugitive'
+  -- use 'kdheepak/lazygit.nvim'
   -- git diff indications in gutter column
   use 'airblade/vim-gitgutter'
   -- use .editorconfig file if found
@@ -129,7 +132,8 @@ return packer.startup(function(use)
   use 'norcalli/nvim-colorizer.lua'
   -- easyMotion clone for newer Nvim 0.5
   --use 'phaazon/hop.nvim'
-  use 'ggandor/lightspeed.nvim'
+  --use 'ggandor/lightspeed.nvim'
+  use 'ggandor/leap.nvim'
   -- show some animation on cursor jumping to ease following the cursor
   use 'edluffy/specs.nvim'
   -- discord rich presence
@@ -147,6 +151,14 @@ return packer.startup(function(use)
   use { 'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter' }
   -- bookmarks
   use 'MattesGroeger/vim-bookmarks'
+  -- vim UI library
+  -- use 'MunifTanjim/nui.nvim'
+  -- vim UI for messages, cmdline and popupmenu
+  -- use {
+    -- 'folke/noice.nvim',
+    -- -- event = 'VimEnter',
+    -- requires = { "MunifTanjim/nui.nvim", "rcarriga/nvim-notify" }
+  -- }
   -- games
   use 'ThePrimeagen/vim-be-good' -- type :VimBeGood
   -- discord rich presence integration

@@ -75,15 +75,37 @@ def get_complementary_color(color):
     GivenColor.set_hue(((GivenColor.get_hue()*360) + 180)/360)
     return GivenColor.get_hex_l()
 
-def colorsEqual(color1, color2):
+def colors_equal(color1, color2):
     Color1 = Color(color1)
     Color2 = Color(color2)
 
     return Color1.get_hex_l() == Color2.get_hex_l()
 
+def get_standout_color():
+    colors = [
+            PyColors.color1,
+            PyColors.color2,
+            PyColors.color3,
+            PyColors.color4,
+            PyColors.color5,
+            PyColors.color6,
+            PyColors.color7,
+            PyColors.color8,
+            PyColors.color9
+            ]
+    results = [0] * len(colors)
+    for index, color1 in enumerate(colors):
+        for color2 in colors:
+            if not colors_equal(color1, color2):
+                results[index] += color_contrast_difference(color1, color2)
+    max_contrast = max(results)
+    max_index = results.index(max_contrast)
+
+    return colors[max_index]
+
 def make_widget(name, color, **kwargs):
     foregroundColor = make_foreground_color(color)
-    shadow = None if colorsEqual(foregroundColor, PyColors.background) else PyColors.background
+    shadow = None if colors_equal(foregroundColor, PyColors.background) else PyColors.background
     return getattr(widget, name)(
             foreground=foregroundColor,
             fontshadow=shadow,
@@ -136,19 +158,24 @@ resize_step_ratio = 2 / 100
 gap = 5
 border = 2
 
-active_color = PyColors.color6
+active_color = get_standout_color() #PyColors.color6
 active_color_alt = PyColors.color5
 inactive_color = make_inactive_color(PyColors.color6)
 inactive_color_alt = make_inactive_color(PyColors.color5)
 
 # configure groups (workspaces)
 # list of myGroup, first argument is group name second is keycode
+# Azerty: 
+# 1-"ampersand", 2-"eacute", 3-"quotedbl", 4-"apostrophe", 
+# 5-"parenleft", 6-"minus", 7-"egrave", 8-"underscore", 9-"ccedilla", 0-"agrave"
 myGroups = [
-    myGroup(" chat ", "ampersand", "monadwide"),
-    myGroup(" dev ", "eacute", "monadwide"),
-    myGroup(" www ", "quotedbl", "monadtall"),
-    myGroup(" database ", "apostrophe", "max"),
-    myGroup(" other ", "parenleft", "max")
+    myGroup(" Work ", "ampersand", "monadwide"),
+    myGroup(" Dev ", "eacute", "monadwide"),
+    myGroup(" www ", "quotedbl", "max"),
+    myGroup(" www-2", "apostrophe", "max"),
+    myGroup(" Data ", "parenleft", "max"),
+    myGroup(" Audio ", "egrave", "monadwide"),
+    myGroup(" Other ", "underscore", "max")
 ]
 
 # modifiers that combined with previously configured keycodes per group
@@ -169,8 +196,8 @@ icons = dict(
     netArrows='↓↑',#'⬇⬆',
     vol='VOL:',#'',
     date='',#'',
-    time='',#'',
-    color='●'
+    time='',#'',
+    color=''
 )
 
 # shortcuts for doing everything
@@ -190,6 +217,8 @@ keys = [
     # resize window
     Key([mod], "h", lazy.layout.grow(), desc="Grow window"),
     Key([mod], "l", lazy.layout.shrink(), desc="Shrink window"),
+    Key([mod], "m", lazy.layout.maximize(),
+        desc="maximize current window"),
     Key([mod], "n", lazy.layout.normalize(),
         desc="Reset all non-master window sizes"),
 
@@ -280,6 +309,8 @@ layoutConfig = dict(
 layouts = [
     layout.MonadTall(**layoutConfig),
     layout.MonadWide(**layoutConfig),
+    #  layout.VerticalTile(**layoutConfig),
+    layout.Zoomy(**layoutConfig),
     layout.Max()
 ]
 
@@ -449,12 +480,13 @@ screens = [
                 widget.TextBox(text=icons['color'], foreground=PyColors.color7),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color8),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color9),
-                widget.Spacer(),
+                #  widget.Spacer(),
                 make_widget(
                     'Clock',
                     PyColors.background,
                     format=icons['date'] + ' %a %d/%m ' + icons['time'] + ' %H:%M'
                     ),
+                make_widget('Volume', PyColors.background, fmt="  {}"),
             ],
             bar_size,
         ),

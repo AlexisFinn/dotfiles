@@ -1,7 +1,6 @@
 -- auto format on save running whatever lsp is configured for current file
-vim.api.nvim_command('autocmd BufWritePost * silent! lua vim.lsp.buf.formatting_sync()')
+--vim.api.nvim_command('autocmd BufWritePost * silent! lua vim.lsp.buf.format()')
 -- vim.api.nvim_command('autocmd BufWritePost * silent! lua vim.lsp.buf.formatting()')
-
 -- auto show diagnostic messages in popup
 -- vim.api.nvim_command('autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()')
 -- define signs
@@ -37,13 +36,26 @@ local onAttach = (function(client)
   client.server_capabilities.documentFormattingProvider = false
 
   -- add nvim-cmp (autocomplete) to lsp capabilities
-  client.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  -- client.capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+  client.capabilities = require('cmp_nvim_lsp').default_capabilities()
   -- show doc with 'K'
   vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
   -- jump to definition
   vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
   vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("n", "tt", "<cmd>lua vim.diagnostic.open_float()<CR>", { noremap = true, silent = true })
+  -- vim.api.nvim_set_keymap("n", "tt", "<cmd>lua vim.diagnostic.open_float()<CR>",
+  -- { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "tn", "<cmd>lua vim.diagnostic.open_next()<CR>",
+    { noremap = true, silent = true })
+  vim.api.nvim_set_keymap("n", "tN", "<cmd>lua vim.diagnostic.open_prev()<CR>",
+    { noremap = true, silent = true })
+  vim.keymap.set("n", "tt", function()
+    vim.diagnostic.open_float()
+    -- vim.notify(vim.diagnostic.get(0)[1].message, vim.log.levels.ERROR, {
+      -- title = "Custom"
+    -- })
+    -- vim.diagnostic.open_float()
+  end, { silent = true })
 end)
 
 -- html
@@ -100,11 +112,16 @@ require('lspconfig').vuels.setup {
 
 -- vue 3
 -- require('lspconfig').volar.setup {
--- handlers = handlerVirtualText,
--- on_attach = onAttach,
+  -- handlers = handlerVirtualText,
+  -- on_attach = onAttach,
 -- }
 
 -- typescript
+-- require('lspconfig').eslint.setup {
+  -- handlers = handlerVirtualText,
+  -- on_attach = onAttach,
+-- }
+
 require('lspconfig').tsserver.setup {
   handlers = handlerVirtualText,
   on_attach = onAttach,

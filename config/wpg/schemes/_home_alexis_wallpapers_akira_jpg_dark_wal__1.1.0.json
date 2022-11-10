@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/akira.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0a0a0a",
+        "foreground": "#9caebb",
+        "cursor": "#9caebb"
+    },
+    "colors": {
+        "color0": "#0a0a0a",
+        "color1": "#D72C19",
+        "color2": "#A54635",
+        "color3": "#D94936",
+        "color4": "#A45E59",
+        "color5": "#D96355",
+        "color6": "#808E7B",
+        "color7": "#9caebb",
+        "color8": "#6d7982",
+        "color9": "#D72C19",
+        "color10": "#A54635",
+        "color11": "#D94936",
+        "color12": "#A45E59",
+        "color13": "#D96355",
+        "color14": "#808E7B",
+        "color15": "#9caebb"
+    }
+}

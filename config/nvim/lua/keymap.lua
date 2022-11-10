@@ -13,10 +13,11 @@ keymap('n', '<space>m', ':NvimTreeFindFileToggle<CR>', {})
 keymap('n', '<F10>', ':RnvimrToggle<CR>', {})
 
 -- split window switching, just map Ctrl + J,K,L,H without having to type Crtl + W before
-keymap('n', '<C-J>', '<C-W><C-J>', { noremap = true })
-keymap('n', '<C-K>', '<C-W><C-K>', { noremap = true })
-keymap('n', '<C-L>', '<C-W><C-L>', { noremap = true })
-keymap('n', '<C-H>', '<C-W><C-H>', { noremap = true })
+keymap('n', '<space>j', '<C-W><C-J>', { noremap = true })
+keymap('n', '<space>k', '<C-W><C-K>', { noremap = true })
+keymap('n', '<space>l', '<C-W><C-L>', { noremap = true })
+keymap('n', '<space>h', '<C-W><C-H>', { noremap = true })
+keymap('n', '<space>s', ':split<CR>', { noremap = true })
 
 -- ctrl + l to remove highlights (after search typically)
 keymap('n', '<C-s>', ':noh<CR>', { noremap = true })
@@ -27,9 +28,18 @@ keymap('n', '<space>rg', ':Telescope live_grep<CR>', { noremap = true })
 keymap('n', '<space>o', ':Telescope project<CR>', {})
 keymap('n', '<space>p', ':Telescope find_files<CR>', {})
 
+keymap('n', '<space>q', ':q<CR>', {})
+keymap('n', '<space>d', ':bd<CR>', {})
+keymap('n', '<space>w', ':w<CR>', {})
 
+
+-- lazygit
+-- keymap('n', '<space>lg', ':LazyGit<CR>', {})
+vim.keymap.set('n', '<space>lg', function ()
+  cmd 'LazyGit'
+end, {silent = true})
 
 -- vim-fugitive
 -- alias git diff
-cmd 'cnoreabbrev diff Gdiffsplit'
-cmd 'cnoreabbrev vdiff Gvdiffsplit'
+-- cmd 'cnoreabbrev diff Gdiffsplit'
+-- cmd 'cnoreabbrev vdiff Gvdiffsplit'

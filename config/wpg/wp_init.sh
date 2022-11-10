@@ -1,2 +1,2 @@
 #!/usr/bin/env bash
-wpg -rs '/home/alexis/wallpapers/skull.jpg' '/home/alexis/wallpapers/skull.jpg'
+wpg -rs '/home/alexis/wallpapers/venom.jpg' '/home/alexis/wallpapers/venom.jpg'
