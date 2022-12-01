@@ -1,3 +1,5 @@
+# zmodload zsh/zprof
+
 export GOPATH="$HOME/go"
 export GHCUPPATH="$HOME/.ghcup"
 export GEMPATH="$HOME/.local/share/gem/ruby/3.0.0"
@@ -24,7 +26,7 @@ fi
 source "${HOME}/zsh-setup.zsh"
 
 # Set Zsh option
-setopt correct
+#setopt correct
 
 for file in $HOME/.zshrc.d/*; do
     source "$file"
@@ -55,16 +57,18 @@ PERL_MM_OPT="INSTALL_BASE=/home/alexis/perl5"; export PERL_MM_OPT;
 #        echo ;
 #    fi ;
 #done
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
-
 source /home/alexis/.config/broot/launcher/bash/br
-
-eval "$(starship init zsh)"
-
-#fortune -s | lolcat
-
 alias luamake=/home/alexis/Applications/lua-language-server/3rd/luamake/luamake
 
 [ -f "/home/alexis/.ghcup/env" ] && source "/home/alexis/.ghcup/env" # ghcup-env
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+#eval "$(starship init zsh)"
+
+#fortune -s | lolcat
+
+
+# zprof

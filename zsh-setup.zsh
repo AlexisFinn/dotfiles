@@ -14,16 +14,16 @@ if ! zgenom saved; then
   zgenom oh-my-zsh plugins/vi-mode #edit the command with vim
   zgenom oh-my-zsh plugins/systemd #systemd aliases
   #zgenom oh-my-zsh plugins/common-aliases #common aliases like ll, la etc...
-  zgenom oh-my-zsh plugins/docker #completion and aliases for docker
-  zgenom oh-my-zsh plugins/docker-compose #completion and aliases for docker-compose
+  #zgenom oh-my-zsh plugins/docker #completion and aliases for docker
+  #zgenom oh-my-zsh plugins/docker-compose #completion and aliases for docker-compose
   zgenom oh-my-zsh plugins/fzf #fuzzy autocompletion and keybindings
-  zgenom oh-my-zsh plugins/tmux
+  # zgenom oh-my-zsh plugins/tmux
 
   # Dracula theme
-  zgenom load dracula/zsh
+  # zgenom load dracula/zsh
 
   # Tab complete rakefile targets
-  zgenom load unixorn/rake-completion.zshplugin
+  # zgenom load unixorn/rake-completion.zshplugin
 
   # Automatically run zgenom update and zgen selfupdate every 7 days
   zgenom load unixorn/autoupdate-zgen
@@ -47,13 +47,13 @@ if ! zgenom saved; then
   zgenom load unixorn/git-extra-commands
 
   # Add my bitbucket git helpers plugin
-  zgenom load unixorn/bitbucket-git-helpers.plugin.zsh
+  # zgenom load unixorn/bitbucket-git-helpers.plugin.zsh
 
   # A collection of scripts that might be useful to sysadmins
   zgenom load skx/sysadmin-util
 
   # Adds aliases to open your current repo & branch on github.
-  zgenom load peterhurford/git-it-on.zsh
+  # zgenom load peterhurford/git-it-on.zsh
 
   # Tom Limoncelli's tooling for storing private information (keys, etc)
   # in a repository securely by encrypting them with gnupg
@@ -63,7 +63,7 @@ if ! zgenom saved; then
   # utilities distributed with pip.
   zgenom load sharat87/pip-app
 
-  zgenom load chrissicool/zsh-256color
+  #zgenom load chrissicool/zsh-256color
 
   # Load more completion files for zsh from the zsh-lovers github repo
   #zgenom load zsh-users/zsh-completions src

@@ -117,10 +117,11 @@ require('lspconfig').vuels.setup {
 -- }
 
 -- typescript
--- require('lspconfig').eslint.setup {
-  -- handlers = handlerVirtualText,
-  -- on_attach = onAttach,
--- }
+require('lspconfig').eslint.setup {
+  handlers = handlerVirtualText,
+  on_attach = onAttach,
+  filetypes = { "javascript", "typescript"}
+}
 
 require('lspconfig').tsserver.setup {
   handlers = handlerVirtualText,

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/jwt-deep-field1.png",
+    "alpha": "100",
+    "special": {
+        "background": "#212121",
+        "foreground": "#c7c7c7",
+        "cursor": "#c7c7c7"
+    },
+    "colors": {
+        "color0": "#212121",
+        "color1": "#a9a7a7",
+        "color2": "#ab8276",
+        "color3": "#aa9690",
+        "color4": "#ab634b",
+        "color5": "#6f7faa",
+        "color6": "#9196aa",
+        "color7": "#c7c7c7",
+        "color8": "#585858",
+        "color9": "#a9a7a7",
+        "color10": "#ab8276",
+        "color11": "#aa9690",
+        "color12": "#ab634b",
+        "color13": "#6f7faa",
+        "color14": "#9196aa",
+        "color15": "#c7c7c7"
+    }
+}

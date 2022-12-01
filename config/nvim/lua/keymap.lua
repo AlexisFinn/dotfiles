@@ -31,6 +31,8 @@ keymap('n', '<space>p', ':Telescope find_files<CR>', {})
 keymap('n', '<space>q', ':q<CR>', {})
 keymap('n', '<space>d', ':bd<CR>', {})
 keymap('n', '<space>w', ':w<CR>', {})
+keymap('n', '<space>c', ':call nerdcommenter#Comment("n", "toggle")<CR>', {})
+keymap('v', '<space>c', ':call nerdcommenter#Comment("n", "toggle")<CR>', {})
 
 
 -- lazygit

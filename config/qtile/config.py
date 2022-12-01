@@ -160,7 +160,7 @@ border = 2
 
 active_color = get_standout_color() #PyColors.color6
 active_color_alt = PyColors.color5
-inactive_color = make_inactive_color(PyColors.color6)
+inactive_color = PyColors.background #make_inactive_color(PyColors.color6)
 inactive_color_alt = make_inactive_color(PyColors.color5)
 
 # configure groups (workspaces)
@@ -188,7 +188,7 @@ shiftToMoveWindow = False
 
 # icons
 icons = dict(
-    separator= '┌┺┽╀┮┩',#'╵╹▚▞▜▕', #'', #'',#'',#'░▒▓',
+    separator= '',#'┌┺┽╀┮┩',#'╵╹▚▞▜▕', #'', #'',#'',#'░▒▓',
     mem='RAM: ',#'',
     cpu='CPU: ',#'',
     disk='HD: ',
@@ -197,7 +197,8 @@ icons = dict(
     vol='VOL:',#'',
     date='',#'',
     time='',#'',
-    color=''
+    color='',
+    battery='BAT: '
 )
 
 # shortcuts for doing everything
@@ -258,8 +259,8 @@ keys = [
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +2%")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -2%")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1%")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1%")),
 
     # stuffj4-dmenu-desktop
     Key([mod], "F12", lazy.spawn("lock")),
@@ -338,6 +339,7 @@ powerlineWidgets = {
     'disk': PyColors.color3,
     'net': PyColors.color4,
     'volume': PyColors.color5,
+    'battery': PyColors.color6, 
     'calendar': PyColors.color8
 }
 
@@ -401,6 +403,14 @@ for name, color in powerlineWidgets.items():
             make_widget(
                 'Volume',
                 color
+            )
+        )
+    elif name == 'battery':
+        powerlineBar.append(
+            make_widget(
+                'Battery',
+                color,
+                format=icons['battery'] + "{percent:2.0%}"
             )
         )
     elif name == 'calendar':
