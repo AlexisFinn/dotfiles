@@ -13,9 +13,9 @@ if ! zgenom saved; then
   #zgenom oh-my-zsh plugins/python #python aliases
   zgenom oh-my-zsh plugins/vi-mode #edit the command with vim
   zgenom oh-my-zsh plugins/systemd #systemd aliases
-  #zgenom oh-my-zsh plugins/common-aliases #common aliases like ll, la etc...
-  #zgenom oh-my-zsh plugins/docker #completion and aliases for docker
-  #zgenom oh-my-zsh plugins/docker-compose #completion and aliases for docker-compose
+  zgenom oh-my-zsh plugins/common-aliases #common aliases like ll, la etc...
+  zgenom oh-my-zsh plugins/docker #completion and aliases for docker
+  zgenom oh-my-zsh plugins/docker-compose #completion and aliases for docker-compose
   zgenom oh-my-zsh plugins/fzf #fuzzy autocompletion and keybindings
   # zgenom oh-my-zsh plugins/tmux
 

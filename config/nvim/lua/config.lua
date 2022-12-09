@@ -18,7 +18,7 @@ cmd 'autocmd BufEnter * :syntax sync minlines=10000'
 
 
 ---- General settings ----
-
+vim.g.mapleader = 'ç'
 vim.o.timeoutlen = 400
 vim.o.ruler = true -- show percentage of file
 vim.o.wrap = false -- don't wrap long lines

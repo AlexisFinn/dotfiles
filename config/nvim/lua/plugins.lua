@@ -164,7 +164,9 @@ return packer.startup(function(use)
   -- discord rich presence integration
   -- use 'vimsence/vimsence'
   -- session management made easy
-  use 'tpope/vim-obsession'
+  -- use 'tpope/vim-obsession'
+  use 'rmagatti/auto-session'
+  use { 'rmagatti/session-lens', requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'}}
   -- Emacs Org Mode for Vim
   -- use { 'nvim-orgmode/orgmode', requires = 'nvim-treesitter/nvim-treesitter' }
 end)

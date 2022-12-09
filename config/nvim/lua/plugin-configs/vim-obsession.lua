@@ -1,2 +1,2 @@
-local cmd = vim.cmd
-cmd 'autocmd VimEnter * :Obsess /home/alexis/vim.session'
+-- local cmd = vim.cmd
+-- cmd 'autocmd VimEnter * :Obsess /home/alexis/vim.session'

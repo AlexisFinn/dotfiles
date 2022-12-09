@@ -84,6 +84,11 @@ _G.packer_plugins = {
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/Zenburn",
     url = "https://github.com/jnurmine/Zenburn"
   },
+  ["auto-session"] = {
+    loaded = true,
+    path = "/home/alexis/.local/share/nvim/site/pack/packer/start/auto-session",
+    url = "https://github.com/rmagatti/auto-session"
+  },
   ["ayu-vim"] = {
     loaded = true,
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/ayu-vim",
@@ -324,6 +329,11 @@ _G.packer_plugins = {
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/seoul256.vim",
     url = "https://github.com/junegunn/seoul256.vim"
   },
+  ["session-lens"] = {
+    loaded = true,
+    path = "/home/alexis/.local/share/nvim/site/pack/packer/start/session-lens",
+    url = "https://github.com/rmagatti/session-lens"
+  },
   shadotheme = {
     loaded = true,
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/shadotheme",
@@ -463,11 +473,6 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/vim-moonfly-colors",
     url = "https://github.com/bluz71/vim-moonfly-colors"
-  },
-  ["vim-obsession"] = {
-    loaded = true,
-    path = "/home/alexis/.local/share/nvim/site/pack/packer/start/vim-obsession",
-    url = "https://github.com/tpope/vim-obsession"
   },
   ["vim-one"] = {
     loaded = true,
