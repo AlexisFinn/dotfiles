@@ -29,12 +29,16 @@ keymap('n', '<space>o', ':Telescope project<CR>', {})
 keymap('n', '<space>p', ':Telescope find_files<CR>', {})
 keymap('n', '<space>s', ':Telescope session-lens search_session<CR>', { noremap = true })
 
+-- custom
 keymap('n', '<space>q', ':q<CR>', {})
 keymap('n', '<space>dd', ':bd<CR>', {})
 keymap('n', '<space>da', ':bufdo bd<CR>', {})
 keymap('n', '<space>w', ':w<CR>', {})
 keymap('n', '<space>c', ':call nerdcommenter#Comment("n", "toggle")<CR>', {})
 keymap('v', '<space>c', ':call nerdcommenter#Comment("n", "toggle")<CR>', {})
+keymap('n', '<space>[', ':SplitjoinSplit<CR>', {})
+keymap('n', '<space>]', ':SplitjoinJoin<CR>', {})
+keymap('n', '<space>e', ':IronFocus<CR>', {})
 
 
 -- lazygit

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/kanagawa.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#17181c",
+        "foreground": "#c5c5c6",
+        "cursor": "#c5c5c6"
+    },
+    "colors": {
+        "color0": "#17181c",
+        "color1": "#2f4366",
+        "color2": "#40617d",
+        "color3": "#848785",
+        "color4": "#809aa4",
+        "color5": "#90b0b7",
+        "color6": "#bfaf90",
+        "color7": "#c5c5c6",
+        "color8": "#515154",
+        "color9": "#2f4366",
+        "color10": "#40617d",
+        "color11": "#848785",
+        "color12": "#809aa4",
+        "color13": "#90b0b7",
+        "color14": "#bfaf90",
+        "color15": "#c5c5c6"
+    }
+}

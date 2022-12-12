@@ -40,7 +40,7 @@ vim.g.tokyonight_current_word = 'bold' -- 'bold', 'italic', 'underline', 'grey b
 -- vim.cmd 'color material'
 -- vim.cmd 'color dogrun'
 -- vim.cmd 'color gruvbox-material'
-vim.cmd 'color doom-one' -- *
+-- vim.cmd 'color doom-one' -- *
 -- vim.cmd 'color dracula'
 -- vim.cmd 'color xshado'
 -- vim.cmd 'color night-owl'
@@ -70,3 +70,4 @@ vim.cmd 'color doom-one' -- *
 -- vim.cmd 'color terafox'
 -- vim.cmd 'color ayu'
 -- vim.cmd 'color melange'
+vim.cmd 'color kanagawa'

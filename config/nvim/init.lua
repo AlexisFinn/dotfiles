@@ -48,4 +48,5 @@ require 'plugin-configs.neogen' -- doc comment generator
 -- require 'plugin-configs.vim-obsession' -- auto-save session
 require 'plugin-configs.auto-session' -- auto-save session per cwd
 require 'plugin-configs.session-lens' -- add session switching to telescope
+require 'plugin-configs.iron' -- access language REPL
 -- require 'plugin-configs.org-mode' -- Emacs Org Mode for Nvim

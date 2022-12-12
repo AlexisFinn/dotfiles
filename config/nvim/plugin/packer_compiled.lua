@@ -169,6 +169,16 @@ _G.packer_plugins = {
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/indent-blankline.nvim",
     url = "https://github.com/lukas-reineke/indent-blankline.nvim"
   },
+  ["iron.nvim"] = {
+    loaded = true,
+    path = "/home/alexis/.local/share/nvim/site/pack/packer/start/iron.nvim",
+    url = "https://github.com/hkupty/iron.nvim"
+  },
+  ["kanagawa.nvim"] = {
+    loaded = true,
+    path = "/home/alexis/.local/share/nvim/site/pack/packer/start/kanagawa.nvim",
+    url = "https://github.com/rebelot/kanagawa.nvim"
+  },
   ["leap.nvim"] = {
     loaded = true,
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/leap.nvim",

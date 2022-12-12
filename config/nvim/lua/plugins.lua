@@ -23,6 +23,7 @@ return packer.startup(function(use)
   use 'drewtempelmeyer/palenight.vim'
   use 'ghifarit53/tokyonight-vim'
   use 'whatyouhide/vim-gotham'
+  use 'rebelot/kanagawa.nvim'
   use 'cocopon/iceberg.vim'
   use 'pineapplegiant/spaceduck'
   use 'sainnhe/everforest'
@@ -53,6 +54,8 @@ return packer.startup(function(use)
   -- auto-formatting
   --use 'lukas-reineke/lsp-format.nvim'
   use 'mhartington/formatter.nvim'
+  -- access REPL
+  use 'hkupty/iron.nvim'
   -- convert to multiline
   use 'AndrewRadev/splitjoin.vim'
   -- snippets
