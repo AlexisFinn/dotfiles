@@ -33,10 +33,20 @@ vim.g.tokyonight_enable_italic = 1
 vim.g.tokyonight_transparent_background = 0
 vim.g.tokyonight_disable_italic_comment = 0
 vim.g.tokyonight_current_word = 'bold' -- 'bold', 'italic', 'underline', 'grey background'
--- nightfox config --
+-- mellow config --
+vim.g.mollow_italic_comments = true
+vim.g.mellow_italic_keywords = false
+vim.g.mellow_italic_booleans = false
+vim.g.mellow_italic_functions = false
+vim.g.mellow_italic_variables = false
+vim.g.mellow_bold_comments = false
+vim.g.mellow_bold_keywords = false
+vim.g.mellow_bold_booleans = false
+vim.g.mellow_bold_functions = false
+vim.g.mellow_bold_variables = false
+vim.g.mellow_transparent = false -- disable background color
 
 ---- uncomment one ----
-
 -- vim.cmd 'color material'
 -- vim.cmd 'color dogrun'
 -- vim.cmd 'color gruvbox-material'
@@ -70,4 +80,5 @@ vim.g.tokyonight_current_word = 'bold' -- 'bold', 'italic', 'underline', 'grey b
 -- vim.cmd 'color terafox'
 -- vim.cmd 'color ayu'
 -- vim.cmd 'color melange'
-vim.cmd 'color kanagawa'
+vim.cmd 'color kanagawa' -- *
+-- vim.cmd 'color mellow'

@@ -5,8 +5,6 @@ require 'packer-bootstrap'
 require 'plugins'
 ---- general config ----
 require 'config'
----- general key mappings ----
-require 'keymap'
 ---- set colorscheme ----
 require 'colorscheme'
 require 'plugin-configs.catppuccin'
@@ -49,4 +47,5 @@ require 'plugin-configs.neogen' -- doc comment generator
 require 'plugin-configs.auto-session' -- auto-save session per cwd
 require 'plugin-configs.session-lens' -- add session switching to telescope
 require 'plugin-configs.iron' -- access language REPL
+require 'plugin-configs.legendary' -- better custom keymap, command, functions 
 -- require 'plugin-configs.org-mode' -- Emacs Org Mode for Nvim

@@ -32,6 +32,7 @@ return packer.startup(function(use)
   use 'ayu-theme/ayu-vim'
   use 'savq/melange'
   use({ 'catppuccin/nvim', as = 'catppuccin' })
+  use 'kvrohit/mellow.nvim'
   -- some nice icons
   use 'kyazdani42/nvim-web-devicons'
   use 'ryanoasis/vim-devicons'
@@ -107,9 +108,6 @@ return packer.startup(function(use)
   use { 'akinsho/bufferline.nvim', tag = "v2.*", requires = 'kyazdani42/nvim-web-devicons' }
   -- buffer switcher
   use 'matbme/JABS.nvim'
-  -- use { 'romgrk/barbar.nvim', requires = 'kyazdani42/nvim-web-devicons' }
-  -- light alternative
-  -- use 'ojroques/nvim-bufbar'
   -- emmet
   use 'mattn/emmet-vim'
   -- twig
@@ -133,9 +131,7 @@ return packer.startup(function(use)
   use 'editorconfig/editorconfig-vim'
   -- color highlighter
   use 'norcalli/nvim-colorizer.lua'
-  -- easyMotion clone for newer Nvim 0.5
-  --use 'phaazon/hop.nvim'
-  --use 'ggandor/lightspeed.nvim'
+  -- easyMotion clone for Nvim
   use 'ggandor/leap.nvim'
   -- show some animation on cursor jumping to ease following the cursor
   use 'edluffy/specs.nvim'
@@ -166,10 +162,11 @@ return packer.startup(function(use)
   use 'ThePrimeagen/vim-be-good' -- type :VimBeGood
   -- discord rich presence integration
   -- use 'vimsence/vimsence'
-  -- session management made easy
-  -- use 'tpope/vim-obsession'
+  -- auto session management
   use 'rmagatti/auto-session'
   use { 'rmagatti/session-lens', requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'}}
+  -- better keymaps, functions, commands all in a searchable and describable interface
+  use 'mrjones2014/legendary.nvim'
   -- Emacs Org Mode for Vim
   -- use { 'nvim-orgmode/orgmode', requires = 'nvim-treesitter/nvim-treesitter' }
 end)

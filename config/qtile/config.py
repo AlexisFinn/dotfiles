@@ -311,7 +311,7 @@ layouts = [
     layout.MonadTall(**layoutConfig),
     layout.MonadWide(**layoutConfig),
     #  layout.VerticalTile(**layoutConfig),
-    layout.Zoomy(**layoutConfig),
+    #  layout.Zoomy(**layoutConfig),
     layout.Max()
 ]
 

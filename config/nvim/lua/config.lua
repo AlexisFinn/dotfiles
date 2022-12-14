@@ -16,6 +16,8 @@ cmd 'set ttyfast'
 -- do syntax highlighting even in large files
 cmd 'autocmd BufEnter * :syntax sync minlines=10000'
 
+-- also allow to write with uppercase W
+cmd 'command! W w'
 
 ---- General settings ----
 vim.g.mapleader = 'ç'
@@ -54,11 +56,6 @@ vim.o.updatetime = 1000 -- number of miliseconds before updating, usefull for Cu
 --use new experimental filetype detection
 vim.g.do_filetype_lua = 1
 vim.g.did_lead_filetypes = 0
-
-
---Add a command to reformat json using python
-vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {})
-
 --Neovide gui config
 vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_profiler = false

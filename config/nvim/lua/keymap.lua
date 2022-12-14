@@ -41,12 +41,6 @@ keymap('n', '<space>]', ':SplitjoinJoin<CR>', {})
 keymap('n', '<space>e', ':IronFocus<CR>', {})
 
 
--- lazygit
--- keymap('n', '<space>lg', ':LazyGit<CR>', {})
-vim.keymap.set('n', '<space>lg', function ()
-  cmd 'LazyGit'
-end, {silent = true})
-
 -- vim-fugitive
 -- alias git diff
 -- cmd 'cnoreabbrev diff Gdiffsplit'

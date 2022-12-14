@@ -1,15 +1,5 @@
 -- fuzzy find files in project
-local keymap = vim.api.nvim_set_keymap
 local telescope = require 'telescope'
-
-keymap('n', '<C-p>', ':Telescope find_files<CR>', {})
-
-keymap('n', '<leader>p', ':Telescope project<CR>', { noremap = true })
-
--- search for string under cursor
-keymap('n', '<leader>F', ':Telescope grep_string<CR>', { noremap = true })
-keymap('n', '<leader>rg', ':Telescope live_grep<CR>', { noremap = true })
-
 
 -- default setup, see :help telescope.setup
 telescope.setup {

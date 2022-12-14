@@ -117,10 +117,10 @@ require('formatter').setup {
     },
   }
 }
-
+-- auto-format on save
 vim.api.nvim_exec([[
-augroup FormatAutogroup
+  augroup FormatAutogroup
   autocmd!
   autocmd BufWritePost *.json,*.js,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html FormatWrite
-augroup END
+  augroup END
 ]], true)

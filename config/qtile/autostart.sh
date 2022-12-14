@@ -4,8 +4,8 @@
 # wallpaper and colors
 wal -R &
 # composition
-picom --experimental-backends --blur-method dual_kawase &
+# picom --experimental-backends --blur-method dual_kawase &
 # notification
 dunst &
 # dispable touchpad if mouse is detected
-touchpad-indicator &
+# touchpad-indicator &
