@@ -99,9 +99,10 @@ font:
         #   - (macOS) Menlo
         #   - (Linux/BSD) monospace
         #   - (Windows) Consolas
-        # family: Hack Nerd Font Mono
+        family: Hack Nerd Font Mono
         # family: Cousine Nerd Font Mono
-        family: Fira Code Nerd Font
+        # family: Fira Code Nerd Font
+        # family: Cascadia Code PL 
         # The `style` can be specified to pick a specific face.
         # style: semibold
         # style: book
@@ -109,10 +110,12 @@ font:
         # style: bold
     italic:
         family: Hack Nerd Font Mono
+        # family: Cascadia Code PL Italic 
         # family: Cousine Nerd Font Mono
         style: italic
     bold:
         family: Hack Nerd Font Mono
+        # family: Cascadia Code PL Italic 
         # family: Cousine Nerd Font Mono
         style: bold
     size: 11
@@ -120,7 +123,7 @@ font:
         x: 0
         y: 0
     glyph_offset:
-        x: 0
+        x: 0 
         y: 0
 # Bold font face
 #bold:

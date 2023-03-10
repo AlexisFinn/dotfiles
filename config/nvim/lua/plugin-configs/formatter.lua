@@ -92,8 +92,10 @@ require('formatter').setup {
     php = {
       function()
         return {
-          exe = "php-cs-fixer",
-          args = { "fix" },
+          exe = vim.fn.getcwd() .. "/phpCsFixer.sh",
+          args = {},
+          -- exe = "php-cs-fixer",
+          -- args = { "fix" },
           stdin = false
         }
       end

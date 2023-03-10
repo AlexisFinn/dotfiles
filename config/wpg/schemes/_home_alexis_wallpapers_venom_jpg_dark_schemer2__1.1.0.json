@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/venom.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#151615",
+        "foreground": "#c4c4c4",
+        "cursor": "#c4c4c4"
+    },
+    "colors": {
+        "color0": "#151615",
+        "color1": "#c15048",
+        "color2": "#05a8af",
+        "color3": "#7e7e7e",
+        "color4": "#0fb9d0",
+        "color5": "#f3635b",
+        "color6": "#11dbe7",
+        "color7": "#c4c4c4",
+        "color8": "#4f504f",
+        "color9": "#c15048",
+        "color10": "#05a8af",
+        "color11": "#7e7e7e",
+        "color12": "#0fb9d0",
+        "color13": "#f3635b",
+        "color14": "#11dbe7",
+        "color15": "#c4c4c4"
+    }
+}

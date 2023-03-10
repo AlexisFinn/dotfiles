@@ -21,7 +21,10 @@ require("legendary").setup {
     {'<space>]', ':SplitjoinJoin<CR>', description = 'Join code structure into single line', mode = {'n'}},
     {'<space>e', ':IronFocus<CR>', description = 'Launch code runner for current filetype', mode = {'n'}},
     {'<space>H', ':Legendary<CR>', description = 'Open legendary keymap/command helper', mode = {'n'}},
-    {'<space>g', ':Git<CR>', description = 'Open git fugitive', mode = {'n'}},
+    {'<space>gg', ':Git<CR>', description = 'Open git fugitive', mode = {'n'}},
+    {'<space>ga', ':Git add %<CR>', description = 'Git add current file to git', mode = {'n'}},
+    {'<space>R', ':Telescope registers<CR>', description = 'Search through registers with Telescope', mode = {'n'}},
+    {'<space>z', ':TSHighlightCapturesUnderCursor<CR>', description = 'Get highlight group of word under cursor', mode = {'n'}}
   },
   commands = {
     {':FormatJSON', '%!python -m json.tool', description = 'Format json data using python'}

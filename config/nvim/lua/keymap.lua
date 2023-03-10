@@ -40,7 +40,6 @@ keymap('n', '<space>[', ':SplitjoinSplit<CR>', {})
 keymap('n', '<space>]', ':SplitjoinJoin<CR>', {})
 keymap('n', '<space>e', ':IronFocus<CR>', {})
 
-
 -- vim-fugitive
 -- alias git diff
 -- cmd 'cnoreabbrev diff Gdiffsplit'

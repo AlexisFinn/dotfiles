@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/skull.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#030202",
+        "foreground": "#8ccae5",
+        "cursor": "#8ccae5"
+    },
+    "colors": {
+        "color0": "#030202",
+        "color1": "#B7351E",
+        "color2": "#689D18",
+        "color3": "#A8B531",
+        "color4": "#405F99",
+        "color5": "#AE35B8",
+        "color6": "#2E93B4",
+        "color7": "#8ccae5",
+        "color8": "#628da0",
+        "color9": "#B7351E",
+        "color10": "#689D18",
+        "color11": "#A8B531",
+        "color12": "#405F99",
+        "color13": "#AE35B8",
+        "color14": "#2E93B4",
+        "color15": "#8ccae5"
+    }
+}

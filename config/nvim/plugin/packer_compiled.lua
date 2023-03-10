@@ -119,6 +119,11 @@ _G.packer_plugins = {
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/cmp-path",
     url = "https://github.com/hrsh7th/cmp-path"
   },
+  ["colorbuddy.vim"] = {
+    loaded = true,
+    path = "/home/alexis/.local/share/nvim/site/pack/packer/start/colorbuddy.vim",
+    url = "https://github.com/tjdevries/colorbuddy.vim"
+  },
   ["doom-one.vim"] = {
     loaded = true,
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/doom-one.vim",
@@ -318,6 +323,11 @@ _G.packer_plugins = {
     loaded = true,
     path = "/home/alexis/.local/share/nvim/site/pack/packer/start/papercolor-theme",
     url = "https://github.com/NLKNguyen/papercolor-theme"
+  },
+  playground = {
+    loaded = true,
+    path = "/home/alexis/.local/share/nvim/site/pack/packer/start/playground",
+    url = "https://github.com/nvim-treesitter/playground"
   },
   ["plenary.nvim"] = {
     loaded = true,

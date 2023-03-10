@@ -131,8 +131,8 @@ class myGroup:
 # modifier key (mod4 = super)
 mod = "mod4"
 # what terminal to try and use
-# terminal = "alacritty"
-terminal = "kitty"
+#  terminal = "alacritty"
+terminal = "kitty -1"
 
 # task bar configuration
 #  bar_font = "GohuFont Nerd Font Mono Medium"
@@ -218,8 +218,8 @@ keys = [
     # resize window
     Key([mod], "h", lazy.layout.grow(), desc="Grow window"),
     Key([mod], "l", lazy.layout.shrink(), desc="Shrink window"),
-    Key([mod], "m", lazy.layout.maximize(),
-        desc="maximize current window"),
+    #  Key([mod], "m", lazy.layout.maximize(),
+        #  desc="maximize current window"),
     Key([mod], "n", lazy.layout.normalize(),
         desc="Reset all non-master window sizes"),
 
@@ -261,6 +261,8 @@ keys = [
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1%")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1%")),
+    # toggle default microphone/input mute 
+    Key([mod], "m", lazy.spawn("/home/alexis/Learning/tuya-api/muteUnmuteMic.sh")),
 
     # stuffj4-dmenu-desktop
     Key([mod], "F12", lazy.spawn("lock")),

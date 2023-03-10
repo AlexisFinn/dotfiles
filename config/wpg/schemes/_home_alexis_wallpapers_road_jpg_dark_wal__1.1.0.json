@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/road.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#222e3b",
+        "foreground": "#c5dfe8",
+        "cursor": "#c5dfe8"
+    },
+    "colors": {
+        "color0": "#222e3b",
+        "color1": "#63A6D8",
+        "color2": "#9DA499",
+        "color3": "#CEB99F",
+        "color4": "#AEC9A4",
+        "color5": "#DFD6AF",
+        "color6": "#97B6D2",
+        "color7": "#c5dfe8",
+        "color8": "#899ca2",
+        "color9": "#63A6D8",
+        "color10": "#9DA499",
+        "color11": "#CEB99F",
+        "color12": "#AEC9A4",
+        "color13": "#DFD6AF",
+        "color14": "#97B6D2",
+        "color15": "#c5dfe8"
+    }
+}

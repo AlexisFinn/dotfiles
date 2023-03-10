@@ -7,9 +7,8 @@ require 'plugins'
 require 'config'
 ---- set colorscheme ----
 require 'colorscheme'
-require 'plugin-configs.catppuccin'
 ---- plugins configs ----
--- require 'plugin-configs.nvim-lsp-installer' -- lsp helper
+-- require 'plugin-configs.nvim-lsp-installer' -- lsp installer helper
 require 'plugin-configs.nvim-lsputils' -- lsp helper
 require 'plugin-configs.nvim-lspconfig' -- configure language server protocols
 require 'plugin-configs.vim-go' -- configure golang plugin
@@ -48,4 +47,6 @@ require 'plugin-configs.auto-session' -- auto-save session per cwd
 require 'plugin-configs.session-lens' -- add session switching to telescope
 require 'plugin-configs.iron' -- access language REPL
 require 'plugin-configs.legendary' -- better custom keymap, command, functions 
+-- require 'plugin-configs.calendar-google' -- Google calendar in vim
 -- require 'plugin-configs.org-mode' -- Emacs Org Mode for Nvim
+require 'plugin-configs.colorbuddy'

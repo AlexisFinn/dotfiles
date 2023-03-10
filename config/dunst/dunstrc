@@ -408,3 +408,8 @@
 #    set_stack_tag = "volume"
 #
 # vim: ft=cfg
+[change_color]
+  appname = Spotify
+  background = "#013A61"
+  foreground = "#ffffff"
+  script = "/home/alexis/Learning/tuya-api/setLightColor.py"

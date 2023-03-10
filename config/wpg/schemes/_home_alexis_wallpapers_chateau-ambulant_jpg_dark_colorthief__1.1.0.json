@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/chateau-ambulant.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#070707",
+        "foreground": "#a7a7a8",
+        "cursor": "#a7a7a8"
+    },
+    "colors": {
+        "color0": "#070707",
+        "color1": "#4e7080",
+        "color2": "#5d9292",
+        "color3": "#87ab3d",
+        "color4": "#80a699",
+        "color5": "#44bbe3",
+        "color6": "#51dcfc",
+        "color7": "#a7a7a8",
+        "color8": "#504f52",
+        "color9": "#4e7080",
+        "color10": "#5d9292",
+        "color11": "#87ab3d",
+        "color12": "#80a699",
+        "color13": "#44bbe3",
+        "color14": "#51dcfc",
+        "color15": "#a7a7a8"
+    }
+}

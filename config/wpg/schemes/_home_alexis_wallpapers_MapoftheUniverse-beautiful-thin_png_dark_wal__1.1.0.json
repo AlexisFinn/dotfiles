@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/MapoftheUniverse-beautiful-thin.png",
+    "alpha": "100",
+    "special": {
+        "background": "#010102",
+        "foreground": "#b9c3b7",
+        "cursor": "#b9c3b7"
+    },
+    "colors": {
+        "color0": "#010102",
+        "color1": "#434A3E",
+        "color2": "#08164A",
+        "color3": "#132A4D",
+        "color4": "#1B2E5E",
+        "color5": "#555958",
+        "color6": "#95260E",
+        "color7": "#b9c3b7",
+        "color8": "#818880",
+        "color9": "#434A3E",
+        "color10": "#08164A",
+        "color11": "#132A4D",
+        "color12": "#1B2E5E",
+        "color13": "#555958",
+        "color14": "#95260E",
+        "color15": "#b9c3b7"
+    }
+}

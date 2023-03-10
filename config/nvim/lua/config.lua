@@ -59,3 +59,4 @@ vim.g.did_lead_filetypes = 0
 --Neovide gui config
 vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_profiler = false
+vim.g.loaded_perl_provider = 0 -- disable perl provider

@@ -6,3 +6,4 @@
 *.errors
 xmonad/xmonad-x86_64-linux
 xmonad/**/*.o
+config/nvim/lua/plugin-configs/calendar-google.lua

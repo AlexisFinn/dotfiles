@@ -178,30 +178,20 @@ require('rust-tools').setup {
 }
 
 -- lua
-
-local sumneko_root_path = vim.fn.fnamemodify("lua-language-server", ":h:h:h")
-require('lspconfig').sumneko_lua.setup {
-  handlers = handlerVirtualText,
-  filetypes = { "lua" },
-  cmd = { "lua-language-server", "-E", sumneko_root_path .. '/main.lua' },
+require('lspconfig').lua_ls.setup {
   settings = {
-    Lua = {
+    lua = {
       runtime = {
-        version = 'LuaJIT',
-        path = vim.split(package.path, ';'),
+      version = 'LuaJIT',
       },
       diagnostics = {
-        globals = { 'vim' },
+        globals = {'vim'},
       },
       workspace = {
         library = vim.api.nvim_get_runtime_file("", true),
-        -- library = {
-        -- [vim.fn.expand('$VIMRUNTIME/lua')] = true,
-        -- [vim.fn.expand('$VIMRUNTIME/lua/vim/lsp')] = true,
-        -- }
       },
-      telementry = {
-        enable = false,
+      telemetry = {
+        enable = false
       }
     }
   }

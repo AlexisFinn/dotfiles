@@ -145,6 +145,7 @@ return packer.startup(function(use)
   use {
     'nvim-treesitter/nvim-treesitter', run = ':TSUpdate', branch = "master"
   }
+  use 'nvim-treesitter/playground'
   -- documentation generator
   --use {'kkoomen/vim-doge', run = ':call doge#install()'}
   use { 'danymat/neogen', requires = 'nvim-treesitter/nvim-treesitter' }
@@ -169,4 +170,5 @@ return packer.startup(function(use)
   use 'mrjones2014/legendary.nvim'
   -- Emacs Org Mode for Vim
   -- use { 'nvim-orgmode/orgmode', requires = 'nvim-treesitter/nvim-treesitter' }
+  use 'tjdevries/colorbuddy.vim'
 end)
