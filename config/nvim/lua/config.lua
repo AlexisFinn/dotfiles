@@ -2,25 +2,32 @@ local cmd = vim.cmd
 
 -- get colors right
 if vim.fn.has("termguicolors") == 1 then
-  vim.go.t_8f = "[[38;2;%lu;%lu;%lum"
-  vim.go.t_8b = "[[48;2;%lu;%lu;%lum"
-  vim.opt.termguicolors = true
+	vim.go.t_8f = "[[38;2;%lu;%lu;%lum"
+	vim.go.t_8b = "[[48;2;%lu;%lu;%lum"
+	vim.opt.termguicolors = true
 end
 
 -- less realtime, more performance
-cmd 'set lazyredraw'
+-- cmd("set lazyredraw")
 
 -- Speed up scrolling in Vim
-cmd 'set ttyfast'
+cmd("set ttyfast")
 
 -- do syntax highlighting even in large files
-cmd 'autocmd BufEnter * :syntax sync minlines=10000'
+cmd("autocmd BufEnter * :syntax sync minlines=10000")
 
 -- also allow to write with uppercase W
-cmd 'command! W w'
+cmd("command! W w")
+
+-- kill all phpactor instances still running on quit
+cmd('autocmd VimLeave * silent! :!pkill -f "phpactor"')
 
 ---- General settings ----
-vim.g.mapleader = 'ç'
+vim.keymap.set('n', '<space>', '<Nop>', {silent = true})
+vim.g.mapleader = " "
+-- vim.g.maplocalleader = " "
+vim.g.loaded_netrw = 1 -- disable netrw
+vim.g.loaded_netrwPlugin = 1 -- disable netrw
 vim.o.timeoutlen = 400
 vim.o.ruler = true -- show percentage of file
 vim.o.wrap = false -- don't wrap long lines
@@ -31,7 +38,7 @@ vim.o.ignorecase = true -- by default ignore case when searching
 vim.o.smartcase = true -- if search contains an uppercase do a case-sensitive search
 vim.o.expandtab = true -- expand tab to spaces
 vim.o.shiftwidth = 2 -- expand tab to 2 spaces by default
-vim.o.guifont = 'Source Code Pro:h12' -- not using gui but some plugins might need this
+vim.o.guifont = "Source Code Pro:h12" -- not using gui but some plugins might need this
 -- vim.o.guifont = 'Cascadia Code Mono PL:h12' -- not using gui but some plugins might need this
 --vim.o.list = true -- display whitespaces as characters when editing
 vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→", eol = "↲", nbsp = "␣" }
@@ -39,18 +46,20 @@ vim.o.hidden = true -- hide inactive buffers instead of unloading them, without 
 vim.o.swapfile = false -- disable creating swap files
 vim.o.splitbelow = true -- create a split below
 vim.o.relativenumber = true -- show line numbers relative to cursor position
+vim.o.statuscolumn = "%l %r %s" -- customise status column with absolute linenumber, relative linenumber, status
 vim.o.number = true -- show non-relative line number at cursor position
-vim.o.clipboard = vim.o.clipboard .. 'unnamedplus' -- use system clipboard by default
-vim.o.colorcolumn = '100' -- set a color column at the 100-character mark
-vim.o.backspace = 'indent,eol,start'
-vim.o.foldcolumn = '1' -- gutter left padding
+vim.o.clipboard = vim.o.clipboard .. "unnamedplus" -- use system clipboard by default
+vim.o.colorcolumn = "100" -- set a color column at the 100-character mark
+vim.o.backspace = "indent,eol,start"
+vim.o.foldcolumn = "1" -- gutter left padding
 vim.o.numberwidth = 1 -- keep gutter as small as possible by reducing the line number width
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
-vim.o.mouse = 'a'
-vim.o.backupdir = '/home/alexis/.vim/backup//' -- double slashes at the end avoids name collision
-vim.o.directory = '/home/alexis/.vim/swap//'
-vim.o.undodir = '/home/alexis/.vim/undo//'
+vim.o.mouse = "a"
+vim.o.backupdir = "/home/alexis/.vim/backup//" -- double slashes at the end avoids name collision
+vim.o.directory = "/home/alexis/.vim/swap//"
+vim.o.undodir = "/home/alexis/.vim/undo//"
+vim.o.cmdheight = 0
 vim.o.updatetime = 1000 -- number of miliseconds before updating, usefull for CursorHold autocmd
 --vim.o.pumblend = 15 -- transparency for popup windows if you want (yay!)
 --use new experimental filetype detection

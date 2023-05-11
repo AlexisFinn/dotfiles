@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/Pictures/VimWallpaper.png",
+    "alpha": "100",
+    "special": {
+        "background": "#0c0b0e",
+        "foreground": "#c5c4bc",
+        "cursor": "#c5c4bc"
+    },
+    "colors": {
+        "color0": "#0c0b0e",
+        "color1": "#5F5F5A",
+        "color2": "#447379",
+        "color3": "#8F8976",
+        "color4": "#C7A667",
+        "color5": "#0AA09E",
+        "color6": "#13C0C7",
+        "color7": "#c5c4bc",
+        "color8": "#898983",
+        "color9": "#5F5F5A",
+        "color10": "#447379",
+        "color11": "#8F8976",
+        "color12": "#C7A667",
+        "color13": "#0AA09E",
+        "color14": "#13C0C7",
+        "color15": "#c5c4bc"
+    }
+}

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/pirate-ship.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#191615",
+        "foreground": "#c5c4c4",
+        "cursor": "#c5c4c4"
+    },
+    "colors": {
+        "color0": "#191615",
+        "color1": "#6e3413",
+        "color2": "#8a6640",
+        "color3": "#917f6c",
+        "color4": "#b3874c",
+        "color5": "#bc9d72",
+        "color6": "#d1ba8e",
+        "color7": "#c5c4c4",
+        "color8": "#52504f",
+        "color9": "#6e3413",
+        "color10": "#8a6640",
+        "color11": "#917f6c",
+        "color12": "#b3874c",
+        "color13": "#bc9d72",
+        "color14": "#d1ba8e",
+        "color15": "#c5c4c4"
+    }
+}

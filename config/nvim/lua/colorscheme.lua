@@ -27,12 +27,6 @@ vim.g.gruvbox_material_sign_column_background = 'none'
 vim.g.sonokai_style = 'espresso' -- 'default', 'atlantis', 'andromeda', 'shusia', 'maia', 'espresso'
 vim.g.sonokai_enable_italic = 1
 vim.g.sonokai_disable_italic_comment = 0
--- tokyonight config --
-vim.g.tokyonight_style = 'night' -- 'storm', 'night'
-vim.g.tokyonight_enable_italic = 1
-vim.g.tokyonight_transparent_background = 0
-vim.g.tokyonight_disable_italic_comment = 0
-vim.g.tokyonight_current_word = 'bold' -- 'bold', 'italic', 'underline', 'grey background'
 -- mellow config --
 vim.g.mellow_italic_comments = true
 vim.g.mellow_italic_keywords = false
@@ -145,7 +139,11 @@ require("catppuccin").setup({
 -- vim.cmd 'color one' -- *
 -- vim.cmd 'color palenight' -- *
 -- vim.cmd 'color catppuccin' -- *
--- vim.cmd 'color tokyonight'
+vim.cmd 'color tokyonight'
+-- vim.cmd 'color tokyonight-night'
+-- vim.cmd 'color tokyonight-storm'
+-- vim.cmd 'color tokyonight-day'
+-- vim.cmd 'color tokyonight-moon'
 -- vim.cmd 'color gotham'
 -- vim.cmd 'color iceberg' -- *
 -- vim.cmd 'color spaceduck' -- *
@@ -154,7 +152,7 @@ require("catppuccin").setup({
 -- vim.cmd 'color nightfox'
 -- vim.cmd 'color dayfox'
 -- vim.cmd 'color dawnfox'
-vim.cmd 'color duskfox'
+-- vim.cmd 'color duskfox'
 -- vim.cmd 'color nordfox'
 -- vim.cmd 'color terafox'
 -- vim.cmd 'color ayu'

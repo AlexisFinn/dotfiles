@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/steampunk-ship.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#181716",
+        "foreground": "#c5c5c4",
+        "cursor": "#c5c5c4"
+    },
+    "colors": {
+        "color0": "#181716",
+        "color1": "#63472a",
+        "color2": "#7d6441",
+        "color3": "#927f5f",
+        "color4": "#ae7d4b",
+        "color5": "#b49b6e",
+        "color6": "#c9b88d",
+        "color7": "#c5c5c4",
+        "color8": "#515150",
+        "color9": "#63472a",
+        "color10": "#7d6441",
+        "color11": "#927f5f",
+        "color12": "#ae7d4b",
+        "color13": "#b49b6e",
+        "color14": "#c9b88d",
+        "color15": "#c5c5c4"
+    }
+}

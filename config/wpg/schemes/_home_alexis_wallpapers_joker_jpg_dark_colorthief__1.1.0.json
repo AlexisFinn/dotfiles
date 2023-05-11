@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/joker.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#030412",
+        "foreground": "#a1a1bf",
+        "cursor": "#a1a1bf"
+    },
+    "colors": {
+        "color0": "#030412",
+        "color1": "#ae182f",
+        "color2": "#1ca46a",
+        "color3": "#6c9998",
+        "color4": "#a48c91",
+        "color5": "#be972b",
+        "color6": "#e7be81",
+        "color7": "#a1a1bf",
+        "color8": "#43437f",
+        "color9": "#ae182f",
+        "color10": "#1ca46a",
+        "color11": "#6c9998",
+        "color12": "#a48c91",
+        "color13": "#be972b",
+        "color14": "#e7be81",
+        "color15": "#a1a1bf"
+    }
+}

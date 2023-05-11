@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/anime-steampunk-city.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#19191a",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#19191a",
+        "color1": "#404c5a",
+        "color2": "#614b42",
+        "color3": "#4b5b66",
+        "color4": "#795d4b",
+        "color5": "#7c716d",
+        "color6": "#bf957c",
+        "color7": "#c5c5c5",
+        "color8": "#525253",
+        "color9": "#404c5a",
+        "color10": "#614b42",
+        "color11": "#4b5b66",
+        "color12": "#795d4b",
+        "color13": "#7c716d",
+        "color14": "#bf957c",
+        "color15": "#c5c5c5"
+    }
+}

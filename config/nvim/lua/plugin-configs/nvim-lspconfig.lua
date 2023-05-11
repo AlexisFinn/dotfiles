@@ -17,7 +17,7 @@ local handlerVirtualText = {
     vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,
     underline = true,
-    signs = true,
+    signs = false,
     update_in_insert = false,
   })
 }
@@ -32,7 +32,7 @@ local onAttach = (function(client)
   -- disable formating as that will be taken care of elsewhere
   -- nvim <= 0.7
   -- client.resolved_capabilities.document_formatting = false
-  -- nvim 0.8
+  -- nvim 0.8+
   client.server_capabilities.documentFormattingProvider = false
 
   -- add nvim-cmp (autocomplete) to lsp capabilities
@@ -44,17 +44,15 @@ local onAttach = (function(client)
   vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
   -- vim.api.nvim_set_keymap("n", "tt", "<cmd>lua vim.diagnostic.open_float()<CR>",
   -- { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("n", "tn", "<cmd>lua vim.diagnostic.open_next()<CR>",
-    { noremap = true, silent = true })
-  vim.api.nvim_set_keymap("n", "tN", "<cmd>lua vim.diagnostic.open_prev()<CR>",
-    { noremap = true, silent = true })
-  vim.keymap.set("n", "tt", function()
-    vim.diagnostic.open_float()
-    -- vim.notify(vim.diagnostic.get(0)[1].message, vim.log.levels.ERROR, {
-      -- title = "Custom"
-    -- })
-    -- vim.diagnostic.open_float()
-  end, { silent = true })
+  -- vim.api.nvim_set_keymap("n", "tn", function ()
+    -- vim.diagnostic.goto_next({border="rounded"})
+  -- end,{ noremap = true, silent = true })
+  -- vim.api.nvim_set_keymap("n", "tN", function()
+    -- vim.diagnostic.goto_prev({border="rounded"})
+  -- end,{ noremap = true, silent = true })
+  -- vim.keymap.set("n", "tt", function()
+    -- vim.diagnostic.open_float({border = "rounded"})
+  -- end, { silent = true })
 end)
 
 -- html
