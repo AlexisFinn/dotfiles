@@ -7,6 +7,9 @@ require("noice").setup({
     },
     signature = {
       enabled = false
+    },
+    hover = {
+      enabled = false
     }
   },
   presets = {

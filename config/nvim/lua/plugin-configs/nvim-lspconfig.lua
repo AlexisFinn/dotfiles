@@ -17,8 +17,8 @@ local handlerVirtualText = {
     vim.lsp.diagnostic.on_publish_diagnostics, {
     virtual_text = true,
     underline = true,
-    signs = false,
-    update_in_insert = false,
+    signs = true,
+    update_in_insert = true,
   })
 }
 
@@ -34,6 +34,9 @@ local onAttach = (function(client)
   -- client.resolved_capabilities.document_formatting = false
   -- nvim 0.8+
   client.server_capabilities.documentFormattingProvider = false
+  -- if client.name == "vuels" then
+  --   client.server_capabilities.semanticTokensProvider = nil
+  -- end
 
   -- add nvim-cmp (autocomplete) to lsp capabilities
   client.capabilities = require('cmp_nvim_lsp').default_capabilities()
@@ -109,8 +112,8 @@ require('lspconfig').vuels.setup {
 
 -- vue 3
 -- require('lspconfig').volar.setup {
-  -- handlers = handlerVirtualText,
-  -- on_attach = onAttach,
+--   handlers = handlerVirtualText,
+--   on_attach = onAttach,
 -- }
 
 -- typescript

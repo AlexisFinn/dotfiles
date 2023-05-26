@@ -73,7 +73,8 @@ require("lazy").setup({
   -- indent guides
   'lukas-reineke/indent-blankline.nvim',
   -- Comment/uncomment multiple lines with <leader>c<space>
-  'preservim/nerdcommenter',
+  -- 'preservim/nerdcommenter',
+  'terrortylor/nvim-comment',
   -- determine comment syntax by the line, full for embedded syntax typically in javascript frameworks
   'JoosepAlviste/nvim-ts-context-commentstring',
   -- fzf beca it's the best fuzzy finder
@@ -116,7 +117,7 @@ require("lazy").setup({
   'simrat39/rust-tools.nvim',
   -- file manager
   -- 'vifm/vifm.vim' -- using vifm
-  'kevinhwang91/rnvimr', -- using ranger
+  -- 'kevinhwang91/rnvimr', -- using ranger
   'kyazdani42/nvim-tree.lua', -- builtin
   -- Run terminal commands in floating windows
   'voldikss/vim-floaterm',
@@ -124,7 +125,8 @@ require("lazy").setup({
   'tpope/vim-fugitive',
   --  'kdheepak/lazygit.nvim'
   -- git diff indications in gutter column
-  'airblade/vim-gitgutter',
+  -- 'airblade/vim-gitgutter',
+  'lewis6991/gitsigns.nvim',
   --  .editorconfig file if found
   'editorconfig/editorconfig-vim',
   -- color highlighter
@@ -168,10 +170,11 @@ require("lazy").setup({
   --  'vimsence/vimsence'
   -- auto session management
   'rmagatti/auto-session',
-  --  { 'rmagatti/session-lens', requires = {'rmagatti/auto-session', 'nvim-telescope/telescope.nvim'}}
   -- better keymaps, functions, commands all in a searchable and describable interface
   'mrjones2014/legendary.nvim',
   -- Emacs Org Mode for Vim
   --  { 'nvim-orgmode/orgmode', requires = 'nvim-treesitter/nvim-treesitter' }
   'tjdevries/colorbuddy.vim',
+  -- focus mode
+  'Pocco81/true-zen.nvim'
 })

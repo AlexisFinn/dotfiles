@@ -1,5 +1,5 @@
 require("notify").setup({
-  timeout = 1000,
+  timeout = 3000,
   stages = "slide",
   render = "compact"
 })

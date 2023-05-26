@@ -99,10 +99,10 @@ require("catppuccin").setup({
         enabled = true,
         show_root = false,
       },
-      which_key = false,
+      which_key = true,
       indent_blankline = {
         enabled = true,
-        colored_indent_levels = false,
+        colored_indent_levels = true,
       },
       dashboard = true,
       neogit = false,
@@ -139,7 +139,7 @@ require("catppuccin").setup({
 -- vim.cmd 'color one' -- *
 -- vim.cmd 'color palenight' -- *
 -- vim.cmd 'color catppuccin' -- *
-vim.cmd 'color tokyonight'
+vim.cmd 'color tokyonight' -- *
 -- vim.cmd 'color tokyonight-night'
 -- vim.cmd 'color tokyonight-storm'
 -- vim.cmd 'color tokyonight-day'
@@ -159,3 +159,4 @@ vim.cmd 'color tokyonight'
 -- vim.cmd 'color melange'
 -- vim.cmd 'color kanagawa' -- *
 -- vim.cmd 'color mellow'
+-- vim.cmd 'color quiet'

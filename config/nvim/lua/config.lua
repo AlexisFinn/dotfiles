@@ -20,15 +20,15 @@ cmd("autocmd BufEnter * :syntax sync minlines=10000")
 cmd("command! W w")
 
 -- kill all phpactor instances still running on quit
-cmd('autocmd VimLeave * silent! :!pkill -f "phpactor"')
+-- cmd('autocmd VimLeave * silent! :!pkill -f "phpactor"')
 
 ---- General settings ----
 vim.keymap.set('n', '<space>', '<Nop>', {silent = true})
 vim.g.mapleader = " "
 -- vim.g.maplocalleader = " "
+vim.o.cursorline = true -- Enable highlighting of the current line
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1 -- disable netrw
-vim.o.timeoutlen = 400
 vim.o.ruler = true -- show percentage of file
 vim.o.wrap = false -- don't wrap long lines
 vim.o.showcmd = true -- show the commands (ex '2w' or '4b' ) in the bottom right
@@ -46,7 +46,7 @@ vim.o.hidden = true -- hide inactive buffers instead of unloading them, without 
 vim.o.swapfile = false -- disable creating swap files
 vim.o.splitbelow = true -- create a split below
 vim.o.relativenumber = true -- show line numbers relative to cursor position
-vim.o.statuscolumn = "%l %r %s" -- customise status column with absolute linenumber, relative linenumber, status
+-- vim.o.statuscolumn = "%l %r %s" -- customise status column with absolute linenumber, relative linenumber, status
 vim.o.number = true -- show non-relative line number at cursor position
 vim.o.clipboard = vim.o.clipboard .. "unnamedplus" -- use system clipboard by default
 vim.o.colorcolumn = "100" -- set a color column at the 100-character mark
@@ -60,7 +60,6 @@ vim.o.backupdir = "/home/alexis/.vim/backup//" -- double slashes at the end avoi
 vim.o.directory = "/home/alexis/.vim/swap//"
 vim.o.undodir = "/home/alexis/.vim/undo//"
 vim.o.cmdheight = 0
-vim.o.updatetime = 1000 -- number of miliseconds before updating, usefull for CursorHold autocmd
 --vim.o.pumblend = 15 -- transparency for popup windows if you want (yay!)
 --use new experimental filetype detection
 vim.g.do_filetype_lua = 1
@@ -69,3 +68,6 @@ vim.g.did_lead_filetypes = 0
 vim.g.neovide_cursor_vfx_mode = "railgun"
 vim.g.neovide_profiler = false
 vim.g.loaded_perl_provider = 0 -- disable perl provider
+vim.o.timeoutlen = 300
+vim.o.undolevels = 10000
+vim.o.updatetime = 200 -- Save swap file and trigger CursorHold
