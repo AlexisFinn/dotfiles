@@ -142,7 +142,10 @@ require("lazy").setup({
   -- highlight matching words
   'RRethy/vim-illuminate',
   -- treesitter the new language parser
+  'mfussenegger/nvim-dap',
+  'rcarriga/nvim-dap-ui',
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', branch = "master" },
+  'theHamsta/nvim-dap-virtual-text',
   'nvim-treesitter/playground',
   -- documentation generator
   -- {'kkoomen/vim-doge', run = ':call doge#install()'}
@@ -152,6 +155,8 @@ require("lazy").setup({
   -- animations
   'echasnovski/mini.animate',
   'echasnovski/mini.indentscope',
+  -- extra UI
+  {'ray-x/guihua.lua', build = 'cd lua/fzy && make'},
   -- vim UI library
   --  'MunifTanjim/nui.nvim'
   -- vim UI for messages, cmdline and popupmenu

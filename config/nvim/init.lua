@@ -44,6 +44,7 @@ require("plugin-configs.gitsigns") -- show git diff signs in status column
 require("colorscheme-picker") -- pick among installed colorschemes with live preview
 -- require("plugin-configs.dressing")
 require("plugin-configs.treesitter") -- global syntax parser
+require("plugin-configs.nvim-dap-virtual-text")
 require("plugin-configs.rnvimr") -- ranger as file manager config
 require("plugin-configs.nvim-tree") -- integrated file manager written in lua
 require("plugin-configs.neogen") -- doc comment generator

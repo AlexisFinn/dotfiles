@@ -244,6 +244,14 @@ require("legendary").setup({
       mode = { "n" },
     },
     {
+      "<leader>L",
+      function ()
+        vim.cmd("Lazy")
+      end,
+      description = "Open Lazy plugin manager",
+      monde = { "n" },
+    },
+    {
       "<leader>Z",
       function()
         vim.cmd("TSHighlightCapturesUnderCursor")
