@@ -1,3 +1,9 @@
+local telescope = require("telescope.builtin")
+local telescopeExt = require("telescope").extensions
+local truezen = require("true-zen")
+local cmd = vim.cmd
+local float = vim.cmd.FloatermNew
+
 require 'which-key'.setup{
   window = {
     border = "single", -- none, single, double, shadow
@@ -9,10 +15,117 @@ require 'which-key'.setup{
   -- triggers = {"<leader>"},
 }
 
+-- ### VISUAL MODE ###
 require 'which-key'.register({
-  ["<leader>g"] = {name = "git"},
-  ["<leader>gh"] = {name = "git hunk"},
-  ["<leader>t"] = {name = "lsp"},
-  ["<leader>rp"] = {name = "rig grep search"},
-  ["m"] = {name = "bookmarks"}
+  ["<leader>"] = {
+    c = {":CommentToggle<cr>", "Toggle comment"},
+  }
+},{mode = "v"})
+
+-- ### NORMAL MODE ###
+require 'which-key'.register({
+  -------------------------- LEADER PREFIXED -----------------------------
+  ["<leader>"] = {
+    ["<PageUp>"] = {function() cmd("BufferLiveMovePrev") end, "Move buffer left"},
+    ["<PageDown>"] = {function() cmd("BufferLiveMoveNext") end, "Move buffer right"},
+    ["["] = {function() cmd("SplitjoinSplit") end, "Split code structure into multiple lines"},
+    ["]"] = {function() cmd("SplitjoinJoin") end, "Join code structure into single line"},
+    b = {
+      name = "GOLANG Debug",
+      b = {function() cmd("GoBreakToggle") end, "Toggle Dap Breakpoint"},
+      d = {function() cmd("GoDbgStop") end, "Stop Go Debug"},
+      n = {function() cmd("GoDbgContinue") end, "Continue to next Breakpoint"},
+      s = {function() cmd("GoDebug") end, "Start Go Debug"}
+    },
+    c = {function() cmd("CommentToggle") end, "Toggle comment"},
+    d = {
+      name = "Delete buffer(s)",
+      a = {function()
+        -- %bd (delete all buffers)
+        -- e# (re-open last buffer)
+        -- bd# (delete the empty buffer that was created in the process)
+        cmd("%bd|e#|bd#")
+      end, "Delete all other buffers"},
+      d = {function() cmd("bd") end, "Delete current buffer"}
+    },
+    e = {function() cmd("IronFocus") end, "Launch code runner for current filetype"},
+    g = {
+      name = "git",
+      a = {function() cmd("Git add %") end, "Add current file to git commit"},
+      g = {function() cmd("Git") end, "Open git fugitive"},
+      h = {
+        name = "git hunk",
+        n = {function() cmd("Gitsings next_hunk") end, "Git goto next hunk"},
+        N = {function() cmd("Gitsings prev_hunk") end, "Git goto previous hunk"},
+        p = {function() cmd("Gitsigns preview_hunk") end, "Git preview hunk diff"},
+        s = {function() cmd("Gitsigns stage_hunk") end, "Git stage current hunk"},
+        u = {function() cmd("Gitsigns undo_stage_hunk") end, "Git undo current hunk"},
+
+      }
+    },
+    j = {"<C-W><C-J>", "Focus Window UP"},
+    k = {"<C-W><C-K>", "Focus Window DOWN"},
+    l = {"<C-W><C-L>", "Focus Window RIGHT"},
+    h = {"<C-W><C-H>", "Focus Window LEFT"},
+    L = {function() cmd("Lazy") end, "Poen Lazy plugin manager"},
+    o = {function() telescopeExt.project.project() end, "Search for project"},
+    p = {function() telescope.find_files() end, "Search for a file within the project"},
+    q = {function() cmd("q") end, "Quit/Close window"},
+    s = {function() require("auto-session.session-lens").search_session() end, "Search fo a session within saved sessions"},
+    S = {function() cmd("split") end, "Split window horizontally"},
+    t = {
+      name = "Lsp",
+      n = {function() vim.diagnostic.goto_next({float = {border = "rounded"}}) end, "Go to Next lsp error"},
+      N = {function() vim.diagnostic.goto_prev({float = {border = "rounded"}}) end, "Go to Previous lsp error"},
+      t = {function() vim.diagnostic.open_float({border = "rounded"}) end, "Show current lsp error"},
+    },
+    V = {function() cmd("vsplit") end, "Split window vertically"},
+    r = {
+      name = "RipGrep",
+      g = {function() telescope.live_grep() end, "Search for a word or sentence withen the project files"}
+    },
+    R = {function() telescope.registers() end, "Search through registers with Telescope"},
+    w = {function() cmd("w") end, "Write changes"},
+    W = {function() cmd("wa") end, "Write All changes"},
+    z = {
+      name = "Focus mode",
+      a = {function() truezen.ataraxis() end, "Toggle window Zoom Focus mode"},
+      f = {function() truezen.focus() end, "Toggle window Focus mode"},
+      m = {function() truezen.minimalist() end, "Toggle minimalist Focus mode"},
+      n = {function()
+        local first = vim.fn.line("v")
+        local last = vim.fn.line(".")
+        truezen.narrow(first, last)
+      end, "Toggle selection Focus mode"}
+    },
+    Z = {function() cmd("TSHighlightCapturesUnderCursor") end, "Get nvim highlight group of word under cursor"}
+  },
+  -------------------------- OTHER -----------------------------
+  ["<F10>"] = {function() cmd("NvimTreeFindFileToggle") end, "Open nvim-tree file manager"},
+  ["<F9>"] = {function()
+    float({
+      args = {
+        "--width=0.9",
+        "--height=0.9",
+        "--title=Ranger",
+        "--opener=edit",
+        "--titleposition=right",
+        "ranger",
+        "%",
+      },
+    })
+  end, "Open Ranger file manager"},
+  ["<C-s>"] = {function() cmd("noh") end, "Remove all search highlights"},
+  ["<C-PageUp>"] = {function() cmd("BufferLineCyclePrev") end, "Previous buffer"},
+  ["<C-PageDown>"] = {function() cmd("BufferLineCycleNext") end, "Next buffer"},
+  m = {
+    name = "Bookmarks",
+    a = {function() cmd("BookmarkShowAll") end, "Show all bookmarks"},
+    c = {function() cmd("BookmarkClear") end, "Clear all bookmarks in current buffer"},
+    i = {function() cmd("BookmarkAnnotate") end, "Add/Remove/Edit annotation on current line"},
+    m = {function() cmd("BookmarkToggle") end, "Toggle bookmark on current line"},
+    n = {function() cmd("BookmarkNext") end, "Go to next bookmark"},
+    N = {function() cmd("BookmarkPrev") end, "Go to previous bookmark"},
+    x = {function() cmd("BookmarkClearAll") end, "Clear all bookmarks in current project"}
+  }
 })

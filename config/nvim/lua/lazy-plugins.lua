@@ -70,6 +70,7 @@ require("lazy").setup({
   'hrsh7th/cmp-path',
   -- language specific plugins
   { 'ray-x/go.nvim' },
+  'folke/neodev.nvim',
   -- indent guides
   'lukas-reineke/indent-blankline.nvim',
   -- Comment/uncomment multiple lines with <leader>c<space>
@@ -147,6 +148,8 @@ require("lazy").setup({
   { 'nvim-treesitter/nvim-treesitter', build = ':TSUpdate', branch = "master" },
   'theHamsta/nvim-dap-virtual-text',
   'nvim-treesitter/playground',
+  -- semantic highlighting using treesitter
+  'm-demare/hlargs.nvim',
   -- documentation generator
   -- {'kkoomen/vim-doge', run = ':call doge#install()'}
   { 'danymat/neogen', dependencies = 'nvim-treesitter/nvim-treesitter' },

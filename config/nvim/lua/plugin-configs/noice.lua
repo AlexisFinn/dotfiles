@@ -12,6 +12,10 @@ require("noice").setup({
       enabled = false
     }
   },
+  messages = {
+    enabled = true,
+    view = "notify"
+  },
   presets = {
     bottom_search = true,
     command_palette = true,

@@ -54,6 +54,15 @@ require('formatter').setup {
         }
       end
     },
+    typescriptreact = {
+      function ()
+        return {
+          exe = "prettier",
+          args = { "--parser typescript", "-w"},
+          stdin = true
+        }
+      end
+    },
     yaml = {
       function()
         return {
@@ -103,8 +112,20 @@ require('formatter').setup {
     go = {
       function()
         return {
-          exe = "goimports",
-          stdin = true
+          exe = "goimports-reviser",
+          args = { "-rm-unused", "-format", "-set-alias"},
+        }
+      end,
+      function ()
+        return {
+          exe = "gofumpt",
+          args = {"-w"},
+        }
+      end,
+      function ()
+        return {
+          exe = "golines",
+          args = {"-w"}
         }
       end
     },
@@ -123,6 +144,6 @@ require('formatter').setup {
 vim.api.nvim_exec([[
   augroup FormatAutogroup
   autocmd!
-  autocmd BufWritePost *.json,*.js,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html FormatWrite
+  autocmd BufWritePost *.json,*.js,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html,*.tsx FormatWrite
   augroup END
 ]], true)

@@ -119,6 +119,7 @@ require("catppuccin").setup({
     },
 })
 
+
 ---- uncomment one ----
 -- vim.cmd 'color material'
 -- vim.cmd 'color dogrun'
@@ -128,7 +129,7 @@ require("catppuccin").setup({
 -- vim.cmd 'color xshado'
 -- vim.cmd 'color night-owl'
 -- vim.cmd 'color moonfly'
--- vim.cmd 'color OceanicNext' -- *
+vim.cmd 'color OceanicNext' -- *
 -- vim.cmd 'color neon'
 -- vim.cmd 'color sonokai'
 -- vim.cmd 'color nord'
@@ -139,7 +140,7 @@ require("catppuccin").setup({
 -- vim.cmd 'color one' -- *
 -- vim.cmd 'color palenight' -- *
 -- vim.cmd 'color catppuccin' -- *
-vim.cmd 'color tokyonight' -- *
+-- vim.cmd 'color tokyonight' -- *
 -- vim.cmd 'color tokyonight-night'
 -- vim.cmd 'color tokyonight-storm'
 -- vim.cmd 'color tokyonight-day'

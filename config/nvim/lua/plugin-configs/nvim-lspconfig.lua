@@ -24,7 +24,7 @@ local handlerVirtualText = {
 
 
 -- onAttach callback to disable formatting and setting keymaps
-local onAttach = (function(client)
+local onAttach = (function(client, bufnr)
 
   -- add custom formatting
   -- require('lsp-format').on_attach(client)
@@ -40,6 +40,7 @@ local onAttach = (function(client)
 
   -- add nvim-cmp (autocomplete) to lsp capabilities
   client.capabilities = require('cmp_nvim_lsp').default_capabilities()
+
   -- show doc with 'K'
   vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
   -- jump to definition
@@ -151,6 +152,20 @@ require('lspconfig').stylelint_lsp.setup {
 -- golang
 require('lspconfig').gopls.setup {
   on_attach = onAttach,
+  capabilities = capabilities,
+  handlers = handlerVirtualText,
+  cmd = {"gopls"},
+  filetypes = {"go", "gomod", "gowork", "gotmpl"},
+  root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+  settings = {
+    gopls = {
+      completeUnimported = true,
+      usePlaceholders = true,
+      analyses = {
+        unusedparams = true
+      }
+    }
+  }
 }
 
 --rust
@@ -182,17 +197,8 @@ require('rust-tools').setup {
 require('lspconfig').lua_ls.setup {
   settings = {
     lua = {
-      runtime = {
-      version = 'LuaJIT',
-      },
-      diagnostics = {
-        globals = {'vim'},
-      },
-      workspace = {
-        library = vim.api.nvim_get_runtime_file("", true),
-      },
-      telemetry = {
-        enable = false
+      completion = {
+        callSnippet = "Replace"
       }
     }
   }

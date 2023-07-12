@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/MarioOdysseyBW.png",
+    "alpha": "100",
+    "special": {
+        "background": "#050505",
+        "foreground": "#a4a4a4",
+        "cursor": "#a4a4a4"
+    },
+    "colors": {
+        "color0": "#050505",
+        "color1": "#182372",
+        "color2": "#464646",
+        "color3": "#1353e5",
+        "color4": "#2f677f",
+        "color5": "#717171",
+        "color6": "#1dbef6",
+        "color7": "#a4a4a4",
+        "color8": "#494949",
+        "color9": "#182372",
+        "color10": "#464646",
+        "color11": "#1353e5",
+        "color12": "#2f677f",
+        "color13": "#717171",
+        "color14": "#1dbef6",
+        "color15": "#a4a4a4"
+    }
+}

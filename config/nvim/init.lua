@@ -12,6 +12,7 @@ require("colorscheme")
 -- require("keymap")
 ---- plugins configs ----
 -- require 'plugin-configs.nvim-lsp-installer' -- lsp installer helper
+require("plugin-configs.neodev") -- auto lua lsp configuration. !! MUST COME BEFORE LSP-CONFIG
 require("plugin-configs.nvim-lsputils") -- lsp helper
 require("plugin-configs.nvim-lspconfig") -- configure language server protocols
 require("plugin-configs.vim-go") -- configure golang plugin
@@ -21,7 +22,7 @@ require("plugin-configs.formatter") -- format on save config
 require("plugin-configs.noice") -- message and popup UI
 require("plugin-configs.lsp-signature") -- function signature as you type
 -- require 'plugin-configs.better-whitespace' -- highlight all trailing whitespaces, and trim them on save
-require("plugin-configs.indent-blankline") -- add line to make indentation easier to follow
+-- require("plugin-configs.indent-blankline") -- add line to make indentation easier to follow
 require("plugin-configs.fzf") -- ctrl+p will launch the fzf fuzzy finder
 -- require 'plugin-configs.lualine' -- status line configuration
 require("plugin-configs.bufferline") -- buffer line (tabs)
@@ -44,7 +45,9 @@ require("plugin-configs.gitsigns") -- show git diff signs in status column
 require("colorscheme-picker") -- pick among installed colorschemes with live preview
 -- require("plugin-configs.dressing")
 require("plugin-configs.treesitter") -- global syntax parser
-require("plugin-configs.nvim-dap-virtual-text")
+require("plugin-configs.hlargs") -- semantic highlighting using treesitter
+require("plugin-configs.nvim-dap-virtual-text") -- debugging protocol
+-- require("plugin-configs.nvim-dap-go") -- debugging protocol for go using DELVE
 require("plugin-configs.rnvimr") -- ranger as file manager config
 require("plugin-configs.nvim-tree") -- integrated file manager written in lua
 require("plugin-configs.neogen") -- doc comment generator
