@@ -13,12 +13,6 @@ end
 -- Speed up scrolling in Vim
 cmd("set ttyfast")
 
--- do syntax highlighting even in large files
-cmd("autocmd BufEnter * :syntax sync minlines=10000")
-
--- also allow to write with uppercase W
-cmd("command! W w")
-
 -- kill all phpactor instances still running on quit
 -- cmd('autocmd VimLeave * silent! :!pkill -f "phpactor"')
 
@@ -55,7 +49,7 @@ vim.o.foldcolumn = "1" -- gutter left padding
 vim.o.numberwidth = 1 -- keep gutter as small as possible by reducing the line number width
 vim.o.shiftwidth = 2
 vim.o.softtabstop = 2
-vim.o.mouse = "a"
+vim.o.mouse = "a" -- set mouse mode to all modes
 vim.o.backupdir = "/home/alexis/.vim/backup//" -- double slashes at the end avoids name collision
 vim.o.directory = "/home/alexis/.vim/swap//"
 vim.o.undodir = "/home/alexis/.vim/undo//"
@@ -71,3 +65,35 @@ vim.g.loaded_perl_provider = 0 -- disable perl provider
 vim.o.timeoutlen = 300
 vim.o.undolevels = 10000
 vim.o.updatetime = 200 -- Save swap file and trigger CursorHold
+vim.o.foldmethod = "manual"
+-- vim.o.foldmethod = "expr"
+-- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
+
+---- Autocmds ----
+
+-- do syntax highlighting even in large files
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function ()
+    vim.cmd.syntax("sync minlines=10000")
+  end
+})
+-- unfold all folds in file by default
+vim.api.nvim_create_autocmd("BufEnter", {
+  callback = function ()
+    cmd("normal zR")
+  end
+})
+
+
+---- Custom Commands ----
+
+vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {});
+
+
+-- vim.api.nvim_create_user_command("SayHello", function()
+--   vim.api.nvim_notify("Hello", 1, {});
+-- end, {})
+
+
+
+

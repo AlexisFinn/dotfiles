@@ -25,10 +25,8 @@ local handlerVirtualText = {
 
 -- onAttach callback to disable formatting and setting keymaps
 local onAttach = (function(client, bufnr)
-
   -- add custom formatting
   -- require('lsp-format').on_attach(client)
-
   -- disable formating as that will be taken care of elsewhere
   -- nvim <= 0.7
   -- client.resolved_capabilities.document_formatting = false

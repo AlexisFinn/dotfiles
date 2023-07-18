@@ -1,6 +1,5 @@
 local telescope = require("telescope.builtin")
 local telescopeExt = require("telescope").extensions
-local truezen = require("true-zen")
 local cmd = vim.cmd
 local float = vim.cmd.FloatermNew
 
@@ -19,6 +18,8 @@ require 'which-key'.setup{
 require 'which-key'.register({
   ["<leader>"] = {
     c = {":CommentToggle<cr>", "Toggle comment"},
+    q = {function() cmd("q") end, "Quit/Close window"},
+
   }
 },{mode = "v"})
 
@@ -26,8 +27,6 @@ require 'which-key'.register({
 require 'which-key'.register({
   -------------------------- LEADER PREFIXED -----------------------------
   ["<leader>"] = {
-    ["<PageUp>"] = {function() cmd("BufferLiveMovePrev") end, "Move buffer left"},
-    ["<PageDown>"] = {function() cmd("BufferLiveMoveNext") end, "Move buffer right"},
     ["["] = {function() cmd("SplitjoinSplit") end, "Split code structure into multiple lines"},
     ["]"] = {function() cmd("SplitjoinJoin") end, "Join code structure into single line"},
     b = {
@@ -87,21 +86,9 @@ require 'which-key'.register({
     R = {function() telescope.registers() end, "Search through registers with Telescope"},
     w = {function() cmd("w") end, "Write changes"},
     W = {function() cmd("wa") end, "Write All changes"},
-    z = {
-      name = "Focus mode",
-      a = {function() truezen.ataraxis() end, "Toggle window Zoom Focus mode"},
-      f = {function() truezen.focus() end, "Toggle window Focus mode"},
-      m = {function() truezen.minimalist() end, "Toggle minimalist Focus mode"},
-      n = {function()
-        local first = vim.fn.line("v")
-        local last = vim.fn.line(".")
-        truezen.narrow(first, last)
-      end, "Toggle selection Focus mode"}
-    },
     Z = {function() cmd("TSHighlightCapturesUnderCursor") end, "Get nvim highlight group of word under cursor"}
   },
   -------------------------- OTHER -----------------------------
-  ["<F10>"] = {function() cmd("NvimTreeFindFileToggle") end, "Open nvim-tree file manager"},
   ["<F9>"] = {function()
     float({
       args = {
@@ -116,8 +103,8 @@ require 'which-key'.register({
     })
   end, "Open Ranger file manager"},
   ["<C-s>"] = {function() cmd("noh") end, "Remove all search highlights"},
-  ["<C-PageUp>"] = {function() cmd("BufferLineCyclePrev") end, "Previous buffer"},
-  ["<C-PageDown>"] = {function() cmd("BufferLineCycleNext") end, "Next buffer"},
+  ["<C-PageUp>"] = {function() cmd("BufferPrevious") end, "Move buffer left"},
+  ["<C-PageDown>"] = {function() cmd("BufferNext") end, "Move buffer right"},
   m = {
     name = "Bookmarks",
     a = {function() cmd("BookmarkShowAll") end, "Show all bookmarks"},
@@ -127,5 +114,5 @@ require 'which-key'.register({
     n = {function() cmd("BookmarkNext") end, "Go to next bookmark"},
     N = {function() cmd("BookmarkPrev") end, "Go to previous bookmark"},
     x = {function() cmd("BookmarkClearAll") end, "Clear all bookmarks in current project"}
-  }
+  },
 })

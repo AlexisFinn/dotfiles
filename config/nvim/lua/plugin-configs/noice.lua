@@ -24,3 +24,7 @@ require("noice").setup({
     lsp_doc_border = false
   },
 })
+
+
+vim.api.nvim_create_user_command("SayHello", function()
+end, {})
