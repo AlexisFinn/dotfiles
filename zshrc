@@ -60,7 +60,7 @@ PERL_MM_OPT="INSTALL_BASE=/home/alexis/perl5"; export PERL_MM_OPT;
 source /home/alexis/.config/broot/launcher/bash/br
 alias luamake=/home/alexis/Applications/lua-language-server/3rd/luamake/luamake
 
-[ -f "/home/alexis/.ghcup/env" ] && source "/home/alexis/.ghcup/env" # ghcup-env
+#[ -f "/home/alexis/.ghcup/env" ] && source "/home/alexis/.ghcup/env" # ghcup-env
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
@@ -72,3 +72,5 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 
 # zprof
+
+[ -f "/home/alexis/.ghcup/env" ] && source "/home/alexis/.ghcup/env" # ghcup-env

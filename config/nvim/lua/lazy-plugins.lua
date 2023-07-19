@@ -1,4 +1,7 @@
 require("lazy").setup({
+  -------------------
+  -- COLOR SCHEMES --
+  -------------------
   -- colorschemes, load them first for proper integration with other plugins
   'mhartington/oceanic-next',
   'dracula/vim',
@@ -30,14 +33,115 @@ require("lazy").setup({
   'savq/melange',
   { 'catppuccin/nvim', name = 'catppuccin' },
   'kvrohit/mellow.nvim',
+  ---------------
+  -- EYE CANDY --
+  ---------------
   -- some nice icons
   'nvim-tree/nvim-web-devicons',
   'ryanoasis/vim-devicons',
-  -- smooth scrolling
-  'psliwka/vim-smoothie',
+  -- cursor jump animation
+  {
+    'echasnovski/mini.animate',
+    config = function ()
+      require('mini.animate').setup {}
+    end,
+    enabled = true
+  },
+  -- animated indent guides
+  {
+    'echasnovski/mini.indentscope',
+    config = function()
+      require("plugin-configs.mini-indentscope")
+    end
+  },
+  -- status line in lua
+  'hoob3rt/lualine.nvim',
+  -- tab line
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim',
+      'nvim-tree/nvim-web-devicons'
+    },
+    init = function() vim.g.barbar_auto_setup = true end,
+  },
+  -- color highlighter
+  {
+    'norcalli/nvim-colorizer.lua',
+    config = function()
+      require('colorizer').setup{}
+    end
+  },
+  -- shortcuts helper including registers, marks, keymaps, folds...
+  {
+    'folke/which-key.nvim',
+    config = function()
+      require("plugin-configs.which-key")
+    end
+  },
+  -- highlight matching words
+  {
+    'RRethy/vim-illuminate',
+    config = function()
+      require("plugin-configs.vim-illuminate")
+    end
+  },
+  -- treesitter the new language parser
+  {
+    'nvim-treesitter/nvim-treesitter',
+    build = ':TSUpdate',
+    branch = "master",
+    dependencies = {
+      'nvim-treesitter/playground',
+    },
+    config = function()
+      require("plugin-configs.treesitter")
+    end
+  },
+  -- semantic highlighting using treesitter
+  {
+    'm-demare/hlargs.nvim',
+    config = function()
+      require("plugin-configs.hlargs") -- semantic highlighting using treesitter
+    end
+  },
+  -- vim UI for messages, cmdline and popupmenu
+  {
+    'folke/noice.nvim',
+    dependencies = {
+      "MunifTanjim/nui.nvim",
+      {
+        "rcarriga/nvim-notify",
+        config = function()
+          require("plugin-configs.nvim-notify")    end
+        },
+      },
+      config = function()
+        require('plugin-configs.noice')
+      end
+  },
+  -- indent guides
+  'lukas-reineke/indent-blankline.nvim',
   ---------------
   -- LSP SETUP --
   ---------------
+  -- Install LSP dependencies with Mason
+  {
+    'williamboman/mason-lspconfig.nvim',
+    dependencies = {
+      {
+        'williamboman/mason.nvim',
+        build = ':MasonUpdate',
+        config = function()
+          require("mason").setup()
+        end
+      },
+      'neovim/nvim-lspconfig'
+    },
+    config = function()
+      require("plugin-configs.mason-lspconfig")
+    end
+  },
   -- auto lua lsp configuration. !! MUST COME BEFORE LSP-CONFIG
   {
     'folke/neodev.nvim',
@@ -81,12 +185,11 @@ require("lazy").setup({
       require("plugin-configs.iron") -- access language REPL
     end
   },
-  -- convert to multiline
-  'AndrewRadev/splitjoin.vim',
-  -- snippets
-  'SirVer/ultisnips',
-  -- integrate utilsnips with telescope
-  'fhill2/telescope-ultisnips.nvim',
+  -- utilsnips
+  {
+    'fhill2/telescope-ultisnips.nvim',
+    dependencies = 'SirVer/ultisnips'
+  },
   -- better diagnostics
   {
     'folke/trouble.nvim',
@@ -94,8 +197,6 @@ require("lazy").setup({
       require("plugin-configs.trouble")
     end
   },
-  -- auto change matching html tags
-  'AndrewRadev/tagalong.vim',
   -- autocomplete
   {
     'hrsh7th/nvim-cmp',
@@ -106,32 +207,24 @@ require("lazy").setup({
       'hrsh7th/cmp-cmdline'
     },
     config = function()
-      require("plugin-configs.nvim-cmp") -- autocomplete
+      require("plugin-configs.nvim-cmp")
     end
   },
-  -- language specific plugins
+  -- debugging protocol
   {
-    'ray-x/go.nvim',
+    'theHamsta/nvim-dap-virtual-text',
     dependencies = {
-      'ray-x/guihua.lua',
-      'neovim/nvim-lspconfig',
+      'mfussenegger/nvim-dap',
+      'rcarriga/nvim-dap-ui',
       'nvim-treesitter/nvim-treesitter'
     },
     config = function()
-      require('go').setup()
-    end,
-  },
-  -- indent guides
-  'lukas-reineke/indent-blankline.nvim',
-  -- Comment/uncomment multiple lines with <leader>c<space>
-  {
-    'terrortylor/nvim-comment',
-    config = function()
-      require("plugin-configs.nvim-comment")
+      require("plugin-configs.nvim-dap-virtual-text")
     end
   },
-  -- determine comment syntax by the line, full for embedded syntax typically in javascript frameworks
-  'JoosepAlviste/nvim-ts-context-commentstring',
+  ----------------------------
+  -- TELESCOPE FUZZY FINDER --
+  ----------------------------
   -- fzf because it's the best fuzzy finder
   {
     'vijaymarupudi/nvim-fzf', -- lua api
@@ -146,21 +239,33 @@ require("lazy").setup({
   {
     'nvim-telescope/telescope.nvim',
     dependencies = {
-      { 'nvim-lua/popup.nvim' },
-      { 'nvim-lua/plenary.nvim' },
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+      'nvim-telescope/telescope-project.nvim',
+      { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
     },
     config = function()
       require("plugin-configs.telescope") -- awesome fuzzy finder, but slower than fzf
     end
   },
-  --  fzf in telescope instead of builtin fuzzy finder (fzf is much faster)
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-  -- better telescope
-  'nvim-telescope/telescope-ui-select.nvim',
-  -- project management with telescope
-  'nvim-telescope/telescope-project.nvim',
   -- ripgrep for fastest ever grep directly in vim
   'jremmen/vim-ripgrep',
+  -------------------------------
+  -- LANGUAGE SPECIFIC PLUGINS --
+  -------------------------------
+  -- GoLang
+  {
+    'ray-x/go.nvim',
+    dependencies = {
+      {'ray-x/guihua.lua', build = 'cd lua/fzy && make'},
+      'neovim/nvim-lspconfig',
+      'nvim-treesitter/nvim-treesitter'
+    },
+    config = function()
+      require('go').setup()
+    end,
+  },
   -- markdown preview
   {
     'iamcco/markdown-preview.nvim',
@@ -168,25 +273,6 @@ require("lazy").setup({
     config = function()
       vim.g.mkdp_browser = 'google-chrome-stable'
       vim.g.mkdp_port = '4433'
-    end
-  },
-  -- status line in lua
-  'hoob3rt/lualine.nvim',
-  -- tab line
-  {
-    'romgrk/barbar.nvim',
-    dependencies = {
-      'lewis6991/gitsigns.nvim',
-      'nvim-tree/nvim-web-devicons'
-    },
-    init = function() vim.g.barbar_auto_setup = true end,
-  },
-  -- buffer switcher
-  {
-    'matbme/JABS.nvim',
-    lazy = false,
-    config = function()
-      require("plugin-configs.JABS") -- buffer switcher
     end
   },
   -- emmet
@@ -202,24 +288,30 @@ require("lazy").setup({
   'neovimhaskell/haskell-vim',
   -- rust
   'simrat39/rust-tools.nvim',
-  -- Run terminal commands in floating windows
-  'voldikss/vim-floaterm',
-  -- best git commands integration for vim
-  'tpope/vim-fugitive',
-  -- git diff indications in gutter column
-  {
-    'lewis6991/gitsigns.nvim',
-    config = function()
-      require("plugin-configs.gitsigns")
-    end
-  },
   -- .editorconfig file if found
   'editorconfig/editorconfig-vim',
-  -- color highlighter
+  -- auto change matching html tags
+  'AndrewRadev/tagalong.vim',
+  ------------------------
+  -- FUNCTIONAL PLUGINS --
+  ------------------------
+  -- buffer switcher
   {
-    'norcalli/nvim-colorizer.lua',
+    'matbme/JABS.nvim',
+    lazy = false,
     config = function()
-      require('colorizer').setup{}
+      require("plugin-configs.JABS") -- buffer switcher
+    end
+  },
+  -- Comment/uncomment multiple lines with <leader>c<space>
+  {
+    'terrortylor/nvim-comment',
+    dependencies = {
+      -- determine comment syntax by the line, full for embedded syntax typically in javascript frameworks
+      'JoosepAlviste/nvim-ts-context-commentstring',
+    },
+    config = function()
+      require("plugin-configs.nvim-comment")
     end
   },
   -- easyMotion clone for Nvim
@@ -229,44 +321,8 @@ require("lazy").setup({
       require('leap').add_default_mappings()
     end
   },
-  -- shortcuts helper including registers, marks, keymaps, folds...
-  {
-    'folke/which-key.nvim',
-    config = function()
-      require("plugin-configs.which-key")
-    end
-  },
-  -- highlight matching words
-  {
-    'RRethy/vim-illuminate',
-    config = function()
-      require("plugin-configs.vim-illuminate")
-    end
-  },
-  -- treesitter the new language parser
-  {
-    'nvim-treesitter/nvim-treesitter',
-    build = ':TSUpdate',
-    branch = "master",
-    config = function()
-      require("plugin-configs.treesitter")     end
-  },
-  -- debugging protocol
-  'mfussenegger/nvim-dap',
-  'rcarriga/nvim-dap-ui',
-  {
-    'theHamsta/nvim-dap-virtual-text',
-    config = function()
-      require("plugin-configs.nvim-dap-virtual-text")    end
-  },
-  'nvim-treesitter/playground',
-  -- semantic highlighting using treesitter
-  {
-    'm-demare/hlargs.nvim',
-    config = function()
-      require("plugin-configs.hlargs") -- semantic highlighting using treesitter
-    end
-  },
+  -- Run terminal commands in floating windows
+  'voldikss/vim-floaterm',
   -- documentation generator
   {
     'danymat/neogen',
@@ -275,43 +331,32 @@ require("lazy").setup({
       require("plugin-configs.neogen") -- doc comment generator
     end
   },
-  -- bookmarks
-  'MattesGroeger/vim-bookmarks',
-  -- animations
-  'echasnovski/mini.animate',
-  {
-    'echasnovski/mini.indentscope',
-    config = function()
-      require("plugin-configs.mini-indentscope")
-    end
-  },
-  -- extra UI
-  {'ray-x/guihua.lua', build = 'cd lua/fzy && make'},
-  -- vim UI for messages, cmdline and popupmenu
-  {
-    "rcarriga/nvim-notify",
-    config = function()
-      require("plugin-configs.nvim-notify")    end
-  },
-  {
-    'folke/noice.nvim',
-    dependencies = {
-      "MunifTanjim/nui.nvim",
-      "rcarriga/nvim-notify"
-    },
-    config = function()
-      require('plugin-configs.noice')
-    end
-  },
-  -- games
-  'ThePrimeagen/vim-be-good', -- type :VimBeGood
-  -- auto session management
+  -- auto session management per cwd
   {
     'rmagatti/auto-session',
     config = function()
-      require("plugin-configs.auto-session") -- auto-save session per cwd
+      require("plugin-configs.auto-session")
     end
   },
+  -- convert to multiline
+  'AndrewRadev/splitjoin.vim',
+  -- bookmarks
+  'MattesGroeger/vim-bookmarks',
+  ---------
+  -- GIT --
+  ---------
+  -- best git commands integration for vim
+  'tpope/vim-fugitive',
+  -- git diff indications in gutter column
+  {
+    'lewis6991/gitsigns.nvim',
+    config = function()
+      require("plugin-configs.gitsigns")
+    end
+  },
+  -----------
+  -- OTHER --
+  -----------
   -- an aswesome helper for writting custom colorschemes for Nvim
   {
     'tjdevries/colorbuddy.vim',
@@ -319,4 +364,6 @@ require("lazy").setup({
       require("plugin-configs.colorbuddy")
     end
   },
+  -- games
+  'ThePrimeagen/vim-be-good', -- type :VimBeGood
 })
