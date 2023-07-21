@@ -8,7 +8,14 @@ return {
   'marko-cerovac/material.nvim',
   'sainnhe/gruvbox-material',
   'sainnhe/sonokai',
-  'romgrk/doom-one.vim',
+  {
+    'romgrk/doom-one.vim',
+    lazy = false,
+    priority = 1000,
+    config = function ()
+      vim.cmd 'color doom-one'
+    end
+  },
   'wadackel/vim-dogrun',
   'arcticicestudio/nord-vim',
   'jnurmine/Zenburn',

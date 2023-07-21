@@ -8,14 +8,13 @@ require("lazy").setup({
   -- EYE CANDY --
   ---------------
   -- some nice icons
-  'nvim-tree/nvim-web-devicons',
-  'ryanoasis/vim-devicons',
+  require("plugin-configs.nvim-web-devicons"),
   -- smooth scrolling
-  'psliwka/vim-smoothie',
+  require("plugin-configs.vim-smoothie"),
   -- animated indent guides
   require("plugin-configs.mini-indentscope"),
   -- status line in lua
-  'hoob3rt/lualine.nvim',
+  require("plugin-configs.lualine"),
   -- tab line
   require("plugin-configs.barbar"),
   -- color highlighter
@@ -31,7 +30,7 @@ require("lazy").setup({
   -- vim UI for messages, cmdline and popupmenu
   require('plugin-configs.noice'),
   -- indent guides
-  'lukas-reineke/indent-blankline.nvim',
+  require('plugin-configs.indent-blankline'),
   ---------------
   -- LSP SETUP --
   ---------------
@@ -49,11 +48,8 @@ require("lazy").setup({
   require('plugin-configs.formatter'),
   -- access language REPL
   require("plugin-configs.iron"),
-  -- utilsnips
-  {
-    'fhill2/telescope-ultisnips.nvim',
-    dependencies = 'SirVer/ultisnips'
-  },
+  -- code snippets
+  require("plugin-configs.utilsnips"),
   -- better diagnostics
   require("plugin-configs.trouble"),
   -- autocomplete
@@ -64,14 +60,11 @@ require("lazy").setup({
   -- TELESCOPE FUZZY FINDER --
   ----------------------------
   -- fzf because it's the best fuzzy finder
-  {
-    'vijaymarupudi/nvim-fzf', -- lua api
-    dependencies = 'vijaymarupudi/nvim-fzf-commands', -- actual vim commands
-  },
+  require('plugin-configs.nvim-fzf'),
   -- telescope, an awesome fuzzy-finder that leverages all the new nvim functions
-  require("plugin-configs.telescope"),
+  require("plugin-configs.nvim-telescope"),
   -- ripgrep for fastest ever grep directly in vim
-  'jremmen/vim-ripgrep',
+  require("plugin-configs.vim-ripgrep"),
   -------------------------------
   -- LANGUAGE SPECIFIC PLUGINS --
   -------------------------------
@@ -82,15 +75,15 @@ require("lazy").setup({
   -- emmet
   require("plugin-configs.emmet"),
   -- twig
-  'nelsyeung/twig.vim',
+  require("plugin-configs.twig"),
   -- haskell
-  'neovimhaskell/haskell-vim',
+  require("plugin-configs.haskell-vim"),
   -- rust
-  'simrat39/rust-tools.nvim',
+  require("plugin-configs.rust-tools"),
   -- .editorconfig file if found
-  'editorconfig/editorconfig-vim',
+  require("plugin-configs.editorconfig-vim"),
   -- auto change matching html tags
-  'AndrewRadev/tagalong.vim',
+  require("plugin-configs.tagalong"),
   ------------------------
   -- FUNCTIONAL PLUGINS --
   ------------------------
@@ -101,20 +94,20 @@ require("lazy").setup({
   -- easyMotion clone for Nvim
   require("plugin-configs.leap"),
   -- Run terminal commands in floating windows
-  'voldikss/vim-floaterm',
+  require("plugin-configs.vim-floaterm"),
   -- doc comment generator
   require("plugin-configs.neogen"),
   -- auto session management per cwd
   require("plugin-configs.auto-session"),
   -- convert to multiline
-  'AndrewRadev/splitjoin.vim',
+  require("plugin-configs.splitjoin"),
   -- bookmarks
-  'MattesGroeger/vim-bookmarks',
+  require("plugin-configs.vim-bookmarks"),
   ---------
   -- GIT --
   ---------
   -- best git commands integration for vim
-  'tpope/vim-fugitive',
+  require("plugin-configs.vim-fugitive"),
   -- git diff indications in gutter column
   require("plugin-configs.gitsigns"),
   -----------
@@ -122,6 +115,6 @@ require("lazy").setup({
   -----------
   -- an aswesome helper for writting custom colorschemes for Nvim
   require("plugin-configs.colorbuddy"),
-  -- games
-  'ThePrimeagen/vim-be-good', -- type :VimBeGood
+  -- games ( type :VimBeGood )
+  require("plugin-configs.vim-be-good"),
 })

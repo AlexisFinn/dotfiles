@@ -129,7 +129,7 @@ require("catppuccin").setup({
 -- vim.cmd 'color xshado'
 -- vim.cmd 'color night-owl'
 -- vim.cmd 'color moonfly'
-vim.cmd 'color OceanicNext' -- *
+-- vim.cmd 'color OceanicNext' -- *
 -- vim.cmd 'color neon'
 -- vim.cmd 'color sonokai'
 -- vim.cmd 'color nord'
