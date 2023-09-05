@@ -7,14 +7,12 @@ return {
   'rafamadriz/neon',
   'marko-cerovac/material.nvim',
   'sainnhe/gruvbox-material',
+  {'bluz71/vim-nightfly-colors', name = "nightfly"},
   'sainnhe/sonokai',
   {
     'romgrk/doom-one.vim',
     lazy = false,
-    priority = 1000,
-    config = function ()
-      vim.cmd 'color doom-one'
-    end
+    priority = 1000
   },
   'wadackel/vim-dogrun',
   'arcticicestudio/nord-vim',

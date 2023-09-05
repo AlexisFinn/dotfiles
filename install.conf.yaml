@@ -9,7 +9,7 @@
           path: zshrc.d
           force: false
           relink: true
-      ~/.tmux.conf:
+      ~/.config/tmux/tmux.conf:
           path: tmux.conf
           force: false
           relink: true

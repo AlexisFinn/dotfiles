@@ -1,5 +1,7 @@
 return  {
-  'matbme/JABS.nvim',
+  -- 'matbme/JABS.nvim',
+  'jeff-dh/expJABS.nvim',
+  branch = 'expJABS',
   lazy = false,
   config = function()
     require("jabs").setup({

@@ -126,7 +126,7 @@ require("catppuccin").setup({
 -- vim.cmd 'color gruvbox-material'
 -- vim.cmd 'color doom-one' -- *
 -- vim.cmd 'color dracula'
--- vim.cmd 'color xshado'
+-- vim.cmd 'color shado'
 -- vim.cmd 'color night-owl'
 -- vim.cmd 'color moonfly'
 -- vim.cmd 'color OceanicNext' -- *
@@ -161,3 +161,4 @@ require("catppuccin").setup({
 -- vim.cmd 'color kanagawa' -- *
 -- vim.cmd 'color mellow'
 -- vim.cmd 'color quiet'
+vim.cmd 'color nightfly'

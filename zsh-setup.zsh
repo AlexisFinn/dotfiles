@@ -28,9 +28,6 @@ if ! zgenom saved; then
   # Automatically run zgenom update and zgen selfupdate every 7 days
   zgenom load unixorn/autoupdate-zgen
 
-  # Add my random utility functions
-  zgenom load unixorn/jpb.zshplugin
-
   # Colorize the things if you have grc installed. Well, some of the
   # things, anyway.
   zgenom load unixorn/warhol.plugin.zsh

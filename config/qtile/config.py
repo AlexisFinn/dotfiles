@@ -155,8 +155,8 @@ preferred_ratio = 80 / 100
 max_ratio = 90 / 100
 min_ratio = 20 / 100
 resize_step_ratio = 2 / 100
-gap = 5
-border = 3
+gap = 0
+border = 2
 
 active_color = get_standout_color() #PyColors.color6
 active_color_alt = PyColors.color5

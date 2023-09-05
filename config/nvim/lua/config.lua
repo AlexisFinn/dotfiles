@@ -43,7 +43,7 @@ vim.o.relativenumber = true -- show line numbers relative to cursor position
 -- vim.o.statuscolumn = "%l %r %s" -- customise status column with absolute linenumber, relative linenumber, status
 vim.o.number = true -- show non-relative line number at cursor position
 vim.o.clipboard = vim.o.clipboard .. "unnamedplus" -- use system clipboard by default
-vim.o.colorcolumn = "100" -- set a color column at the 100-character mark
+vim.o.colorcolumn = "120" -- set a color column at the 120-character mark
 vim.o.backspace = "indent,eol,start"
 vim.o.foldcolumn = "1" -- gutter left padding
 vim.o.numberwidth = 1 -- keep gutter as small as possible by reducing the line number width
@@ -88,7 +88,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 ---- Custom Commands ----
 
 vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {});
-
 
 -- vim.api.nvim_create_user_command("SayHello", function()
 --   vim.api.nvim_notify("Hello", 1, {});

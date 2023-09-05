@@ -84,6 +84,8 @@ require("lazy").setup({
   require("plugin-configs.editorconfig-vim"),
   -- auto change matching html tags
   require("plugin-configs.tagalong"),
+  -- Varnish Conif Language (VCL)
+  require("plugin-configs.vim-varnish"),
   ------------------------
   -- FUNCTIONAL PLUGINS --
   ------------------------

@@ -108,7 +108,7 @@ return  {
               args = {},
               -- exe = "php-cs-fixer",
               -- args = { "fix" },
-              stdin = false
+              stdin = false 
             }
           end
         },
@@ -143,6 +143,7 @@ return  {
         },
       }
     }
+
     -- auto-format on save
     vim.api.nvim_exec([[
     augroup FormatAutogroup
