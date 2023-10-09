@@ -116,7 +116,7 @@ return  {
           function()
             return {
               exe = "goimports-reviser",
-              args = { "-rm-unused", "-format", "-set-alias"},
+              args = { "-format" },
             }
           end,
           function ()

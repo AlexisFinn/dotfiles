@@ -5,20 +5,22 @@ return  {
   lazy = false,
   config = function()
     require("jabs").setup({
-      -- position = {'center', 'top'},
-      -- width = 90,
-      -- height = 20,
-      -- border = 'double',
-      -- preview_position = 'right',
-      -- preview = {
-      --   width = 90,
-      --   height = 80,
-      --   border = 'double'
-      -- }
+      position = {'center', 'center'},
+      width = 70,
+      height = 20,
+      border = 'single',
+      sort_mru = true,
+      preview_position = 'bottom',
+      preview = {
+        width = 70,
+        height = 20,
+        border = 'single'
+      },
+      keymap = {
+        preview = "p"
+      },
     })
 
-    local keymap = vim.api.nvim_set_keymap
-
-    keymap('n', '<F8>', ':JABSOpen<CR>', {})
+    vim.keymap.set('n', '<F8>', function() vim.cmd('JABSOpen') end, {desc = 'Buffer switcher'})
   end
 }

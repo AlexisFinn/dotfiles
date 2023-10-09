@@ -11,17 +11,17 @@ return {
       },
       sections = {
         lualine_a = { 'mode' },
-        lualine_b = { 'branch' },
-        lualine_c = { 'diagnostics' },
-        lualine_x = { 'fileformat' },
+        lualine_b = { { 'filename', path = 1 } },
+        lualine_c = {},
+        lualine_x = {},
         lualine_y = { 'filetype' },
         lualine_z = { 'location' }
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { 'filename' },
-        lualine_x = { 'location' },
+        lualine_c = {},
+        lualine_x = {},
         lualine_y = {},
         lualine_z = {}
       },

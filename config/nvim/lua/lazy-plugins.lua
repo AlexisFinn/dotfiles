@@ -1,3 +1,23 @@
+local lazyOptions = {
+  ui = {
+    border = "rounded",
+  },
+  performance = {
+    cache = {enabled = true},
+    rtp = {
+      disabled_plugins = {
+        "netrwPlugin",
+        "gzip",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin"
+      }
+    }
+  },
+  debug = false,
+}
+
 require("lazy").setup({
   -------------------
   -- COLOR SCHEMES --
@@ -12,17 +32,18 @@ require("lazy").setup({
   -- smooth scrolling
   require("plugin-configs.vim-smoothie"),
   -- animated indent guides
-  require("plugin-configs.mini-indentscope"),
+  -- require("plugin-configs.mini-indentscope"),
   -- status line in lua
   require("plugin-configs.lualine"),
   -- tab line
-  require("plugin-configs.barbar"),
+  -- require("plugin-configs.barbar"),
   -- color highlighter
   require("plugin-configs.nvim-colorizer"),
   -- shortcuts helper including registers, marks, keymaps, folds...
   require("plugin-configs.which-key"),
   -- highlight matching words
-  require("plugin-configs.vim-illuminate"),
+  -- require("plugin-configs.vim-illuminate"),
+  require("plugin-configs.strcursorword"),
   -- treesitter the new language parser
   require("plugin-configs.nvim-treesitter"),
   -- semantic highlighting using treesitter
@@ -77,22 +98,31 @@ require("lazy").setup({
   -- twig
   require("plugin-configs.twig"),
   -- haskell
-  require("plugin-configs.haskell-vim"),
+  -- require("plugin-configs.haskell-vim"),
   -- rust
-  require("plugin-configs.rust-tools"),
+  -- require("plugin-configs.rust-tools"),
   -- .editorconfig file if found
   require("plugin-configs.editorconfig-vim"),
   -- auto change matching html tags
   require("plugin-configs.tagalong"),
   -- Varnish Conif Language (VCL)
   require("plugin-configs.vim-varnish"),
+  -- CSV
+  require("plugin-configs.rainbow-csv"),
+  
+  --------
+  -- AI --
+  --------
+  -- Codmium
+  require("plugin-configs.codeium"),
   ------------------------
   -- FUNCTIONAL PLUGINS --
   ------------------------
   -- buffer switcher
-  require("plugin-configs.JABS"),
+  -- require("plugin-configs.JABS"),
   -- Comment/uncomment multiple lines with <leader>c<space>
-  require("plugin-configs.nvim-comment"),
+  -- require("plugin-configs.nvim-comment"),
+  require("plugin-configs.mini-comment"),
   -- easyMotion clone for Nvim
   require("plugin-configs.leap"),
   -- Run terminal commands in floating windows
@@ -109,7 +139,9 @@ require("lazy").setup({
   -- GIT --
   ---------
   -- best git commands integration for vim
-  require("plugin-configs.vim-fugitive"),
+  -- require("plugin-configs.vim-fugitive"),
+  -- git blame integration
+  require("plugin-configs.blame"),
   -- git diff indications in gutter column
   require("plugin-configs.gitsigns"),
   -----------
@@ -119,4 +151,4 @@ require("lazy").setup({
   require("plugin-configs.colorbuddy"),
   -- games ( type :VimBeGood )
   require("plugin-configs.vim-be-good"),
-})
+}, lazyOptions)

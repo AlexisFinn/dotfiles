@@ -32,6 +32,8 @@ return {
   'EdenEast/nightfox.nvim',
   'ayu-theme/ayu-vim',
   'savq/melange',
-  { 'catppuccin/nvim', name = 'catppuccin' },
+  { 'catppuccin/nvim', lazy = false, name = 'catppuccin' },
   'kvrohit/mellow.nvim',
+  'ribru17/bamboo.nvim',
+  'skullamortis/forest.nvim'
 }

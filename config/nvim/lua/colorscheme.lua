@@ -119,6 +119,11 @@ require("catppuccin").setup({
     },
 })
 
+-- setup bamboo
+require('bamboo').setup({
+  style = 'multiplex', -- 'vulgaris'
+})
+
 
 ---- uncomment one ----
 -- vim.cmd 'color material'
@@ -148,7 +153,7 @@ require("catppuccin").setup({
 -- vim.cmd 'color gotham'
 -- vim.cmd 'color iceberg' -- *
 -- vim.cmd 'color spaceduck' -- *
--- vim.cmd 'color everforest'
+vim.cmd 'color everforest'
 -- vim.cmd 'color seoul256'
 -- vim.cmd 'color nightfox'
 -- vim.cmd 'color dayfox'
@@ -161,4 +166,6 @@ require("catppuccin").setup({
 -- vim.cmd 'color kanagawa' -- *
 -- vim.cmd 'color mellow'
 -- vim.cmd 'color quiet'
-vim.cmd 'color nightfly'
+-- vim.cmd 'color nightfly'
+-- vim.cmd 'color bamboo'
+-- vim.cmd 'color forest'

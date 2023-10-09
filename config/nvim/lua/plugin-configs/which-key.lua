@@ -1,5 +1,6 @@
 return {
   'folke/which-key.nvim',
+  lazy = false,
   config = function()
     local telescope = require("telescope.builtin")
     local telescopeExt = require("telescope").extensions
@@ -20,7 +21,7 @@ return {
     -- ### VISUAL MODE ###
     require 'which-key'.register({
       ["<leader>"] = {
-        c = {":CommentToggle<cr>", "Toggle comment"},
+        -- c = {":CommentToggle<cr>", "Toggle comment"},
         q = {function() cmd("q") end, "Quit/Close window"},
 
       }
@@ -39,7 +40,7 @@ return {
           n = {function() cmd("GoDbgContinue") end, "Continue to next Breakpoint"},
           s = {function() cmd("GoDebug") end, "Start Go Debug"}
         },
-        c = {function() cmd("CommentToggle") end, "Toggle comment"},
+        -- c = {function() cmd("CommentToggle") end, "Toggle comment"},
         d = {
           name = "Delete buffer(s)",
           a = {function()
@@ -54,7 +55,15 @@ return {
         g = {
           name = "git",
           a = {function() cmd("Git add %") end, "Add current file to git commit"},
-          g = {function() cmd("Git") end, "Open git fugitive"},
+          g = {function() float({
+            args = {
+              "--width=1.0",
+              "--height=1.0",
+              "--title=LazyGit",
+              "--titleposition=right",
+              "lazygit",
+            }
+          }) end, "Open LazyGit"},
           h = {
             name = "git hunk",
             n = {function() cmd("Gitsigns next_hunk") end, "Git goto next hunk"},
@@ -92,6 +101,7 @@ return {
         Z = {function() cmd("TSHighlightCapturesUnderCursor") end, "Get nvim highlight group of word under cursor"}
       },
       -------------------------- OTHER -----------------------------
+      ["<F8>"] = {function() telescope.buffers() end, "Buffer switcher"},
       ["<F9>"] = {function()
         float({
           args = {
@@ -106,8 +116,8 @@ return {
         })
       end, "Open Ranger file manager"},
       ["<C-s>"] = {function() cmd("noh") end, "Remove all search highlights"},
-      ["<C-PageUp>"] = {function() cmd("BufferPrevious") end, "Move buffer left"},
-      ["<C-PageDown>"] = {function() cmd("BufferNext") end, "Move buffer right"},
+      ["<C-PageUp>"] = {function() cmd("bp") end, "Move buffer left"},
+      ["<C-PageDown>"] = {function() cmd("bn") end, "Move buffer right"},
       m = {
         name = "Bookmarks",
         a = {function() cmd("BookmarkShowAll") end, "Show all bookmarks"},

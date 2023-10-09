@@ -8,7 +8,8 @@ return {
         require("notify").setup({
           timeout = 3000,
           stages = "slide",
-          render = "compact",
+          render = "wrapped-compact",
+          max_width = 80,
           top_down = false
         })
       end
@@ -31,16 +32,39 @@ return {
         },
         messages = {
           enabled = true,
-          view = "notify"
+          view = "notify",
+          view_error = "popup",
+          view_warn = "notify",
         },
         presets = {
           bottom_search = true,
           command_palette = true,
           long_message_to_split = true,
           inc_rename = false,
-          lsp_doc_border = false
+          lsp_doc_border = true
+        },
+        cmdline = {
+          enabled = true,
+          view = "cmdline_popup",
+          -- view = "cmdline", -- classic
+        },
+        commands = {
+          errors = {
+            view = "messages",
+          },
+        },
+        views = {
+          popup = {
+            position = {
+              row = 10,
+              col = "50%",
+            },
+            size = {
+              width = 75,
+              height = "auto"
+            },
+          }
         },
       })
-      require('plugin-configs.noice')
     end
   }

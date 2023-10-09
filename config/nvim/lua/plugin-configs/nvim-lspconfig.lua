@@ -1,3 +1,4 @@
+
 return {
   'neovim/nvim-lspconfig',
   config = function()
@@ -24,7 +25,41 @@ return {
         update_in_insert = true,
       })
     }
+    local lsp_defaults = util.default_config
+    lsp_defaults.capabilities = vim.tbl_deep_extend(
+      'force',
+      lsp_defaults.capabilities,
+      require('cmp_nvim_lsp').default_capabilities()
+    )
 
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+      callback = function(ev)
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+        -- Buffer local mappings.
+        -- See `:help vim.lsp.*` for documentation on any of the below functions
+        local opts = { buffer = ev.buf }
+        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
+        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
+        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
+        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+        vim.keymap.set('n', '<space>wl', function()
+          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        end, opts)
+        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
+        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
+        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
+        vim.keymap.set('n', '<space>f', function()
+          vim.lsp.buf.format { async = true }
+        end, opts)
+      end,
+    })
 
     -- onAttach callback to disable formatting and setting keymaps
     local onAttach = (function(client, bufnr)
@@ -36,17 +71,18 @@ return {
       -- nvim 0.8+
       client.server_capabilities.documentFormattingProvider = false
       -- if client.name == "vuels" then
-      --   client.server_capabilities.semanticTokensProvider = nil
+        -- client.server_capabilities.semanticTokensProvider = nil
       -- end
 
       -- add nvim-cmp (autocomplete) to lsp capabilities
-      client.capabilities = require('cmp_nvim_lsp').default_capabilities()
+      -- client.capabilities = require('cmp_nvim_lsp').default_capabilities()
 
       -- show doc with 'K'
-      vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
+      -- vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
       -- jump to definition
-      vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
-      vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
+      -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition(), { buffer = bufnr })
+      -- vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
+      -- vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
       -- vim.api.nvim_set_keymap("n", "tt", "<cmd>lua vim.diagnostic.open_float()<CR>",
       -- { noremap = true, silent = true })
       -- vim.api.nvim_set_keymap("n", "tn", function ()
@@ -61,9 +97,9 @@ return {
     end)
 
     -- html
-    local capabilities = vim.lsp.protocol.make_client_capabilities()
-
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
+    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
+    --
+    -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     require('lspconfig').html.setup {
       cmd = { "html-languageserver", "--stdio" },
@@ -173,26 +209,26 @@ return {
     -- require('lspconfig').rls.setup {
     -- on_attach = onAttach,
     -- }
-    require('rust-tools').setup {
-      tools = {
-        autoSetHints = true,
-        inlay_hints = {
-          show_parameter_hints = false,
-          parameter_hints_prefix = "",
-          other_hints_prefix = "",
-        },
-      },
-      server = {
-        on_attach = onAttach,
-        settings = {
-          ["rust-analyzer"] = {
-            checkOnSave = {
-              command = "clippy"
-            }
-          }
-        }
-      }
-    }
+    -- require('rust-tools').setup {
+    --   tools = {
+    --     autoSetHints = true,
+    --     inlay_hints = {
+    --       show_parameter_hints = false,
+    --       parameter_hints_prefix = "",
+    --       other_hints_prefix = "",
+    --     },
+    --   },
+    --   server = {
+    --     on_attach = onAttach,
+    --     settings = {
+    --       ["rust-analyzer"] = {
+    --         checkOnSave = {
+    --           command = "clippy"
+    --         }
+    --       }
+    --     }
+    --   }
+    -- }
 
     -- lua
     require('lspconfig').lua_ls.setup {
@@ -206,7 +242,7 @@ return {
     }
 
     -- haskell
-    require('lspconfig').hls.setup {}
+    -- require('lspconfig').hls.setup {}
 
     -- C++
     -- require('lspconfig').ccls.setup {
@@ -229,7 +265,7 @@ return {
     -- languages = formattingConfig
     -- }
     -- }
-    vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
+    -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
       ---             - border = "none", "single", "double", "rounded", "solid", "shadow" | ["╔", "═" ,"╗", "║", "╝", "═", "╚", "║" ]
       ---             - height: (number) height of floating window
       ---             - width: (number) width of floating window
@@ -247,8 +283,8 @@ return {
       ---                      {focus_id}
       ---             - anchor: "NW", "NE", "SW", "SE"
       ---             - relative: "editor", "win", "cursor"
-      border = "rounded",
+      -- border = "rounded",
       -- border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
-    })
+    -- })
   end
 }
