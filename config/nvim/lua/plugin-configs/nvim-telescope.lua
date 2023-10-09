@@ -34,7 +34,6 @@ return  {
       pickers = {
         buffers = {
           theme = "dropdown",
-          ignore_current_buffer = true,
           initial_mode = "normal",
         },
         colorscheme = {
