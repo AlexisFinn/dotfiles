@@ -241,6 +241,12 @@ return {
       }
     }
 
+    -- zig
+    require('lspconfig').zls.setup {
+      handlers = handlerVirtualText,
+      on_attach = onAttach,
+    }
+
     -- haskell
     -- require('lspconfig').hls.setup {}
 

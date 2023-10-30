@@ -144,7 +144,7 @@ require('bamboo').setup({
 -- vim.cmd 'color tender'
 -- vim.cmd 'color one' -- *
 -- vim.cmd 'color palenight' -- *
--- vim.cmd 'color catppuccin' -- *
+vim.cmd 'color catppuccin' -- *
 -- vim.cmd 'color tokyonight' -- *
 -- vim.cmd 'color tokyonight-night'
 -- vim.cmd 'color tokyonight-storm'
@@ -153,7 +153,7 @@ require('bamboo').setup({
 -- vim.cmd 'color gotham'
 -- vim.cmd 'color iceberg' -- *
 -- vim.cmd 'color spaceduck' -- *
-vim.cmd 'color everforest'
+-- vim.cmd 'color everforest'
 -- vim.cmd 'color seoul256'
 -- vim.cmd 'color nightfox'
 -- vim.cmd 'color dayfox'

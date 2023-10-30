@@ -492,13 +492,14 @@ screens = [
                 widget.TextBox(text=icons['color'], foreground=PyColors.color7),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color8),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color9),
+                make_widget('Memory', PyColors.background, format=":"+icons['time']+" {MemUsed: .0f}{mm}"),
                 #  widget.Spacer(),
                 make_widget(
                     'Clock',
                     PyColors.background,
                     format=icons['date'] + ' %a %d/%m ' + icons['time'] + ' %H:%M'
                     ),
-                make_widget('Volume', PyColors.background, fmt="  {}"),
+                # make_widget('Volume', PyColors.background, fmt="  {}"),
             ],
             bar_size,
         ),

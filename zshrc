@@ -74,3 +74,9 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # zprof
 
 [ -f "/home/alexis/.ghcup/env" ] && source "/home/alexis/.ghcup/env" # ghcup-env
+# bun completions
+[ -s "/home/alexis/.bun/_bun" ] && source "/home/alexis/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"

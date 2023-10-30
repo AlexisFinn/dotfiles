@@ -21,9 +21,10 @@ return {
     -- ### VISUAL MODE ###
     require 'which-key'.register({
       ["<leader>"] = {
-        -- c = {":CommentToggle<cr>", "Toggle comment"},
-        q = {function() cmd("q") end, "Quit/Close window"},
-
+        q = {"<cmd>q<CR>", "Quit/Close window"},
+        f = {
+          w = {function() cmd("Telescope grep_string") end, "Grep current word or selection in project"},
+        },
       }
     },{mode = "v"})
 
@@ -40,18 +41,22 @@ return {
           n = {function() cmd("GoDbgContinue") end, "Continue to next Breakpoint"},
           s = {function() cmd("GoDebug") end, "Start Go Debug"}
         },
-        -- c = {function() cmd("CommentToggle") end, "Toggle comment"},
         d = {
-          name = "Delete buffer(s)",
+          name = "buffer(s)",
           a = {function()
             -- %bd (delete all buffers)
             -- e# (re-open last buffer)
             -- bd# (delete the empty buffer that was created in the process)
             cmd("%bd|e#|bd#")
           end, "Delete all other buffers"},
-          d = {function() cmd("bd") end, "Delete current buffer"}
+          A = {function() cmd("%bd") end, "Delete all buffers"},
+          d = {"<cmd>bd<CR>", "Delete current buffer"},
+          l = {function() cmd("e#") end, "Switch to last buffer"},
         },
         e = {function() cmd("IronFocus") end, "Launch code runner for current filetype"},
+        f = {
+          w = {function() cmd("Telescope grep_string") end, "Grep current word or selection in project"},
+        },
         g = {
           name = "git",
           a = {function() cmd("Git add %") end, "Add current file to git commit"},
@@ -78,10 +83,10 @@ return {
         k = {"<C-W><C-K>", "Focus Window DOWN"},
         l = {"<C-W><C-L>", "Focus Window RIGHT"},
         h = {"<C-W><C-H>", "Focus Window LEFT"},
-        L = {function() cmd("Lazy") end, "Poen Lazy plugin manager"},
+        L = {function() cmd("Lazy") end, "Open Lazy plugin manager"},
         o = {function() telescopeExt.project.project() end, "Search for project"},
         p = {function() telescope.find_files() end, "Search for a file within the project"},
-        q = {function() cmd("q") end, "Quit/Close window"},
+        q = {"<cmd>q<CR>", "Quit/Close window"},
         s = {function() require("auto-session.session-lens").search_session() end, "Search fo a session within saved sessions"},
         S = {function() cmd("split") end, "Split window horizontally"},
         t = {
@@ -101,7 +106,8 @@ return {
         Z = {function() cmd("TSHighlightCapturesUnderCursor") end, "Get nvim highlight group of word under cursor"}
       },
       -------------------------- OTHER -----------------------------
-      ["<F8>"] = {function() telescope.buffers() end, "Buffer switcher"},
+      ["<F8>"] = {function() require('reach').buffers({show_current = true}) end, "Buffer switcher"},
+      ["<F7>"] = {function() telescope.buffers() end, "Buffer switcher"},
       ["<F9>"] = {function()
         float({
           args = {

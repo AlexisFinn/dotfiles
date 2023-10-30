@@ -24,9 +24,7 @@ return {
         'yamlls',
         'stylelint_lsp',
         'gopls',
-        'rust_analyzer',
-        'lua_ls',
-        'hls'
+        'lua_ls'
       }
     }
   end

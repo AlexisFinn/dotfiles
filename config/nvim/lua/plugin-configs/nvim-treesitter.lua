@@ -2,9 +2,9 @@ return {
   'nvim-treesitter/nvim-treesitter',
   build = ':TSUpdate',
   branch = "master",
-  dependencies = {
-    'nvim-treesitter/playground',
-  },
+  -- dependencies = {
+  --   'nvim-treesitter/playground',
+  -- },
   opts = {
       ensure_installed = {
         "gitcommit",

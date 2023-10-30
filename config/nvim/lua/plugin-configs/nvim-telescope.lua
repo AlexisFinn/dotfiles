@@ -34,14 +34,34 @@ return  {
       pickers = {
         buffers = {
           theme = "dropdown",
-          initial_mode = "normal",
+          initial_mode = "insert",
+          borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+          layout_strategy = "vertical",
+          layout_config = {
+            height = 0.6
+          }
         },
         colorscheme = {
-          theme = "dropdown",
+          -- theme = "vertical",
+          layout_strategy = "vertical",
           initial_mode = "normal",
           enable_preview = true,
           layout_config = {
-            height = 0.7,
+            height = 0.8,
+            preview_height = 0.7
+          }
+        },
+        grep_string = {
+          theme = "dropdown",
+          initial_mode = "normal",
+          layout_config = {
+            height = 0.5
+          }
+        },
+        live_grep = {
+          theme = "dropdown",
+          layout_config = {
+            height = 0.5
           }
         }
       }

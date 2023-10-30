@@ -58,7 +58,7 @@ require("lazy").setup({
   -- Install LSP dependencies with Mason
   require("plugin-configs.mason-lspconfig"),
   -- auto lua lsp configuration. !! MUST COME BEFORE LSP-CONFIG
-  require("plugin-configs.neodev"),
+  -- require("plugin-configs.neodev"),
   -- Language Server Protocol integration (this is so cool)
   require("plugin-configs.nvim-lspconfig"),
   -- better defaults for builtin lsp
@@ -90,7 +90,7 @@ require("lazy").setup({
   -- LANGUAGE SPECIFIC PLUGINS --
   -------------------------------
   -- GoLang
-  require("plugin-configs.go"),
+  -- require("plugin-configs.go"),
   -- markdown preview
   require("plugin-configs.markdown-preview"),
   -- emmet
@@ -135,6 +135,9 @@ require("lazy").setup({
   require("plugin-configs.splitjoin"),
   -- bookmarks
   require("plugin-configs.vim-bookmarks"),
+  -- harpoon
+  -- {'j-morano/buffer_manager.nvim', config = function() require('buffer_manager').setup() end},
+  require("plugin-configs.reach"),
   ---------
   -- GIT --
   ---------
