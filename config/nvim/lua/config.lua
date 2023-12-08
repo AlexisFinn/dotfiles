@@ -19,7 +19,7 @@ cmd("set ttyfast")
 ---- General settings ----
 vim.keymap.set('n', '<space>', '<Nop>', {silent = true})
 vim.g.mapleader = " "
--- vim.g.maplocalleader = " "
+vim.g.maplocalleader = " "
 vim.o.cursorline = true -- Enable highlighting of the current line
 vim.g.loaded_netrw = 1 -- disable netrw
 vim.g.loaded_netrwPlugin = 1 -- disable netrw
@@ -33,7 +33,6 @@ vim.o.smartcase = true -- if search contains an uppercase do a case-sensitive se
 vim.o.expandtab = true -- expand tab to spaces
 vim.o.shiftwidth = 2 -- expand tab to 2 spaces by default
 vim.o.guifont = "Cascadia Code PL:h14" -- not using gui but some plugins might need this
--- vim.o.guifont = 'Cascadia Code Mono PL:h12' -- not using gui but some plugins might need this
 --vim.o.list = true -- display whitespaces as characters when editing
 vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→", eol = "↲", nbsp = "␣" }
 vim.o.hidden = true -- hide inactive buffers instead of unloading them, without this you will need to save your changes before changing buffers
@@ -55,12 +54,6 @@ vim.o.directory = "/home/alexis/.vim/swap//"
 vim.o.undodir = "/home/alexis/.vim/undo//"
 vim.o.cmdheight = 0
 --vim.o.pumblend = 15 -- transparency for popup windows if you want (yay!)
---use new experimental filetype detection
-vim.g.do_filetype_lua = 1
-vim.g.did_lead_filetypes = 0
---Neovide gui config
-vim.g.neovide_cursor_vfx_mode = "railgun"
-vim.g.neovide_profiler = false
 vim.g.loaded_perl_provider = 0 -- disable perl provider
 vim.o.timeoutlen = 300
 vim.o.undolevels = 10000
@@ -68,7 +61,9 @@ vim.o.updatetime = 200 -- Save swap file and trigger CursorHold
 vim.o.foldmethod = "manual"
 -- vim.o.foldmethod = "expr"
 -- vim.o.foldexpr = "nvim_treesitter#foldexpr()"
-
+--use new experimental filetype detection
+vim.g.do_filetype_lua = 1
+vim.g.did_lead_filetypes = 0
 ---- Autocmds ----
 
 -- do syntax highlighting even in large files
@@ -88,9 +83,6 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {});
 
--- vim.api.nvim_create_user_command("SayHello", function()
---   vim.api.nvim_notify("Hello", 1, {});
--- end, {})
 
 
 

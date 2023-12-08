@@ -8,8 +8,9 @@ version = false,
   config = function()
     require('mini.comment').setup({
       mappings = {
-        comment = '<leader>cc',
-        comment_line = '<leader>c'
+        comment_visual = 'cc',
+        comment_line = 'c',
+        comment = '<leader>gc',
       },
       hooks = {
         pre = function()

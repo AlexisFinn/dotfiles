@@ -101,26 +101,28 @@ return {
           g = {function() telescope.live_grep() end, "Search for a word or sentence withen the project files"}
         },
         R = {function() telescope.registers() end, "Search through registers with Telescope"},
-        w = {function() cmd("w") end, "Write changes"},
+        w = {"<cmd>w<cr>", "Write changes", noremap=true},
         W = {function() cmd("wa") end, "Write All changes"},
         Z = {function() cmd("TSHighlightCapturesUnderCursor") end, "Get nvim highlight group of word under cursor"}
       },
+      -- ['<leader>w'] = {function() cmd("w") end, "Write changes", noremap=true},
       -------------------------- OTHER -----------------------------
       ["<F8>"] = {function() require('reach').buffers({show_current = true}) end, "Buffer switcher"},
-      ["<F7>"] = {function() telescope.buffers() end, "Buffer switcher"},
-      ["<F9>"] = {function()
-        float({
-          args = {
-            "--width=0.9",
-            "--height=0.9",
-            "--title=Ranger",
-            "--opener=edit",
-            "--titleposition=right",
-            "ranger",
-            "%",
-          },
-        })
-      end, "Open Ranger file manager"},
+      -- ["<F8>"] = {function() telescope.buffers() end, "Buffer switcher"},
+      ["<F9>"] = {function() cmd("Oil") end, "Oil file manager"},
+      -- ["<F9>"] = {function()
+      --   float({
+      --     args = {
+      --       "--width=0.9",
+      --       "--height=0.9",
+      --       "--title=Ranger",
+      --       "--opener=edit",
+      --       "--titleposition=right",
+      --       "ranger",
+      --       "%",
+      --     },
+      --   })
+      -- end, "Open Ranger file manager"},
       ["<C-s>"] = {function() cmd("noh") end, "Remove all search highlights"},
       ["<C-PageUp>"] = {function() cmd("bp") end, "Move buffer left"},
       ["<C-PageDown>"] = {function() cmd("bn") end, "Move buffer right"},
@@ -131,7 +133,7 @@ return {
         i = {function() cmd("BookmarkAnnotate") end, "Add/Remove/Edit annotation on current line"},
         m = {function() cmd("BookmarkToggle") end, "Toggle bookmark on current line"},
         n = {function() cmd("BookmarkNext") end, "Go to next bookmark"},
-        N = {function() cmd("BookmarkPrev") end, "Go to previous bookmark"},
+        p = {function() cmd("BookmarkPrev") end, "Go to previous bookmark"},
         x = {function() cmd("BookmarkClearAll") end, "Clear all bookmarks in current project"}
       },
     })

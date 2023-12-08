@@ -63,6 +63,14 @@ return  {
           layout_config = {
             height = 0.5
           }
+        },
+        marks = {
+          theme = "dropdown",
+          enable_preview = true,
+          layout_strategy = "vertical",
+          layout_config = {
+            height = 0.6
+          }
         }
       }
     })

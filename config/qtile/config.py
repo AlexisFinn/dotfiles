@@ -336,12 +336,12 @@ separator = dict(
 powerlineBar = []
 
 powerlineWidgets = {
-    'memory': PyColors.color1,
-    'cpu': PyColors.color2,
-    'disk': PyColors.color3,
-    'net': PyColors.color4,
+    'net': PyColors.color1,
+    'memory': PyColors.color2,
+    'cpu': PyColors.color3,
+    'disk': PyColors.color4,
     'volume': PyColors.color5,
-    'battery': PyColors.color6, 
+    'battery': PyColors.color6,
     'calendar': PyColors.color8
 }
 

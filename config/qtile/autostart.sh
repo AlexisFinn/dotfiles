@@ -7,5 +7,6 @@ wal -R &
 # picom --blur-method dual_kawase --blur-strength 1.5 &
 # notification
 dunst &
+# deadd-notification-center &
 # dispable touchpad if mouse is detected
 # touchpad-indicator &

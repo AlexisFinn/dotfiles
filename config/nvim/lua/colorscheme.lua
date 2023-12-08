@@ -144,7 +144,7 @@ require('bamboo').setup({
 -- vim.cmd 'color tender'
 -- vim.cmd 'color one' -- *
 -- vim.cmd 'color palenight' -- *
-vim.cmd 'color catppuccin' -- *
+-- vim.cmd 'color catppuccin' -- *
 -- vim.cmd 'color tokyonight' -- *
 -- vim.cmd 'color tokyonight-night'
 -- vim.cmd 'color tokyonight-storm'
@@ -167,5 +167,5 @@ vim.cmd 'color catppuccin' -- *
 -- vim.cmd 'color mellow'
 -- vim.cmd 'color quiet'
 -- vim.cmd 'color nightfly'
--- vim.cmd 'color bamboo'
+vim.cmd 'color bamboo'
 -- vim.cmd 'color forest'

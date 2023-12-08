@@ -1,3 +1,13 @@
+local function show_macro_recording()
+  local recording = vim.fn.reg_recording()
+  if recording ~= '' then
+    return 'Recording @' .. recording
+  else
+    return ''
+  end
+end
+
+
 return {
   'hoob3rt/lualine.nvim',
   config = function ()
@@ -12,7 +22,7 @@ return {
       sections = {
         lualine_a = { 'mode' },
         lualine_b = { { 'filename', path = 1 } },
-        lualine_c = {},
+        lualine_c = { { 'macro-recording', fmt = show_macro_recording } },
         lualine_x = {},
         lualine_y = { 'filetype' },
         lualine_z = { 'location' }

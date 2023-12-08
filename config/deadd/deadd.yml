@@ -1,0 +1,3 @@
+notification:
+  popup:
+    default-timeout: 10000
