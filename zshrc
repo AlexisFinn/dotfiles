@@ -1,9 +1,10 @@
 # zmodload zsh/zprof
 
 export GOPATH="$HOME/go"
+export NVIMPATH="$HOME/nvim"
 export GHCUPPATH="$HOME/.ghcup"
 export GEMPATH="$HOME/.local/share/gem/ruby/3.0.0"
-export PATH="$GEMPATH/bin:$GHCUPPATH/bin:$GOPATH/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
+export PATH="$NVIMPATH/bin:$GEMPATH/bin:$GHCUPPATH/bin:$GOPATH/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
 export SPICETIFY_INSTALL="/home/alexis/spicetify-cli"
 export PATH="$SPICETIFY_INSTALL:$PATH"
 export FZF_DEFAULT_COMMAND='ag -al'
@@ -15,6 +16,8 @@ export EDITOR="nvim"
 if [[ -f ~/.cache/wpg/sequences ]]; then
   (cat ~/.cache/wpg/sequences &)
 fi
+
+source "/usr/share/nvm/init-nvm.sh"
 
 source "${HOME}/zsh-setup.zsh"
 
@@ -70,7 +73,6 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 
 #fortune -s | lolcat
 
-
 # zprof
 
 [ -f "/home/alexis/.ghcup/env" ] && source "/home/alexis/.ghcup/env" # ghcup-env
@@ -80,3 +82,4 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+

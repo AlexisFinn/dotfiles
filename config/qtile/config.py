@@ -155,7 +155,7 @@ preferred_ratio = 80 / 100
 max_ratio = 90 / 100
 min_ratio = 20 / 100
 resize_step_ratio = 2 / 100
-gap = 0
+gap = 2
 border = 2
 
 active_color = get_standout_color() #PyColors.color6
@@ -200,6 +200,14 @@ icons = dict(
     color='',
     battery='BAT: '
 )
+
+# custom functions to switch screen focus without round-robin
+def next_screen(qtile):
+    if qtile.current_screen.index != 2:
+        qtile.cmd_next_screen()
+def prev_screen(qtile):
+    if qtile.current_screen.index != 0:
+        qtile.cmd_prev_screen()
 
 # shortcuts for doing everything
 keys = [
@@ -248,8 +256,10 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen(), desc="Toggle fullscreen"),
 
     # switch focused screen
-    Key([mod], "e", lazy.to_screen(0), desc="Focus main screen"),
-    Key([mod], "t", lazy.to_screen(1), desc="Focus secondary screen"),
+    # Key([mod], "e", lazy.next_screen(), desc="Focus main screen"),
+    # Key([mod], "t", lazy.prev_screen(), desc="Focus secondary screen"),
+    Key([mod], "e", lazy.function(next_screen), desc="Focus next screen"),
+    Key([mod], "t", lazy.function(prev_screen), desc="Focus previous screen"),
 
     # qtile functions
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
@@ -455,6 +465,49 @@ mainBar = [
 ] + powerlineBar
 
 screens = [
+    Screen(
+        top=bar.Bar(
+            [
+                widget.GroupBox(
+                    active=active_color_alt,
+                    inactive=inactive_color_alt,
+                    this_current_screen_border=active_color,
+                    this_screen_border=inactive_color,
+                    highlight_method='line',
+                    font="Cascadia Code PL",
+                    #  fontsize=18,
+                    fontshadow=None,
+                    borderwidth=3
+                ),
+                #  widget.Mpris2(objname="org.mpris.MediaPlayer2.spotify",
+                              #  name="spotify",
+                              #  max_chars=60,
+                              #  display_metadata=['xesam:album', 'xesam:title'],
+                              #  stop_pause_text="Spotify not playing",
+                              #  scroll_interval=0
+                              #  ),
+                widget.Spacer(),
+                widget.TextBox(text=icons['color'], foreground=PyColors.color1),
+                widget.TextBox(text=icons['color'], foreground=PyColors.color2),
+                widget.TextBox(text=icons['color'], foreground=PyColors.color3),
+                widget.TextBox(text=icons['color'], foreground=PyColors.color4),
+                widget.TextBox(text=icons['color'], foreground=PyColors.color5),
+                widget.TextBox(text=icons['color'], foreground=PyColors.color6),
+                widget.TextBox(text=icons['color'], foreground=PyColors.color7),
+                widget.TextBox(text=icons['color'], foreground=PyColors.color8),
+                widget.TextBox(text=icons['color'], foreground=PyColors.color9),
+                make_widget('Memory', PyColors.background, format=":"+icons['time']+" {MemUsed: .0f}{mm}"),
+                #  widget.Spacer(),
+                make_widget(
+                    'Clock',
+                    PyColors.background,
+                    format=icons['date'] + ' %a %d/%m ' + icons['time'] + ' %H:%M'
+                    ),
+                # make_widget('Volume', PyColors.background, fmt="  {}"),
+            ],
+            bar_size,
+        ),
+    ),
     Screen(
         top=bar.Bar(
             mainBar,

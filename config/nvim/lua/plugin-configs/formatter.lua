@@ -14,11 +14,20 @@ return  {
         },
         javascript = {
           function()
-            return {
-              exe = "prettier",
-              args = { "--parser typescript", "-w" },
-              stdin = true
-            }
+            -- if project contains a .prettierrc file, use it
+            if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
+              return {
+                exe = "prettier",
+                args = { "--parser typescript", "-w" },
+                stdin = true
+              }
+            else
+              return {
+                exe = "prettier",
+                args = { "--parser babel", "--config /home/alexis/.prettierrc", "-w" },
+                stdin = true
+              }
+            end
           end
         },
         typescript = {

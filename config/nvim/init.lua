@@ -90,7 +90,4 @@ vim.api.nvim_create_autocmd("BufEnter", {
 
 vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {});
 ---- install plugins ----
-require("lazy-plugins")
----- set colorscheme ----
--- require("colorscheme")
--- require("colorscheme-picker") -- pick among installed colorschemes with live preview
+require("plugins")

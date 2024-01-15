@@ -17,6 +17,7 @@ if ! zgenom saved; then
   zgenom oh-my-zsh plugins/docker #completion and aliases for docker
   zgenom oh-my-zsh plugins/docker-compose #completion and aliases for docker-compose
   zgenom oh-my-zsh plugins/fzf #fuzzy autocompletion and keybindings
+  # zgenom oh-my-zsh plugins/ssh-agent #ssh-agent autostart
   # zgenom oh-my-zsh plugins/tmux
 
   # Dracula theme

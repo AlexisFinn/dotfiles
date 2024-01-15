@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/cyberpunk-alley-2.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#0F0B32",
+        "foreground": "#b8cabe",
+        "cursor": "#b8cabe"
+    },
+    "colors": {
+        "color0": "#0F0B32",
+        "color1": "#99202F",
+        "color2": "#EA142E",
+        "color3": "#9E5E5B",
+        "color4": "#BD4D4D",
+        "color5": "#55688C",
+        "color6": "#BD6F8C",
+        "color7": "#b8cabe",
+        "color8": "#808d85",
+        "color9": "#99202F",
+        "color10": "#EA142E",
+        "color11": "#9E5E5B",
+        "color12": "#BD4D4D",
+        "color13": "#55688C",
+        "color14": "#BD6F8C",
+        "color15": "#b8cabe"
+    }
+}
