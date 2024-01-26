@@ -1,20 +1,51 @@
 
+
+
 return {
   'neovim/nvim-lspconfig',
   config = function()
-    -- auto format on save running whatever lsp is configured for current file
-    --vim.api.nvim_command('autocmd BufWritePost * silent! lua vim.lsp.buf.format()')
-    -- vim.api.nvim_command('autocmd BufWritePost * silent! lua vim.lsp.buf.formatting()')
-    -- auto show diagnostic messages in popup
-    -- vim.api.nvim_command('autocmd CursorHold * lua vim.lsp.diagnostic.show_line_diagnostics()')
-    -- define signs
-    vim.api.nvim_command('sign define LspDiagnosticsSignError text= texthl=LspDiagnosticsSignError linehl= numhl=')
-    vim.api.nvim_command('sign define LspDiagnosticsSignWarning text= texthl=LspDiagnosticsSignWarning linehl= numhl=')
-    vim.api.nvim_command('sign define LspDiagnosticsSignInformation text= texthl=LspDiagnosticsSignInformation linehl= numhl=')
-    vim.api.nvim_command('sign define LspDiagnosticsSignHint text= texthl=LspDiagnosticsSignHint linehl= numhl=')
-
     local util = require('lspconfig').util
 
+    -- local lsp_defaults = util.default_config
+    -- lsp_defaults.capabilities = vim.tbl_deep_extend(
+    --   'force',
+    --   lsp_defaults.capabilities,
+    --   require('cmp_nvim_lsp').default_capabilities()
+    -- )
+
+    vim.api.nvim_create_autocmd('LspAttach', {
+      group = vim.api.nvim_create_augroup('UserLspConfig', {}),
+      callback = function(ev)
+        local keymap = vim.keymap.set
+        -- Enable completion triggered by <c-x><c-o>
+        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
+
+        -- Buffer local mappings.
+        local opts = { buffer = ev.buf }
+        keymap('n', 'gD', vim.lsp.buf.declaration, opts)
+        keymap('n', 'gd', vim.lsp.buf.definition, opts)
+        keymap('n', 'K', vim.lsp.buf.hover, opts)
+        keymap('n', 'gi', vim.lsp.buf.implementation, opts)
+        keymap('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        -- keymap('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
+        -- keymap('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
+        -- keymap('n', '<space>wl', function()
+        --   print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+        -- end, opts)
+        keymap('n', '<space>D', vim.lsp.buf.type_definition, opts)
+        keymap('n', '<space>rn', vim.lsp.buf.rename, opts)
+        keymap({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
+        keymap('n', 'gr', vim.lsp.buf.references, opts)
+        keymap('n', '<space>f', function()
+          vim.lsp.buf.format { async = true }
+        end, opts)
+      end,
+    })
+
+    -- onAttach callback to disable formatting and setting keymaps
+    local onAttach = (function(client, _)
+      client.server_capabilities.documentFormattingProvider = false
+    end)
     -- base handler configuration, to override default settings
     local handlerVirtualText = {
       ["textDocument/publishDiagnostics"] = vim.lsp.with(
@@ -23,94 +54,25 @@ return {
         underline = true,
         signs = true,
         update_in_insert = true,
+      }),
+      ["textDocument/hover"] = vim.lsp.with(
+      vim.lsp.handlers.hover, {
+        border = "rounded"
       })
     }
-    local lsp_defaults = util.default_config
-    lsp_defaults.capabilities = vim.tbl_deep_extend(
-      'force',
-      lsp_defaults.capabilities,
-      require('cmp_nvim_lsp').default_capabilities()
-    )
-
-    vim.api.nvim_create_autocmd('LspAttach', {
-      group = vim.api.nvim_create_augroup('UserLspConfig', {}),
-      callback = function(ev)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = 'v:lua.vim.lsp.omnifunc'
-
-        -- Buffer local mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
-        local opts = { buffer = ev.buf }
-        vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-        vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-        vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-        vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-        vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-        vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
-        vim.keymap.set('n', '<space>wl', function()
-          print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, opts)
-        vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, opts)
-        vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, opts)
-        vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-        vim.keymap.set('n', '<space>f', function()
-          vim.lsp.buf.format { async = true }
-        end, opts)
-      end,
-    })
-
-    -- onAttach callback to disable formatting and setting keymaps
-    local onAttach = (function(client, bufnr)
-      -- add custom formatting
-      -- require('lsp-format').on_attach(client)
-      -- disable formating as that will be taken care of elsewhere
-      -- nvim <= 0.7
-      -- client.resolved_capabilities.document_formatting = false
-      -- nvim 0.8+
-      client.server_capabilities.documentFormattingProvider = false
-      -- if client.name == "vuels" then
-        -- client.server_capabilities.semanticTokensProvider = nil
-      -- end
-
-      -- add nvim-cmp (autocomplete) to lsp capabilities
-      -- client.capabilities = require('cmp_nvim_lsp').default_capabilities()
-
-      -- show doc with 'K'
-      -- vim.api.nvim_set_keymap('n', 'K', ':lua vim.lsp.buf.hover()<CR>', { noremap = true, silent = true })
-      -- jump to definition
-      -- vim.keymap.set('n', 'gd', vim.lsp.buf.definition(), { buffer = bufnr })
-      -- vim.api.nvim_set_keymap('n', 'gd', '<cmd>lua vim.lsp.buf.definition()<CR>', { noremap = true, silent = true })
-      -- vim.api.nvim_set_keymap("n", "gr", "<cmd>lua vim.lsp.buf.references()<CR>", { noremap = true, silent = true })
-      -- vim.api.nvim_set_keymap("n", "tt", "<cmd>lua vim.diagnostic.open_float()<CR>",
-      -- { noremap = true, silent = true })
-      -- vim.api.nvim_set_keymap("n", "tn", function ()
-      -- vim.diagnostic.goto_next({border="rounded"})
-      -- end,{ noremap = true, silent = true })
-      -- vim.api.nvim_set_keymap("n", "tN", function()
-      -- vim.diagnostic.goto_prev({border="rounded"})
-      -- end,{ noremap = true, silent = true })
-      -- vim.keymap.set("n", "tt", function()
-      -- vim.diagnostic.open_float({border = "rounded"})
-      -- end, { silent = true })
-    end)
-
-    -- html
-    -- local capabilities = vim.lsp.protocol.make_client_capabilities()
-    --
-    -- capabilities.textDocument.completion.completionItem.snippetSupport = true
 
     require('lspconfig').html.setup {
       cmd = { "html-languageserver", "--stdio" },
       on_attach = onAttach,
-      --  capabilities = capabilities, -- does not provide completion if there are no snippets
       filetype = { "html" },
     }
 
+    require('lspconfig').emmet_language_server.setup({
+      filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+    })
+
     --docker
     require('lspconfig').dockerls.setup {}
-
     -- php
     require('lspconfig').intelephense.setup {
       handlers = handlerVirtualText,
@@ -118,23 +80,11 @@ return {
       root_dir = util.root_pattern("vendor")
     }
 
-    -- require('lspconfig').psalm.setup{
-    -- handlers = handlerVirtualText,
-    -- on_attach = onAttach,
-    -- root_dir = util.root_pattern("vendor")
+    -- require('lspconfig').phpactor.setup {
+    --   handlers = handlerVirtualText,
+    --   on_attach = onAttach,
+    --   root_dir = util.root_pattern("vendor")
     -- }
-
-    require('lspconfig').phpactor.setup {
-      handlers = handlerVirtualText,
-      on_attach = onAttach,
-      root_dir = util.root_pattern("vendor")
-    }
-
-    -- require('lspconfig').phan.setup{
-    -- handlers = handlerVirtualText,
-    -- on_attach = onAttachNoFormatting,
-    -- }
-
 
     -- python
     require('lspconfig').pylsp.setup {
@@ -148,22 +98,16 @@ return {
       on_attach = onAttach,
     }
 
-    -- vue 3
-    -- require('lspconfig').volar.setup {
-    --   handlers = handlerVirtualText,
-    --   on_attach = onAttach,
-    -- }
-
-    -- typescript
+    -- typescript & javascript
     require('lspconfig').eslint.setup {
       handlers = handlerVirtualText,
       on_attach = onAttach,
-      filetypes = { "javascript", "typescript"}
+      filetypes = { "javascript", "typescript" }
     }
-
     require('lspconfig').tsserver.setup {
       handlers = handlerVirtualText,
       on_attach = onAttach,
+      filetypes = { "javascript", "typescript" }
     }
 
     -- yaml
@@ -205,31 +149,6 @@ return {
       }
     }
 
-    --rust
-    -- require('lspconfig').rls.setup {
-    -- on_attach = onAttach,
-    -- }
-    -- require('rust-tools').setup {
-    --   tools = {
-    --     autoSetHints = true,
-    --     inlay_hints = {
-    --       show_parameter_hints = false,
-    --       parameter_hints_prefix = "",
-    --       other_hints_prefix = "",
-    --     },
-    --   },
-    --   server = {
-    --     on_attach = onAttach,
-    --     settings = {
-    --       ["rust-analyzer"] = {
-    --         checkOnSave = {
-    --           command = "clippy"
-    --         }
-    --       }
-    --     }
-    --   }
-    -- }
-
     -- lua
     require('lspconfig').lua_ls.setup {
       settings = {
@@ -247,50 +166,5 @@ return {
       on_attach = onAttach,
     }
 
-    -- haskell
-    -- require('lspconfig').hls.setup {}
-
-    -- C++
-    -- require('lspconfig').ccls.setup {
-    -- init_options = {
-    -- compilationDatabaseDirectory = "build";
-    -- index = {
-    -- threads = 0;
-    -- };
-    -- clang = {
-    -- excludeArgs = { "-frounding-math" };
-    -- }
-    -- }
-    -- }
-
-    -- formatting
-    -- require('lspconfig').efm.setup {
-    -- init_options = {documentFormatting = true},
-    -- filetypes = {'javascript', 'typescript', 'vue', 'scss', 'css', 'yaml', 'html', 'haskell', 'python', 'go', 'rust'},
-    -- settings = {
-    -- languages = formattingConfig
-    -- }
-    -- }
-    -- vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(vim.lsp.handlers.hover, {
-      ---             - border = "none", "single", "double", "rounded", "solid", "shadow" | ["╔", "═" ,"╗", "║", "╝", "═", "╚", "║" ]
-      ---             - height: (number) height of floating window
-      ---             - width: (number) width of floating window
-      ---             - wrap: (boolean, default true) wrap long lines
-      ---             - wrap_at: (number) character to wrap at for computing height when wrap is enabled
-      ---             - max_width: (number) maximal width of floating window
-      ---             - max_height: (number) maximal height of floating window
-      ---             - pad_top: (number) number of lines to pad contents at top
-      ---             - pad_bottom: (number) number of lines to pad contents at bottom
-      ---             - focus_id: (string) if a popup with this id is opened, then focus it
-      ---             - close_events: (table) list of events that closes the floating window
-      ---             - focusable: (boolean, default true) Make float focusable
-      ---             - focus: (boolean, default true) If `true`, and if {focusable}
-      ---                      is also `true`, focus an existing floating window with the same
-      ---                      {focus_id}
-      ---             - anchor: "NW", "NE", "SW", "SE"
-      ---             - relative: "editor", "win", "cursor"
-      -- border = "rounded",
-      -- border = { "╔", "═", "╗", "║", "╝", "═", "╚", "║" },
-    -- })
   end
 }

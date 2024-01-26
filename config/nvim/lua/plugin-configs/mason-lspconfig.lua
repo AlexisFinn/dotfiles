@@ -15,16 +15,16 @@ return {
       ensure_installed = {
         'html',
         'dockerls',
-        'intelephense',
-        'phpactor@2022.11.12',
         'pylsp',
-        'vuels',
         'eslint',
         'tsserver',
         'yamlls',
         'stylelint_lsp',
-        'gopls',
-        'lua_ls'
+        'lua_ls',
+        -- 'vuels',
+        -- 'gopls',
+        -- 'intelephense',
+        -- 'phpactor@2022.11.12',
       }
     }
   end

@@ -3,6 +3,6 @@ return {
   config = function()
     -- set emmet leader key
     vim.g.user_emmet_mode = 'n'
-    vim.g.user_emmet_leader_key = '<leader>'
+    vim.g.user_emmet_leader_key = '<C-y>'
   end
 }

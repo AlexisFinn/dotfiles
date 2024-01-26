@@ -117,6 +117,20 @@ return {
       vim.cmd.colorscheme 'catppuccin'
     end
   },
+  CyberDream = {
+    "scottmckendry/cyberdream.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require("cyberdream").setup({
+        transparent = true,
+        italic_comments = true,
+        hide_fillchars = true,
+        borderless_telescope = true,
+      })
+      vim.cmd("colorscheme cyberdream") -- set the colorscheme
+    end,
+  },
   Dogrun = {
     'wadackel/vim-dogrun',
     lazy = false,
@@ -147,6 +161,25 @@ return {
     priority = 1000,
     config = function()
       vim.cmd.colorscheme 'everforest'
+    end
+  },
+  EverGarden = {
+    'crispybaccoon/evergarden',
+    opt = {
+      transparent_background = false,
+      contrast_dark = 'medium', -- 'hard'|'medium'|'soft'
+      override_terminal = true,
+      style = {
+        tabline = { reverse = true, color = 'green' },
+        search = { reverse = false, inc_reverse = true },
+        types = { italic = true },
+        keyword = { italic = true },
+        comment = { italic = false },
+      },
+      overrides = { }, -- add custom overrides
+    },
+    config = function()
+      vim.cmd.colorscheme 'evergarden'
     end
   },
   Forest = {
@@ -311,7 +344,10 @@ return {
     'navarasu/onedark.nvim',
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      require('onedark').setup({
+        style = 'deep', -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'
+      })
+      require('onedark').load()
     end,
   },
   Palenight = {

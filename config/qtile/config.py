@@ -272,7 +272,7 @@ keys = [
     Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1%")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1%")),
     # toggle default microphone/input mute 
-    Key([mod], "m", lazy.spawn("/home/alexis/Learning/tuya-api/muteUnmuteMic.sh")),
+    Key([mod], "m", lazy.spawn("/home/alexis/bin/muteUnmuteMic.sh")),
 
     # stuffj4-dmenu-desktop
     Key([mod], "F12", lazy.spawn("lock")),

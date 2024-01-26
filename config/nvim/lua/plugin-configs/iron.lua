@@ -10,7 +10,7 @@ return  {
           vue = { command = {"node"} },
           php = { command = {"php", "-a"} }
         },
-        repl_open_cmd = require('iron.view').center('80%', '60%');
+        repl_open_cmd = require('iron.view').center('90%', '80%');
       }
     }
   end

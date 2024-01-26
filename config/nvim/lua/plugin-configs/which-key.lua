@@ -9,7 +9,7 @@ return {
 
     require 'which-key'.setup{
       window = {
-        border = "single", -- none, single, double, shadow
+        border = "rounded", -- none, single, double, shadow
         position = "bottom", -- bottom, top
       },
       layout = {

@@ -7,9 +7,6 @@ alias tig='tig status'
 alias weather='curl -H "Accept-Language: fr" wttr.in/Montauban'
 alias vi='nvim'
 alias vim='nvim'
-alias neo='neovide'
-#alias vide='nohup neovide >/dev/null 2>&1 &'
-alias svim='nvim -u /home/alexis/Applications/SpaceVim/vimrc'
 #alias vim='/usr/bin/vim -u /home/alexis/.config/nvim/init.vim'
 alias sudo='sudo -EH'
 alias net='nmtui'
@@ -35,7 +32,7 @@ alias logout='dm-tool switch-to-greeter'
 alias php="php7"
 alias em="emacsclient -c &"
 
-function chpwd() {
+functon chpwd() {
     if [ -r $PWD/bash_aliases.sh ]; then
         source $PWD/bash_aliases.sh
     fi

@@ -25,7 +25,7 @@ require("lazy").setup({
   -- COLOR SCHEMES --
   -------------------
   -- colorschemes, load them first for proper integration with other plugins
-  colorschemes.Spaceduck,
+  colorschemes.OneDark,
   ---------------
   -- EYE CANDY --
   ---------------
@@ -75,6 +75,7 @@ require("lazy").setup({
   require("plugin-configs.trouble"),
   -- autocomplete
   require("plugin-configs.nvim-cmp"),
+  -- require("plugin-configs.mini-completion"),
   -- debugging protocol
   -- require("plugin-configs.nvim-dap-virtual-text"),
   ----------------------------
@@ -94,7 +95,7 @@ require("lazy").setup({
   -- markdown preview
   require("plugin-configs.markdown-preview"),
   -- emmet
-  require("plugin-configs.emmet"),
+  -- require("plugin-configs.emmet"),
   -- twig
   require("plugin-configs.twig"),
   -- haskell
@@ -118,6 +119,8 @@ require("lazy").setup({
   ------------------------
   -- FUNCTIONAL PLUGINS --
   ------------------------
+  -- better harpoon
+  require("plugin-configs.arrow"),
   -- buffer switcher
   -- require("plugin-configs.JABS"),
   require("plugin-configs.reach-config"),
