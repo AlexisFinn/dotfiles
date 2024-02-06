@@ -107,7 +107,6 @@ return {
     require('lspconfig').tsserver.setup {
       handlers = handlerVirtualText,
       on_attach = onAttach,
-      filetypes = { "javascript", "typescript" }
     }
 
     -- yaml

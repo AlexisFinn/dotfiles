@@ -9,8 +9,8 @@ return {
     'Shatur/neovim-ayu',
     function()
       require('ayu').setup({
-        mirage = false 
-      });
+        mirage = false
+      })
       vim.cmd.colorscheme 'ayu'
     end
   },

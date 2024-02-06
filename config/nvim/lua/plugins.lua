@@ -25,7 +25,7 @@ require("lazy").setup({
   -- COLOR SCHEMES --
   -------------------
   -- colorschemes, load them first for proper integration with other plugins
-  colorschemes.OneDark,
+  colorschemes.Catppuccin,
   ---------------
   -- EYE CANDY --
   ---------------
@@ -64,7 +64,7 @@ require("lazy").setup({
   -- better defaults for builtin lsp
   require("plugin-configs.nvim-lsputils"),
   -- show function signature as you type
-  require('plugin-configs.lsp-signature'),
+  -- require('plugin-configs.lsp-signature'),
   -- auto-formatting
   require('plugin-configs.formatter'),
   -- access language REPL
@@ -109,7 +109,8 @@ require("lazy").setup({
   -- Varnish Conif Language (VCL)
   require("plugin-configs.vim-varnish"),
   -- CSV
-  require("plugin-configs.rainbow-csv"),
+  -- require("plugin-configs.rainbow-csv"),
+  require("plugin-configs.csv"),
   --------
   -- AI --
   --------
@@ -120,7 +121,7 @@ require("lazy").setup({
   -- FUNCTIONAL PLUGINS --
   ------------------------
   -- better harpoon
-  require("plugin-configs.arrow"),
+  -- require("plugin-configs.arrow"),
   -- buffer switcher
   -- require("plugin-configs.JABS"),
   require("plugin-configs.reach-config"),
