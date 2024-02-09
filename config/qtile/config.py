@@ -33,6 +33,7 @@ from colour import Color
 import PyColors
 import os
 import subprocess
+import sys
 
 def make_inactive_color(active_color):
     InactiveColor = Color(active_color)
@@ -157,6 +158,7 @@ min_ratio = 20 / 100
 resize_step_ratio = 2 / 100
 gap = 2
 border = 2
+floats_kept_above = True
 
 active_color = get_standout_color() #PyColors.color6
 active_color_alt = PyColors.color5
@@ -209,6 +211,17 @@ def prev_screen(qtile):
     if qtile.current_screen.index != 0:
         qtile.cmd_prev_screen()
 
+
+def handle_h(qtile):
+    if qtile.current_layout.name == 'matrix':
+        qtile.current_layout.left()
+    else:
+        qtile.current_layout.grow()
+def handle_l(qtile):
+    if qtile.current_layout.name == 'matrix':
+        qtile.current_layout.right()
+    else:
+        qtile.current_layout.shrink()
 # shortcuts for doing everything
 keys = [
     # change focused window
@@ -224,8 +237,8 @@ keys = [
         desc="Swap current window with Main"),
 
     # resize window
-    Key([mod], "h", lazy.layout.grow(), desc="Grow window"),
-    Key([mod], "l", lazy.layout.shrink(), desc="Shrink window"),
+    Key([mod], "h", lazy.function(handle_h), desc="Grow window"),
+    Key([mod], "l", lazy.function(handle_l), desc="Shrink window"),
     #  Key([mod], "m", lazy.layout.maximize(),
         #  desc="maximize current window"),
     Key([mod], "n", lazy.layout.normalize(),
@@ -322,7 +335,8 @@ layoutConfig = dict(
 layouts = [
     layout.MonadTall(**layoutConfig),
     layout.MonadWide(**layoutConfig),
-    #  layout.VerticalTile(**layoutConfig),
+    layout.Matrix(**layoutConfig),
+    # layout.VerticalTile(**layoutConfig),
     #  layout.Zoomy(**layoutConfig),
     layout.Max()
 ]
@@ -571,7 +585,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 follow_mouse_focus = True
-bring_front_click = False
+bring_front_click = "floating_only"
 cursor_warp = False
 floating_layout = layout.Floating(float_rules=[
     # Run the utility of `xprop` to see the wm class and name of an X client.

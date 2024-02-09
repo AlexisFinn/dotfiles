@@ -1,5 +1,6 @@
 # zmodload zsh/zprof
 
+# export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export GOPATH="$HOME/go"
 export NVIMPATH="$HOME/nvim"
 export GEMPATH="$HOME/.local/share/gem/ruby/3.0.0"
