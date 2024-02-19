@@ -25,7 +25,7 @@ require("lazy").setup({
   -- COLOR SCHEMES --
   -------------------
   -- colorschemes, load them first for proper integration with other plugins
-  colorschemes.Catppuccin,
+  colorschemes.Moonfly,
   ---------------
   -- EYE CANDY --
   ---------------
@@ -120,6 +120,8 @@ require("lazy").setup({
   ------------------------
   -- FUNCTIONAL PLUGINS --
   ------------------------
+  -- simple per project note taking
+  require("plugin-configs.global-note"),
   -- better harpoon
   -- require("plugin-configs.arrow"),
   -- buffer switcher

@@ -84,6 +84,7 @@ return {
         l = {"<C-W><C-L>", "Focus Window RIGHT"},
         h = {"<C-W><C-H>", "Focus Window LEFT"},
         L = {function() cmd("Lazy") end, "Open Lazy plugin manager"},
+        n = {function() require("global-note").toggle_note('project') end, "Toggle Global Note"},
         o = {function() telescopeExt.project.project() end, "Search for project"},
         p = {function() telescope.find_files() end, "Search for a file within the project"},
         q = {"<cmd>q<CR>", "Quit/Close window"},
@@ -94,6 +95,7 @@ return {
           n = {function() vim.diagnostic.goto_next({float = {border = "rounded"}}) end, "Go to Next lsp error"},
           N = {function() vim.diagnostic.goto_prev({float = {border = "rounded"}}) end, "Go to Previous lsp error"},
           t = {function() vim.diagnostic.open_float({border = "rounded"}) end, "Show current lsp error"},
+          r = {function() cmd("LSPRestart") end, "Restart lsp server"},
         },
         V = {function() cmd("vsplit") end, "Split window vertically"},
         r = {

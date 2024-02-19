@@ -7,7 +7,7 @@ return {
   },
   Ayu = {
     'Shatur/neovim-ayu',
-    function()
+    config = function()
       require('ayu').setup({
         mirage = false
       })

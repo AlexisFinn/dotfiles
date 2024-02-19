@@ -1,4 +1,4 @@
-# zmodload zsh/zprof
+zmodload zsh/zprof
 
 # export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export GOPATH="$HOME/go"
@@ -68,4 +68,3 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
 
-# zprof

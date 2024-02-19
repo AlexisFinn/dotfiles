@@ -50,3 +50,5 @@
 	fontdiff = -family \"Source Code Pro for Powerline\" -size 10 -weight normal -slant roman -underline 0 -overstrike 0
 [url "https://"]
     insteadOf = git://
+[safe]
+	directory = /home/alexis/dotfiles
