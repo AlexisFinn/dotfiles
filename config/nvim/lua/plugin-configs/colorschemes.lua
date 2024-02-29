@@ -131,6 +131,25 @@ return {
       vim.cmd("colorscheme cyberdream") -- set the colorscheme
     end,
   },
+  DarkPlus = {
+    'lunarvim/darkplus.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'darkplus'
+    end
+  },
+  Distinct = {
+    "https://gitlab.com/bartekjaszczak/distinct-nvim",
+    priority = 1000,
+    config = function()
+        require("distinct").setup({
+            doc_comments_different_color = true, -- Use different colour for documentation comments
+        })
+
+        vim.cmd("colorscheme distinct")
+    end
+  },
   Dogrun = {
     'wadackel/vim-dogrun',
     lazy = false,
@@ -207,6 +226,14 @@ return {
       vim.g.gruvbox_material_enable_italic = 1
       vim.g.gruvbox_material_sign_column_background = 'none'
       vim.cmd.colorscheme 'gruvbox-material'
+    end
+  },
+  HalfSpace = {
+    url = "https://gitlab.com/sxwpb/halfspace.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'halfspace'
     end
   },
   Iceberg = {

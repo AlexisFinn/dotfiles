@@ -84,7 +84,7 @@ return {
         l = {"<C-W><C-L>", "Focus Window RIGHT"},
         h = {"<C-W><C-H>", "Focus Window LEFT"},
         L = {function() cmd("Lazy") end, "Open Lazy plugin manager"},
-        n = {function() require("global-note").toggle_note('project') end, "Toggle Global Note"},
+        n = {function() require("config.nvim.lua.plugin-configs.global_note").toggle_note('project') end, "Toggle Global Note"},
         o = {function() telescopeExt.project.project() end, "Search for project"},
         p = {function() telescope.find_files() end, "Search for a file within the project"},
         q = {"<cmd>q<CR>", "Quit/Close window"},

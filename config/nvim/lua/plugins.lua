@@ -25,7 +25,7 @@ require("lazy").setup({
   -- COLOR SCHEMES --
   -------------------
   -- colorschemes, load them first for proper integration with other plugins
-  colorschemes.Moonfly,
+  colorschemes.DarkPlus,
   ---------------
   -- EYE CANDY --
   ---------------
@@ -68,7 +68,7 @@ require("lazy").setup({
   -- auto-formatting
   require('plugin-configs.formatter'),
   -- access language REPL
-  require("plugin-configs.iron"),
+  -- require("plugin-configs.iron"),
   -- code snippets
   require("plugin-configs.utilsnips"),
   -- better diagnostics
@@ -82,7 +82,7 @@ require("lazy").setup({
   -- TELESCOPE FUZZY FINDER --
   ----------------------------
   -- fzf because it's the best fuzzy finder
-  require('plugin-configs.nvim-fzf'),
+  -- require('plugin-configs.nvim-fzf'),
   -- telescope, an awesome fuzzy-finder that leverages all the new nvim functions
   require("plugin-configs.nvim-telescope"),
   -- ripgrep for fastest ever grep directly in vim
@@ -103,7 +103,7 @@ require("lazy").setup({
   -- rust
   -- require("plugin-configs.rust-tools"),
   -- .editorconfig file if found
-  require("plugin-configs.editorconfig-vim"),
+  -- require("plugin-configs.editorconfig-vim"),
   -- auto change matching html tags
   require("plugin-configs.tagalong"),
   -- Varnish Conif Language (VCL)
@@ -121,7 +121,7 @@ require("lazy").setup({
   -- FUNCTIONAL PLUGINS --
   ------------------------
   -- simple per project note taking
-  require("plugin-configs.global-note"),
+  require("plugin-configs.global_note"),
   -- better harpoon
   -- require("plugin-configs.arrow"),
   -- buffer switcher

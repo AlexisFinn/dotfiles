@@ -33,7 +33,7 @@ from colour import Color
 import PyColors
 import os
 import subprocess
-import sys
+
 
 def make_inactive_color(active_color):
     InactiveColor = Color(active_color)
@@ -48,6 +48,7 @@ def make_inactive_color(active_color):
 
     return InactiveColor.get_hex_l()
 
+
 def color_contrast_difference(color1, color2):
     Color1 = Color(color1)
     Color2 = Color(color2)
@@ -57,6 +58,7 @@ def color_contrast_difference(color1, color2):
 
     return abs(redVal) + abs(greenVal) + abs(blueVal)
 
+
 def color_brightness(color):
     GivenColor = Color(color)
     red = GivenColor.get_red()*255
@@ -65,22 +67,26 @@ def color_brightness(color):
 
     return ((red*299) + (green*587) + (blue*114))/1000
 
+
 def make_foreground_color(background_color):
     if (color_contrast_difference(background_color, PyColors.foreground) > 280):
         return PyColors.foreground
 
     return PyColors.background
 
+
 def get_complementary_color(color):
     GivenColor = Color(color)
     GivenColor.set_hue(((GivenColor.get_hue()*360) + 180)/360)
     return GivenColor.get_hex_l()
+
 
 def colors_equal(color1, color2):
     Color1 = Color(color1)
     Color2 = Color(color2)
 
     return Color1.get_hex_l() == Color2.get_hex_l()
+
 
 def get_standout_color():
     colors = [
@@ -103,6 +109,7 @@ def get_standout_color():
     max_index = results.index(max_contrast)
 
     return colors[max_index]
+
 
 def make_widget(name, color, **kwargs):
     foregroundColor = make_foreground_color(color)
@@ -136,10 +143,10 @@ mod = "mod4"
 terminal = "kitty -1"
 
 # task bar configuration
-#  bar_font = "GohuFont Nerd Font Mono Medium"
-#bar_font = "OpenDyslexicMono Nerd Font"
-#bar_font = "C059"
-#  bar_font = "ProggyCleanTT Nerd Font Mono"
+# bar_font = "GohuFont Nerd Font Mono Medium"
+# bar_font = "OpenDyslexicMono Nerd Font"
+# bar_font = "C059"
+# bar_font = "ProggyCleanTT Nerd Font Mono"
 bar_font = "Cascadia Code PL"
 bar_fontsize = 14
 bar_padding = 2
@@ -160,15 +167,15 @@ gap = 2
 border = 2
 floats_kept_above = True
 
-active_color = get_standout_color() #PyColors.color6
+active_color = get_standout_color()  # PyColors.color6
 active_color_alt = PyColors.color5
-inactive_color = PyColors.background #make_inactive_color(PyColors.color6)
+inactive_color = PyColors.background  # make_inactive_color(PyColors.color6)
 inactive_color_alt = make_inactive_color(PyColors.color5)
 
 # configure groups (workspaces)
 # list of myGroup, first argument is group name second is keycode
-# Azerty: 
-# 1-"ampersand", 2-"eacute", 3-"quotedbl", 4-"apostrophe", 
+# Azerty:
+# 1-"ampersand", 2-"eacute", 3-"quotedbl", 4-"apostrophe",
 # 5-"parenleft", 6-"minus", 7-"egrave", 8-"underscore", 9-"ccedilla", 0-"agrave"
 myGroups = [
     myGroup(" Work ", "ampersand", "monadwide"),
@@ -335,7 +342,7 @@ layoutConfig = dict(
 layouts = [
     layout.MonadTall(**layoutConfig),
     layout.MonadWide(**layoutConfig),
-    layout.Matrix(**layoutConfig),
+    # layout.Matrix(**layoutConfig),
     # layout.VerticalTile(**layoutConfig),
     #  layout.Zoomy(**layoutConfig),
     layout.Max()
