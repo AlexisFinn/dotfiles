@@ -119,7 +119,7 @@ return {
       -------------------------- OTHER -----------------------------
       ["<F8>"] = {function() require('reach').buffers({show_current = true}) end, "Buffer switcher"},
       -- ["<F8>"] = {function() telescope.buffers() end, "Buffer switcher"},
-      ["<F9>"] = {function() require('oil').open_float() end, "Oil file manager"},
+      ["<F9>"] = {function() require('oil').open() end, "Oil file manager"},
       -- ["<F9>"] = {function()
       --   float({
       --     args = {
