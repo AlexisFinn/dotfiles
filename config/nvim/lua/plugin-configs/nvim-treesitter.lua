@@ -39,7 +39,8 @@ return {
         "html",
         "vue",
         "css",
-        "scss"
+        "scss",
+        "gleam"
       }, --"all",
       context_commentstring = {
         enable = true

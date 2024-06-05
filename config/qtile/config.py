@@ -139,8 +139,8 @@ class myGroup:
 # modifier key (mod4 = super)
 mod = "mod4"
 # what terminal to try and use
-#  terminal = "alacritty"
-terminal = "kitty -1"
+terminal = "alacritty"
+# terminal = "ssh-agent kitty -1"
 
 # task bar configuration
 # bar_font = "GohuFont Nerd Font Mono Medium"
@@ -602,6 +602,7 @@ floating_layout = layout.Floating(float_rules=[
     Match(wm_class='maketag'),  # gitk
     Match(wm_class='ssh-askpass'),  # ssh-askpass
     Match(title='branchdialog'),  # gitk
+    Match(title='pinentry'),  # GPG key password entry
     Match(title='pinentry'),  # GPG key password entry
     # Match(wm_class='gokedex')
     # Match(wm_class='rofi'),  # rofi launcher

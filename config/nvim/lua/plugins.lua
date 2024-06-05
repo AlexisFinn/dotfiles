@@ -25,7 +25,7 @@ require("lazy").setup({
   -- COLOR SCHEMES --
   -------------------
   -- colorschemes, load them first for proper integration with other plugins
-  colorschemes.DarkPlus,
+  colorschemes.Tokyonight,
   ---------------
   -- EYE CANDY --
   ---------------
@@ -45,7 +45,7 @@ require("lazy").setup({
   -------  treesitter the new language parser -------
   require("plugin-configs.nvim-treesitter"),
   -------  semantic highlighting using treesitter -------
-  require("plugin-configs.hlargs"),
+  -- require("plugin-configs.hlargs"),
   -------  vim UI for messages, cmdline and popupmenu -------
   -- require('plugin-configs.noice'),
   -------  animated indent guides -------
@@ -58,7 +58,7 @@ require("lazy").setup({
   -- Install LSP dependencies with Mason
   require("plugin-configs.mason-lspconfig"),
   -- auto lua lsp configuration. !! MUST COME BEFORE LSP-CONFIG
-  -- require("plugin-configs.neodev"),
+  require("plugin-configs.neodev"),
   -- Language Server Protocol integration (this is so cool)
   require("plugin-configs.nvim-lspconfig"),
   -- better defaults for builtin lsp
@@ -107,16 +107,22 @@ require("lazy").setup({
   -- auto change matching html tags
   require("plugin-configs.tagalong"),
   -- Varnish Conif Language (VCL)
-  require("plugin-configs.vim-varnish"),
+  -- require("plugin-configs.vim-varnish"),
   -- CSV
   -- require("plugin-configs.rainbow-csv"),
   require("plugin-configs.csv"),
+  -- gleam
+  require("plugin-configs.gleam"),
   --------
   -- AI --
   --------
-  -- Codmium
+  -- SuperMaven
+  -- require("plugin-configs.superMaven"),
+  -- Codeium
   -- require("plugin-configs.codeium"),
-  require("plugin-configs.copilot"),
+  -- copilot
+  require("plugin-configs.nvim-copilot"),
+  -- require("plugin-configs.nvim-copilot-cmp"),
   ------------------------
   -- FUNCTIONAL PLUGINS --
   ------------------------
@@ -131,9 +137,9 @@ require("lazy").setup({
   -- Comment/uncomment multiple lines with <leader>c<space>
   -- require("plugin-configs.nvim-comment"),
   -- require("plugin-configs.mini-comment"),
-  require("plugin-configs.comment"),
+  -- require("plugin-configs.comment"),
   -- easyMotion clone for Nvim
-  require("plugin-configs.leap"),
+  -- require("plugin-configs.leap"),
   -- Run terminal commands in floating windows
   require("plugin-configs.vim-floaterm"),
   -- doc comment generator

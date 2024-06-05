@@ -1,3 +1,9 @@
+vim.api.nvim_create_autocmd("QuickFixCmdPost",{
+  callback = function ()
+    vim.cmd("vert copen 50")
+  end
+})
+
 return  {
   'nvim-telescope/telescope.nvim',
   dependencies = {
@@ -10,6 +16,7 @@ return  {
   config = function()
     -- fuzzy find files in project
     local telescope = require("telescope")
+    local actions = require("telescope.actions")
 
     -- default setup, see :help telescope.setup
     telescope.setup({
@@ -22,7 +29,7 @@ return  {
         path_display = { "tail" },
         mappings = {
           n = {
-            ["q"] = require("telescope.actions").close
+            ["q"] = actions.close
           }
         }
       },
@@ -62,6 +69,14 @@ return  {
           theme = "dropdown",
           layout_config = {
             height = 0.5
+          },
+          mappings = {
+            i = {
+              ["<C-l>"] = {
+                actions.smart_send_to_qflist,
+                type = "action"
+              }
+            },
           }
         },
         marks = {
@@ -71,7 +86,10 @@ return  {
           layout_config = {
             height = 0.6
           }
-        }
+        },
+        find_files = {
+          path_display = { "smart" },
+        },
       }
     })
 

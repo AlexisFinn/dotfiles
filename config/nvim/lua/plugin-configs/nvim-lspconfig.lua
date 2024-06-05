@@ -24,9 +24,13 @@ return {
         local opts = { buffer = ev.buf }
         keymap('n', 'gD', vim.lsp.buf.declaration, opts)
         keymap('n', 'gd', vim.lsp.buf.definition, opts)
-        keymap('n', 'K', vim.lsp.buf.hover, opts)
         keymap('n', 'gi', vim.lsp.buf.implementation, opts)
         keymap('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+        keymap('n', 'H', function()
+          if vim.lsp.inlay_hint.is_enabled() then vim.lsp.inlay_hint.enable(false)
+          else vim.lsp.inlay_hint.enable(true)
+          end
+        end, opts)
         -- keymap('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
         -- keymap('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
         -- keymap('n', '<space>wl', function()
@@ -86,6 +90,9 @@ return {
     --   root_dir = util.root_pattern("vendor")
     -- }
 
+    -- gleam
+    require('lspconfig').gleam.setup{}
+
     -- python
     require('lspconfig').pylsp.setup {
       handlers = handlerVirtualText,
@@ -102,11 +109,30 @@ return {
     require('lspconfig').eslint.setup {
       handlers = handlerVirtualText,
       on_attach = onAttach,
-      filetypes = { "javascript", "typescript" }
+      filetypes = { "javascript", "typescript" },
+      settings = {
+        useFlatConfig = false,
+        experimental = {
+          useFlatConfig = nil
+        }
+      }
     }
     require('lspconfig').tsserver.setup {
       handlers = handlerVirtualText,
       on_attach = onAttach,
+      settings = {
+        javascript = {
+          inlayHints = {
+            includeInlayParameterNameHints = "all",
+            includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+            includeInlayFunctionParameterTypeHints = true,
+            includeInlayVariableTypeHints = true,
+            includeInlayPropertyDeclarationTypeHints = true,
+            includeInlayFunctionLikeReturnTypeHints = true,
+            includeInlayEnumMemberValueHints = true,
+          },
+        },
+      }
     }
 
     -- yaml
@@ -149,11 +175,15 @@ return {
     }
 
     -- lua
+    -- DONE IN NEODEV PLUGIN
     require('lspconfig').lua_ls.setup {
       settings = {
-        lua = {
+        Lua = {
           completion = {
             callSnippet = "Replace"
+          },
+          diagnostics = {
+            globals = { "vim" }
           }
         }
       }

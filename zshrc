@@ -1,4 +1,4 @@
-zmodload zsh/zprof
+#zmodload zsh/zprof
 
 # export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
 export GOPATH="$HOME/go"
@@ -7,6 +7,9 @@ export GEMPATH="$HOME/.local/share/gem/ruby/3.0.0"
 export PATH="$NVIMPATH/bin:$GEMPATH/bin:$GHCUPPATH/bin:$GOPATH/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
 export FZF_DEFAULT_COMMAND='ag -al'
 export EDITOR="nvim"
+
+# Auto-start ssh-agent
+eval `keychain --eval --agents ssh id_rsa id_rsa_zest sftp_dev`
 
 # pymal custom colors
 #(cat ~/.cache/wal/sequences &)
@@ -67,4 +70,14 @@ source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+
+# Auto-start ssh-agent (doesn't work)
+# if ! pgrep -u "$USER" ssh-agent > /dev/null; then
+#     ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+# fi
+# if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
+#     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
+# fi
+
 

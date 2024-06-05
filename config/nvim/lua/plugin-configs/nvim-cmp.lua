@@ -25,22 +25,23 @@ return  {
         ['<Down>'] = cmp.mapping.select_next_item(),
         ['<Up>'] = cmp.mapping.select_prev_item(),
         ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({ select = true })
+        ['<C-y>'] = cmp.mapping.confirm({ select = false })
       },
       sources = {
-        { name = 'nvim_lsp' },
+        -- { name = 'copilot'},
+        -- { name = 'supermaven'},
+        -- { name = 'codeium'},
+        { name = 'nvim_lsp'},
         { name = 'nvim_lsp_signature_help'},
-        { name = 'utilsnips' },
-        { name = 'buffer' },
-        { name = 'orgmode' }
+        { name = 'buffer'},
       },
       window = {
         completion = cmp.config.window.bordered(),
         documentation = cmp.config.window.bordered(),
       },
       experimental = {
-        ghost_text = true,
-      }
+        ghost_text = false,
+      },
     })
   end
 }

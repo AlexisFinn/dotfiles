@@ -1,0 +1,82 @@
+[colors.bright]
+black = "0x4d4d4d"
+blue = "0xcaa9fa"
+cyan = "0x9aedfe"
+green = "0x5af78e"
+magenta = "0xff92d0"
+red = "0xff6e67"
+white = "0xe6e6e6"
+yellow = "0xf4f99d"
+
+[colors.cursor]
+cursor = "0xf8f8f2"
+text = "0x44475a"
+
+[colors.dim]
+black = "0x14151b"
+blue = "0x4d5b86"
+cyan = "0x59dffc"
+green = "0x1ef956"
+magenta = "0xff46b0"
+red = "0xff2222"
+white = "0xe6e6d1"
+yellow = "0xebf85b"
+
+[colors.normal]
+black = "0x000000"
+blue = "0xbd93f9"
+cyan = "0x8be9fd"
+green = "0x50fa7b"
+magenta = "0xff79c6"
+red = "0xff5555"
+white = "0xbfbfbf"
+yellow = "0xf1fa8c"
+
+[colors.primary]
+background = "0x282a36"
+foreground = "0xf8f8f2"
+
+[colors.selection]
+background = "0x44475a"
+text = "0xf8f8f2"
+
+[shell]
+program = "/usr/bin/zsh"
+args = ["-l", "-c", "tmux a || tmux"]
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[font]
+size = 14
+
+[font.bold]
+family = "FantasqueSansM Nerd Font Mono"
+style = "bold"
+
+[font.glyph_offset]
+x = 0
+y = 0
+
+[font.italic]
+family = "FantasqueSansM Nerd Font Mono"
+style = "italic"
+
+[font.normal]
+family = "FantasqueSansM Nerd Font Mono"
+style = "regular"
+
+[font.offset]
+x = 0
+y = 0
+
+[[keyboard.bindings]]
+action = "IncreaseFontSize"
+key = "Equals"
+mods = "Control"
+
+[[keyboard.bindings]]
+action = "DecreaseFontSize"
+key = "Minus"
+mods = "Control"

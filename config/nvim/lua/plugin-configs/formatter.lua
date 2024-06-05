@@ -3,24 +3,25 @@ return  {
   config = function()
     require('formatter').setup {
       filetype = {
-        -- json = {
-        --   function()
-        --     if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
-        --       return {
-        --         exe = "prettier",
-        --         args = { "--parser json", "-w" },
-        --         stdin = true
-        --       }
-        --     else
-        --       return {
-        --         exe = "prettier",
-        --         args = { "--parser json", "--config /home/alexis/.prettierrc", "-w" },
-        --         stdin = true
-        --       }
-        --     end
-        --   end
-        -- },
+        json = {
+          function()
+            if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
+              return {
+                exe = "prettier",
+                args = { "--parser json", "-w" },
+                stdin = true
+              }
+            else
+              return {
+                exe = "prettier",
+                args = { "--parser json", "--config /home/alexis/.prettierrc", "-w" },
+                stdin = true
+              }
+            end
+          end
+        },
         javascript = {
+            -- require("formatter.filetypes.javascript").prettier()
           function()
             -- if project contains a .prettierrc file, use it
             if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
@@ -125,7 +126,7 @@ return  {
               args = {},
               -- exe = "php-cs-fixer",
               -- args = { "fix" },
-              stdin = false 
+              stdin = false
             }
           end
         },

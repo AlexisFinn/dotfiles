@@ -86,8 +86,17 @@ vim.api.nvim_create_autocmd("BufEnter", {
   end
 })
 
+-- hilite yanked text for 0.1 seconds
+vim.api.nvim_create_autocmd("TextYankPost", {
+  desc = "Highlight wen yanking text",
+  group = vim.api.nvim_create_augroup("highlight-yank", {clear = true}),
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+})
+
 ---- Custom Commands --------------------------------------------------------------
 
-vim.api.nvim_create_user_command("FormatJSON", "%!python -m json.tool", {});
+vim.api.nvim_create_user_command("FormatJSON", "%!python -m --no-ensure-ascii json.tool", {});
 ---- install plugins ----
 require("plugins")

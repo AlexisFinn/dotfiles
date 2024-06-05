@@ -99,7 +99,7 @@ font:
         #   - (macOS) Menlo
         #   - (Linux/BSD) monospace
         #   - (Windows) Consolas
-        family: Hack Nerd Font Mono
+        family: FantasqueSansM Nerd Font Mono
         # family: Cousine Nerd Font Mono
         # family: Fira Code Nerd Font
         # family: Cascadia Code PL 
@@ -109,12 +109,12 @@ font:
         style: regular
         # style: bold
     italic:
-        family: Hack Nerd Font Mono
+        family: FantasqueSansM Nerd Font Mono
         # family: Cascadia Code PL Italic 
         # family: Cousine Nerd Font Mono
         style: italic
     bold:
-        family: Hack Nerd Font Mono
+        family: FantasqueSansM Nerd Font Mono
         # family: Cascadia Code PL Italic 
         # family: Cousine Nerd Font Mono
         style: bold

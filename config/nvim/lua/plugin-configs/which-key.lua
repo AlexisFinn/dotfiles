@@ -53,7 +53,15 @@ return {
           d = {"<cmd>bd<CR>", "Delete current buffer"},
           l = {function() cmd("e#") end, "Switch to last buffer"},
         },
-        e = {function() cmd("IronFocus") end, "Launch code runner for current filetype"},
+        e = {function() float({
+          args = {
+            "--width=0.8",
+            "--height=0.8",
+            "--title=NodeJS",
+            "--titleposition=right",
+            "node"
+          }
+        }) end, "Launch Node runner"},
         f = {
           w = {function() cmd("Telescope grep_string") end, "Grep current word or selection in project"},
         },
@@ -89,7 +97,7 @@ return {
         p = {function() telescope.find_files() end, "Search for a file within the project"},
         q = {"<cmd>q<CR>", "Quit/Close window"},
         s = {function() require("auto-session.session-lens").search_session() end, "Search fo a session within saved sessions"},
-        S = {function() cmd("split") end, "Split window horizontally"},
+        ["-"] = {function() cmd("split") end, "Split window horizontally"},
         t = {
           name = "Lsp",
           n = {function() vim.diagnostic.goto_next({float = {border = "rounded"}}) end, "Go to Next lsp error"},
@@ -97,7 +105,7 @@ return {
           t = {function() vim.diagnostic.open_float({border = "rounded"}) end, "Show current lsp error"},
           r = {function() cmd("LSPRestart") end, "Restart lsp server"},
         },
-        V = {function() cmd("vsplit") end, "Split window vertically"},
+        ["|"] = {function() cmd("vsplit") end, "Split window vertically"},
         r = {
           name = "RipGrep",
           g = {function() telescope.live_grep() end, "Search for a word or sentence withen the project files"}
@@ -111,7 +119,7 @@ return {
       -------------------------- OTHER -----------------------------
       ["<F8>"] = {function() require('reach').buffers({show_current = true}) end, "Buffer switcher"},
       -- ["<F8>"] = {function() telescope.buffers() end, "Buffer switcher"},
-      ["<F9>"] = {function() cmd("Oil") end, "Oil file manager"},
+      ["<F9>"] = {function() require('oil').open_float() end, "Oil file manager"},
       -- ["<F9>"] = {function()
       --   float({
       --     args = {

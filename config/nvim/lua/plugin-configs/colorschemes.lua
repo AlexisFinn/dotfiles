@@ -291,6 +291,14 @@ return {
       vim.cmd.colorscheme 'mellow'
     end
   },
+  Midnight = {
+    'dasupradyumna/midnight.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme 'midnight'
+    end
+  },
   Moonfly = {
     'bluz71/vim-moonfly-colors',
     lazy = false,
@@ -438,7 +446,7 @@ return {
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd.colorscheme 'tokyonight'
+      vim.cmd.colorscheme 'tokyonight-night'
     end
   },
   Zenburn = {
