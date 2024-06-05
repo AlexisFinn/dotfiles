@@ -13,7 +13,8 @@ return {
       show_hidden = true,
     },
     keymaps = {
-      ["<Esc>"] = "actions.close"
+      ["<Esc>"] = "actions.close",
+      ["q"] = "actions.close"
     }
   }) end,
 }
