@@ -3,7 +3,7 @@ local lazyOptions = {
     border = "rounded",
   },
   performance = {
-    cache = {enabled = true},
+    cache = { enabled = true },
     rtp = {
       disabled_plugins = {
         -- "netrwPlugin",
@@ -11,9 +11,9 @@ local lazyOptions = {
         "tarPlugin",
         "tohtml",
         "tutor",
-        "zipPlugin"
-      }
-    }
+        "zipPlugin",
+      },
+    },
   },
   debug = false,
 }
@@ -51,14 +51,15 @@ require("lazy").setup({
   -------  animated indent guides -------
   -- require("plugin-configs.mini-indentscope"),
   -------  indent guides -------
-  require('plugin-configs.indent-blankline'),
+  require("plugin-configs.indent-blankline"),
   ---------------
   -- LSP SETUP --
   ---------------
   -- Install LSP dependencies with Mason
   require("plugin-configs.mason-lspconfig"),
   -- auto lua lsp configuration. !! MUST COME BEFORE LSP-CONFIG
-  require("plugin-configs.neodev"),
+  -- require("plugin-configs.neodev"),
+  require("plugin-configs.lazydev"),
   -- Language Server Protocol integration (this is so cool)
   require("plugin-configs.nvim-lspconfig"),
   -- better defaults for builtin lsp
@@ -66,7 +67,7 @@ require("lazy").setup({
   -- show function signature as you type
   -- require('plugin-configs.lsp-signature'),
   -- auto-formatting
-  require('plugin-configs.formatter'),
+  require("plugin-configs.formatter"),
   -- access language REPL
   -- require("plugin-configs.iron"),
   -- code snippets
@@ -133,6 +134,7 @@ require("lazy").setup({
   -- buffer switcher
   -- require("plugin-configs.JABS"),
   require("plugin-configs.reach-config"),
+  -- require("plugin-configs.rabbit"),
   -- require("plugin-configs.buffer_manager"),
   -- Comment/uncomment multiple lines with <leader>c<space>
   -- require("plugin-configs.nvim-comment"),
@@ -153,6 +155,8 @@ require("lazy").setup({
   -- require("plugin-configs.reach-config"),
   -- file manager
   require("plugin-configs.oil-fm"),
+  -- take a screenshot of your code
+  -- require("plugin-configs.codeshot"),
   ---------
   -- GIT --
   ---------

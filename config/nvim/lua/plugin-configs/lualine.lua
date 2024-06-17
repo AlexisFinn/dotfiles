@@ -1,31 +1,30 @@
 local function show_macro_recording()
   local recording = vim.fn.reg_recording()
-  if recording ~= '' then
-    return 'Recording @' .. recording
+  if recording ~= "" then
+    return "Recording @" .. recording
   else
-    return ''
+    return ""
   end
 end
 
-
 return {
-  'hoob3rt/lualine.nvim',
-  config = function ()
-    require('lualine').setup({
+  "hoob3rt/lualine.nvim",
+  config = function()
+    require("lualine").setup({
       options = {
         icons_enabled = true,
         -- theme = 'shado',
         component_separators = { left = "", right = "" },
         section_separators = { left = "", right = "" },
-        disabled_filetypes = {}
+        disabled_filetypes = {},
       },
       sections = {
-        lualine_a = { 'mode' },
-        lualine_b = { { 'filename', path = 1 } },
-        lualine_c = { { 'macro-recording', fmt = show_macro_recording } },
+        lualine_a = { "mode" },
+        lualine_b = { { "filename", path = 1 } },
+        lualine_c = { { "macro-recording", fmt = show_macro_recording } },
         lualine_x = {},
-        lualine_y = { 'filetype' },
-        lualine_z = { 'location' }
+        lualine_y = { "filetype" },
+        lualine_z = { "location" },
       },
       inactive_sections = {
         lualine_a = {},
@@ -33,10 +32,10 @@ return {
         lualine_c = {},
         lualine_x = {},
         lualine_y = {},
-        lualine_z = {}
+        lualine_z = {},
       },
       tabline = {},
-      extensions = { 'fugitive' }
+      extensions = { "fugitive" },
     })
-  end
+  end,
 }

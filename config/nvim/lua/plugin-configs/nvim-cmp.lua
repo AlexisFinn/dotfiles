@@ -31,9 +31,10 @@ return  {
         -- { name = 'copilot'},
         -- { name = 'supermaven'},
         -- { name = 'codeium'},
-        { name = 'nvim_lsp'},
-        { name = 'nvim_lsp_signature_help'},
-        { name = 'buffer'},
+        { name = 'nvim_lsp' },
+        { name = 'nvim_lsp_signature_help' },
+        { name = 'buffer' },
+        { name = "lazydev", group_index = 0 } -- set group index to 0 to skip loading Lua
       },
       window = {
         completion = cmp.config.window.bordered(),

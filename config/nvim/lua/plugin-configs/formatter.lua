@@ -1,123 +1,126 @@
-return  {
-  'mhartington/formatter.nvim',
+return {
+  "mhartington/formatter.nvim",
   config = function()
-    require('formatter').setup {
+    require("formatter").setup({
       filetype = {
+        lua = {
+          require("formatter.filetypes.lua").stylua,
+        },
         json = {
           function()
             if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
               return {
                 exe = "prettier",
                 args = { "--parser json", "-w" },
-                stdin = true
+                stdin = true,
               }
             else
               return {
                 exe = "prettier",
                 args = { "--parser json", "--config /home/alexis/.prettierrc", "-w" },
-                stdin = true
+                stdin = true,
               }
             end
-          end
+          end,
         },
         javascript = {
-            -- require("formatter.filetypes.javascript").prettier()
+          -- require("formatter.filetypes.javascript").prettier()
           function()
             -- if project contains a .prettierrc file, use it
             if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
               return {
                 exe = "prettier",
                 args = { "--parser typescript", "-w" },
-                stdin = true
+                stdin = true,
               }
             else
               return {
                 exe = "prettier",
                 args = { "--parser babel", "--config /home/alexis/.prettierrc", "-w" },
-                stdin = true
+                stdin = true,
               }
             end
-          end
+          end,
         },
         typescript = {
           function()
             return {
               exe = "prettier",
               args = { "--parser typescript", "-w" },
-              stdin = true
+              stdin = true,
             }
-          end
+          end,
         },
         vue = {
           function()
             return {
               exe = "prettier",
               args = { "--parser vue", "-w" },
-              stdin = true
+              stdin = true,
             }
-          end
+          end,
         },
         scss = {
           function()
             return {
               exe = "prettier",
               args = { "--parser scss", "-w" },
-              stdin = true
+              stdin = true,
             }
-          end
+          end,
         },
         css = {
           function()
             return {
               exe = "prettier",
               args = { "--parser css", "-w" },
-              stdin = true
+              stdin = true,
             }
-          end
+          end,
         },
         typescriptreact = {
-          function ()
+          function()
             return {
               exe = "prettier",
-              args = { "--parser typescript", "-w"},
-              stdin = true
+              args = { "--parser typescript", "-w" },
+              stdin = true,
             }
-          end
+          end,
         },
         yaml = {
           function()
             return {
               exe = "prettier",
               args = { "--parser yaml", "-w" },
-              stdin = true
+              stdin = true,
             }
-          end
+          end,
         },
         html = {
           function()
             return {
               exe = "prettier",
               args = { "--parser html", "-w" },
-              stdin = true
+              stdin = true,
             }
-          end
+          end,
         },
         haskell = {
           function()
             return {
               exe = "hindent",
-              stdin = true
+              stdin = true,
             }
-          end
+          end,
         },
         python = {
           function()
             return {
               exe = "autopep",
               args = { "--ignore E501" },
-              stdin = true
+              stdin = true,
             }
-          end
+          end,
         },
         php = {
           function()
@@ -126,9 +129,9 @@ return  {
               args = {},
               -- exe = "php-cs-fixer",
               -- args = { "fix" },
-              stdin = false
+              stdin = false,
             }
-          end
+          end,
         },
         go = {
           function()
@@ -137,37 +140,40 @@ return  {
               args = { "-format" },
             }
           end,
-          function ()
+          function()
             return {
               exe = "gofumpt",
-              args = {"-w"},
+              args = { "-w" },
             }
           end,
-          function ()
+          function()
             return {
               exe = "golines",
-              args = {"-w"}
+              args = { "-w" },
             }
-          end
+          end,
         },
         rust = {
           function()
             return {
               exe = "rustfmt",
               args = { "--emit=stdout" },
-              stdin = true
+              stdin = true,
             }
-          end
+          end,
         },
-      }
-    }
+      },
+    })
 
     -- auto-format on save
-    vim.api.nvim_exec([[
+    vim.api.nvim_exec2(
+      [[
     augroup FormatAutogroup
     autocmd!
     autocmd BufWritePost *.json,*.js,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html,*.tsx FormatWrite
     augroup END
-    ]], true)
-  end
+    ]],
+      { output = true }
+    )
+  end,
 }

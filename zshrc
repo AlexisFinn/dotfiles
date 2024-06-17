@@ -8,8 +8,6 @@ export PATH="$NVIMPATH/bin:$GEMPATH/bin:$GHCUPPATH/bin:$GOPATH/bin:$HOME/.config
 export FZF_DEFAULT_COMMAND='ag -al'
 export EDITOR="nvim"
 
-# Auto-start ssh-agent
-eval `keychain --eval --agents ssh id_rsa id_rsa_zest sftp_dev`
 
 # pymal custom colors
 #(cat ~/.cache/wal/sequences &)
@@ -21,7 +19,6 @@ fi
 source "/usr/share/nvm/init-nvm.sh"
 
 source "${HOME}/zsh-setup.zsh"
-
 
 # Set Zsh option
 #setopt correct
@@ -79,5 +76,11 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
 #     source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
 # fi
+
+# keychain --eval --agents ssh id_rsa id_rsa_zest sftp_dev
+# eval "$(ssh-agent -s)"
+# ssh-add /home/alexis/.ssh/id_rsa
+# ssh-add /home/alexis/.ssh/id_rsa_zest
+# ssh-add /home/alexis/.ssh/sftp_dev
 
 
