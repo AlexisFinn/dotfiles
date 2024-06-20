@@ -1,0 +1,10 @@
+return {
+  "joshuadanpeterson/typewriter",
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+  },
+  config = function()
+    require("typewriter").setup({})
+    vim.cmd("silent TWEnable")
+  end,
+}

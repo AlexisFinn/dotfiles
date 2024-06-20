@@ -25,7 +25,7 @@ require("lazy").setup({
   -- COLOR SCHEMES --
   -------------------
   -- colorschemes, load them first for proper integration with other plugins
-  colorschemes.Tokyonight,
+  colorschemes.Kanagawa,
   ---------------
   -- EYE CANDY --
   ---------------
@@ -57,8 +57,7 @@ require("lazy").setup({
   ---------------
   -- Install LSP dependencies with Mason
   require("plugin-configs.mason-lspconfig"),
-  -- auto lua lsp configuration. !! MUST COME BEFORE LSP-CONFIG
-  -- require("plugin-configs.neodev"),
+  -- auto lua lsp configuration.
   require("plugin-configs.lazydev"),
   -- Language Server Protocol integration (this is so cool)
   require("plugin-configs.nvim-lspconfig"),
@@ -175,4 +174,8 @@ require("lazy").setup({
   -- require("plugin-configs.colorbuddy"),
   -- games ( type :VimBeGood )
   require("plugin-configs.vim-be-good"),
+  -- keep cursor centered
+  require("plugin-configs.typewritter"),
+  -- auto-delete old buffers
+  require("plugin-configs.buffer-vacuum"),
 }, lazyOptions)

@@ -58,18 +58,18 @@ return {
       filetype = { "html" },
     })
 
-    require("lspconfig").emmet_language_server.setup({
-      filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
-    })
+    -- require("lspconfig").emmet_language_server.setup({
+    --   filetypes = { "css", "eruby", "html", "javascript", "javascriptreact", "less", "sass", "scss", "pug", "typescriptreact" },
+    -- })
 
     --docker
     require("lspconfig").dockerls.setup({})
     -- php
-    require("lspconfig").intelephense.setup({
-      handlers = handlerVirtualText,
-      on_attach = onAttach,
-      root_dir = util.root_pattern("vendor"),
-    })
+    -- require("lspconfig").intelephense.setup({
+    --   handlers = handlerVirtualText,
+    --   on_attach = onAttach,
+    --   root_dir = util.root_pattern("vendor"),
+    -- })
 
     -- require('lspconfig').phpactor.setup {
     --   handlers = handlerVirtualText,
@@ -87,10 +87,10 @@ return {
     })
 
     -- vue
-    require("lspconfig").vuels.setup({
-      handlers = handlerVirtualText,
-      on_attach = onAttach,
-    })
+    -- require("lspconfig").vuels.setup({
+    --   handlers = handlerVirtualText,
+    --   on_attach = onAttach,
+    -- })
 
     -- typescript & javascript
     require("lspconfig").eslint.setup({
@@ -143,26 +143,25 @@ return {
     })
 
     -- golang
-    require("lspconfig").gopls.setup({
-      on_attach = onAttach,
-      capabilities = capabilities,
-      handlers = handlerVirtualText,
-      cmd = { "gopls" },
-      filetypes = { "go", "gomod", "gowork", "gotmpl" },
-      root_dir = util.root_pattern("go.work", "go.mod", ".git"),
-      settings = {
-        gopls = {
-          completeUnimported = true,
-          usePlaceholders = true,
-          analyses = {
-            unusedparams = true,
-          },
-        },
-      },
-    })
+    -- require("lspconfig").gopls.setup({
+    --   on_attach = onAttach,
+    --   capabilities = capabilities,
+    --   handlers = handlerVirtualText,
+    --   cmd = { "gopls" },
+    --   filetypes = { "go", "gomod", "gowork", "gotmpl" },
+    --   root_dir = util.root_pattern("go.work", "go.mod", ".git"),
+    --   settings = {
+    --     gopls = {
+    --       completeUnimported = true,
+    --       usePlaceholders = true,
+    --       analyses = {
+    --         unusedparams = true,
+    --       },
+    --     },
+    --   },
+    -- })
 
     -- lua
-    -- DONE IN NEODEV PLUGIN
     require("lspconfig").lua_ls.setup({
       settings = {
         Lua = {
