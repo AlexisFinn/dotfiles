@@ -1,5 +1,5 @@
 ---- bootstrap LazyVim (plugin manager) -------------------------------------------------
-local lazypath = vim.fn.stdpath('data') .. "/lazy/lazy.nvim"
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
     "git",
@@ -14,9 +14,9 @@ vim.opt.rtp:prepend(lazypath)
 
 ---- get colors right -------------------------------------------------------------------
 if vim.fn.has("termguicolors") == 1 then
--- vim.go.t_8f = "[[38;2;%lu;%lu;%lum"
--- vim.go.t_8b = "[[48;2;%lu;%lu;%lum"
-	vim.opt.termguicolors = true
+  -- vim.go.t_8f = "[[38;2;%lu;%lu;%lum"
+  -- vim.go.t_8b = "[[48;2;%lu;%lu;%lum"
+  vim.opt.termguicolors = true
 end
 
 ---- general config ---------------------------------------------------------------------
@@ -25,7 +25,7 @@ vim.cmd("set ttyfast") -- Speed up scrolling in Vim
 -- vim.cmd('autocmd VimLeave * silent! :!pkill -f "phpactor"') -- kill all phpactor instances still running on quit
 
 ---- General settings ----
-vim.keymap.set('n', '<space>', '<Nop>', {silent = true}) -- unuset <space> in normal mode
+vim.keymap.set("n", "<space>", "<Nop>", { silent = true }) -- unuset <space> in normal mode
 vim.g.mapleader = " " -- set <space> as leader
 vim.g.maplocalleader = " " -- set <space> as local leader (this isn't really used)
 vim.o.cursorline = false -- Enable highlighting of the current line
@@ -59,7 +59,7 @@ vim.o.mouse = "a" -- set mouse mode to all modes (allows to use mouse)
 vim.o.backupdir = "/home/alexis/.vim/backup//" -- double slashes at the end avoids name collision
 vim.o.directory = "/home/alexis/.vim/swap//"
 vim.o.undodir = "/home/alexis/.vim/undo//"
-vim.o.cmdheight = 0
+-- vim.o.cmdheight = 0
 --vim.o.pumblend = 15 -- transparency for popup windows if you want (yay!)
 vim.g.loaded_perl_provider = 0 -- disable perl provider
 vim.o.timeoutlen = 300
@@ -75,28 +75,46 @@ vim.g.did_lead_filetypes = 0
 
 -- do syntax highlighting even in large files
 vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function ()
-    vim.cmd.syntax("sync minlines=10000")
-  end
+  callback = function() vim.cmd.syntax("sync minlines=10000") end,
 })
 -- unfold all folds in file by default
 vim.api.nvim_create_autocmd("BufEnter", {
-  callback = function ()
-    vim.cmd("normal zR")
-  end
+  callback = function() vim.cmd("normal zR") end,
 })
 
 -- hilite yanked text for 0.1 seconds
 vim.api.nvim_create_autocmd("TextYankPost", {
   desc = "Highlight wen yanking text",
-  group = vim.api.nvim_create_augroup("highlight-yank", {clear = true}),
-  callback = function()
-    vim.highlight.on_yank()
-  end,
+  group = vim.api.nvim_create_augroup("highlight-yank", { clear = true }),
+  callback = function() vim.highlight.on_yank() end,
 })
 
 ---- Custom Commands --------------------------------------------------------------
 
-vim.api.nvim_create_user_command("FormatJSON", "%!python -m --no-ensure-ascii json.tool", {});
+vim.api.nvim_create_user_command("FormatJSON", "%!python -m --no-ensure-ascii json.tool", {})
+
+-- copy selected code with file ref:
+--   /the/name/of/the/file:line_number
+--   ```
+--   selected code
+--   ```
+vim.api.nvim_create_user_command("CRef", function()
+  local fp = vim.fn.expand("%")
+  local cwd = vim.fn.getcwd()
+  local relpath = string.gsub(fp, cwd .. "/", "")
+
+  local winid = vim.api.nvim_get_current_win()
+  local row, _ = unpack(vim.api.nvim_win_get_cursor(winid))
+  local ref = string.format("%s:%d", relpath, row)
+
+  local vstart = vim.fn.getpos("'<")
+  local vend = vim.fn.getpos("'>")
+  local from = vstart[2] - 1
+  local to = vend[2]
+  local lines = vim.api.nvim_buf_get_lines(0, from, to, false)
+  local fullContext = ref .. "\n```\n" .. table.concat(lines, "\n") .. "\n```\n"
+  vim.fn.setreg("*", fullContext)
+  vim.fn.setreg("+", fullContext)
+end, { range = true, nargs = 0 })
 ---- install plugins ----
 require("plugins")

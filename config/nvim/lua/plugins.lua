@@ -25,14 +25,15 @@ require("lazy").setup({
   -- COLOR SCHEMES --
   -------------------
   -- colorschemes, load them first for proper integration with other plugins
-  colorschemes.Kanagawa,
+  colorschemes.Tokyonight,
   ---------------
   -- EYE CANDY --
   ---------------
   -------  some nice icons -------
   require("plugin-configs.nvim-web-devicons"),
   -------  smooth scrolling -------
-  -- require("plugin-configs.vim-smoothie"),
+  -- require("plugin-configs.neoscroll"),
+  -- require("plugin-configs.cinnamon"),
   -------  status line in lua -------
   require("plugin-configs.lualine"),
   -------  tab line -------
@@ -130,6 +131,8 @@ require("lazy").setup({
   require("plugin-configs.global_note"),
   -- better harpoon
   -- require("plugin-configs.arrow"),
+  -- buffer history
+  -- require("plugin-configs.vim-buffer-history"),
   -- buffer switcher
   -- require("plugin-configs.JABS"),
   require("plugin-configs.reach-config"),
@@ -156,6 +159,8 @@ require("lazy").setup({
   require("plugin-configs.oil-fm"),
   -- take a screenshot of your code
   -- require("plugin-configs.codeshot"),
+  -- make pretty comment boxes
+  require("plugin-configs.comment-box"),
   ---------
   -- GIT --
   ---------
@@ -175,7 +180,5 @@ require("lazy").setup({
   -- games ( type :VimBeGood )
   require("plugin-configs.vim-be-good"),
   -- keep cursor centered
-  require("plugin-configs.typewritter"),
-  -- auto-delete old buffers
-  require("plugin-configs.buffer-vacuum"),
+  -- require("plugin-configs.typewritter"),
 }, lazyOptions)

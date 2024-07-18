@@ -78,6 +78,15 @@ return {
             }
           end,
         },
+        sql = {
+          function()
+            return {
+              exe = "sql-formatter",
+              args = { "-l postgresql" },
+              stdin = true,
+            }
+          end,
+        },
         typescriptreact = {
           function()
             return {
@@ -170,7 +179,7 @@ return {
       [[
     augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePost *.json,*.js,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html,*.tsx FormatWrite
+    autocmd BufWritePost *.js,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html,*.tsx,*.sql FormatWrite
     augroup END
     ]],
       { output = true }

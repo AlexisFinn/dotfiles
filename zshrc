@@ -4,7 +4,8 @@
 export GOPATH="$HOME/go"
 export NVIMPATH="$HOME/nvim"
 export GEMPATH="$HOME/.local/share/gem/ruby/3.0.0"
-export PATH="$NVIMPATH/bin:$GEMPATH/bin:$GHCUPPATH/bin:$GOPATH/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
+export CARGOPATH="$HOME/.cargo/"
+export PATH="$NVIMPATH/bin:$GEMPATH/bin:$GHCUPPATH/bin:$GOPATH/bin:$CARGOPATH/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
 export FZF_DEFAULT_COMMAND='ag -al'
 export EDITOR="nvim"
 
