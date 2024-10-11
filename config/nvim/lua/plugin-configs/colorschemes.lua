@@ -187,6 +187,13 @@ return {
     },
     config = function() vim.cmd.colorscheme("evergarden") end,
   },
+  Flow = {
+    "0xstepit/flow.nvim",
+    lazy = false,
+    priotity = 1000,
+    opts = {},
+    config = function() vim.cmd.colorscheme("flow") end,
+  },
   Forest = {
     "skullamortis/forest.nvim",
     lazy = false,
@@ -277,6 +284,19 @@ return {
     config = function()
       vim.g.moonflyitalics = true
       vim.cmd.colorscheme("moonfly")
+    end,
+  },
+  Neofusion = {
+    "diegoulloao/neofusion.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd.colorscheme("neofusion")
+      require("lualine").setup({
+        options = {
+          theme = require("neofusion.lualine"),
+        },
+      })
     end,
   },
   Neon = {
@@ -370,6 +390,12 @@ return {
     lazy = false,
     priority = 1000,
     config = function() vim.cmd.colorscheme("spaceduck") end,
+  },
+  Swayed = {
+    dir = "/home/alexis/dotfiles/config/nvim/swayed",
+    lazy = false,
+    priority = 1000,
+    init = function() vim.cmd.colorscheme("swayed") end,
   },
   PaperColor = {
     "NLKNguyen/papercolor-theme",

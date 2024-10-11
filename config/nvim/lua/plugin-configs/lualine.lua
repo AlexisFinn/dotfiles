@@ -12,17 +12,17 @@ return {
   config = function()
     require("lualine").setup({
       options = {
-        icons_enabled = true,
-        -- theme = 'shado',
-        component_separators = { left = "", right = "" },
-        section_separators = { left = "", right = "" },
+        -- icons_enabled = true,
+        theme = "ayu_mirage",
+        -- component_separators = { left = "", right = "" },
+        -- section_separators = { left = "", right = "" },
         disabled_filetypes = {},
       },
       sections = {
         lualine_a = { "mode" },
         lualine_b = { { "filename", path = 1 } },
         lualine_c = { { "macro-recording", fmt = show_macro_recording } },
-        lualine_x = {},
+        lualine_x = { { color = "Normal" } },
         lualine_y = { "filetype" },
         lualine_z = { "location" },
       },
@@ -35,7 +35,7 @@ return {
         lualine_z = {},
       },
       tabline = {},
-      extensions = { "fugitive" },
+      -- extensions = { "fugitive" },
     })
   end,
 }

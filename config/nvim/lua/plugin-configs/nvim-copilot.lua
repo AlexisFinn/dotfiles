@@ -8,15 +8,15 @@ return {
       panel = {
         enabled = false,
         keymap = {
-          open = "<C-Y>"
-        }
+          open = "<C-t>",
+        },
       },
       suggestion = {
         enabled = true,
         auto_trigger = true,
         keymap = {
-          accept = "<C-y>"
-        }
+          accept = "<C-y>",
+        },
       },
     })
 

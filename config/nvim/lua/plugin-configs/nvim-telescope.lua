@@ -1,17 +1,15 @@
-vim.api.nvim_create_autocmd("QuickFixCmdPost",{
-  callback = function ()
-    vim.cmd("vert copen 50")
-  end
+vim.api.nvim_create_autocmd("QuickFixCmdPost", {
+  callback = function() vim.cmd("vert copen 50") end,
 })
 
-return  {
-  'nvim-telescope/telescope.nvim',
+return {
+  "nvim-telescope/telescope.nvim",
   dependencies = {
-    'nvim-lua/popup.nvim',
-    'nvim-lua/plenary.nvim',
-    'nvim-telescope/telescope-ui-select.nvim',
-    'nvim-telescope/telescope-project.nvim',
-    { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+    "nvim-lua/popup.nvim",
+    "nvim-lua/plenary.nvim",
+    "nvim-telescope/telescope-ui-select.nvim",
+    "nvim-telescope/telescope-project.nvim",
+    { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   config = function()
     -- fuzzy find files in project
@@ -29,9 +27,9 @@ return  {
         path_display = { "tail" },
         mappings = {
           n = {
-            ["q"] = actions.close
-          }
-        }
+            ["q"] = actions.close,
+          },
+        },
       },
       extensions = {
         ["ui-select"] = {
@@ -45,8 +43,8 @@ return  {
           borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
           layout_strategy = "vertical",
           layout_config = {
-            height = 0.6
-          }
+            height = 0.6,
+          },
         },
         colorscheme = {
           -- theme = "vertical",
@@ -55,42 +53,42 @@ return  {
           enable_preview = true,
           layout_config = {
             height = 0.8,
-            preview_height = 0.7
-          }
+            preview_height = 0.7,
+          },
         },
         grep_string = {
           theme = "dropdown",
           initial_mode = "normal",
           layout_config = {
-            height = 0.5
-          }
+            height = 0.5,
+          },
         },
         live_grep = {
           theme = "dropdown",
           layout_config = {
-            height = 0.5
+            height = 0.5,
           },
           mappings = {
             i = {
               ["<C-l>"] = {
                 actions.smart_send_to_qflist,
-                type = "action"
-              }
+                type = "action",
+              },
             },
-          }
+          },
         },
         marks = {
           theme = "dropdown",
           enable_preview = true,
           layout_strategy = "vertical",
           layout_config = {
-            height = 0.6
-          }
+            height = 0.6,
+          },
         },
         find_files = {
           path_display = { "smart" },
         },
-      }
+      },
     })
 
     -- load extensions into telescope
@@ -98,6 +96,8 @@ return  {
     telescope.load_extension("fzf")
     telescope.load_extension("ui-select")
     telescope.load_extension("project")
+    telescope.load_extension("smart_open")
+    -- telescope.load_extension("bookmarks")
     -- telescope.load_extension 'session-lens'
-  end
+  end,
 }

@@ -25,7 +25,7 @@ require("lazy").setup({
   -- COLOR SCHEMES --
   -------------------
   -- colorschemes, load them first for proper integration with other plugins
-  colorschemes.Tokyonight,
+  colorschemes.Neofusion,
   ---------------
   -- EYE CANDY --
   ---------------
@@ -53,6 +53,13 @@ require("lazy").setup({
   -- require("plugin-configs.mini-indentscope"),
   -------  indent guides -------
   require("plugin-configs.indent-blankline"),
+  ---------
+  -- GIT --
+  ---------
+  -- best git commands integration for vim
+  -- require("plugin-configs.vim-fugitive"),
+  -- git diff indications in gutter column
+  require("plugin-configs.gitsigns"),
   ---------------
   -- LSP SETUP --
   ---------------
@@ -78,6 +85,7 @@ require("lazy").setup({
   require("plugin-configs.nvim-cmp"),
   -- require("plugin-configs.mini-completion"),
   -- debugging protocol
+  -- require("plugin-configs.nvim-dap"),
   -- require("plugin-configs.nvim-dap-virtual-text"),
   ----------------------------
   -- TELESCOPE FUZZY FINDER --
@@ -86,6 +94,8 @@ require("lazy").setup({
   -- require('plugin-configs.nvim-fzf'),
   -- telescope, an awesome fuzzy-finder that leverages all the new nvim functions
   require("plugin-configs.nvim-telescope"),
+  -- make telescope smarter
+  require("plugin-configs.smart-open"),
   -- ripgrep for fastest ever grep directly in vim
   require("plugin-configs.vim-ripgrep"),
   -------------------------------
@@ -135,13 +145,10 @@ require("lazy").setup({
   -- require("plugin-configs.vim-buffer-history"),
   -- buffer switcher
   -- require("plugin-configs.JABS"),
-  require("plugin-configs.reach-config"),
+  -- require("plugin-configs.reach-config"),
+  require("plugin-configs.snipe"),
   -- require("plugin-configs.rabbit"),
   -- require("plugin-configs.buffer_manager"),
-  -- Comment/uncomment multiple lines with <leader>c<space>
-  -- require("plugin-configs.nvim-comment"),
-  -- require("plugin-configs.mini-comment"),
-  -- require("plugin-configs.comment"),
   -- easyMotion clone for Nvim
   -- require("plugin-configs.leap"),
   -- Run terminal commands in floating windows
@@ -153,7 +160,9 @@ require("lazy").setup({
   -- convert to multiline
   require("plugin-configs.splitjoin"),
   -- bookmarks
-  require("plugin-configs.vim-bookmarks"),
+  -- require("plugin-configs.vim-bookmarks"),
+  -- require("plugin-configs.bookmarks"),
+  require("plugin-configs.marks"),
   -- require("plugin-configs.reach-config"),
   -- file manager
   require("plugin-configs.oil-fm"),
@@ -161,18 +170,13 @@ require("lazy").setup({
   -- require("plugin-configs.codeshot"),
   -- make pretty comment boxes
   require("plugin-configs.comment-box"),
-  ---------
-  -- GIT --
-  ---------
-  -- best git commands integration for vim
-  -- require("plugin-configs.vim-fugitive"),
-  -- git blame integration
-  require("plugin-configs.blame"),
-  -- git diff indications in gutter column
-  require("plugin-configs.gitsigns"),
   -----------
   -- OTHER --
   -----------
+  -- Dim code not being worked on
+  require("plugin-configs.twilight"),
+  -- Rest client
+  require("plugin-configs.kulala"),
   -- shortcuts helper including registers, marks, keymaps, folds...
   require("plugin-configs.which-key"),
   -- an aswesome helper for writting custom colorschemes for Nvim
@@ -181,4 +185,6 @@ require("lazy").setup({
   require("plugin-configs.vim-be-good"),
   -- keep cursor centered
   -- require("plugin-configs.typewritter"),
+  -- ColorScheme creator
+  require("plugin-configs.lush"),
 }, lazyOptions)

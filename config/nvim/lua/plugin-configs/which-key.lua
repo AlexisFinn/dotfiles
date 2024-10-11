@@ -27,7 +27,8 @@ return {
       { "<C-PageDown>", "<cmd>bn<CR>", desc = "Move buffer right" },
       { "<C-PageUp>", "<cmd>bp<CR>", desc = "Move buffer left" },
       { "<C-s>", "<cmd>noh<CR>", desc = "Remove all search highlights" },
-      { "<F8>", function() require("reach").buffers({ show_current = true }) end, desc = "Buffer switcher" },
+      { "<F8>", function() require("snipe").open_buffer_menu({ max_path_width = 3 }) end, desc = "Buffer switcher" },
+      -- { "<F8>", function() require("reach").buffers({ show_current = true }) end, desc = "Buffer switcher" },
       { "<F9>", function() require("oil").open() end, desc = "Oil file manager" },
       { "<leader>-", "<cmd>split<CR>", desc = "Split window horizontally" },
       { "<leader>L", "<cmd>Lazy<CR>", desc = "Open Lazy plugin manager" },
@@ -38,9 +39,9 @@ return {
       { "<leader>]", "<cmd>SplitjoinJoin<CR>", desc = "Join code structure into single line" },
       { "<leader>d", group = "buffer(s)" },
       { "<leader>dA", "<cmd>%bd<CR>", desc = "Delete all buffers" },
-      { "<leader>da", "<cmd>%bd|e#|bd#<CR>", desc = "Delete all other buffers" },
-      { "<leader>dd", "<cmd>bd<CR>", desc = "Delete current buffer" },
-      { "<leader>dl", "<cmd>e#<CR>", desc = "Switch to last buffer" },
+      { "<leader>da", "<cmd>%bd|e#|bd#<CR>", desc = "Delete all other buffers", silent = true },
+      { "<leader>dd", "<cmd>bd<CR>", desc = "Delete current buffer", silent = true },
+      { "<leader>dl", "<cmd>e#<CR>", desc = "Switch to last buffer", silent = true },
       {
         "<leader>e",
         function()
@@ -58,7 +59,8 @@ return {
       },
       { "<leader>fw", "<cmd>Telescope grep_string<CR>", desc = "Grep current word or selection in project" },
       { "<leader>g", group = "git" },
-      { "<leader>ga", "<cmd>Git add %<CR>", desc = "Add current file to git commit" },
+      { "<leader>ga", "<cmd>!git add %<CR>", desc = "Add current file to git commit" },
+      { "<leader>gb", "<cmd>Gitsigns blame<CR>", desc = "Show Git blame" },
       {
         "<leader>gg",
         function()
@@ -98,13 +100,13 @@ return {
       { "<leader>w", "<cmd>w<cr>", desc = "Write changes", remap = false },
       { "<leader>|", "<cmd>vsplit<CR>", desc = "Split window vertically" },
       { "m", group = "Bookmarks" },
-      { "ma", "<cmd>BookmarkShowAll<CR>", desc = "Show all bookmarks" },
-      { "mc", "<cmd>BookmarkClear<CR>", desc = "Clear all bookmarks in current buffer" },
-      { "mi", "<cmd>BookmarkAnnotate<CR>", desc = "Add/Remove/Edit annotation on current line" },
-      { "mm", "<cmd>BookmarkToggle<CR>", desc = "Toggle bookmark on current line" },
-      { "mn", "<cmd>BookmarkNext<CR>", desc = "Go to next bookmark" },
-      { "mp", "<cmd>BookmarkPrev<CR>", desc = "Go to previous bookmark" },
-      { "mx", "<cmd>BookmarkClearAll<CR>", desc = "Clear all bookmarks in current project" },
+      -- { "ma", "<cmd>BookmarkShowAll<CR>", desc = "Show all bookmarks" },
+      -- { "mc", "<cmd>BookmarkClear<CR>", desc = "Clear all bookmarks in current buffer" },
+      -- { "mi", "<cmd>BookmarkAnnotate<CR>", desc = "Add/Remove/Edit annotation on current line" },
+      -- { "mm", "<cmd>BookmarkToggle<CR>", desc = "Toggle bookmark on current line" },
+      -- { "mn", "<cmd>BookmarkNext<CR>", desc = "Go to next bookmark" },
+      -- { "mp", "<cmd>BookmarkPrev<CR>", desc = "Go to previous bookmark" },
+      -- { "mx", "<cmd>BookmarkClearAll<CR>", desc = "Clear all bookmarks in current project" },
     })
   end,
 }

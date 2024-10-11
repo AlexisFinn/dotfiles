@@ -1,11 +1,11 @@
 return {
-  'sontungexpt/stcursorword',
+  "sontungexpt/stcursorword",
   event = "VeryLazy",
   opts = {
-      highlight = {
-        underline = true,
-        fg = nil,
-        bg = nil
-      }
-  }
+    highlight = {
+      underline = false,
+      bg = "#252d25",
+      fg = nil,
+    },
+  },
 }

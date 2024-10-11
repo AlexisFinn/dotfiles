@@ -22,7 +22,6 @@ return {
         keymap("n", "gD", vim.lsp.buf.declaration, opts)
         keymap("n", "gd", vim.lsp.buf.definition, opts)
         keymap("n", "gi", vim.lsp.buf.implementation, opts)
-        keymap("n", "<C-k>", vim.lsp.buf.signature_help, opts)
         -- keymap('n', '<space>wa', vim.lsp.buf.add_workspace_folder, opts)
         -- keymap('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, opts)
         -- keymap('n', '<space>wl', function()
@@ -104,7 +103,7 @@ return {
         },
       },
     })
-    require("lspconfig").tsserver.setup({
+    require("lspconfig").ts_ls.setup({
       handlers = handlerVirtualText,
       on_attach = onAttach,
       settings = {
