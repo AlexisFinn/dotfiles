@@ -136,7 +136,7 @@ local theme = lush(function(injected_functions)
     -- TabLineFill    { }, -- Tab pages line, where there are no labels
     -- TabLineSel     { }, -- Tab pages line, active tab page label
     -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
-    -- Visual         { }, -- Visual mode selection
+    Visual         { bg = chalk_board.lighten(10)}, -- Visual mode selection
     -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
     -- WarningMsg     { }, -- Warning messages
     -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
@@ -185,8 +185,8 @@ local theme = lush(function(injected_functions)
     -- Structure      { }, --   struct, union, enum, etc.
     -- Typedef        { }, --   A typedef
 
-    -- Special        { }, -- (*) Any special symbol
-    -- SpecialChar    { }, --   Special character in a constant
+    Special        { fg = chalk_teal }, -- (*) Any special symbol
+    SpecialChar    { }, --   Special character in a constant
     -- Tag            { }, --   You can use CTRL-] on this
     -- Delimiter      { }, --   Character that needs attention
     -- SpecialComment { }, --   Special things inside a comment (e.g. '\n')
