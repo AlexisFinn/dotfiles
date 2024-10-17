@@ -24,8 +24,6 @@ require("config.cmds.CRef")
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ install plugins                                         │
 -- ╰─────────────────────────────────────────────────────────╯
-local colorschemes = require("config.colorschemes")
 require("lazy").setup({
   spec = { import = "plugins" },
-  install = { colorscheme = colorschemes.Swayed },
 })

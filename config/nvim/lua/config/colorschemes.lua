@@ -392,7 +392,7 @@ return {
     config = function() vim.cmd.colorscheme("spaceduck") end,
   },
   Swayed = {
-    dir = "/home/alexis/dotfiles/config/nvim/swayed",
+    dir = vim.fn.stdpath("config") .. "/swayed",
     lazy = false,
     priority = 1000,
     init = function() vim.cmd.colorscheme("swayed") end,
