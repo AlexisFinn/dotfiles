@@ -171,18 +171,11 @@ return {
     config = function() vim.cmd.colorscheme("everforest") end,
   },
   EverGarden = {
-    "crispybaccoon/evergarden",
+    "comfysage/evergarden",
+    priority = 1000,
     opt = {
       transparent_background = false,
       contrast_dark = "medium", -- 'hard'|'medium'|'soft'
-      override_terminal = true,
-      style = {
-        tabline = { reverse = true, color = "green" },
-        search = { reverse = false, inc_reverse = true },
-        types = { italic = true },
-        keyword = { italic = true },
-        comment = { italic = false },
-      },
       overrides = {}, -- add custom overrides
     },
     config = function() vim.cmd.colorscheme("evergarden") end,
@@ -377,7 +370,7 @@ return {
     "Shadorain/shadotheme",
     lazy = false,
     priority = 1000,
-    config = function() vim.cmd.colorscheme("shadotheme") end,
+    config = function() vim.cmd.colorscheme("shado") end,
   },
   Sonokai = {
     "sainnhe/sonokai",
@@ -401,7 +394,7 @@ return {
     "NLKNguyen/papercolor-theme",
     lazy = false,
     priority = 1000,
-    config = function() vim.cmd.colorscheme("papercolor") end,
+    config = function() vim.cmd.colorscheme("PaperColor") end,
   },
   Tender = {
     "jacoborus/tender.vim",

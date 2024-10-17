@@ -22,8 +22,11 @@ require("config.autocmds")
 require("config.cmds.FormatJSON")
 require("config.cmds.CRef")
 -- ╭─────────────────────────────────────────────────────────╮
--- │ install plugins                                         │
+-- │ install plugins and set colorscheme                     │
 -- ╰─────────────────────────────────────────────────────────╯
+local colorschemes = require("config.colorschemes")
+
 require("lazy").setup({
-  spec = { import = "plugins" },
+  { import = "plugins" },
+  colorschemes.Swayed,
 })
