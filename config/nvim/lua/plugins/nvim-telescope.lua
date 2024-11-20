@@ -1,11 +1,12 @@
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
   callback = function() vim.cmd("vert copen 50") end,
 })
-local telescope = require("telescope")
+-- local telescope = require("telescope")
 local actions = require("telescope.actions")
 
 return {
   "nvim-telescope/telescope.nvim",
+  branch = "0.1.x",
   opts = {
     defaults = {
       -- layout_strategy = 'vertical', -- see :help telescope.layout
@@ -30,10 +31,30 @@ return {
         theme = "dropdown",
         initial_mode = "insert",
         borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-        layout_strategy = "vertical",
+        layout_strategy = "horizontal",
         layout_config = {
-          height = 0.6,
+          height = { padding = 0 },
+          width = { padding = 0 },
+          horizontal = {
+            preview_width = 120,
+          },
         },
+        mappings = {
+          i = {
+            ["<C-d>"] = actions.delete_buffer,
+          },
+          n = {
+            ["<C-d>"] = actions.delete_buffer,
+          },
+        },
+        path_display = function(_, path)
+          local tail = vim.fs.basename(path)
+          local parent = vim.fs.dirname(path)
+          if parent == "." then
+            return tail
+          end
+          return string.format("%s\t\t%s", tail, parent)
+        end,
       },
       colorscheme = {
         -- theme = "vertical",
@@ -61,7 +82,7 @@ return {
           i = {
             ["<C-l>"] = {
               actions.smart_send_to_qflist,
-              type = "action",
+              -- type = "action",
             },
           },
         },
@@ -75,7 +96,7 @@ return {
         },
       },
       find_files = {
-        path_display = { "smart" },
+        path_display = { "truncate" },
       },
     },
   },
@@ -85,6 +106,7 @@ return {
     { "<leader>p", function() require("telescope.builtin").find_files() end, desc = "Search for a file within the project" },
     { "<leader>rg", function() require("telescope.builtin").live_grep() end, desc = "Search for a word or sentence withen the project files" },
     { "<leader>o", function() require("telescope").extensions.project.project() end, desc = "Search for project" },
+    { "<F8>", function() require("telescope.builtin").buffers() end, desc = "Buffer switcher/manager" },
   },
   dependencies = {
     "nvim-lua/popup.nvim",
@@ -93,10 +115,11 @@ return {
     "nvim-telescope/telescope-project.nvim",
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
-  configure = function()
-    telescope.load_extension("fzf")
-    telescope.load_extension("ui-select")
-    telescope.load_extension("project")
-    telescope.load_extension("smart_open")
-  end,
+  extensions = { "fzf", "ui-select", "project", "smart_open" },
+  -- configure = function()
+  --   telescope.load_extension("fzf")
+  --   telescope.load_extension("ui-select")
+  --   telescope.load_extension("project")
+  --   telescope.load_extension("smart_open")
+  -- end,
 }

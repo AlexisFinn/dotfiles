@@ -52,7 +52,7 @@ local chalk_purple = hsl(240, 40, 75)
 local chalk_yellow = hsl(50, 60, 80)
 local chalk_green = hsl(110, 30, 70)
 local chalk_pink = hsl(320, 50, 80)
-local chalk_board = hsl(120, 10, 10)
+local chalk_board = hsl(120, 10, 07)
 local chalk_blue = hsl(209, 60, 60)
 local error = hsl(321, 35, 28)
 -- chalk_teal.rotate(20).saturate(30)
@@ -218,15 +218,15 @@ local theme = lush(function(injected_functions)
     -- DiagnosticHint             { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     -- DiagnosticOk               { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
     DiagnosticVirtualTextError { fg = error } , -- Used for "Error" diagnostic virtual text.
-    -- DiagnosticVirtualTextWarn  { } , -- Used for "Warn" diagnostic virtual text.
+    DiagnosticVirtualTextWarn  { fg = error } , -- Used for "Warn" diagnostic virtual text.
     -- DiagnosticVirtualTextInfo  { } , -- Used for "Info" diagnostic virtual text.
-    -- DiagnosticVirtualTextHint  { } , -- Used for "Hint" diagnostic virtual text.
+    DiagnosticVirtualTextHint  { fg = error.rotate(-90).lighten(20) } , -- Used for "Hint" diagnostic virtual text.
     -- DiagnosticVirtualTextOk    { } , -- Used for "Ok" diagnostic virtual text.
-    -- DiagnosticUnderlineError   { } , -- Used to underline "Error" diagnostics.
-    -- DiagnosticUnderlineWarn    { } , -- Used to underline "Warn" diagnostics.
-    -- DiagnosticUnderlineInfo    { } , -- Used to underline "Info" diagnostics.
-    -- DiagnosticUnderlineHint    { } , -- Used to underline "Hint" diagnostics.
-    -- DiagnosticUnderlineOk      { } , -- Used to underline "Ok" diagnostics.
+    DiagnosticUnderlineError   { } , -- Used to underline "Error" diagnostics.
+    DiagnosticUnderlineWarn    { } , -- Used to underline "Warn" diagnostics.
+    DiagnosticUnderlineInfo    { } , -- Used to underline "Info" diagnostics.
+    DiagnosticUnderlineHint    { } , -- Used to underline "Hint" diagnostics.
+    DiagnosticUnderlineOk      { } , -- Used to underline "Ok" diagnostics.
     -- DiagnosticFloatingError    { } , -- Used to color "Error" diagnostic messages in diagnostics float. See |vim.diagnostic.open_float()|
     -- DiagnosticFloatingWarn     { } , -- Used to color "Warn" diagnostic messages in diagnostics float.
     -- DiagnosticFloatingInfo     { } , -- Used to color "Info" diagnostic messages in diagnostics float.

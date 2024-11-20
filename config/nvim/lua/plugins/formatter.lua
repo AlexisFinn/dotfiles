@@ -26,6 +26,11 @@ return {
         javascript = {
           -- require("formatter.filetypes.javascript").prettier()
           function()
+            -- return {
+            --   exe = "biome",
+            --   args = { "format", "--write" },
+            --   stdin = false,
+            -- }
             -- if project contains a .prettierrc file, use it
             if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
               return {

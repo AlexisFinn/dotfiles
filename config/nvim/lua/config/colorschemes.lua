@@ -135,6 +135,12 @@ return {
     priority = 1000,
     config = function() vim.cmd.colorscheme("darkplus") end,
   },
+  Defaultim = {
+    dir = vim.fn.stdpath("config") .. "/defaultim",
+    lazy = false,
+    priority = 1000,
+    init = function() vim.cmd.colorscheme("defaultim") end,
+  },
   Distinct = {
     "https://gitlab.com/bartekjaszczak/distinct-nvim",
     priority = 1000,

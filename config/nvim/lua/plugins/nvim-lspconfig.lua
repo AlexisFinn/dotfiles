@@ -77,7 +77,7 @@ return {
     -- }
 
     -- gleam
-    require("lspconfig").gleam.setup({})
+    -- require("lspconfig").gleam.setup({})
 
     -- python
     require("lspconfig").pylsp.setup({
@@ -102,6 +102,14 @@ return {
           useFlatConfig = nil,
         },
       },
+    })
+    require("lspconfig").biome.setup({
+      handlers = handlerVirtualText,
+      on_attach = onAttach,
+      filetypes = { "javascript", "typescript" },
+      root_dir = util.root_pattern("package.json"),
+      cmd = { "biome", "lsp-proxy", "--config-path=/home/alexis/zest/biome.json" },
+      -- opts = {},
     })
     require("lspconfig").ts_ls.setup({
       handlers = handlerVirtualText,

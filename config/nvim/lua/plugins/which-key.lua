@@ -29,11 +29,20 @@ return {
     { "<leader>k", "<C-W><C-K>", desc = "Focus Window DOWN" },
     { "<leader>l", "<C-W><C-L>", desc = "Focus Window RIGHT" },
     { "<leader>q", "<cmd>q<CR>", desc = "Quit/Close window" },
-    { "<leader>tN", function() vim.diagnostic.goto_prev({ float = { border = "rounded" } }) end, desc = "Go to Previous lsp error" },
-    { "<leader>tn", function() vim.diagnostic.goto_next({ float = { border = "rounded" } }) end, desc = "Go to Next lsp error" },
-    { "<leader>tr", function() vim.diagnostic.open_float({ border = "rounded" }) end, desc = "Restart lsp server" },
-    { "<leader>tt", "<cmd>LSPRestart<CR>", desc = "Show current lsp error" },
+    { "<leader>tp", function() vim.diagnostic.jump({ count = -1, float = { border = "rounded" } }) end, desc = "Go to Previous lsp error" },
+    { "<leader>tn", function() vim.diagnostic.jump({ count = 1, float = { border = "rounded" } }) end, desc = "Go to Next lsp error" },
+    { "<leader>tt", function() vim.diagnostic.open_float({ border = "rounded" }) end, desc = "Show current lsp error" },
+    { "<leader>tr", "<cmd>LSPRestart<CR>", desc = "Restart lsp server" },
     { "<leader>w", "<cmd>w<cr>", desc = "Write changes", remap = false },
     { "<leader>|", "<cmd>vsplit<CR>", desc = "Split window vertically" },
+    {
+      "<leader>cc",
+      function()
+        local curWord = vim.fn.escape(vim.fn.expand("<cword>"), [[\/]])
+        vim.fn.search(";")
+        vim.fn.execute("normal! o" .. string.format("console.log('[[ %s ]] ----------------> ', %s);", curWord, curWord))
+      end,
+      desc = "Add console.log for current word on next available line",
+    },
   },
 }

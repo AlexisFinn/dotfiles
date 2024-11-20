@@ -27,6 +27,9 @@ require("config.cmds.CRef")
 local colorschemes = require("config.colorschemes")
 
 require("lazy").setup({
-  { import = "plugins" },
-  colorschemes.Swayed,
+  spec = {
+    { import = "plugins" },
+    colorschemes.Swayed,
+  },
+  change_detection = { enabled = false },
 })
