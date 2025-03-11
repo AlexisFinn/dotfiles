@@ -109,7 +109,7 @@ local theme = lush(function(injected_functions)
     -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
     -- MoreMsg        { }, -- |more-prompt|
     -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-    Normal         { fg = chalk_base, bg = chalk_board }, -- Normal text
+    Normal         { fg = chalk_base , bg = chalk_board.darken(70) }, -- Normal text
     -- NormalFloat    { }, -- Normal text in floating windows.
     -- FloatBorder    { }, -- Border of floating windows.
     -- FloatTitle     { }, -- Title of floating windows.
@@ -156,14 +156,14 @@ local theme = lush(function(injected_functions)
     Comment({ fg = chalk_foam }), -- Any comment
 
     -- Constant       { }, -- (*) Any constant
-    String          { fg = chalk_yellow }, --   A string constant: "this is a string"
+    -- String          { fg = chalk_yellow }, --   A string constant: "this is a string"
     -- Character      { }, --   A character constant: 'c', '\n'
     -- Number         { }, --   A number constant: 234, 0xff
     -- Boolean        { }, --   A boolean constant: TRUE, false
     -- Float          { }, --   A floating point constant: 2.3e10
 
     -- Identifier     { }, -- (*) Any variable name
-    Function       { fg = chalk_blue }, --   Function name (also: methods for classes)
+    -- Function       { fg = chalk_blue }, --   Function name (also: methods for classes)
     -- Function       { Normal }, --   Function name (also: methods for classes)
 
     Statement      { fg = chalk_pink, gui = "italic" }, -- (*) Any statement
@@ -290,7 +290,7 @@ local theme = lush(function(injected_functions)
     -- sym"@operator"          { }, -- Operator
     sym"@keyword"                     { fg = chalk_pink }, -- Keyword
     -- sym"@exception"         { }, -- Exception
-    sym"@variable"                    { fg = chalk_teal.lighten(45) }, -- Identifier
+    sym"@variable"                    { fg = chalk_teal.lighten(20) }, -- Identifier
     sym"@lsp.type.member.javascript"  { fg = chalk_pink },
     -- sym"@lsp.type.property.javascript"  { fg = chalk_purple },
     sym"@lsp.type.property.javascript"  { fg = chalk_purple },

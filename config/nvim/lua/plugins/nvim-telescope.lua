@@ -35,9 +35,9 @@ return {
         layout_config = {
           height = { padding = 0 },
           width = { padding = 0 },
-          horizontal = {
-            preview_width = 120,
-          },
+          -- horizontal = {
+          --   preview_width = 120,
+          -- },
         },
         mappings = {
           i = {

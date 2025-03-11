@@ -1,8 +1,9 @@
 return {
   "chentoast/marks.nvim",
-  vent = "VeryLazy",
+  event = "VeryLazy",
   opts = {
     default_mappings = false,
+    cyclic = true,
     mappings = {
       -- set = "m",
       toggle = "mm",

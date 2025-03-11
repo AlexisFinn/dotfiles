@@ -29,20 +29,67 @@ return {
     { "<leader>k", "<C-W><C-K>", desc = "Focus Window DOWN" },
     { "<leader>l", "<C-W><C-L>", desc = "Focus Window RIGHT" },
     { "<leader>q", "<cmd>q<CR>", desc = "Quit/Close window" },
-    { "<leader>tp", function() vim.diagnostic.jump({ count = -1, float = { border = "rounded" } }) end, desc = "Go to Previous lsp error" },
-    { "<leader>tn", function() vim.diagnostic.jump({ count = 1, float = { border = "rounded" } }) end, desc = "Go to Next lsp error" },
+    { "<leader>tp", function() vim.diagnostic.goto_prev() end, desc = "Go to Previous lsp error" },
+    { "<leader>tn", function() vim.diagnostic.goto_next() end, desc = "Go to Previous lsp error" },
     { "<leader>tt", function() vim.diagnostic.open_float({ border = "rounded" }) end, desc = "Show current lsp error" },
-    { "<leader>tr", "<cmd>LSPRestart<CR>", desc = "Restart lsp server" },
+    {
+      "<leader>ta",
+      function() vim.diagnostic.setqflist() end,
+      desc = "Show all current buffer diagnostics",
+    },
+    { "<leader>tr", "<cmd>LspRestart<CR>", desc = "Restart lsp server" },
     { "<leader>w", "<cmd>w<cr>", desc = "Write changes", remap = false },
     { "<leader>|", "<cmd>vsplit<CR>", desc = "Split window vertically" },
+    -- {
+    --   "<leader>cl",
+    --   function()
+    --     local curWord = vim.fn.escape(vim.fn.expand("<cword>"), [[\/]])
+    --     vim.fn.search(";\\|{")
+    --     vim.fn.execute("normal! o" .. string.format("console.log('[[ %s ]] ----------------> ', %s);", curWord, curWord))
+    --   end,
+    --   desc = "Add console.log for current word on next available line",
+    -- },
+    -- {
+    --   "<leader>cd",
+    --   function()
+    --     local curWord = vim.fn.escape(vim.fn.expand("<cword>"), [[\/]])
+    --     vim.fn.search(";\\|{")
+    --     vim.fn.execute("normal! o" .. string.format("console.log('[[ %s ]] ----------------> ');", curWord))
+    --     vim.fn.execute("normal! o" .. string.format("console.dir(%s, {depth: 5});", curWord))
+    --     vim.fn.execute("normal! oconsole.log(' <----------------');")
+    --   end,
+    --   desc = "Add console.dir structure for current word on next available line",
+    -- },
+    {
+      "<leader>ct",
+      function()
+        local curWord = vim.fn.escape(vim.fn.expand("<cword>"), [[\/]])
+        vim.fn.search(";\\|{")
+        vim.fn.execute("normal! o" .. string.format("console.trace(%s);", curWord))
+      end,
+      desc = "Add console.log for current word on next available line",
+    },
     {
       "<leader>cc",
       function()
-        local curWord = vim.fn.escape(vim.fn.expand("<cword>"), [[\/]])
-        vim.fn.search(";")
-        vim.fn.execute("normal! o" .. string.format("console.log('[[ %s ]] ----------------> ', %s);", curWord, curWord))
+        vim.fn.execute("normal! oconsole.log();")
+        vim.fn.search(")", "be")
+        vim.cmd("startinsert")
       end,
-      desc = "Add console.log for current word on next available line",
+      desc = "Add console log on next available line",
+    },
+    {
+      "<leader>cp",
+      function()
+        local currentPos = vim.fn.getpos(".")
+        local found = vim.fn.search("console\\.")
+        while found > 0 do
+          vim.fn.execute("normal! dd")
+          found = vim.fn.search("console\\.")
+        end
+        vim.fn.setpos(".", currentPos)
+      end,
+      desc = "Purge/Clear all console.log statements in current buffer",
     },
   },
 }

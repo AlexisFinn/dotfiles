@@ -289,8 +289,10 @@ keys = [
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1%")),
-    Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1%")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("playerctl --player=spotify play-pause")),
+    Key([], "XF86AudioLowerVolume", lazy.spawn("playerctl --player=chromium play-pause")),
+    # Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1%")),
+    # Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1%")),
     # toggle default microphone/input mute 
     Key([mod], "m", lazy.spawn("/home/alexis/bin/muteUnmuteMic.sh")),
 

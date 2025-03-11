@@ -6,6 +6,15 @@ return {
         lua = {
           require("formatter.filetypes.lua").stylua,
         },
+        zig = {
+          function()
+            return {
+              exe = "zig",
+              args = { "fmt", "--stdin" },
+              stdin = true,
+            }
+          end,
+        },
         json = {
           function()
             if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
@@ -184,7 +193,7 @@ return {
       [[
     augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePost *.js,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html,*.tsx,*.sql FormatWrite
+    autocmd BufWritePost *.js,*.mjs,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html,*.tsx,*.sql,*.zig FormatWrite
     augroup END
     ]],
       { output = true }
