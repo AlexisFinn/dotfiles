@@ -40,26 +40,6 @@ return {
     { "<leader>tr", "<cmd>LspRestart<CR>", desc = "Restart lsp server" },
     { "<leader>w", "<cmd>w<cr>", desc = "Write changes", remap = false },
     { "<leader>|", "<cmd>vsplit<CR>", desc = "Split window vertically" },
-    -- {
-    --   "<leader>cl",
-    --   function()
-    --     local curWord = vim.fn.escape(vim.fn.expand("<cword>"), [[\/]])
-    --     vim.fn.search(";\\|{")
-    --     vim.fn.execute("normal! o" .. string.format("console.log('[[ %s ]] ----------------> ', %s);", curWord, curWord))
-    --   end,
-    --   desc = "Add console.log for current word on next available line",
-    -- },
-    -- {
-    --   "<leader>cd",
-    --   function()
-    --     local curWord = vim.fn.escape(vim.fn.expand("<cword>"), [[\/]])
-    --     vim.fn.search(";\\|{")
-    --     vim.fn.execute("normal! o" .. string.format("console.log('[[ %s ]] ----------------> ');", curWord))
-    --     vim.fn.execute("normal! o" .. string.format("console.dir(%s, {depth: 5});", curWord))
-    --     vim.fn.execute("normal! oconsole.log(' <----------------');")
-    --   end,
-    --   desc = "Add console.dir structure for current word on next available line",
-    -- },
     {
       "<leader>ct",
       function()

@@ -1,7 +1,6 @@
 vim.api.nvim_create_autocmd("QuickFixCmdPost", {
   callback = function() vim.cmd("vert copen 50") end,
 })
--- local telescope = require("telescope")
 local actions = require("telescope.actions")
 
 return {
@@ -116,10 +115,4 @@ return {
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" },
   },
   extensions = { "fzf", "ui-select", "project", "smart_open" },
-  -- configure = function()
-  --   telescope.load_extension("fzf")
-  --   telescope.load_extension("ui-select")
-  --   telescope.load_extension("project")
-  --   telescope.load_extension("smart_open")
-  -- end,
 }
