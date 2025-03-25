@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd("LspAttach", {
     keymap({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
     keymap("n", "gr", vim.lsp.buf.references, opts)
     keymap("n", "<space>f", function() vim.lsp.buf.format({ async = true }) end, opts)
+    keymap("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, opts)
   end,
 })
 

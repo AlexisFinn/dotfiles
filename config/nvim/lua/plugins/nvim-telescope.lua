@@ -3,6 +3,16 @@ vim.api.nvim_create_autocmd("QuickFixCmdPost", {
 })
 local actions = require("telescope.actions")
 
+local path_display_function = function(_, path)
+  local tail = vim.fs.basename(path)
+  local parent = vim.fs.dirname(path)
+  if parent == "." then
+    return tail
+  end
+  -- return string.format("%s", "hello")
+  return string.format("%s\t\t%s", tail, parent)
+end
+
 return {
   "nvim-telescope/telescope.nvim",
   branch = "0.1.x",
@@ -46,14 +56,7 @@ return {
             ["<C-d>"] = actions.delete_buffer,
           },
         },
-        path_display = function(_, path)
-          local tail = vim.fs.basename(path)
-          local parent = vim.fs.dirname(path)
-          if parent == "." then
-            return tail
-          end
-          return string.format("%s\t\t%s", tail, parent)
-        end,
+        path_display = path_display_function,
       },
       colorscheme = {
         -- theme = "vertical",
@@ -85,6 +88,7 @@ return {
             },
           },
         },
+        path_display = path_display_function,
       },
       marks = {
         theme = "dropdown",

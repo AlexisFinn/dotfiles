@@ -22,6 +22,10 @@ require("config.autocmds")
 require("config.cmds.FormatJSON")
 require("config.cmds.CRef")
 -- ╭─────────────────────────────────────────────────────────╮
+-- │ LSP                                                     │
+-- ╰─────────────────────────────────────────────────────────╯
+require("config.lsp")
+-- ╭─────────────────────────────────────────────────────────╮
 -- │ install plugins and set colorscheme                     │
 -- ╰─────────────────────────────────────────────────────────╯
 local colorschemes = require("config.colorschemes")
@@ -33,8 +37,3 @@ require("lazy").setup({
   },
   change_detection = { enabled = false },
 })
-
--- ╭─────────────────────────────────────────────────────────╮
--- │ LSP                                                     │
--- ╰─────────────────────────────────────────────────────────╯
-require("config.lsp")

@@ -17,29 +17,15 @@ return {
         },
         json = {
           function()
-            if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
-              return {
-                exe = "prettier",
-                args = { "--parser json", "-w" },
-                stdin = true,
-              }
-            else
-              return {
-                exe = "prettier",
-                args = { "--parser json", "--config /home/alexis/.prettierrc", "-w" },
-                stdin = true,
-              }
-            end
+            return {
+              exe = "fixjson",
+              args = { "-w", "--stdin-filename" },
+              stdin = true,
+            }
           end,
         },
         javascript = {
-          -- require("formatter.filetypes.javascript").prettier()
           function()
-            -- return {
-            --   exe = "biome",
-            --   args = { "format", "--write" },
-            --   stdin = false,
-            -- }
             -- if project contains a .prettierrc file, use it
             if vim.fn.filereadable(".prettierrc.js") == 1 or vim.fn.filereadable(".prettierrc") == 1 then
               return {
@@ -193,7 +179,7 @@ return {
       [[
     augroup FormatAutogroup
     autocmd!
-    autocmd BufWritePost *.js,*.mjs,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html,*.tsx,*.sql,*.zig FormatWrite
+    autocmd BufWritePost *.js,*.mjs,*.rs,*.lua,*.php,*.vue,*.go,*.ts,*.scss,*.css,*.html,*.tsx,*.sql,*.zig,*.json FormatWrite
     augroup END
     ]],
       { output = true }

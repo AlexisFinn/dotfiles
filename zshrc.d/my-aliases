@@ -30,7 +30,6 @@ alias grep=rg
 alias lg=lazygit
 alias ld=lazydocker
 alias logout='dm-tool switch-to-greeter'
-alias php="php7"
 alias em="emacsclient -c &"
 
 functon chpwd() {

@@ -1,6 +1,6 @@
 return {
   cmd = {
-    vim.fn.expand("$MASON/bin/sonarlint-language-server"),
+    vim.fn.expand("sonarlint-language-server"),
     "-stdio",
     "-analyzers",
     -- paths to the analyzers you need, using those for python and java in this example

@@ -1,9 +1,10 @@
 return {
   cmd = {
-    vim.fn.expand("$MASON/bin/typescript-language-server"),
+    vim.fn.expand("typescript-language-server"),
     "--stdio",
   },
   filetypes = {
+    "json",
     "javascript",
     "javascriptreact",
     "javascript.jsx",

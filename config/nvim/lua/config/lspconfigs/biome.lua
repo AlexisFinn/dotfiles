@@ -1,9 +1,10 @@
 return {
   cmd = {
-    vim.fn.expand("$MASON/bin/biome"),
+    vim.fn.expand("biome"),
     "lsp-proxy",
   },
   filetypes = {
+    "json",
     "javascript",
     "javascriptreact",
     "javascript.jsx",
