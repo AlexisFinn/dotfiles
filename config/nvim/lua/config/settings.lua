@@ -18,7 +18,8 @@ vim.o.smartcase = true -- if search contains an uppercase do a case-sensitive se
 vim.o.expandtab = true -- expand tab to spaces
 vim.o.shiftwidth = 2 -- expand tab to 2 spaces by default
 vim.o.softtabstop = 2 -- expand tab to 2 spaces by default
-vim.o.guifont = "Cascadia Code PL:h14" -- not using gui but some plugins might need this
+-- vim.o.guifont = "Cascadia Code PL:h14" -- not using gui but some plugins might need this
+vim.o.guifont = "FantasqueSansM Nerd Font Mono:h14" -- not using gui but some plugins might need this
 -- vim.o.list = true -- display whitespaces as characters when editing
 vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→", eol = "↲", nbsp = "␣" }
 vim.o.hidden = true -- hide inactive buffers instead of unloading them, without this you will need to save your changes before changing buffers

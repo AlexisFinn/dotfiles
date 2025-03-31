@@ -510,11 +510,11 @@ screens = [
                               #  scroll_interval=0
                               #  ),
                 widget.Spacer(),
-            make_widget(
-                'Battery',
-                color,
-                format=icons['battery'] + "{percent:2.0%}"
-            ),
+                make_widget(
+                    'Battery',
+                    color,
+                    format=icons['battery'] + "{percent:2.0%}"
+                    ),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color1),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color2),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color3),

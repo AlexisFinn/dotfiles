@@ -19,8 +19,8 @@ return {
     },
     sections = {
       lualine_a = { "mode" },
-      lualine_b = { { "filename", path = 1 } },
-      lualine_c = { { "macro-recording", fmt = show_macro_recording } },
+      lualine_b = { { "filename", path = 3 } },
+      lualine_c = { { "macro-recording", fmt = show_macro_recording, color = "error" } },
       lualine_x = { { color = "Normal" } },
       lualine_y = { "filetype" },
       lualine_z = { "location" },

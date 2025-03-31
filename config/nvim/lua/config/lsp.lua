@@ -44,3 +44,7 @@ lspConfig["biome"] = require("config.lspconfigs.biome")
 vim.lsp.enable("biome")
 
 lspConfig["sonarlint"] = require("config.lspconfigs.sonarlint")
+vim.lsp.enable("sonarlint")
+
+lspConfig["awk"] = require("config.lspconfigs.awk")
+vim.lsp.enable("awk")

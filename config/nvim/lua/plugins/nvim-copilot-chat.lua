@@ -7,5 +7,8 @@ return {
     },
     build = "make tiktoken", -- Only on MacOS or Linux
     opts = {},
+    keys = {
+      { "<C-t>", "<cmd>CopilotChat<CR>", desc = "Open copilot chat", mode = "n" },
+    },
   },
 }
