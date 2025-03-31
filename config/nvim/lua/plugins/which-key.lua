@@ -13,13 +13,13 @@ return {
     --  ── Visual Mode ─────────────────────────────────────────────────────
     { "<leader>fw", "<cmd>Telescope grep_string<CR>", desc = "Grep current word or selection in project", mode = "v" },
     { "<leader>q", "<cmd>q<CR>", desc = "Quit/Close window", mode = "v" },
-    { "<PageDown>", "<C-u>", desc = "Scroll down one page", mode = "v" },
-    { "<PageUp>", "<C-d>", desc = "Scroll up one page", mode = "v" },
+    { "<PageDown>", "<C-d>", desc = "Scroll down one page", mode = "v" },
+    { "<PageUp>", "<C-u>", desc = "Scroll up one page", mode = "v" },
     --  ── Normal Mode ─────────────────────────────────────────────────────
     { "<C-PageDown>", "<cmd>bn<CR>", desc = "Move buffer right" },
     { "<C-PageUp>", "<cmd>bp<CR>", desc = "Move buffer left" },
-    { "<PageDown>", "<C-u>", desc = "Scroll down one page" },
-    { "<PageUp>", "<C-d>", desc = "Scroll up one page" },
+    { "<PageDown>", "<C-d>", desc = "Scroll down one page" },
+    { "<PageUp>", "<C-u>", desc = "Scroll up one page" },
     { "<C-s>", "<cmd>noh<CR>", desc = "Remove all search highlights" },
     { "<leader>-", "<cmd>split<CR>", desc = "Split window horizontally" },
     { "<leader>W", "<cmd>wa<CR>", desc = "Write All changes" },
