@@ -4,8 +4,25 @@ lspConfig("*", {
   root_markers = { ".git" },
 })
 
+lspConfig["ts_ls"] = require("config.lspconfigs.ts_ls")
+vim.lsp.enable("ts_ls")
+
+lspConfig["biome"] = require("config.lspconfigs.biome")
+vim.lsp.enable("biome")
+
+lspConfig["sonarlint"] = require("config.lspconfigs.sonarlint")
+-- vim.lsp.enable("sonarlint")
+
+lspConfig["awk"] = require("config.lspconfigs.awk")
+vim.lsp.enable("awk")
+
+-- configure autocomplete behavior
+vim.o.completeopt = "menu,noselect,popup,fuzzy"
+
+-- configure lsp diagnostics behavior
 vim.diagnostic.config({
   virtual_text = true,
+  virtual_lines = false, -- { current_line = true },
   underline = true,
   signs = true,
   update_in_insert = true,
@@ -15,36 +32,20 @@ vim.diagnostic.config({
 })
 
 vim.api.nvim_create_autocmd("LspAttach", {
-  group = vim.api.nvim_create_augroup("UserLspConfig", {}),
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     local keymap = vim.keymap.set
+    -- enable autocompletion for the client
+    if client:supports_method("textDocument/completion") then
+      vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })
+    end
 
     -- disable lsp formatting on save, using "formatter" plugin instead
     vim.bo[args.buf].formatexpr = nil
 
     -- Buffer local mappings.
     local opts = { buffer = args.buf }
-    keymap("n", "gD", vim.lsp.buf.declaration, opts)
-    keymap("n", "gd", vim.lsp.buf.definition, opts)
-    keymap("n", "gi", vim.lsp.buf.implementation, opts)
-    keymap("n", "<space>D", vim.lsp.buf.type_definition, opts)
-    keymap("n", "<space>rn", vim.lsp.buf.rename, opts)
-    keymap({ "n", "v" }, "<space>ca", vim.lsp.buf.code_action, opts)
-    keymap("n", "gr", vim.lsp.buf.references, opts)
-    keymap("n", "<space>f", function() vim.lsp.buf.format({ async = true }) end, opts)
-    keymap("n", "K", function() vim.lsp.buf.hover({ border = "rounded" }) end, opts)
+    keymap("n", "gD", vim.lsp.buf.declaration, { buffer = args.buf, desc = "LSP: Goto Declaration" })
+    keymap("n", "gd", vim.lsp.buf.definition, { buffer = args.buf, desc = "LSP: Goto Definition" })
   end,
 })
-
-lspConfig["ts_ls"] = require("config.lspconfigs.ts_ls")
-vim.lsp.enable("ts_ls")
-
-lspConfig["biome"] = require("config.lspconfigs.biome")
-vim.lsp.enable("biome")
-
-lspConfig["sonarlint"] = require("config.lspconfigs.sonarlint")
-vim.lsp.enable("sonarlint")
-
-lspConfig["awk"] = require("config.lspconfigs.awk")
-vim.lsp.enable("awk")

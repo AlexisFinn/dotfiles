@@ -45,7 +45,13 @@ vim.o.undolevels = 10000
 vim.o.updatetime = 200 -- Save swap file (if any) and trigger CursorHold event
 vim.o.foldmethod = "manual"
 vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions" -- what to save in session
+vim.o.winborder = "rounded"
 -- vim.o.foldmethod = "expr" -- custom fold method
 -- vim.o.foldexpr = "nvim_treesitter#foldexpr()" -- fold using treesitter
 vim.g.do_filetype_lua = 1 -- use new experimental filetype detection
 vim.g.did_lead_filetypes = 0
+
+-- neovide settings
+vim.g.neovide_scroll_animation_length = 0.1
+vim.g.neovide_text_gamma = 0.8
+vim.g.neovide_text_contrast = 0.5
