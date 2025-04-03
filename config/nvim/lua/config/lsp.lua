@@ -13,6 +13,9 @@ vim.lsp.enable("biome")
 lspConfig["sonarlint"] = require("config.lspconfigs.sonarlint")
 -- vim.lsp.enable("sonarlint")
 
+lspConfig["lua-language-server"] = require("config.lspconfigs.lua_language_server")
+vim.lsp.enable("lua-language-server")
+
 lspConfig["awk"] = require("config.lspconfigs.awk")
 vim.lsp.enable("awk")
 
@@ -35,6 +38,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
   callback = function(args)
     local client = vim.lsp.get_client_by_id(args.data.client_id)
     local keymap = vim.keymap.set
+
+    if client.server_capabilities.completionProvider then
+      client.server_capabilities.completionProvider.triggerCharacters = vim.split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_. ", "")
+    end
     -- enable autocompletion for the client
     if client:supports_method("textDocument/completion") then
       vim.lsp.completion.enable(true, client.id, args.buf, { autotrigger = true })

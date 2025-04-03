@@ -3,8 +3,11 @@ return {
   ft = "lua",
   dependencies = { "Bilal2453/luvit-meta", lazy = true },
   opts = {
+    enabled = true,
     library = {
-      { path = "luvit-meta/library", words = { "vim%.uv" } },
+      "LazyVim",
+      -- { path = "luvit-meta/library", words = { "vim%.uv" } },
+      "luvit-meta/library",
     },
   },
 }
