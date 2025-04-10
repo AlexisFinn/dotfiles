@@ -38,8 +38,9 @@ return {
     pickers = {
       buffers = {
         theme = "dropdown",
+        border = false,
         initial_mode = "insert",
-        borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
+        -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
         layout_strategy = "horizontal",
         layout_config = {
           height = { padding = 0 },
@@ -61,6 +62,7 @@ return {
       colorscheme = {
         -- theme = "vertical",
         layout_strategy = "vertical",
+        border = false,
         initial_mode = "normal",
         enable_preview = true,
         layout_config = {
@@ -70,6 +72,7 @@ return {
       },
       grep_string = {
         theme = "dropdown",
+        border = false,
         initial_mode = "normal",
         layout_config = {
           height = 0.5,
@@ -77,6 +80,7 @@ return {
       },
       live_grep = {
         theme = "dropdown",
+        border = false,
         layout_config = {
           height = 0.5,
         },
@@ -92,6 +96,7 @@ return {
       },
       marks = {
         theme = "dropdown",
+        border = false,
         enable_preview = true,
         layout_strategy = "vertical",
         layout_config = {
@@ -99,6 +104,7 @@ return {
         },
       },
       find_files = {
+        border = false,
         path_display = { "truncate" },
       },
     },

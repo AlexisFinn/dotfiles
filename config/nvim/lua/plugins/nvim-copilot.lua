@@ -5,15 +5,17 @@ return {
   event = "VeryLazy",
   config = function()
     require("copilot").setup({
+      copilot_model = "gtp-4o-copilot",
       panel = {
         enabled = false,
         keymap = {
-          open = "<C-t>",
+          open = "<C-s>",
         },
       },
       suggestion = {
-        enabled = true,
+        enabled = false,
         auto_trigger = true,
+        hide_during_completion = false,
         keymap = {
           accept = "<C-y>",
         },

@@ -2,7 +2,7 @@ return {
   "chentoast/marks.nvim",
   event = "VeryLazy",
   opts = {
-    default_mappings = false,
+    default_mappings = true,
     cyclic = true,
     mappings = {
       -- set = "m",

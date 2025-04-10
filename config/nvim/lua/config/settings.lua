@@ -50,6 +50,7 @@ vim.o.winborder = "rounded"
 -- vim.o.foldexpr = "nvim_treesitter#foldexpr()" -- fold using treesitter
 vim.g.do_filetype_lua = 1 -- use new experimental filetype detection
 vim.g.did_lead_filetypes = 0
+vim.g.floaterm_border = false
 
 -- neovide settings
 vim.g.neovide_scroll_animation_length = 0.1

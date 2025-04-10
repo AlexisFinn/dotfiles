@@ -13,9 +13,6 @@ return {
         underline = true,
         signs = true,
         update_in_insert = true,
-        float = {
-          border = "rounded",
-        },
       })
 
       vim.api.nvim_create_autocmd("LspAttach", {
