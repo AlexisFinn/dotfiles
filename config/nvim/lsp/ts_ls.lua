@@ -4,7 +4,6 @@ return {
     "--stdio",
   },
   filetypes = {
-    "json",
     "javascript",
     "javascriptreact",
     "javascript.jsx",

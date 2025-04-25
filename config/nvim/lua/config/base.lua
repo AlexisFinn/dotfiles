@@ -14,6 +14,4 @@ if not (vim.uv or vim.loop).fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
-vim.g.mapleader = " " -- set <space> as leader
-vim.g.maplocalleader = " " -- set <space> as local leader (this isn't really used)
 vim.keymap.set("n", "<leader>L", "<cmd>Lazy<CR>", { noremap = true, silent = true, desc = "Open Lazy plugin manager" })

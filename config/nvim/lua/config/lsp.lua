@@ -5,11 +5,14 @@ lspConfig("*", {
 })
 
 -- enable desired lsp servers
-vim.lsp.enable("ts_ls")
-vim.lsp.enable("biome")
-vim.lsp.enable("sonarlint")
-vim.lsp.enable("lua-language-server")
-vim.lsp.enable("awk")
+vim.lsp.enable({
+  "ts_ls",
+  "biome",
+  "sonarlint",
+  "lua-language-server",
+  "awk",
+  "jedi-language-server",
+})
 
 -- configure autocomplete behavior
 vim.o.completeopt = "menu,noselect,popup,fuzzy"
@@ -29,14 +32,19 @@ vim.api.nvim_create_autocmd("LspAttach", {
     local client = vim.lsp.get_client_by_id(ev.data.client_id)
     local keymap = vim.keymap.set
 
-    -- trigger completion on each caracter if supported
-    if client and client.server_capabilities and client.server_capabilities.completionProvider then
-      client.server_capabilities.completionProvider.triggerCharacters = vim.split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_. ", "")
-    end
-
-    -- enable autocompletion for all lsp that support it
-    if client and client:supports_method("textDocument/completion") then
-      vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+    if client then
+      -- trigger completion on each caracter if supported
+      if client.server_capabilities and client.server_capabilities.completionProvider then
+        client.server_capabilities.completionProvider.triggerCharacters = vim.split("abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789_. ", "")
+      end
+      -- enable autocompletion for all lsp that support it
+      if client and client:supports_method("textDocument/completion") then
+        vim.lsp.completion.enable(true, client.id, ev.buf, { autotrigger = true })
+      end
+      -- inslay hints for all lsp that support it
+      if client:supports_method("textDocument/inlayHint") then
+        vim.lsp.inlay_hint.enable(true, { bufnr = ev.buf })
+      end
     end
 
     -- disable lsp formatting on save, using "formatter" plugin instead
