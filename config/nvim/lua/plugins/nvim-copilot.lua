@@ -5,7 +5,7 @@ return {
   event = "VeryLazy",
   config = function()
     require("copilot").setup({
-      copilot_model = "gtp-4o-copilot",
+      copilot_model = "claude-3.7-sonnet",
       panel = {
         enabled = false,
         keymap = {
@@ -13,7 +13,7 @@ return {
         },
       },
       suggestion = {
-        enabled = false,
+        enabled = true,
         auto_trigger = true,
         hide_during_completion = false,
         keymap = {

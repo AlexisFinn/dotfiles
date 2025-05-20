@@ -12,7 +12,6 @@ return {
             "--height=0.8",
             "--title=NodeJS",
             "--titleposition=right",
-            "--borderchars='--------'",
             "node",
           },
         })

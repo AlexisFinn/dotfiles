@@ -1,0 +1,57 @@
+return {
+  "yetone/avante.nvim",
+  event = "VeryLazy",
+  version = false, -- Never set this value to "*"! Never!
+  opts = {
+    provider = "copilot",
+    copilot = {
+      -- api_key = "your-copilot-api-key", -- Optional: only needed if you're using a custom Copilot proxy or self-hosted setup
+      model = "claude-3.7-sonnet", -- Optional: specify model if supported (e.g., "gpt-4", "gpt-3.5-turbo")
+      -- temperature = 0.7, -- Optional: controls creativity (0 = deterministic, 1 = creative)
+      -- max_tokens = 1024, -- Optional: max length of response
+      -- top_p = 1.0, -- Optional: nucleus sampling
+      -- frequency_penalty = 0.0, -- Optional: discourage repetition
+      -- presence_penalty = 0.0, -- Optional: encourage new topics
+      system_prompt = [[
+      You are a helpful coding assistant.
+      I am a senior dev, I do not need you to explain your code to me nor do I need you to run any checks on the given context.
+      Just do what I ask you to and nothing more.
+      When I accept an answer do not respond.
+      Do not explain the code.
+      Do not check the code for errors.
+      ]], -- Optional: customize assistant behavior
+    },
+    cursor_applying_provider = "copilot",
+    behavior = {
+      enable_cursor_planning_mode = true,
+    },
+    windows = {
+      position = "left",
+      width = 40,
+      border = "double",
+    },
+  },
+  -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
+  build = "make",
+  -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+  dependencies = {
+    "nvim-treesitter/nvim-treesitter",
+    "stevearc/dressing.nvim",
+    "nvim-lua/plenary.nvim",
+    "MunifTanjim/nui.nvim",
+    --- The below dependencies are optional,
+    "nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+    -- "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+    -- "ibhagwan/fzf-lua", -- for file_selector provider fzf
+    "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+    "zbirenbaum/copilot.lua", -- for providers='copilot'
+    {
+      -- Make sure to set this up properly if you have lazy=true
+      "MeanderingProgrammer/render-markdown.nvim",
+      opts = {
+        file_types = { "markdown", "Avante" },
+      },
+      ft = { "markdown", "Avante" },
+    },
+  },
+}

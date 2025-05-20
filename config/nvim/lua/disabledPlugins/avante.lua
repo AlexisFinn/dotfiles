@@ -4,6 +4,10 @@ return {
   version = false, -- Never set this value to "*"! Never!
   opts = {
     provider = "copilot",
+    cursor_applying_provider = "copilot",
+    behavior = {
+      enable_cursor_planning_mode = true,
+    },
   },
   -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
   build = "make",

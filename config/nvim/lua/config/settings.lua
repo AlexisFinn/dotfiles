@@ -5,7 +5,7 @@ vim.cmd("set ttyfast") -- Speed up scrolling in Vim
 vim.keymap.set("n", "<space>", "<Nop>", { silent = true }) -- unuset <space> in normal mode
 vim.g.mapleader = " " -- set <space> as leader
 vim.g.maplocalleader = " " -- set <space> as local leader (this isn't really used)
-vim.o.cursorline = false -- Enable highlighting of the current line
+vim.o.cursorline = true -- Enable highlighting of the current line
 vim.g.loaded_netrw = 0 -- disable netrw
 vim.g.loaded_netrwPlugin = 0 -- disable netrw
 vim.o.ruler = true -- show percentage of file
