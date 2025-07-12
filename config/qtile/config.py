@@ -206,8 +206,8 @@ icons = dict(
     netArrows='↓↑',#'⬇⬆',
     vol='VOL:',#'',
     date='',#'',
-    time='',#'',
-    color='',
+    time='󰢚',#'',
+    color='󰢚',
     battery='BAT: '
 )
 
@@ -511,11 +511,6 @@ screens = [
                               #  scroll_interval=0
                               #  ),
                 widget.Spacer(),
-                make_widget(
-                    'Battery',
-                    color,
-                    format=icons['battery'] + "{percent:2.0%}"
-                    ),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color1),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color2),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color3),
@@ -525,7 +520,7 @@ screens = [
                 widget.TextBox(text=icons['color'], foreground=PyColors.color7),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color8),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color9),
-                make_widget('Memory', PyColors.background, format=":"+icons['time']+" {MemUsed: .0f}{mm}"),
+                make_widget('Memory', PyColors.background, format=" "+icons['mem']+"{MemUsed: .0f}{mm}"),
                 #  widget.Spacer(),
                 make_widget(
                     'Clock',
@@ -574,7 +569,7 @@ screens = [
                 widget.TextBox(text=icons['color'], foreground=PyColors.color7),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color8),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color9),
-                make_widget('Memory', PyColors.background, format=":"+icons['time']+" {MemUsed: .0f}{mm}"),
+                make_widget('Memory', PyColors.background, format=" "+icons['mem']+"{MemUsed: .0f}{mm}"),
                 #  widget.Spacer(),
                 make_widget(
                     'Clock',

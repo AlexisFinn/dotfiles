@@ -21,6 +21,7 @@ require("config.autocmds")
 -- ╰─────────────────────────────────────────────────────────╯
 require("config.cmds.FormatJSON")
 require("config.cmds.CRef")
+require("config.cmds.YarnBuild")
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ LSP                                                     │
 -- ╰─────────────────────────────────────────────────────────╯

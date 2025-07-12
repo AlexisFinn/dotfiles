@@ -8,7 +8,7 @@ lspConfig("*", {
 vim.lsp.enable({
   "ts_ls",
   "biome",
-  "sonarlint",
+  -- "sonarlint",
   "lua-language-server",
   "awk",
   "jedi-language-server",

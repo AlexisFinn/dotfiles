@@ -44,3 +44,9 @@ vim.api.nvim_create_autocmd("FileType", {
     end)
   end,
 })
+-- close terminal windows automatically when the process exits
+-- vim.api.nvim_create_autocmd("TermClose", {
+--   desc = "Close terminal windows automatically",
+--   group = vim.api.nvim_create_augroup("close-terminal", { clear = true }),
+--   callback = function() vim.cmd("close!") end,
+-- })

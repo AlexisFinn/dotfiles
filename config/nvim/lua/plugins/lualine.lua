@@ -13,16 +13,17 @@ return {
     options = {
       -- icons_enabled = true,
       theme = "ayu_mirage",
-      -- component_separators = { left = "", right = "" },
-      -- section_separators = { left = "", right = "" },
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "󰢚", right = "󰢚" },
       disabled_filetypes = {},
+      globalstatus = true,
     },
     sections = {
       lualine_a = { "mode" },
       lualine_b = { { "filename", path = 3 } },
       lualine_c = { { "macro-recording", fmt = show_macro_recording, color = "error" } },
-      lualine_x = { { color = "Normal" } },
-      lualine_y = { "filetype" },
+      lualine_x = { "filetype" },
+      lualine_y = { { "lsp_status", color = "DiffText", symbols = { separator = " 󰢚 " } } },
       lualine_z = { "location" },
     },
     inactive_sections = {
@@ -33,6 +34,8 @@ return {
       lualine_y = {},
       lualine_z = {},
     },
-    tabline = {},
+    tabline = {
+      -- lualine_z = { { "buffers", component_separators = { left = "║", right = "║" } } },
+    },
   },
 }

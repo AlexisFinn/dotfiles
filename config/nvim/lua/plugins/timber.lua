@@ -15,6 +15,7 @@ return {
       },
       keymaps = {
         insert_log_below = "<leader>cl",
+        insert_log_above = "<leader>cL",
       },
     })
   end,

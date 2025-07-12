@@ -1,12 +1,23 @@
 return {
   "olimorris/codecompanion.nvim",
   opts = {
+    display = {
+      chat = {
+        window = {
+          border = "rounded",
+          layout = "vertical",
+          position = "right",
+        },
+      },
+    },
     adapters = {
       copilot = function()
         return require("codecompanion.adapters").extend("copilot", {
           schema = {
             model = {
               default = "claude-3.7-sonnet",
+              -- default = "gemini-2.5-pro",
+              -- default = "claude-sonnet-4",
             },
           },
         })
@@ -15,9 +26,43 @@ return {
     strategies = {
       chat = {
         adapter = "copilot",
+        tools = {
+          groups = {
+            ["my_tools"] = {
+              desciription = "My custom tools",
+              tools = {
+                "cmd_runner",
+                "create_file",
+                "file_search",
+                "grep_search",
+                "insert_edit_into_file",
+                "read_file",
+              },
+              opts = {
+                collapse_tools = false,
+              },
+            },
+          },
+          opts = {
+            default_tools = {
+              "my_tools",
+              "mcp",
+            },
+          },
+        },
       },
       inline = {
         adapter = "copilot",
+      },
+    },
+    extensions = {
+      mcphub = {
+        callback = "mcphub.extensions.codecompanion",
+        opts = {
+          show_result_in_chat = true, -- Show mcp tool results in chat
+          make_vars = true, -- Convert resources to #variables
+          make_slash_commands = true, -- Add prompts as /slash commands
+        },
       },
     },
   },
