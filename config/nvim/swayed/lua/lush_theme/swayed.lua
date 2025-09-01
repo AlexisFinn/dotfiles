@@ -159,7 +159,7 @@ local theme = lush(function(injected_functions)
         -- Boolean        { }, --   A boolean constant: TRUE, false
         -- Float          { }, --   A floating point constant: 2.3e10
         -- Identifier     { }, -- (*) Any variable name
-        -- Function       { fg = chalk_blue }, --   Function name (also: methods for classes)
+        Function {fg = chalk_green}, --   Function name (also: methods for classes)
         -- Function       { Normal }, --   Function name (also: methods for classes)
         Statement {fg = chalk_pink, gui = "italic"}, -- (*) Any statement
         -- Conditional    { }, --   if, then, else, endif, switch, etc.
