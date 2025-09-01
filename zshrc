@@ -18,8 +18,6 @@ if [[ -f ~/.cache/wpg/sequences ]]; then
   (cat ~/.cache/wpg/sequences &)
 fi
 
-source "/usr/share/nvm/init-nvm.sh"
-
 source "${HOME}/zsh-setup.zsh"
 
 # Set Zsh option
@@ -54,7 +52,6 @@ source /home/alexis/.config/broot/launcher/bash/br
 alias luamake=/home/alexis/Applications/lua-language-server/3rd/luamake/luamake
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 #eval "$(starship init zsh)"
@@ -86,3 +83,7 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # ssh-add /home/alexis/.ssh/sftp_dev
 
 
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/T\u00e9l\u00e9chargements/fondecran.webp",
+    "alpha": "100",
+    "special": {
+        "background": "#19191a",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#19191a",
+        "color1": "#457087",
+        "color2": "#817f7f",
+        "color3": "#66a0c5",
+        "color4": "#ba967c",
+        "color5": "#8bc2e1",
+        "color6": "#cdb896",
+        "color7": "#c5c5c5",
+        "color8": "#525253",
+        "color9": "#457087",
+        "color10": "#817f7f",
+        "color11": "#66a0c5",
+        "color12": "#ba967c",
+        "color13": "#8bc2e1",
+        "color14": "#cdb896",
+        "color15": "#c5c5c5"
+    }
+}

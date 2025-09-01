@@ -32,6 +32,7 @@ alias ld=lazydocker
 alias logout='dm-tool switch-to-greeter'
 alias em="emacsclient -c &"
 alias nv='neovide --neovim-bin /home/alexis/nvim/bin/nvim'
+alias gpf='git push --force'
 
 functon chpwd() {
     if [ -r $PWD/bash_aliases.sh ]; then

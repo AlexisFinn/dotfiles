@@ -2,7 +2,7 @@
 vim.cmd("set ttyfast") -- Speed up scrolling in Vim
 
 ---- General settings ----
-vim.keymap.set("n", "<space>", "<Nop>", { silent = true }) -- unuset <space> in normal mode
+vim.keymap.set("n", "<space>", "<Nop>", {silent = true}) -- unuset <space> in normal mode
 vim.g.mapleader = " " -- set <space> as leader
 vim.g.maplocalleader = " " -- set <space> as local leader (this isn't really used)
 vim.o.cursorline = true -- Enable highlighting of the current line
@@ -21,7 +21,14 @@ vim.o.softtabstop = 2 -- expand tab to 2 spaces by default
 -- vim.o.guifont = "Cascadia Code PL:h14" -- not using gui but some plugins might need this
 vim.o.guifont = "FantasqueSansM Nerd Font Mono:h14" -- not using gui but some plugins might need this
 -- vim.o.list = true -- display whitespaces as characters when editing
-vim.opt.listchars = { tab = ">>>", trail = "·", precedes = "←", extends = "→", eol = "↲", nbsp = "␣" }
+vim.opt.listchars = {
+    tab = ">>>",
+    trail = "·",
+    precedes = "←",
+    extends = "→",
+    eol = "↲",
+    nbsp = "␣"
+}
 vim.o.hidden = true -- hide inactive buffers instead of unloading them, without this you will need to save your changes before changing buffers
 vim.o.swapfile = false -- disable creating swap files
 vim.o.splitbelow = true -- create a split below
@@ -44,13 +51,15 @@ vim.o.timeoutlen = 300
 vim.o.undolevels = 10000
 vim.o.updatetime = 200 -- Save swap file (if any) and trigger CursorHold event
 vim.o.foldmethod = "manual"
-vim.o.sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions" -- what to save in session
+vim.o.sessionoptions =
+    "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal,localoptions" -- what to save in session
 vim.o.winborder = "rounded"
 -- vim.o.foldmethod = "expr" -- custom fold method
 -- vim.o.foldexpr = "nvim_treesitter#foldexpr()" -- fold using treesitter
 vim.g.do_filetype_lua = 1 -- use new experimental filetype detection
 vim.g.did_lead_filetypes = 0
 vim.g.floaterm_border = false
+vim.o.scrolloff = 12 -- keep 12 lines above/below cursor when scrolling
 
 -- neovide settings
 vim.g.neovide_scroll_animation_length = 0.1

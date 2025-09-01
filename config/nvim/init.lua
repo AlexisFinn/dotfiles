@@ -5,9 +5,7 @@ require("config.base")
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ get colors right                                        │
 -- ╰─────────────────────────────────────────────────────────╯
-if vim.fn.has("termguicolors") == 1 then
-  vim.opt.termguicolors = true
-end
+if vim.fn.has("termguicolors") == 1 then vim.opt.termguicolors = true end
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ general config                                          │
 -- ╰─────────────────────────────────────────────────────────╯
@@ -26,15 +24,14 @@ require("config.cmds.YarnBuild")
 -- │ LSP                                                     │
 -- ╰─────────────────────────────────────────────────────────╯
 require("config.lsp")
+-- vim.lsp.config("biome")
+-- vim.lsp.config("lua-language-server")
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ install plugins and set colorscheme                     │
 -- ╰─────────────────────────────────────────────────────────╯
 local colorschemes = require("config.colorschemes")
 
 require("lazy").setup({
-  spec = {
-    { import = "plugins" },
-    colorschemes.Swayed,
-  },
-  change_detection = { enabled = false },
+    spec = {{import = "plugins"}, colorschemes.Swayed},
+    change_detection = {enabled = false}
 })

@@ -52,3 +52,4 @@
     insteadOf = git://
 [safe]
 	directory = /home/alexis/dotfiles
+	directory = /home/alexis/usb/Hermes

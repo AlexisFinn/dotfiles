@@ -1,16 +1,12 @@
 return {
-    AtomDark = {
-        "gosukiwi/vim-atom-dark",
-        function() vim.cmd.colorscheme("atom-dark") end
-    },
-    Ayu = {
+    {"gosukiwi/vim-atom-dark", function() vim.cmd.colorscheme("atom-dark") end},
+    {
         "Shatur/neovim-ayu",
         config = function()
             require("ayu").setup({mirage = false})
             vim.cmd.colorscheme("ayu")
         end
-    },
-    Bamboo = {
+    }, {
         "ribru17/bamboo.nvim",
         lazy = false,
         priority = 1000,
@@ -25,8 +21,7 @@ return {
             })
             vim.cmd.colorscheme("bamboo")
         end
-    },
-    Catppuccin = {
+    }, {
         "catppuccin/nvim",
         lazy = false,
         name = "catppuccin",
@@ -109,8 +104,7 @@ return {
             })
             vim.cmd.colorscheme("catppuccin")
         end
-    },
-    CyberDream = {
+    }, {
         "scottmckendry/cyberdream.nvim",
         lazy = false,
         priority = 1000,
@@ -123,20 +117,17 @@ return {
             })
             vim.cmd("colorscheme cyberdream") -- set the colorscheme
         end
-    },
-    DarkPlus = {
+    }, {
         "lunarvim/darkplus.nvim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("darkplus") end
-    },
-    Defaultim = {
+    }, {
         dir = vim.fn.stdpath("config") .. "/defaultim",
         lazy = false,
         priority = 1000,
         init = function() vim.cmd.colorscheme("defaultim") end
-    },
-    Distinct = {
+    }, {
         "https://gitlab.com/bartekjaszczak/distinct-nvim",
         priority = 1000,
         config = function()
@@ -146,32 +137,27 @@ return {
 
             vim.cmd("colorscheme distinct")
         end
-    },
-    Dogrun = {
+    }, {
         "wadackel/vim-dogrun",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("dogrun") end
-    },
-    DoomOne = {
+    }, {
         "romgrk/doom-one.vim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("doom-one") end
-    },
-    Dracula = {
+    }, {
         "dracula/vim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("dracula") end
-    },
-    Everforest = {
+    }, {
         "sainnhe/everforest",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("everforest") end
-    },
-    EverGarden = {
+    }, {
         "comfysage/evergarden",
         priority = 1000,
         opt = {
@@ -180,27 +166,23 @@ return {
             overrides = {} -- add custom overrides
         },
         config = function() vim.cmd.colorscheme("evergarden") end
-    },
-    Flow = {
+    }, {
         "0xstepit/flow.nvim",
         lazy = false,
         priotity = 1000,
         opts = {},
         config = function() vim.cmd.colorscheme("flow") end
-    },
-    Forest = {
+    }, {
         "skullamortis/forest.nvim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("forest") end
-    },
-    Gotham = {
+    }, {
         "whatyouhide/vim-gotham",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("gotham") end
-    },
-    GruvboxMaterial = {
+    }, {
         "sainnhe/gruvbox-material",
         lazy = false,
         priority = 1000,
@@ -210,26 +192,22 @@ return {
             vim.g.gruvbox_material_sign_column_background = "none"
             vim.cmd.colorscheme("gruvbox-material")
         end
-    },
-    HalfSpace = {
+    }, {
         url = "https://gitlab.com/sxwpb/halfspace.nvim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("halfspace") end
-    },
-    Iceberg = {
+    }, {
         "cocopon/iceberg.vim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("iceberg") end
-    },
-    Kanagawa = {
+    }, {
         "rebelot/kanagawa.nvim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("kanagawa") end
-    },
-    Material = {
+    }, {
         "marko-cerovac/material.nvim",
         config = function()
             vim.g.material_style = "deep ocean" -- 'darker', 'lighter', 'palenight', 'oceanic', 'deep ocean'
@@ -247,26 +225,22 @@ return {
             })
             vim.cmd.colorscheme("material")
         end
-    },
-    Melange = {
+    }, {
         "savq/melange",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("melange") end
-    },
-    Mellow = {
+    }, {
         "kvrohit/mellow.nvim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("mellow") end
-    },
-    Midnight = {
+    }, {
         "dasupradyumna/midnight.nvim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("midnight") end
-    },
-    Moonfly = {
+    }, {
         "bluz71/vim-moonfly-colors",
         lazy = false,
         name = "moonfly",
@@ -275,8 +249,7 @@ return {
             vim.g.moonflyitalics = true
             vim.cmd.colorscheme("moonfly")
         end
-    },
-    Neofusion = {
+    }, {
         "diegoulloao/neofusion.nvim",
         lazy = false,
         priority = 1000,
@@ -286,8 +259,7 @@ return {
                 options = {theme = require("neofusion.lualine")}
             })
         end
-    },
-    Neon = {
+    }, {
         "rafamadriz/neon",
         lazy = false,
         priority = 1000,
@@ -298,8 +270,7 @@ return {
             vim.g.neon_transparent = false
             vim.cmd.colorscheme("neon")
         end
-    },
-    NightFox = {
+    }, {
         "EdenEast/nightfox.nvim",
         lazy = false,
         priority = 1000,
@@ -313,33 +284,28 @@ return {
             })
             vim.cmd.colorscheme("nightfox")
         end
-    },
-    NightFly = {
+    }, {
         "bluz71/vim-nightfly-colors",
         lazy = false,
         priority = 1000,
         name = "nightfly",
         config = function() vim.cmd.colorscheme("nightfly") end
-    },
-    NightOwl = {
+    }, {
         "oxfist/night-owl.nvim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("night-owl") end
-    },
-    Nord = {
+    }, {
         "arcticicestudio/nord-vim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("nord") end
-    },
-    One = {
+    }, {
         "rakr/vim-one",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("one") end
-    },
-    OneDark = {
+    }, {
         "navarasu/onedark.nvim",
         priority = 1000,
         config = function()
@@ -348,62 +314,52 @@ return {
             })
             require("onedark").load()
         end
-    },
-    Palenight = {
+    }, {
         "drewtempelmeyer/palenight.vim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("palenight") end
-    },
-    Seoul256 = {
+    }, {
         "junegunn/seoul256.vim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("seoul256") end
-    },
-    ShadoTheme = {
+    }, {
         "Shadorain/shadotheme",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("shado") end
-    },
-    Sonokai = {
+    }, {
         "sainnhe/sonokai",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("sonokai") end
-    },
-    Spaceduck = {
+    }, {
         "pineapplegiant/spaceduck",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("spaceduck") end
-    },
-    Swayed = {
+    }, {
         dir = vim.fn.stdpath("config") .. "/swayed",
         lazy = false,
         priority = 1000,
         init = function() vim.cmd.colorscheme("swayed") end
-    },
-    PaperColor = {
+    }, {
         "NLKNguyen/papercolor-theme",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("PaperColor") end
-    },
-    Tender = {
+    }, {
         "jacoborus/tender.vim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("tender") end
-    },
-    Tokyonight = {
+    }, {
         "folke/tokyonight.nvim",
         lazy = false,
         priority = 1000,
         config = function() vim.cmd.colorscheme("tokyonight-night") end
-    },
-    Zenburn = {
+    }, {
         "jnurmine/Zenburn",
         lazy = false,
         priority = 1000,

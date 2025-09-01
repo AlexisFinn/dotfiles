@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/mario-geek-desk.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#04050E",
+        "foreground": "#dbc9d0",
+        "cursor": "#dbc9d0"
+    },
+    "colors": {
+        "color0": "#04050E",
+        "color1": "#9C443F",
+        "color2": "#B79320",
+        "color3": "#0A52A5",
+        "color4": "#2D5EB3",
+        "color5": "#D247CE",
+        "color6": "#5B95ED",
+        "color7": "#dbc9d0",
+        "color8": "#998c91",
+        "color9": "#9C443F",
+        "color10": "#B79320",
+        "color11": "#0A52A5",
+        "color12": "#2D5EB3",
+        "color13": "#D247CE",
+        "color14": "#5B95ED",
+        "color15": "#dbc9d0"
+    }
+}
