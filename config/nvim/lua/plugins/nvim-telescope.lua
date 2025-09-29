@@ -67,7 +67,7 @@ return {
                 live_grep = {
                     theme = "dropdown",
                     border = true,
-                    layout_config = {height = 0.5},
+                    layout_config = {height = 0.8, width = 0.9},
                     mappings = {
                         i = {
                             ["<C-l>"] = {

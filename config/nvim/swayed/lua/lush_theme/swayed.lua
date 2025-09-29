@@ -279,16 +279,48 @@ local theme = lush(function(injected_functions)
         sym "@variable" {fg = chalk_teal.lighten(20)}, -- Identifier
         sym "@lsp.type.member.javascript" {fg = chalk_pink},
         -- sym"@lsp.type.property.javascript"  { fg = chalk_purple },
-        sym "@lsp.type.property.javascript" {fg = chalk_purple}
-        -- sym"@type"              { }, -- Type
-        -- sym"@type.definition"   { }, -- Typedef
-        -- sym"@storageclass"      { }, -- StorageClass
-        -- sym"@structure"         { }, -- Structure
-        -- sym"@namespace"         { }, -- Identifier
-        -- sym"@include"           { }, -- Include
-        -- sym"@preproc"           { }, -- PreProc
-        -- sym"@debug"             { }, -- Debug
-        -- sym"@tag"               { }, -- Tag
+        sym "@lsp.type.property.javascript" {fg = chalk_purple},
+
+        -- Markdown syntax highlighting (traditional syntax groups)
+        markdownH1 {fg = chalk_blue, gui = "bold"}, -- # Heading 1
+        markdownH2 {fg = chalk_blue.lighten(10), gui = "bold"}, -- ## Heading 2
+        markdownH3 {fg = chalk_blue.lighten(20), gui = "bold"}, -- ### Heading 3
+        markdownH4 {fg = chalk_blue.lighten(30), gui = "bold"}, -- #### Heading 4
+        markdownH5 {fg = chalk_blue.lighten(40), gui = "bold"}, -- ##### Heading 5
+        markdownH6 {fg = chalk_blue.lighten(50), gui = "bold"}, -- ###### Heading 6
+
+        markdownHeadingDelimiter {fg = chalk_pink}, -- # ## ### etc.
+        markdownHeadingRule {fg = chalk_pink}, -- --- === underlines
+        markdownBold {fg = chalk_base, gui = "bold"}, -- **bold** __bold__
+        markdownItalic {fg = chalk_base, gui = "italic"}, -- *italic* _italic_
+        markdownBoldItalic {fg = chalk_base, gui = "bold,italic"}, -- ***bold italic***
+
+        markdownCode {fg = chalk_green, bg = chalk_board.lighten(5)}, -- `inline code`
+        markdownCodeBlock {fg = chalk_green, bg = chalk_board.lighten(5)}, -- ```code blocks```
+        markdownCodeDelimiter {fg = chalk_foam}, -- ``` delimiters
+        markdownUrl {fg = chalk_purple, gui = "underline"}, -- URLs
+        markdownLink {fg = chalk_teal}, -- [link text]
+        markdownLinkText {fg = chalk_teal}, -- Link text inside []
+        markdownLinkDelimiter {fg = chalk_foam}, -- [] and ()
+        markdownLinkTextDelimiter {fg = chalk_foam}, -- [] delimiters
+        markdownListMarker {fg = chalk_pink}, -- * - + list markers
+        markdownOrderedListMarker {fg = chalk_pink}, -- 1. 2. 3. numbered lists
+        markdownBlockquote {fg = chalk_foam, gui = "italic"}, -- > blockquotes
+        markdownRule {fg = chalk_pink}, -- --- horizontal rules
+        -- Additional elements
+        markdownId {fg = chalk_purple}, -- Link references
+        markdownIdDeclaration {fg = chalk_teal}, -- Link reference declarations
+        markdownIdDelimiter {fg = chalk_foam}, -- Link reference delimiters
+        markdownFootnote {fg = chalk_purple}, -- Footnotes
+        markdownFootnoteDefinition {fg = chalk_purple}, -- Footnote definitions
+        -- HTML in markdown
+        htmlTag {fg = chalk_teal}, -- HTML tags
+        htmlEndTag {fg = chalk_teal}, -- HTML end tags
+        htmlTagName {fg = chalk_pink}, -- HTML tag names
+        htmlArg {fg = chalk_purple}, -- HTML attributes
+        htmlSpecialChar {fg = chalk_yellow}, -- HTML entities
+        -- Strike-through (if supported)
+        markdownStrike {fg = chalk_foam, gui = "strikethrough"} -- ~~strikethrough~~
     }
 end)
 
