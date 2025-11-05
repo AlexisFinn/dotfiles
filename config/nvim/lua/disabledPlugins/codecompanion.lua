@@ -1,27 +1,35 @@
 return {
     "olimorris/codecompanion.nvim",
     opts = {
+        memory = {
+            agentsmd = {
+                desciription = "Support for agents.md file",
+                files = {"agents.md"}
+            },
+            opts = {chat = {enabled = true, default_memory = {"agentsmd"}}}
+        },
         display = {
             chat = {
                 window = {
                     border = "rounded",
                     layout = "vertical",
-                    position = "right"
+                    position = "left"
                 }
             }
         },
         adapters = {
-            copilot = function()
-                return require("codecompanion.adapters").extend("copilot", {
-                    schema = {
-                        model = {
-                            -- default = "claude-3.7-sonnet",
-                            -- default = "gemini-2.5-pro",
-                            default = "claude-sonnet-4"
+            http = {
+                copilot = function()
+                    return require("codecompanion.adapters").extend("copilot", {
+                        schema = {
+                            model = {
+                                -- default = "gpt-5"
+                                default = "claude-sonnet-4.5"
+                            }
                         }
-                    }
-                })
-            end
+                    })
+                end
+            }
         },
         strategies = {
             chat = {
@@ -38,7 +46,7 @@ return {
                             opts = {collapse_tools = false}
                         }
                     },
-                    opts = {default_tools = {"my_tools", "mcp"}}
+                    opts = {default_tools = { --[["mcp",]] "full_stack_dev"}}
                 }
             },
             inline = {adapter = "copilot"}
@@ -49,7 +57,8 @@ return {
                 opts = {
                     show_result_in_chat = true, -- Show mcp tool results in chat
                     make_vars = true, -- Convert resources to #variables
-                    make_slash_commands = true -- Add prompts as /slash commands
+                    make_slash_commands = false, -- Add prompts as /slash commands
+                    make_tools = true
                 }
             }
         }

@@ -9,6 +9,7 @@ local keys = {
     {"<PageDown>", "<C-d>", desc = "Scroll down one page", mode = "v"},
     {"<PageUp>", "<C-u>", desc = "Scroll up one page", mode = "v"},
     --  ── Normal Mode ─────────────────────────────────────────────────────
+    {"<leader>o", group = "OpenAI commands"},
     {"<leader>L", "<cmd>Lazy<CR>", desc = "Open Lazy plugin manager"},
     {"<C-PageDown>", "<cmd>bn<CR>", desc = "Move buffer right"},
     {"<C-PageUp>", "<cmd>bp<CR>", desc = "Move buffer left"},

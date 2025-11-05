@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/kowloon1.webp",
+    "alpha": "100",
+    "special": {
+        "background": "#1a1919",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#1a1919",
+        "color1": "#645843",
+        "color2": "#495d78",
+        "color3": "#4d6a9a",
+        "color4": "#5d739f",
+        "color5": "#7e726b",
+        "color6": "#b09585",
+        "color7": "#c5c5c5",
+        "color8": "#535252",
+        "color9": "#645843",
+        "color10": "#495d78",
+        "color11": "#4d6a9a",
+        "color12": "#5d739f",
+        "color13": "#7e726b",
+        "color14": "#b09585",
+        "color15": "#c5c5c5"
+    }
+}

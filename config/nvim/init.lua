@@ -32,6 +32,8 @@ require("config.lsp")
 local colorschemes = require("config.colorschemes")
 
 require("lazy").setup({
-    spec = {{import = "plugins"}, colorschemes.Swayed},
+    spec = {{import = "plugins"}, colorschemes.Tame},
     change_detection = {enabled = false}
 })
+
+vim.cmd.colorscheme("tame")

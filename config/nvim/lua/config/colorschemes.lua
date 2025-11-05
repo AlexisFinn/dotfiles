@@ -130,6 +130,12 @@ return {
         priority = 1000,
         config = function() vim.cmd.colorscheme("darkplus") end
     },
+    Tame = {
+        "rktjmp/lush.nvim",
+        {dir = "/home/alexis/.config/nvim/tame", lazy = true},
+        lazy = false,
+        priority = 1000
+    },
     Defaultim = {
         dir = vim.fn.stdpath("config") .. "/defaultim",
         lazy = false,
@@ -344,7 +350,7 @@ return {
         priority = 1000,
         config = function()
             require("onedark").setup({
-                style = "deep" -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'
+                style = "darker" -- 'dark', 'darker', 'cool', 'deep', 'warm', 'warmer', 'light'
             })
             require("onedark").load()
         end
@@ -380,10 +386,10 @@ return {
         config = function() vim.cmd.colorscheme("spaceduck") end
     },
     Swayed = {
-        dir = vim.fn.stdpath("config") .. "/swayed",
+        "rktjmp/lush.nvim",
+        {dir = "/home/alexis/.config/nvim/swayed", lazy = true},
         lazy = false,
-        priority = 1000,
-        init = function() vim.cmd.colorscheme("swayed") end
+        priority = 1000
     },
     PaperColor = {
         "NLKNguyen/papercolor-theme",

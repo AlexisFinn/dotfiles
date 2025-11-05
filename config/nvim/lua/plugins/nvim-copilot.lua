@@ -5,8 +5,9 @@ return {
     event = "VeryLazy",
     config = function()
         require("copilot").setup({
-            copilot_model = "claude-sonnet-4",
-            -- copilot_model = "gemini-2.5-pro",
+            copilot_model = "grok-code-fast-1",
+            -- copilot_model = "claude-sonnet-4",
+            -- copilot_model = "gpt-5",
             panel = {enabled = false, keymap = {open = "<C-s>"}},
             suggestion = {
                 enabled = true,

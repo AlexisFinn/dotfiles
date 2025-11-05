@@ -1,6 +1,6 @@
 #! /bin/bash
 # set screen resolution and orientation
-/home/alexis/bin/setArandr.sh &
+# /home/alexis/bin/setArandr.sh &
 # wallpaper and colors
 wal -R &
 # composition

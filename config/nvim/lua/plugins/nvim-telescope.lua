@@ -67,7 +67,11 @@ return {
                 live_grep = {
                     theme = "dropdown",
                     border = true,
-                    layout_config = {height = 0.8, width = 0.9},
+                    layout_config = {
+                        height = 0.5,
+                        width = 0.9,
+                        preview_cutoff = 40
+                    },
                     mappings = {
                         i = {
                             ["<C-l>"] = {
@@ -93,99 +97,6 @@ return {
             }
         }
     end,
-    -- opts = {
-    --   defaults = {
-    --     -- layout_strategy = 'vertical', -- see :help telescope.layout
-    --     winblend = 10,
-    --     prompt_prefix = " ",
-    --     selection_caret = " ",
-    --     entry_prefix = "   ",
-    --     path_display = { "tail" },
-    --     mappings = {
-    --       n = {
-    --         ["q"] = actions.close,
-    --       },
-    --     },
-    --   },
-    --   extensions = {
-    --     ["ui-select"] = {
-    --       require("telescope.themes").get_dropdown({}),
-    --     },
-    --   },
-    --   pickers = {
-    --     buffers = {
-    --       theme = "dropdown",
-    --       border = false,
-    --       initial_mode = "insert",
-    --       -- borderchars = { "─", "│", "─", "│", "╭", "╮", "╯", "╰" },
-    --       layout_strategy = "horizontal",
-    --       layout_config = {
-    --         height = { padding = 0 },
-    --         width = { padding = 0 },
-    --         -- horizontal = {
-    --         --   preview_width = 120,
-    --         -- },
-    --       },
-    --       mappings = {
-    --         i = {
-    --           ["<C-d>"] = actions.delete_buffer,
-    --         },
-    --         n = {
-    --           ["<C-d>"] = actions.delete_buffer,
-    --         },
-    --       },
-    --       path_display = path_display_function,
-    --     },
-    --     colorscheme = {
-    --       -- theme = "vertical",
-    --       layout_strategy = "vertical",
-    --       border = false,
-    --       initial_mode = "normal",
-    --       enable_preview = true,
-    --       layout_config = {
-    --         height = 0.8,
-    --         preview_height = 0.7,
-    --       },
-    --     },
-    --     grep_string = {
-    --       theme = "dropdown",
-    --       border = false,
-    --       initial_mode = "normal",
-    --       layout_config = {
-    --         height = 0.5,
-    --       },
-    --     },
-    --     live_grep = {
-    --       theme = "dropdown",
-    --       border = false,
-    --       layout_config = {
-    --         height = 0.5,
-    --       },
-    --       mappings = {
-    --         i = {
-    --           ["<C-l>"] = {
-    --             actions.smart_send_to_qflist,
-    --             -- type = "action",
-    --           },
-    --         },
-    --       },
-    --       path_display = path_display_function,
-    --     },
-    --     marks = {
-    --       theme = "dropdown",
-    --       border = false,
-    --       enable_preview = true,
-    --       layout_strategy = "vertical",
-    --       layout_config = {
-    --         height = 0.6,
-    --       },
-    --     },
-    --     find_files = {
-    --       border = false,
-    --       path_display = { "truncate" },
-    --     },
-    --   },
-    -- },
     keys = {
         {
             "<leader>R",
@@ -203,12 +114,6 @@ return {
             "<leader>rg",
             function() require("telescope.builtin").live_grep() end,
             desc = "Search for a word or sentence withen the project files"
-        }, {
-            "<leader>o",
-            function()
-                require("telescope").extensions.project.project()
-            end,
-            desc = "Search for project"
         }, {
             "<F8>",
             function() require("telescope.builtin").buffers() end,
