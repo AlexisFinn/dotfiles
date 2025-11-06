@@ -63,6 +63,16 @@ local NvimDarkGrey3 = hsl(220, 8, 19)
 local NvimDarkGrey2 = hsl(220, 14, 9)
 local NvimDarkGrey1 = hsl(225, 30, 4)
 
+-- Tame variants of colors used with method chains
+local NvimLightBlueTame = hsl(205, 100, 83).darken(40).desaturate(60)
+local NvimLightCyanTame = hsl(179, 86, 76).darken(40).desaturate(40)
+local NvimLightGreenTame = hsl(142, 74, 83).darken(10).desaturate(10)
+local NvimLightYellowTame = hsl(42, 96, 78).darken(20).desaturate(20)
+local NvimLightGrey1Tame = hsl(222, 34, 95).darken(10)
+local NvimLightGrey2Tame = hsl(225, 22, 90).darken(10).desaturate(10)
+local NvimLightGrey3Tame = hsl(226, 10, 78).darken(10)
+local NvimLightGrey4Tame = hsl(222, 6, 63).darken(40)
+
 -- LSP/Linters mistakenly show `undefined global` errors in the spec, they may
 -- support an annotation like the following. Consult your server documentation.
 ---@diagnostic disable: undefined-global
@@ -117,9 +127,9 @@ local theme = lush(function(injected_functions)
         -- ModeMsg        { }, -- 'showmode' message (e.g., "-- INSERT -- ")
         -- MsgArea        { }, -- Area for messages and cmdline
         -- MsgSeparator   { }, -- Separator for scrolled messages, `msgsep` flag of 'display'
-        MoreMsg {fg = NvimLightCyan.darken(40).desaturate(40)}, -- |more-prompt|
+        MoreMsg {fg = NvimLightCyanTame}, -- |more-prompt|
         -- NonText        { }, -- '@' at the end of the window, characters from 'showbreak' and other characters that do not really exist in the text (e.g., ">" displayed when a double-wide character doesn't fit at the end of the line). See also |hl-EndOfBuffer|.
-        Normal {fg = NvimLightGrey1.darken(10), bg = NvimDarkGrey2}, -- Normal text
+        Normal {fg = NvimLightGrey1Tame, bg = NvimDarkGrey2}, -- Normal text
         -- NormalFloat    { }, -- Normal text in floating windows.
         -- FloatBorder    { }, -- Border of floating windows.
         -- FloatTitle     { }, -- Title of floating windows.
@@ -148,7 +158,7 @@ local theme = lush(function(injected_functions)
         -- Title          { }, -- Titles for output from ":set all", ":autocmd" etc.
         Visual {bg = NvimDarkGrey3}, -- Visual mode selection
         -- VisualNOS      { }, -- Visual mode selection when vim is "Not Owning the Selection".
-        WarningMsg {fg = NvimLightYellow.darken(20).desaturate(20)}, -- Warning messages
+        WarningMsg {fg = NvimLightYellowTame}, -- Warning messages
         -- Whitespace     { }, -- "nbsp", "space", "tab" and "trail" in 'listchars'
         -- Winseparator   { }, -- Separator between window splits. Inherts from |hl-VertSplit| by default, which it will replace eventually.
         -- WildMenu       { }, -- Current match in 'wildmenu' completion
@@ -161,17 +171,17 @@ local theme = lush(function(injected_functions)
         -- See :h group-name
         --
         -- Uncomment and edit if you want more specific syntax highlighting.
-        Comment({fg = NvimLightGrey4.darken(40)}), -- Any comment
+        Comment({fg = NvimLightGrey4Tame}), -- Any comment
         -- Constant       { }, -- (*) Any constant
-        String {fg = NvimLightGreen.darken(10).desaturate(10)}, --   A string constant: "this is a string"
+        String {fg = NvimLightGreenTame}, --   A string constant: "this is a string"
         -- Character      { }, --   A character constant: 'c', '\n'
         -- Number         { }, --   A number constant: 234, 0xff
         -- Boolean        { }, --   A boolean constant: TRUE, false
         -- Float          { }, --   A floating point constant: 2.3e10
         -- Identifier     { }, -- (*) Any variable name
-        Function {fg = NvimLightCyan.darken(40).desaturate(40)}, --   Function name (also: methods for classes)
+        Function {fg = NvimLightCyanTame}, --   Function name (also: methods for classes)
         -- Function       { Normal }, --   Function name (also: methods for classes)
-        Statement {fg = NvimLightGrey2.darken(10).desaturate(10), gui = "bold"}, -- (*) Any statement
+        Statement {fg = NvimLightGrey2Tame, gui = "bold"}, -- (*) Any statement
         -- Conditional    { }, --   if, then, else, endif, switch, etc.
         -- Repeat         { }, --   for, do, while, etc.
         -- Label          { }, --   case, default, etc.
@@ -211,9 +221,9 @@ local theme = lush(function(injected_functions)
         -- See :h diagnostic-highlights, some groups may not be listed, submit a PR fix to lush-template!
         --
         -- DiagnosticError {fg = error}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-        DiagnosticWarn {fg = NvimLightYellow.darken(20).desaturate(20)}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-        DiagnosticInfo {fg = NvimLightCyan.darken(40).desaturate(40)}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
-        DiagnosticHint {fg = NvimLightBlue.darken(40).desaturate(60)}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+        DiagnosticWarn {fg = NvimLightYellowTame}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+        DiagnosticInfo {fg = NvimLightCyanTame}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
+        DiagnosticHint {fg = NvimLightBlueTame}, -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
         -- DiagnosticOk               { } , -- Used as the base highlight group. Other Diagnostic highlights link to this by default (except Underline)
         -- DiagnosticVirtualTextError {fg = error}, -- Used for "Error" diagnostic virtual text.
         -- DiagnosticVirtualTextWarn {fg = error}, -- Used for "Warn" diagnostic virtual text.
@@ -287,7 +297,7 @@ local theme = lush(function(injected_functions)
         -- sym"@operator"          { }, -- Operator
         -- sym "@keyword" {fg = chalk_pink}, -- Keyword
         -- sym"@exception"         { }, -- Exception
-        sym "@variable" {fg = NvimLightGrey3.darken(10)}, -- Identifier
+        sym "@variable" {fg = NvimLightGrey3Tame} -- Identifier
         -- sym "@lsp.type.member.javascript" {fg = NvimDarkRed},
         -- sym "@lsp.type.property.javascript" {
         --     fg = NvimDarkBlue.lighten(20).desaturate(20)
