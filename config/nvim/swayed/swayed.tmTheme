@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>name</key>
+	<string>Swayed</string>
+	<key>author</key>
+	<string>Generated from Lush theme</string>
+	<key>semanticClass</key>
+	<string>theme.dark.swayed</string>
+	<key>settings</key>
+	<array>
+		<!-- Global settings -->
+		<dict>
+			<key>settings</key>
+			<dict>
+				<key>background</key>
+				<string>#000305</string> <!-- chalk_board.darken(70) - hsl(120, 10, 07) darkened -->
+				<key>foreground</key>
+				<string>#d0d6d9</string> <!-- chalk_base - hsl(200, 20, 85) -->
+				<key>caret</key>
+				<string>#d0d6d9</string>
+				<key>lineHighlight</key>
+				<string>#131815</string> <!-- chalk_board.lighten(5) - hsl(120, 10, 07) lightened -->
+				<key>selection</key>
+				<string>#1a1f1d</string> <!-- chalk_board.lighten(10) -->
+			</dict>
+		</dict>
+		
+		<!-- Comments -->
+		<dict>
+			<key>name</key>
+			<string>Comment</string>
+			<key>scope</key>
+			<string>comment, punctuation.definition.comment</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#596d78</string> <!-- chalk_foam - hsl(200, 20, 40) -->
+			</dict>
+		</dict>
+		
+		<!-- Strings -->
+		<dict>
+			<key>name</key>
+			<string>String</string>
+			<key>scope</key>
+			<string>string</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#ede6b3</string> <!-- chalk_yellow - hsl(50, 60, 80) -->
+			</dict>
+		</dict>
+		
+		<!-- Keywords -->
+		<dict>
+			<key>name</key>
+			<string>Keyword</string>
+			<key>scope</key>
+			<string>keyword, storage.type, storage.modifier</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#d0d6d9</string> <!-- chalk_base - hsl(200, 20, 85) -->
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		
+		<!-- Statements (control keywords) -->
+		<dict>
+			<key>name</key>
+			<string>Statement</string>
+			<key>scope</key>
+			<string>keyword.control, keyword.operator.new</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#e8c1d9</string> <!-- chalk_pink - hsl(320, 50, 80) -->
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		
+		<!-- Functions -->
+		<dict>
+			<key>name</key>
+			<string>Function</string>
+			<key>scope</key>
+			<string>entity.name.function, support.function, meta.function-call</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#b3d9ad</string> <!-- chalk_green - hsl(110, 30, 70) -->
+			</dict>
+		</dict>
+		
+		<!-- Variables -->
+		<dict>
+			<key>name</key>
+			<string>Variable</string>
+			<key>scope</key>
+			<string>variable, entity.name.variable</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#b3ddd4</string> <!-- chalk_teal.lighten(20) - hsl(189, 30, 60) lightened -->
+			</dict>
+		</dict>
+		
+		<!-- Types & Classes -->
+		<dict>
+			<key>name</key>
+			<string>Type</string>
+			<key>scope</key>
+			<string>entity.name.type, entity.name.class, support.type, support.class</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#a8c1e6</string> <!-- chalk_blue - hsl(209, 60, 60) -->
+			</dict>
+		</dict>
+		
+		<!-- Special symbols, operators -->
+		<dict>
+			<key>name</key>
+			<string>Special</string>
+			<key>scope</key>
+			<string>constant.character.escape, constant.other, keyword.operator</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#8fc4c4</string> <!-- chalk_teal - hsl(189, 30, 60) -->
+			</dict>
+		</dict>
+		
+		<!-- Properties & attributes -->
+		<dict>
+			<key>name</key>
+			<string>Property</string>
+			<key>scope</key>
+			<string>variable.other.property, support.type.property-name, meta.object-literal.key</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#c4b8e6</string> <!-- chalk_purple - hsl(240, 40, 75) -->
+			</dict>
+		</dict>
+		
+		<!-- Numbers & constants -->
+		<dict>
+			<key>name</key>
+			<string>Number</string>
+			<key>scope</key>
+			<string>constant.numeric, constant.language</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#a8c1e6</string> <!-- chalk_blue -->
+			</dict>
+		</dict>
+		
+		<!-- Punctuation -->
+		<dict>
+			<key>name</key>
+			<string>Punctuation</string>
+			<key>scope</key>
+			<string>punctuation</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#d0d6d9</string> <!-- chalk_base -->
+			</dict>
+		</dict>
+		
+		<!-- Invalid/Error -->
+		<dict>
+			<key>name</key>
+			<string>Invalid</string>
+			<key>scope</key>
+			<string>invalid, invalid.illegal</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#4d2535</string> <!-- error - hsl(321, 35, 28) -->
+			</dict>
+		</dict>
+		
+		<!-- Markup: Headings -->
+		<dict>
+			<key>name</key>
+			<string>Markup Heading</string>
+			<key>scope</key>
+			<string>markup.heading, entity.name.section</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#a8c1e6</string> <!-- chalk_blue -->
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		
+		<!-- Markup: Bold -->
+		<dict>
+			<key>name</key>
+			<string>Markup Bold</string>
+			<key>scope</key>
+			<string>markup.bold</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#d0d6d9</string> <!-- chalk_base -->
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		
+		<!-- Markup: Italic -->
+		<dict>
+			<key>name</key>
+			<string>Markup Italic</string>
+			<key>scope</key>
+			<string>markup.italic</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#d0d6d9</string> <!-- chalk_base -->
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		
+		<!-- Markup: Code -->
+		<dict>
+			<key>name</key>
+			<string>Markup Code</string>
+			<key>scope</key>
+			<string>markup.inline.raw, markup.raw</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#b3d9ad</string> <!-- chalk_green -->
+			</dict>
+		</dict>
+		
+		<!-- Markup: Link -->
+		<dict>
+			<key>name</key>
+			<string>Markup Link</string>
+			<key>scope</key>
+			<string>markup.underline.link, string.other.link</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#c4b8e6</string> <!-- chalk_purple -->
+			</dict>
+		</dict>
+		
+		<!-- Markup: Link Text -->
+		<dict>
+			<key>name</key>
+			<string>Markup Link Text</string>
+			<key>scope</key>
+			<string>string.other.link.title, string.other.link.description</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#8fc4c4</string> <!-- chalk_teal -->
+			</dict>
+		</dict>
+		
+		<!-- Markup: List -->
+		<dict>
+			<key>name</key>
+			<string>Markup List</string>
+			<key>scope</key>
+			<string>markup.list.unnumbered, markup.list.numbered, punctuation.definition.list</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#e8c1d9</string> <!-- chalk_pink -->
+			</dict>
+		</dict>
+		
+		<!-- Markup: Quote -->
+		<dict>
+			<key>name</key>
+			<string>Markup Quote</string>
+			<key>scope</key>
+			<string>markup.quote</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#596d78</string> <!-- chalk_foam -->
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+	</array>
+	<key>uuid</key>
+	<string>swayed-theme</string>
+</dict>
+</plist>

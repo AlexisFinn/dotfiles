@@ -297,8 +297,8 @@ local theme = lush(function(injected_functions)
         -- sym"@operator"          { }, -- Operator
         -- sym "@keyword" {fg = chalk_pink}, -- Keyword
         -- sym"@exception"         { }, -- Exception
-        sym "@variable" {fg = NvimLightGrey3Tame} -- Identifier
-        -- sym "@lsp.type.member.javascript" {fg = NvimDarkRed},
+        sym "@variable" {fg = NvimLightGrey3Tame}, -- Identifier
+        sym "@lsp.type.member.javascript" {fg = Function.fg},
         -- sym "@lsp.type.property.javascript" {
         --     fg = NvimDarkBlue.lighten(20).desaturate(20)
         -- }
@@ -306,47 +306,26 @@ local theme = lush(function(injected_functions)
         --     fg = NvimLightGrey2.darken(20),
         --     gui = "italic"
         -- }
-
-        -- Markdown syntax highlighting (traditional syntax groups)
-        -- markdownH1 {fg = chalk_blue, gui = "bold"}, -- # Heading 1
-        -- markdownH2 {fg = chalk_blue.lighten(10), gui = "bold"}, -- ## Heading 2
-        -- markdownH3 {fg = chalk_blue.lighten(20), gui = "bold"}, -- ### Heading 3
-        -- markdownH4 {fg = chalk_blue.lighten(30), gui = "bold"}, -- #### Heading 4
-        -- markdownH5 {fg = chalk_blue.lighten(40), gui = "bold"}, -- ##### Heading 5
-        -- markdownH6 {fg = chalk_blue.lighten(50), gui = "bold"}, -- ###### Heading 6
-
-        -- markdownHeadingDelimiter {fg = chalk_pink}, -- # ## ### etc.
-        -- markdownHeadingRule {fg = chalk_pink}, -- --- === underlines
-        -- markdownBold {fg = chalk_base, gui = "bold"}, -- **bold** __bold__
-        -- markdownItalic {fg = chalk_base, gui = "italic"}, -- *italic* _italic_
-        -- markdownBoldItalic {fg = chalk_base, gui = "bold,italic"}, -- ***bold italic***
-
-        -- markdownCode {fg = chalk_green, bg = chalk_board.lighten(5)}, -- `inline code`
-        -- markdownCodeBlock {fg = chalk_green, bg = chalk_board.lighten(5)}, -- ```code blocks```
-        -- markdownCodeDelimiter {fg = chalk_foam}, -- ``` delimiters
-        -- markdownUrl {fg = chalk_purple, gui = "underline"}, -- URLs
-        -- markdownLink {fg = chalk_teal}, -- [link text]
-        -- markdownLinkText {fg = chalk_teal}, -- Link text inside []
-        -- markdownLinkDelimiter {fg = chalk_foam}, -- [] and ()
-        -- markdownLinkTextDelimiter {fg = chalk_foam}, -- [] delimiters
-        -- markdownListMarker {fg = chalk_pink}, -- * - + list markers
-        -- markdownOrderedListMarker {fg = chalk_pink}, -- 1. 2. 3. numbered lists
-        -- markdownBlockquote {fg = chalk_foam, gui = "italic"}, -- > blockquotes
-        -- markdownRule {fg = chalk_pink}, -- --- horizontal rules
-        -- Additional elements
-        -- markdownId {fg = chalk_purple}, -- Link references
-        -- markdownIdDeclaration {fg = chalk_teal}, -- Link reference declarations
-        -- markdownIdDelimiter {fg = chalk_foam}, -- Link reference delimiters
-        -- markdownFootnote {fg = chalk_purple}, -- Footnotes
-        -- markdownFootnoteDefinition {fg = chalk_purple}, -- Footnote definitions
-        -- HTML in markdown
-        -- htmlTag {fg = chalk_teal}, -- HTML tags
-        -- htmlEndTag {fg = chalk_teal}, -- HTML end tags
-        -- htmlTagName {fg = chalk_pink}, -- HTML tag names
-        -- htmlArg {fg = chalk_purple}, -- HTML attributes
-        -- htmlSpecialChar {fg = chalk_yellow}, -- HTML entities
-        -- Strike-through (if supported)
-        -- markdownStrike {fg = chalk_foam, gui = "strikethrough"} -- ~~strikethrough~~
+        -- Markdown syntax highlighting (minimal & minimalistic)
+        markdownH1 {fg = NvimLightBlueTame, gui = "bold"},
+        markdownH2 {fg = NvimLightBlueTame.lighten(10), gui = "bold"},
+        markdownH3 {fg = NvimLightCyanTame, gui = "bold"},
+        markdownHeadingDelimiter {fg = NvimLightGrey3Tame},
+        markdownBold {fg = NvimLightGrey1Tame, gui = "bold"},
+        markdownItalic {fg = NvimLightGrey1Tame, gui = "italic"},
+        markdownCode {fg = NvimLightGreenTame, bg = NvimDarkGrey1},
+        markdownCodeBlock {fg = NvimLightGreenTame, bg = NvimDarkGrey1},
+        markdownCodeDelimiter {fg = NvimLightGrey4Tame},
+        markdownUrl {fg = NvimLightMagenta, gui = "underline"},
+        markdownLink {fg = NvimLightCyanTame},
+        markdownListMarker {fg = NvimLightMagenta},
+        markdownBlockquote {fg = NvimLightGrey3Tame, gui = "italic"},
+        markdownRule {fg = NvimLightGrey4Tame}, -- Additional minimal elements
+        markdownId {fg = NvimLightMagenta},
+        markdownFootnote {fg = NvimLightMagenta},
+        htmlTag {fg = NvimLightCyanTame}, htmlEndTag {fg = NvimLightCyanTame},
+        htmlTagName {fg = NvimLightMagenta}, htmlArg {fg = NvimLightMagenta},
+        markdownStrike {fg = NvimLightGrey3Tame, gui = "strikethrough"}
     }
 end)
 

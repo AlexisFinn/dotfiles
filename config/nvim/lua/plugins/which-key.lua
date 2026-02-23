@@ -89,6 +89,10 @@ local keys = {
             vim.fn.setpos(".", currentPos)
         end,
         desc = "Purge/Clear all console.log statements in current buffer"
+    }, {
+        "<leader>cs",
+        function() vim.fn.execute("normal! othrow 'STOP';") end,
+        desc = "Purge/Clear all console.log statements in current buffer"
     }
 }
 -- return plugin

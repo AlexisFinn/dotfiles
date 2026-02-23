@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/Gemini_Generated_Image_t9pxn1t9pxn1t9px.png",
+    "alpha": "100",
+    "special": {
+        "background": "#171719",
+        "foreground": "#c5c5c5",
+        "cursor": "#c5c5c5"
+    },
+    "colors": {
+        "color0": "#171719",
+        "color1": "#374462",
+        "color2": "#6d4678",
+        "color3": "#3a6d7c",
+        "color4": "#767281",
+        "color5": "#8388b4",
+        "color6": "#75c3cc",
+        "color7": "#c5c5c5",
+        "color8": "#515152",
+        "color9": "#374462",
+        "color10": "#6d4678",
+        "color11": "#3a6d7c",
+        "color12": "#767281",
+        "color13": "#8388b4",
+        "color14": "#75c3cc",
+        "color15": "#c5c5c5"
+    }
+}

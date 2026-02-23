@@ -1,6 +1,7 @@
 return {
     "mhartington/formatter.nvim",
     config = function()
+        local util = require "formatter.util"
         require("formatter").setup({
             filetype = {
                 lua = {require("formatter.filetypes.lua").luaformat},
@@ -24,6 +25,18 @@ return {
                 },
                 javascript = {
                     function()
+                        if vim.fs.root(vim.fn.getcwd(), ".git") ==
+                            "/home/alexis/zest/ZestFront" then
+                            return {
+                                exe = "eslint_d",
+                                args = {
+                                    "--stdin", "--fix-to-stdout",
+                                    "--stdin-filename",
+                                    util.get_current_buffer_file_path()
+                                },
+                                stdin = true
+                            }
+                        end
                         -- if project contains a .prettierrc file, use it
                         if vim.fn.filereadable(".prettierrc.js") == 1 or
                             vim.fn.filereadable(".prettierrc") == 1 then

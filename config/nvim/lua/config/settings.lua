@@ -3,6 +3,7 @@ vim.cmd("set ttyfast") -- Speed up scrolling in Vim
 
 ---- General settings ----
 vim.keymap.set("n", "<space>", "<Nop>", {silent = true}) -- unuset <space> in normal mode
+vim.keymap.set({"n", "v"}, "<C-b>", "<Nop>", {silent = true}) -- unuset Ctrl+b in all but insert mode, to avoid conflict with tmux 
 vim.g.mapleader = " " -- set <space> as leader
 vim.g.maplocalleader = " " -- set <space> as local leader (this isn't really used)
 vim.o.cursorline = true -- Enable highlighting of the current line
@@ -19,7 +20,7 @@ vim.o.expandtab = true -- expand tab to spaces
 vim.o.shiftwidth = 2 -- expand tab to 2 spaces by default
 vim.o.softtabstop = 2 -- expand tab to 2 spaces by default
 -- vim.o.guifont = "Cascadia Code PL:h14" -- not using gui but some plugins might need this
-vim.o.guifont = "FantasqueSansM Nerd Font Mono:h14" -- not using gui but some plugins might need this
+vim.o.guifont = "FantasqueSansM Nerd Font Mono:h13" -- not using gui but some plugins might need this
 -- vim.o.list = true -- display whitespaces as characters when editing
 vim.opt.listchars = {
     tab = ">>>",
@@ -60,8 +61,15 @@ vim.g.do_filetype_lua = 1 -- use new experimental filetype detection
 vim.g.did_lead_filetypes = 0
 vim.g.floaterm_border = false
 vim.o.scrolloff = 12 -- keep 12 lines above/below cursor when scrolling
+vim.o.laststatus = 3 -- global statusline
 
 -- neovide settings
-vim.g.neovide_scroll_animation_length = 0.1
 vim.g.neovide_text_gamma = 0.8
-vim.g.neovide_text_contrast = 0.5
+vim.g.neovide_text_contrast = 0.1
+vim.g.neovide_position_animation_length = 0
+vim.g.neovide_cursor_animation_length = 0.00
+vim.g.neovide_cursor_trail_size = 0
+vim.g.neovide_cursor_animate_in_insert_mode = false
+vim.g.neovide_cursor_animate_command_line = false
+vim.g.neovide_scroll_animation_far_lines = 0
+vim.g.neovide_scroll_animation_length = 0.00

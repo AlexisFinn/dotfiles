@@ -42,14 +42,14 @@ text = "0xf8f8f2"
 
 [terminal.shell]
 program = "/usr/bin/zsh"
-args = ["-l", "-c", "tmux a || tmux"]
+# args = ["-l", "-c", "tmux a || tmux"]
 
 [scrolling]
 history = 10000
 multiplier = 3
 
 [font]
-size = 14
+size = 13
 
 [font.bold]
 family = "FantasqueSansM Nerd Font Mono"

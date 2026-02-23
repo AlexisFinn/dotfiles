@@ -206,6 +206,12 @@ return {
         priority = 1000,
         config = function() vim.cmd.colorscheme("gotham") end
     },
+    Gpt5mini = {
+        "rktjmp/lush.nvim",
+        {dir = "/home/alexis/.config/nvim/gpt5mini", lazy = true},
+        lazy = false,
+        priority = 1000
+    },
     GruvboxMaterial = {
         "sainnhe/gruvbox-material",
         lazy = false,
@@ -373,6 +379,12 @@ return {
         priority = 1000,
         config = function() vim.cmd.colorscheme("shado") end
     },
+    Sonnet = {
+        "rktjmp/lush.nvim",
+        {dir = "/home/alexis/.config/nvim/sonnet", lazy = true},
+        lazy = false,
+        priority = 1000
+    },
     Sonokai = {
         "sainnhe/sonokai",
         lazy = false,
@@ -391,6 +403,12 @@ return {
         lazy = false,
         priority = 1000
     },
+    -- Swayed = {
+    --     dir = vim.fn.stdpath("config") .. "/colorschemes/swayed.nvim",
+    --     lazy = false,
+    --     priority = 1000,
+    --     config = function() vim.cmd.colorscheme("swayed") end
+    -- },
     PaperColor = {
         "NLKNguyen/papercolor-theme",
         lazy = false,

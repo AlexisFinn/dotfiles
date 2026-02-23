@@ -9,6 +9,7 @@ export DENOPATH="$HOME/.deno"
 export PATH="$DENOPATH/bin:$NVIMPATH/bin:$GEMPATH/bin:$GHCUPPATH/bin:$GOPATH/bin:$CARGOPATH/bin:$HOME/.config/composer/vendor/bin:$HOME/bin:$HOME/.local/bin:$HOME/.cabal/bin:$PATH"
 export FZF_DEFAULT_COMMAND='ag -al'
 export EDITOR="nvim"
+export LUA_PATH="/usr/share/lua/5.4/?.lua;"
 
 
 # pymal custom colors

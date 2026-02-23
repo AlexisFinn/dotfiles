@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/ChatGPT-cyberpunk-darker.png",
+    "alpha": "100",
+    "special": {
+        "background": "#151515",
+        "foreground": "#c4c4c4",
+        "cursor": "#c4c4c4"
+    },
+    "colors": {
+        "color0": "#151515",
+        "color1": "#0e2729",
+        "color2": "#133538",
+        "color3": "#601a0a",
+        "color4": "#1b4a50",
+        "color5": "#992308",
+        "color6": "#6a471b",
+        "color7": "#c4c4c4",
+        "color8": "#4f4f4f",
+        "color9": "#0e2729",
+        "color10": "#133538",
+        "color11": "#601a0a",
+        "color12": "#1b4a50",
+        "color13": "#992308",
+        "color14": "#6a471b",
+        "color15": "#c4c4c4"
+    }
+}

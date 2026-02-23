@@ -5,9 +5,9 @@ return {
     event = "VeryLazy",
     config = function()
         require("copilot").setup({
-            copilot_model = "gpt-5-mini",
-            -- copilot_model = "claude-sonnet-4",
-            -- copilot_model = "gpt-5",
+            -- copilot_model = "gpt-5-mini",
+            copilot_model = "gpt-41-copilot",
+            -- copilot_model = "gpt-51-copilot",
             panel = {enabled = false, keymap = {open = "<C-s>"}},
             suggestion = {
                 enabled = true,
@@ -15,8 +15,11 @@ return {
                 hide_during_completion = false,
                 keymap = {accept = "<C-y>"}
             },
+            completion = {
+                ghost_text = {enabled = true},
+                menu = {auto_show = false}
+            },
             server_opts_overrides = {
-                trace = "verbose",
                 settings = {enable = false, inlineSuggest = {enable = false}}
             }
         })

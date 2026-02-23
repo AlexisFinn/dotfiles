@@ -20,6 +20,7 @@ require("config.autocmds")
 require("config.cmds.FormatJSON")
 require("config.cmds.CRef")
 require("config.cmds.YarnBuild")
+require("config.cmds.Cfp")
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ LSP                                                     │
 -- ╰─────────────────────────────────────────────────────────╯
@@ -32,8 +33,22 @@ require("config.lsp")
 local colorschemes = require("config.colorschemes")
 
 require("lazy").setup({
-    spec = {{import = "plugins"}, colorschemes.Tame},
-    change_detection = {enabled = false}
+    spec = {{import = "plugins"}, colorschemes.Swayed},
+    change_detection = {enabled = false},
+    performance = {
+        rtp = {
+            disabled_plugins = {
+                -- "matchit", 
+                -- "matchparen", 
+                "editorconfig", "man", "spellfile", "gzip", "netrwPlugin",
+                "tarPlugin", "tohtml", "tutor", "zipPlugin", "net", "osc52"
+                -- "shada", "rplugin"
+            }
+        }
+    }
 })
 
-vim.cmd.colorscheme("tame")
+-- vim.cmd.colorscheme("tame")
+vim.cmd.colorscheme("swayed")
+-- vim.cmd.colorscheme("gpt5mini")
+-- vim.cmd.colorscheme("sonnet")

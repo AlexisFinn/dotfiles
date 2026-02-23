@@ -69,12 +69,14 @@ local theme = lush(function(injected_functions)
         --
         -- See :h highlight-groups
         --
-        TelescopeNormal {fg = chalk_base.darken(20)}, TelescopeSelection {
+        TelescopeNormal {fg = chalk_base.darken(20)},
+        TelescopeSelection {
             bg = chalk_board.lighten(5),
             fg = chalk_base,
             gui = 'italic'
         }, -- Currently selected item in Telescope.
         ColorColumn {bg = chalk_board.lighten(5)}, -- Columns set with 'colorcolumn'
+        CursorLine {bg = chalk_board.lighten(5)}, -- Screen-line at the cursor, when 'cursorline' is set.
         -- Conceal        { }, -- Placeholder characters substituted for concealed text (see 'conceallevel')
         -- Cursor         { }, -- Character under the cursor
         CurSearch {bg = chalk_pink, fg = chalk_board}, -- Highlighting a search pattern under the cursor (see 'hlsearch')
@@ -83,9 +85,11 @@ local theme = lush(function(injected_functions)
         -- CursorColumn   { }, -- Screen-column at the cursor, when 'cursorcolumn' is set.
         -- CursorLine     { }, -- Screen-line at the cursor, when 'cursorline' is set. Low-priority if foreground (ctermfg OR guifg) is not set.
         -- Directory      { }, -- Directory names (and other special names in listings)
-        -- DiffAdd        { }, -- Diff mode: Added line |diff.txt|
+        DiffAdd {fg = chalk_green.darken(30)}, -- Diff mode: Added line |diff.txt|
+        CodeDiffLineInsert = {fg = DiffAdd, bg = DiffAdd},
         -- DiffChange     { }, -- Diff mode: Changed line |diff.txt|
-        -- DiffDelete     { }, -- Diff mode: Deleted line |diff.txt|
+        DiffDelete {fg = error.lighten(30)}, -- Diff mode: Deleted line |diff.txt|
+        CodeDiffLineDelete = {fg = DiffDelete, bg = DiffDelete},
         -- DiffText       { }, -- Diff mode: Changed text within a changed line |diff.txt|
         -- EndOfBuffer    { }, -- Filler lines (~) after the end of the buffer. By default, this is highlighted like |hl-NonText|.
         -- TermCursor     { }, -- Cursor in a focused terminal
@@ -320,7 +324,12 @@ local theme = lush(function(injected_functions)
         htmlArg {fg = chalk_purple}, -- HTML attributes
         htmlSpecialChar {fg = chalk_yellow}, -- HTML entities
         -- Strike-through (if supported)
-        markdownStrike {fg = chalk_foam, gui = "strikethrough"} -- ~~strikethrough~~
+        markdownStrike {fg = chalk_foam, gui = "strikethrough"}, -- ~~strikethrough~~
+        -- *******
+        -- PLUGINS
+        -- *******
+        EyelinerPrimary {fg = chalk_pink, gui = "bold"},
+        EyelinerSecondary {fg = chalk_blue.darken(50)}
     }
 end)
 
