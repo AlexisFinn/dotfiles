@@ -56,38 +56,8 @@
           create: true
           force: false
           relink: true
-      ~/.config/nvim/lua:
-          path: config/nvim/lua/
-          create: true
-          force: false
-          relink: true
-      ~/.config/nvim/init.lua:
-          path: config/nvim/init.lua
-          create: true
-          force: false
-          relink: true
-      ~/.config/nvim/after:
-          path: config/nvim/after/
-          create: true
-          force: false
-          relink: true
-      ~/.config/nvim/colorschemes:
-          path: config/nvim/colorschemes
-          create: true
-          force: false
-          relink: true
-      ~/.config/nvim/tame:
-          path: config/nvim/tame
-          create: true
-          force: false
-          relink: true
-      ~/.config/nvim/swayed:
-          path: config/nvim/swayed
-          create: true
-          force: false
-          relink: true
-      ~/.config/nvim/lazy-lock.json:
-          path: config/nvim/lazy-lock.json
+      ~/.config/nvim:
+          path: config/nvim/
           create: true
           force: false
           relink: true
@@ -136,23 +106,8 @@
           create: true
           force: false
           relink: true
-      ~/.config/qtile/claude_sessions.py:
-          path: config/qtile/claude_sessions.py
-          create: true
-          force: false
-          relink: true
-      ~/.config/qtile/config.py:
-          path: config/qtile/config.py
-          create: true
-          force: false
-          relink: true
-      ~/.config/qtile/autostart.sh:
-          path: config/qtile/autostart.sh
-          create: true
-          force: false
-          relink: true
-      ~/.config/qtile/PyColors.py:
-          path: config/wpg/templates/PyColors.py
+      ~/.config/qtile:
+          path: config/qtile/
           create: true
           force: false
           relink: true

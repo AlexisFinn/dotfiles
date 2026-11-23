@@ -1,0 +1,1 @@
+/home/alexis/.config/wpg/templates/PyColors.py

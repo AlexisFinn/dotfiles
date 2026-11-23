@@ -21,3 +21,5 @@ config/hypr/hyprland.lua.backup*
 config/wpg/schemes/
 config/wpg/sequences
 config/wpg/.current
+.mypy_cache/
+config/nvim/.claude/settings.local.json

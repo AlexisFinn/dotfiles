@@ -1,0 +1,21 @@
+#!/usr/bin/env bash
+# Saves the current state of the configuration: checks the links, commits
+# everything and pushes.
+# Usage: ./save [commit message]   (defaults to "backup <date>")
+set -euo pipefail
+
+cd "$(dirname "${BASH_SOURCE[0]}")"
+
+# A broken link means a configuration file is no longer the repository copy:
+# committing now would save a stale version.
+./check
+
+git add -A
+if git diff --cached --quiet; then
+    echo "Nothing to save."
+    exit 0
+fi
+
+git status --short
+git commit --quiet -m "${*:-backup $(date +%F)}"
+git push

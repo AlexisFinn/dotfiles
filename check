@@ -18,7 +18,8 @@ except ImportError:
 
 # Directories scanned for links into the repository that install.conf.yaml
 # does not declare.
-SCANNED = ["~", "~/bin", "~/.config", "~/.config/nvim", "~/.config/qtile"]
+SCANNED = ["~", "~/bin", "~/.config"]
+MISSING = "missing"
 
 
 def declared_links():
@@ -41,7 +42,7 @@ def status(dst, src):
         return None
     if dst.exists():
         return "regular file or directory instead of a link"
-    return "missing"
+    return MISSING
 
 
 def undeclared(declared):
@@ -60,11 +61,15 @@ def undeclared(declared):
 
 def main():
     links = list(declared_links())
-    problems = [(dst, s) for dst, src in links if (s := status(dst, src))]
-    problems += undeclared({dst for dst, _ in links})
-    for dst, message in problems:
+    found = [(dst, s) for dst, src in links if (s := status(dst, src))]
+    found += undeclared({dst for dst, _ in links})
+    # A link that is simply absent loses nothing: ./install creates it.
+    absent = [dst for dst, message in found if message == MISSING]
+    problems = [(dst, message) for dst, message in found if message != MISSING]
+    for dst, message in found:
         print(f"{str(dst).replace(str(Path.home()), '~')}: {message}")
-    print(f"{len(links)} links declared, {len(problems)} problem(s)")
+    print(f"{len(links)} links declared, {len(problems)} problem(s), "
+          f"{len(absent)} to create with ./install")
     return 1 if problems else 0
 
 

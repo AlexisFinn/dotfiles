@@ -9,7 +9,12 @@ the files live in this repository and `~` only holds symlinks to them.
 - `./install` creates the links. It never overwrites an existing file
   (`force: false`): move the file away first, then run it again.
 - `./check` verifies that each declared link is still in place, and reports
-  links into the repository that are not declared. Run it before committing.
+  links into the repository that are not declared. A link that is merely
+  absent is reported without failing: `./install` creates it.
+- `./save [message]` runs `./check`, then commits everything and pushes.
+- `./add <path>` adopts a new configuration: it moves `~/.config/<name>`,
+  `~/bin/<name>` or `~/.<name>` into the repository, links it back and declares
+  it in `install.conf.yaml`.
 
 Whole directories are linked rather than single files whenever possible: a
 program that saves by writing a new file and renaming it replaces a file
@@ -39,6 +44,9 @@ Things that vary between distributions:
 - Hyprland must be 0.57 or later (Lua configuration). Stable releases of some
   distributions ship an older version.
 
+Configurations of software that is not installed stay declared and linked:
+they are picked up as soon as the software is installed.
+
 ## Contents
 
 | Path | What |
@@ -54,7 +62,7 @@ Things that vary between distributions:
 | `tmux.conf`, `gitconfig` | tmux, git |
 | `scripts` | small scripts linked into `~/bin` |
 | `wallpapers` | wallpapers, linked to `~/wallpapers` |
-| `xmonad`, `config/xmobar`, `config/i3`, `config/conky`, `config/deadd`, `config/broot`, `config/kitty`, `tmate.conf` | no longer used, kept as an archive |
+| `xmonad`, `config/xmobar`, `config/i3`, `config/conky`, `config/deadd`, `config/broot`, `config/kitty`, `tmate.conf` | not installed at the moment, kept and linked |
 
 ## Hyprland session
 
@@ -97,7 +105,7 @@ X11 session kept as a fallback. Software: [qtile](https://qtile.org/),
 [alacritty](https://github.com/alacritty/alacritty), playerctl, `pactl`,
 `xrandr`.
 
-`~/.config/qtile/PyColors.py` is a link to the file wpg generates from
+`config/qtile/PyColors.py` is a link to the file wpg generates from
 `config/wpg/templates/PyColors.py.base`.
 
 Some keybindings:
