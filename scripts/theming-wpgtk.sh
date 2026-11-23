@@ -12,5 +12,9 @@ wpg --backend $backend -s "$@"
 mkdir -p ~/.cache/wpg
 cp ~/.config/wpg/templates/sequences ~/.cache/wpg/
 cp ~/.config/wpg/templates/colors-rofi-dark.rasi ~/.cache/wpg/
+# Hyprland: window borders, wallpaper
+if [ -n "${HYPRLAND_INSTANCE_SIGNATURE:-}" ]; then
+  ~/.config/hypr/scripts/apply-theme.sh
+fi
 # probably useless
 # backend=&{backend:-0}

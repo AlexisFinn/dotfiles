@@ -413,3 +413,12 @@
   background = "#013A61"
   foreground = "#ffffff"
   timeout = 10
+
+# Claude Code hooks (~/.claude/hooks/notify-*.sh) — distinct accent color,
+# matching the existing urgency_* convention (dark background, colored frame
+# + text) instead of a solid fill, so these stand out without clashing.
+[claude_code]
+  appname = "Claude Code"
+  background = "#282A36"
+  foreground = "#D97757"
+  frame_color = "#D97757"

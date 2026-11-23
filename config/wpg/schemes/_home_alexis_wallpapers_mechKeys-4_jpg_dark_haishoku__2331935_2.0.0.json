@@ -1,0 +1,28 @@
+{
+    "checksum": "fedcef5d39848b385af55ac5e94566c4",
+    "wallpaper": "/home/alexis/wallpapers/mechKeys-4.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#080812",
+        "foreground": "#c1c1c3",
+        "cursor": "#c1c1c3"
+    },
+    "colors": {
+        "color0": "#080812",
+        "color1": "#2a3274",
+        "color2": "#3f6684",
+        "color3": "#7f8180",
+        "color4": "#8890b6",
+        "color5": "#c0927d",
+        "color6": "#bdb29f",
+        "color7": "#c1c1c3",
+        "color8": "#57576a",
+        "color9": "#2a3274",
+        "color10": "#3f6684",
+        "color11": "#7f8180",
+        "color12": "#8890b6",
+        "color13": "#c0927d",
+        "color14": "#bdb29f",
+        "color15": "#c1c1c3"
+    }
+}

@@ -7,3 +7,13 @@
 xmonad/xmonad-x86_64-linux
 xmonad/**/*.o
 config/nvim/lua/plugin-configs/calendar-google.lua
+__pycache__/
+# files generated or downloaded by DankMaterialShell, matugen and luciole
+config/dms/plugins/
+config/dms/firefox.css
+config/dms/icc.json
+config/dms/.firstlaunch
+config/dms/.changelog-*
+config/foot/dank-colors.ini
+config/luciole/.settings.toml.lock
+config/hypr/hyprland.lua.backup*

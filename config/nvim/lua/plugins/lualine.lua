@@ -22,7 +22,6 @@ end
 
 return {
     "hoob3rt/lualine.nvim",
-    dependencies = {"NickvanDyke/opencode.nvim"},
     opts = {
         options = {
             -- icons_enabled = true,

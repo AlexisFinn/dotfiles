@@ -272,6 +272,12 @@ return {
         priority = 1000,
         config = function() vim.cmd.colorscheme("mellow") end
     },
+    Meowsoot = {
+        "marekh19/meowsoot.nvim",
+        lazy = false,
+        priority = 1000,
+        config = function() vim.cmd.colorscheme("meowsoot") end
+    },
     Midnight = {
         "dasupradyumna/midnight.nvim",
         lazy = false,

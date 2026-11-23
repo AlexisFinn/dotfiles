@@ -1,0 +1,28 @@
+{
+    "checksum": "ce3779dbc7dbe6f318351d626cfc147d",
+    "wallpaper": "/home/alexis/wallpapers/rainy-day.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#1b0e0c",
+        "foreground": "#c6c2c2",
+        "cursor": "#c6c2c2"
+    },
+    "colors": {
+        "color0": "#1b0e0c",
+        "color1": "#ac4a3c",
+        "color2": "#c1b1ac",
+        "color3": "#ae6a53",
+        "color4": "#c09667",
+        "color5": "#6857aa",
+        "color6": "#a46d94",
+        "color7": "#c6c2c2",
+        "color8": "#6f5d5b",
+        "color9": "#ac4a3c",
+        "color10": "#c1b1ac",
+        "color11": "#ae6a53",
+        "color12": "#c09667",
+        "color13": "#6857aa",
+        "color14": "#a46d94",
+        "color15": "#c6c2c2"
+    }
+}

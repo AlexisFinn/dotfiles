@@ -4,11 +4,6 @@
       ~/.bashrc: bashrc
       ~/.bash_logout: bash_logout
       ~/.zshrc: zshrc
-      ~/zsh-setup.zsh: zsh-setup.zsh
-      ~/.zshrc.d:
-          path: zshrc.d
-          force: false
-          relink: true
       ~/.config/tmux/tmux.conf:
           path: tmux.conf
           force: false
@@ -96,6 +91,36 @@
           create: true
           force: false
           relink: true
+      ~/.config/hypr:
+          path: config/hypr/
+          create: true
+          force: false
+          relink: true
+      ~/.config/foot:
+          path: config/foot/
+          create: true
+          force: false
+          relink: true
+      ~/.config/luciole:
+          path: config/luciole/
+          create: true
+          force: false
+          relink: true
+      ~/.config/dms:
+          path: config/dms/
+          create: true
+          force: false
+          relink: true
+      ~/.config/matugen:
+          path: config/matugen/
+          create: true
+          force: false
+          relink: true
+      ~/.config/qtile/claude_sessions.py:
+          path: config/qtile/claude_sessions.py
+          create: true
+          force: false
+          relink: true
       ~/.config/qtile/config.py:
           path: config/qtile/config.py
           create: true
@@ -118,12 +143,8 @@
           relink: true
       ~/.profile: profile
       ~/bin/theming-wpgtk.sh: scripts/theming-wpgtk.sh
+      ~/bin/capture: scripts/capture
       ~/wallpapers: wallpapers
-- shell:
-      - [
-            cd ~ && git clone https://github.com/jandamm/zgenom.git .zgenom,
-            retrieve zgenom plugin manager for zsh,
-        ]
 # TO INSTALL
 # xmonad
 # xmobar

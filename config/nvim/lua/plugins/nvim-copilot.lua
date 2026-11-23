@@ -3,10 +3,13 @@ return {
     "zbirenbaum/copilot.lua", -- lua re-write
     cmd = "Copilot",
     event = "VeryLazy",
+    requires = {
+        "copilotlsp-nvim/copilot-lsp" -- (optional) for NES functionality
+    },
     config = function()
         require("copilot").setup({
             -- copilot_model = "gpt-5-mini",
-            copilot_model = "gpt-41-copilot",
+            -- copilot_model = "gpt-41-copilot",
             -- copilot_model = "gpt-51-copilot",
             panel = {enabled = false, keymap = {open = "<C-s>"}},
             suggestion = {
@@ -21,6 +24,14 @@ return {
             },
             server_opts_overrides = {
                 settings = {enable = false, inlineSuggest = {enable = false}}
+            },
+            nes = {
+                enabled = false,
+                keymap = {
+                    accept_and_goto = "<C-i>",
+                    accept = false,
+                    dismiss = "<Esc>"
+                }
             }
         })
     end

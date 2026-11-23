@@ -18,9 +18,9 @@ require("config.autocmds")
 -- │ Custom Commands                                         │
 -- ╰─────────────────────────────────────────────────────────╯
 require("config.cmds.FormatJSON")
-require("config.cmds.CRef")
 require("config.cmds.YarnBuild")
-require("config.cmds.Cfp")
+require("config.cmds.CodeSnap")
+require("config.cmds.CopyReference")
 -- ╭─────────────────────────────────────────────────────────╮
 -- │ LSP                                                     │
 -- ╰─────────────────────────────────────────────────────────╯

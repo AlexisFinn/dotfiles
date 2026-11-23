@@ -1,0 +1,28 @@
+{
+    "checksum": "64229577caf6b161675d9b2a8df89f28",
+    "wallpaper": "/home/alexis/wallpapers/forest.png",
+    "alpha": "100",
+    "special": {
+        "background": "#090c15",
+        "foreground": "#c1c2c4",
+        "cursor": "#c1c2c4"
+    },
+    "colors": {
+        "color0": "#090c15",
+        "color1": "#2b4276",
+        "color2": "#336392",
+        "color3": "#676e95",
+        "color4": "#3884c3",
+        "color5": "#7d84bf",
+        "color6": "#45abe1",
+        "color7": "#c1c2c4",
+        "color8": "#585e6c",
+        "color9": "#2b4276",
+        "color10": "#336392",
+        "color11": "#676e95",
+        "color12": "#3884c3",
+        "color13": "#7d84bf",
+        "color14": "#45abe1",
+        "color15": "#c1c2c4"
+    }
+}

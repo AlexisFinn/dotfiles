@@ -1,0 +1,8 @@
+schema_version = 1
+
+[browser]
+directories_first = true
+show_hidden = true
+show_preview = false
+sort_by = "modified"
+sort_descending = true

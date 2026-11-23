@@ -45,20 +45,31 @@ return {
                                 args = {"--parser typescript", "-w"},
                                 stdin = true
                             }
-                        else
-                            return {
-                                exe = "prettier",
-                                args = {
-                                    "--parser babel",
-                                    "--config /home/alexis/.prettierrc", "-w"
-                                },
-                                stdin = true
-                            }
                         end
+                        return {
+                            exe = "prettier",
+                            args = {
+                                "--parser babel",
+                                "--config /home/alexis/.prettierrc", "-w"
+                            },
+                            stdin = true
+                        }
                     end
                 },
                 typescript = {
                     function()
+                        if vim.fs.root(vim.fn.getcwd(), ".git") ==
+                            "/home/alexis/zest/ZestFront" then
+                            return {
+                                exe = "eslint_d",
+                                args = {
+                                    "--stdin", "--fix-to-stdout",
+                                    "--stdin-filename",
+                                    util.get_current_buffer_file_path()
+                                },
+                                stdin = true
+                            }
+                        end
                         return {
                             exe = "prettier",
                             args = {"--parser typescript", "-w"},
@@ -104,6 +115,18 @@ return {
                 },
                 typescriptreact = {
                     function()
+                        if vim.fs.root(vim.fn.getcwd(), ".git") ==
+                            "/home/alexis/zest/ZestFront" then
+                            return {
+                                exe = "eslint_d",
+                                args = {
+                                    "--stdin", "--fix-to-stdout",
+                                    "--stdin-filename",
+                                    util.get_current_buffer_file_path()
+                                },
+                                stdin = true
+                            }
+                        end
                         return {
                             exe = "prettier",
                             args = {"--parser typescript", "-w"},

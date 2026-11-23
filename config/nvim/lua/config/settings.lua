@@ -62,6 +62,7 @@ vim.g.did_lead_filetypes = 0
 vim.g.floaterm_border = false
 vim.o.scrolloff = 12 -- keep 12 lines above/below cursor when scrolling
 vim.o.laststatus = 3 -- global statusline
+vim.o.report = 9999 -- don't report 'x fewer lines' when deleting, yanking, etc. (default is 2)
 
 -- neovide settings
 vim.g.neovide_text_gamma = 0.8

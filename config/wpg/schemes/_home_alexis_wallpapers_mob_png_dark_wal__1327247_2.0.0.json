@@ -1,0 +1,28 @@
+{
+    "checksum": "222fa0a786ba97c55aa7a2d4f9713fac",
+    "wallpaper": "/home/alexis/wallpapers/mob.png",
+    "alpha": "100",
+    "special": {
+        "background": "#13131b",
+        "foreground": "#c4c4c6",
+        "cursor": "#c4c4c6"
+    },
+    "colors": {
+        "color0": "#13131b",
+        "color1": "#65619D",
+        "color2": "#5749AB",
+        "color3": "#985E9E",
+        "color4": "#B654CD",
+        "color5": "#5BA1C0",
+        "color6": "#9E95A5",
+        "color7": "#c4c4c6",
+        "color8": "#5d5d71",
+        "color9": "#65619D",
+        "color10": "#5749AB",
+        "color11": "#985E9E",
+        "color12": "#B654CD",
+        "color13": "#5BA1C0",
+        "color14": "#9E95A5",
+        "color15": "#c4c4c6"
+    }
+}

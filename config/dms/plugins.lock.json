@@ -1,0 +1,9 @@
+{
+  "lockfileVersion": 1,
+  "plugins": {
+    "claudeCodeUsage": {
+      "repo": "https://github.com/titeya/dms-claudecode",
+      "commit": "d83dd137ee68480b85c733f5920fa24e6f9904b5"
+    }
+  }
+}

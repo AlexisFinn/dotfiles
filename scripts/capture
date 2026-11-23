@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+# Wayland replacement for `scrot -s`: select a zone, save it as PNG and copy it
+# to the clipboard. Usage: capture [directory]  (defaults to the current one).
+set -euo pipefail
+
+dir=${1:-$PWD}
+mkdir -p "$dir"
+
+# slurp exits non-zero when the selection is cancelled with Escape.
+geometry=$(slurp -d) || exit 0
+
+file="$dir/$(date +%Y-%m-%d-%H%M%S)_${geometry##* }_capture.png"
+grim -g "$geometry" "$file"
+wl-copy --type image/png < "$file"
+notify-send -i "$file" "Capture enregistrée" "$file" 2>/dev/null || true
+echo "$file"

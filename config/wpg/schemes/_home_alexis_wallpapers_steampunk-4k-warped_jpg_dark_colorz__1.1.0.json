@@ -1,0 +1,27 @@
+{
+    "wallpaper": "/home/alexis/wallpapers/steampunk-4k-warped.jpg",
+    "alpha": "100",
+    "special": {
+        "background": "#221211",
+        "foreground": "#c7c3c3",
+        "cursor": "#c7c3c3"
+    },
+    "colors": {
+        "color0": "#221211",
+        "color1": "#ab5b58",
+        "color2": "#ab7371",
+        "color3": "#c5aeab",
+        "color4": "#80a1aa",
+        "color5": "#a79ba0",
+        "color6": "#ac8788",
+        "color7": "#c7c3c3",
+        "color8": "#594d4c",
+        "color9": "#ab5b58",
+        "color10": "#ab7371",
+        "color11": "#c5aeab",
+        "color12": "#80a1aa",
+        "color13": "#a79ba0",
+        "color14": "#ac8788",
+        "color15": "#c7c3c3"
+    }
+}

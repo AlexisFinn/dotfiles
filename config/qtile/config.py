@@ -31,6 +31,7 @@ from libqtile.config import Click, Drag, Group, Key, Match, Screen, KeyChord
 from libqtile.lazy import lazy
 from colour import Color
 import PyColors
+import claude_sessions
 import os
 import subprocess
 
@@ -111,6 +112,51 @@ def get_standout_color():
     return colors[max_index]
 
 
+def _hue_distance(hue, others):
+    return min((min(abs(hue - h), 1 - abs(hue - h)) for h in others), default=0.5)
+
+
+def _hues(colors, min_saturation=0.15):
+    """Hues of the colours that have one: greys are left out, their hue is meaningless."""
+    return [Color(c).get_hue() for c in colors if Color(c).get_saturation() >= min_saturation]
+
+
+def get_distinct_color(*avoid, luminance=0.65):
+    """Returns the palette accent whose hue is furthest from every colour in `avoid`, lightened to
+    `luminance` so it stays readable on the dark bar."""
+    accents = [PyColors.color1, PyColors.color2, PyColors.color3,
+               PyColors.color4, PyColors.color5, PyColors.color6]
+    hues = _hues(avoid)
+    color = Color(max(accents, key=lambda c: _hue_distance(Color(c).get_hue(), hues)))
+    color.set_luminance(luminance)
+    return color.get_hex_l()
+
+
+def get_theme_saturation(low=0.3, high=0.4):
+    """Median saturation of the palette accents, kept within pastel bounds."""
+    saturations = sorted(Color(c).get_saturation() for c in [
+        PyColors.color1, PyColors.color2, PyColors.color3,
+        PyColors.color4, PyColors.color5, PyColors.color6])
+    return min(max(saturations[len(saturations) // 2], low), high)
+
+
+def get_signal_color(target_hue, hue_range, *avoid, min_gap=40, saturation=0.45, luminance=0.65):
+    """Returns a saturated colour whose hue (degrees) lies in `hue_range`, as close as possible to
+    `target_hue` while staying at least `min_gap` degrees from every colour in `avoid`. When the
+    whole range is too close, returns the hue of the range that is furthest from them.
+    `hue_range` is (start, end) going clockwise, so (320, 60) spans red."""
+    hues = _hues(avoid)
+    start, end = hue_range
+    span = (end - start) % 360
+    candidates = [((start + step) % 360) / 360 for step in range(0, span + 1, 5)]
+    allowed = [h for h in candidates if _hue_distance(h, hues) >= min_gap / 360]
+    if allowed:
+        hue = min(allowed, key=lambda h: _hue_distance(h, [target_hue / 360]))
+    else:
+        hue = max(candidates, key=lambda h: _hue_distance(h, hues))
+    return Color(hsl=(hue, saturation, luminance)).get_hex_l()
+
+
 def make_widget(name, color, **kwargs):
     foregroundColor = make_foreground_color(color)
     shadow = None if colors_equal(foregroundColor, PyColors.background) else PyColors.background
@@ -160,18 +206,32 @@ laucher = "rofi -m -1 -combi-modi drun,run -show combi -modi combi -show-icons"
 alt_launcher = "dmenu_run"
 
 # layout settings
-preferred_ratio = 80 / 100
+preferred_ratio = 60 / 100
 max_ratio = 90 / 100
 min_ratio = 20 / 100
 resize_step_ratio = 2 / 100
-gap = 2
-border = 2
+gap = 8
+# Even, so that the attention line of Claude windows takes exactly half of it.
+border = 4
 floats_kept_above = True
 
 active_color = get_standout_color()  # PyColors.color6
 active_color_alt = PyColors.color5
 inactive_color = PyColors.background  # make_inactive_color(PyColors.color6)
 inactive_color_alt = make_inactive_color(PyColors.color5)
+# Claude windows: labels, "action" and "done" each take a hue of their own, away from the bar's colours.
+# Labels also keep clear of red and green, the hues the two signals aim for.
+claude_label_color = get_distinct_color(
+    active_color, active_color_alt, Color(hsl=(15 / 360, 0.75, 0.6)).get_hex_l(),
+    Color(hsl=(120 / 360, 0.75, 0.6)).get_hex_l())
+# The signals share the labels' luminance and the theme's saturation, so they read as part of it.
+claude_signal_tone = dict(saturation=get_theme_saturation(), luminance=0.65)
+claude_action_color = get_signal_color(
+    15, (330, 60), active_color, active_color_alt, claude_label_color, **claude_signal_tone)
+claude_done_color = get_signal_color(
+    120, (80, 180), active_color, active_color_alt, claude_label_color, claude_action_color,
+    min_gap=60, **claude_signal_tone)
+claude_sessions.setup(claude_done_color, claude_action_color)
 
 # configure groups (workspaces)
 # list of myGroup, first argument is group name second is keycode
@@ -214,10 +274,10 @@ icons = dict(
 # custom functions to switch screen focus without round-robin
 def next_screen(qtile):
     if qtile.current_screen.index != 2:
-        qtile.cmd_next_screen()
+        qtile.next_screen()
 def prev_screen(qtile):
     if qtile.current_screen.index != 0:
-        qtile.cmd_prev_screen()
+        qtile.prev_screen()
 
 
 def handle_h(qtile):
@@ -233,8 +293,8 @@ def handle_l(qtile):
 # shortcuts for doing everything
 keys = [
     # change focused window
-    Key([mod], "j", lazy.layout.down(), desc="Move focus down"),
-    Key([mod], "k", lazy.layout.up(), desc="Move focus up"),
+    Key([mod], "j", lazy.layout.next(), desc="Move focus to next window"),
+    Key([mod], "k", lazy.layout.previous(), desc="Move focus to previous window"),
     Key([mod], "Tab", lazy.layout.next(),
         desc="Move window focus to other window"),
 
@@ -284,13 +344,15 @@ keys = [
 
     # qtile functions
     Key([mod, "shift"], "r", lazy.restart(), desc="Restart Qtile"),
+    Key([mod], "r", lazy.function(claude_sessions.rename_window), desc="Rename focused window"),
+    Key([mod], "w", lazy.function(claude_sessions.switch_window), desc="Pick a window to focus"),
     Key([mod, "shift"], "q", lazy.shutdown(), desc="Shutdown Qtile"),
 
     # multimedia
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     Key([], "XF86AudioPlay", lazy.spawn("playerctl play-pause")),
-    Key([], "XF86AudioRaiseVolume", lazy.spawn("playerctl --player=spotify play-pause")),
+    Key([], "XF86AudioRaiseVolume", lazy.spawn("playerctl --player=spotifast play-pause")),
     Key([], "XF86AudioLowerVolume", lazy.spawn("playerctl --player=chromium play-pause")),
     # Key([], "XF86AudioRaiseVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ +1%")),
     # Key([], "XF86AudioLowerVolume", lazy.spawn("pactl set-sink-volume @DEFAULT_SINK@ -1%")),
@@ -343,8 +405,8 @@ layoutConfig = dict(
 
 # define layouts
 layouts = [
-    layout.MonadTall(**layoutConfig),
-    layout.MonadWide(**layoutConfig),
+    claude_sessions.MonadTall(**layoutConfig),
+    claude_sessions.MonadWide(**layoutConfig),
     # layout.Matrix(**layoutConfig),
     # layout.VerticalTile(**layoutConfig),
     #  layout.Zoomy(**layoutConfig),
@@ -360,6 +422,27 @@ widget_defaults = dict(
     fontshadow=bar_default_fontshadow,
 )
 extension_defaults = widget_defaults.copy()
+
+
+def make_claude_task_list():
+    return claude_sessions.ClaudeTaskList(
+        border=active_color,
+        foreground=claude_label_color,
+        focused_foreground=PyColors.foreground,
+        icon_size=0,
+        borderwidth=0,
+        spacing=12,
+        max_title_width=250,
+        fontshadow=None,
+    )
+
+def make_window_separator():
+    return widget.Sep(
+        foreground=PyColors.color8,
+        linewidth=1,
+        size_percent=60,
+        padding=12,
+    )
 
 separator = dict(
     text=icons['separator'],
@@ -412,7 +495,7 @@ for name, color in powerlineWidgets.items():
             make_widget(
                 'DF',
                 color,
-                format=icons['disk'] + "{uf}{m}",
+                format=icons['disk'] + "{uf:.0f}{m}",
                 measure='G',
                 visible_on_warn=False,
                 warn_color=PyColors.foreground
@@ -485,7 +568,8 @@ mainBar = [
         fontshadow=None,
         borderwidth=3
     ),
-    widget.Spacer(),
+    make_window_separator(),
+    make_claude_task_list(),
 ] + powerlineBar
 
 screens = [
@@ -510,7 +594,8 @@ screens = [
                               #  stop_pause_text="Spotify not playing",
                               #  scroll_interval=0
                               #  ),
-                widget.Spacer(),
+                make_window_separator(),
+                make_claude_task_list(),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color1),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color2),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color3),
@@ -559,7 +644,8 @@ screens = [
                               #  stop_pause_text="Spotify not playing",
                               #  scroll_interval=0
                               #  ),
-                widget.Spacer(),
+                make_window_separator(),
+                make_claude_task_list(),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color1),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color2),
                 widget.TextBox(text=icons['color'], foreground=PyColors.color3),

@@ -38,7 +38,11 @@ local keys = {
         "<leader>ga",
         "<cmd>!git add %<CR>",
         desc = "Add current file to git commit"
-    }, {"<leader>h", "<C-W><C-H>", desc = "Focus Window LEFT"},
+    }, -- {"<C-h>", "<C-W><C-H>", desc = "Focus Window LEFT"},
+    -- {"<C-j>", "<C-W><C-J>", desc = "Focus Window UP"},
+    -- {"<C-k>", "<C-W><C-K>", desc = "Focus Window DOWN"},
+    -- {"<C-l>", "<C-W><C-L>", desc = "Focus Window RIGHT"},
+    {"<leader>h", "<C-W><C-H>", desc = "Focus Window LEFT"},
     {"<leader>j", "<C-W><C-J>", desc = "Focus Window UP"},
     {"<leader>k", "<C-W><C-K>", desc = "Focus Window DOWN"},
     {"<leader>l", "<C-W><C-L>", desc = "Focus Window RIGHT"},
@@ -93,6 +97,12 @@ local keys = {
         "<leader>cs",
         function() vim.fn.execute("normal! othrow 'STOP';") end,
         desc = "Purge/Clear all console.log statements in current buffer"
+    }, {
+        "<C-n>",
+        function() vim.cmd("stopinsert") end,
+        mode = "t",
+        expr = true,
+        desc = "Exit terminal mode"
     }
 }
 -- return plugin
@@ -107,3 +117,4 @@ return {
     },
     keys = keys
 }
+

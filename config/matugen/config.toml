@@ -1,0 +1,2 @@
+# User templates run by DMS after each theme change (setting "runUserMatugenTemplates").
+# The Hyprland session theme comes from wpgtk (~/bin/theming-wpgtk.sh), not from DMS.
