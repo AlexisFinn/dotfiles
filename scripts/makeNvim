@@ -1,0 +1,8 @@
+#!/bin/sh
+make distclean && make clean && \
+make CMAKE_BUILD_TYPE=Release \
+     CMAKE_INSTALL_PREFIX=/home/alexis/nvim
+# make CMAKE_BUILD_TYPE=RelWithDebInfo \
+#      CMAKE_INSTALL_PREFIX=/home/alexis/nvim
+
+

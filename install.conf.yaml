@@ -71,6 +71,26 @@
           create: true
           force: false
           relink: true
+      ~/.config/nvim/colorschemes:
+          path: config/nvim/colorschemes
+          create: true
+          force: false
+          relink: true
+      ~/.config/nvim/tame:
+          path: config/nvim/tame
+          create: true
+          force: false
+          relink: true
+      ~/.config/nvim/swayed:
+          path: config/nvim/swayed
+          create: true
+          force: false
+          relink: true
+      ~/.config/nvim/lazy-lock.json:
+          path: config/nvim/lazy-lock.json
+          create: true
+          force: false
+          relink: true
       ~/.config/picom.conf:
           path: config/picom.conf
           create: true
@@ -144,6 +164,13 @@
       ~/.profile: profile
       ~/bin/theming-wpgtk.sh: scripts/theming-wpgtk.sh
       ~/bin/capture: scripts/capture
+      ~/bin/argh: scripts/argh
+      ~/bin/cry: scripts/cry
+      ~/bin/tableFlip: scripts/tableFlip
+      ~/bin/termColors: scripts/termColors
+      ~/bin/muteUnmuteMic.sh: scripts/muteUnmuteMic.sh
+      ~/bin/setArandr.sh: scripts/setArandr.sh
+      ~/bin/makeNvim: scripts/makeNvim
       ~/wallpapers: wallpapers
 # TO INSTALL
 # xmonad

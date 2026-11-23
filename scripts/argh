@@ -1,0 +1,3 @@
+#!/bin/bash
+
+echo "ヽ(｀Д´#)ﾉ ﾑｷｰ!!" | xclip -selection clipboard 
