@@ -132,7 +132,7 @@
           force: false
           relink: true
       ~/.config/qtile/PyColors.py:
-          path: config/qtile/PyColors.py
+          path: config/wpg/templates/PyColors.py
           create: true
           force: false
           relink: true
