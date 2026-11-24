@@ -763,6 +763,9 @@ def write_atomic(path, write):
 
 
 def main():
+    if sys.argv[1:] == ["--list"]:
+        print("\n".join(STYLES))
+        return 0
     with open(COLORS_PATH) as handle:
         colors = json.load(handle)
     frames = render(colors,

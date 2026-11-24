@@ -106,6 +106,11 @@
           create: true
           force: false
           relink: true
+      ~/.config/quickshell:
+          path: config/quickshell/
+          create: true
+          force: false
+          relink: true
       ~/.config/qtile:
           path: config/qtile/
           create: true
@@ -119,6 +124,7 @@
       ~/.profile: profile
       ~/bin/theming-wpgtk.sh: scripts/theming-wpgtk.sh
       ~/bin/capture: scripts/capture
+      ~/bin/hyprland-theme-picker: scripts/hyprland-theme-picker
       ~/bin/argh: scripts/argh
       ~/bin/cry: scripts/cry
       ~/bin/tableFlip: scripts/tableFlip

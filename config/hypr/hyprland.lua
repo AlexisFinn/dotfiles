@@ -231,10 +231,18 @@ if plugin_loaded("borders-plus-plus") then
 end
 
 -- Image frame drawn around the native border, which keeps showing the focus.
--- Styles: aurora, bezel, deco, ribbon, pixel, vines, cyber, machine, steam
--- (scripts/gen-borders.py).
-local FRAME_STYLE = "steam"
-local frame = theme.borders[FRAME_STYLE]
+-- The style is one of scripts/gen-borders.py, chosen with hyprland-theme-picker;
+-- an unknown one, such as "none", leaves the plain border.
+local DEFAULT_FRAME_STYLE = "steam"
+local function chosen_frame_style()
+    local state_home = os.getenv("XDG_STATE_HOME") or (os.getenv("HOME") .. "/.local/state")
+    local file = io.open(state_home .. "/hyprland-theme-picker/frame")
+    if not file then return DEFAULT_FRAME_STYLE end
+    local style = file:read("*l")
+    file:close()
+    return style or DEFAULT_FRAME_STYLE
+end
+local frame = theme.borders[chosen_frame_style()]
 if plugin_loaded("imgborders") and frame then
     hl.config({
         plugin = {

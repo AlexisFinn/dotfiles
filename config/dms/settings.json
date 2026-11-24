@@ -16,7 +16,7 @@
     {
       "id": "default",
       "name": "Main Bar",
-      "enabled": true,
+      "enabled": false,
       "position": 0,
       "screenPreferences": [
         "all"

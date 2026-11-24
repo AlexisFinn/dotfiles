@@ -1,0 +1,222 @@
+#!/bin/bash
+# Chooses the bar and the window frame of the Hyprland session.
+#
+#   hyprland-theme-picker                  picks what to change, then a value, in the DMS launcher
+#   hyprland-theme-picker bar              picks a bar in the DMS launcher
+#   hyprland-theme-picker bar <name>       switches to the bar ~/.config/quickshell/<name>
+#   hyprland-theme-picker bar dms          stops every Quickshell bar and enables the DMS bar again
+#   hyprland-theme-picker frame            picks a window frame in the DMS launcher
+#   hyprland-theme-picker frame <style>    switches to that frame style
+#   hyprland-theme-picker frame none       removes the frame, leaving the plain border
+#   hyprland-theme-picker list             lists the choices, the current ones marked with *
+#   hyprland-theme-picker status           prints the current choices
+#   hyprland-theme-picker restore          starts the bar chosen last; meant for the session autostart
+#
+# A bar is any directory of ~/.config/quickshell holding a shell.qml. The frame styles are those
+# of ~/.config/hypr/scripts/gen-borders.py, drawn by the imgborders plugin.
+set -euo pipefail
+
+ME=$(basename "$0")
+STATE_DIR=${XDG_STATE_HOME:-$HOME/.local/state}/hyprland-theme-picker
+
+# Quickshell identifies an instance by the path it was started with: bars are always addressed
+# through this directory, never through the target of a link.
+BARS_DIR=$HOME/.config/quickshell
+DMS_SETTINGS=$(realpath "$HOME/.config/dms/settings.json")
+DMS_BAR_ID=default
+DMS=dms
+
+GEN_BORDERS=$HOME/.config/hypr/scripts/gen-borders.py
+BORDERS_META=$HOME/.cache/hypr-theme/borders.lua
+FRAME_PLUGIN=imgborders
+FRAME_PLUGIN_URL=https://codeberg.org/zacoons/imgborders
+# Read by hyprland.lua when the choice file is missing; keep both in step.
+DEFAULT_FRAME=steam
+NO_FRAME=none
+
+remember() {
+    mkdir -p "$STATE_DIR"
+    echo "$2" > "$STATE_DIR/$1"
+}
+
+recall() {
+    cat "$STATE_DIR/$1" 2>/dev/null || true
+}
+
+# Shows the newline-separated choices of $2 in the DMS launcher, the one equal to $3 marked, and
+# prints the chosen one. Fails when the launcher is cancelled.
+pick() {
+    local prompt=$1 choices=$2 active=$3 message=${4:-} index
+    index=$(grep -nxF -- "$active" <<< "$choices" | cut -d: -f1 || true)
+    local args=(-p "$prompt" --no-custom)
+    [ -n "$index" ] && args+=(-a "$((index - 1))")
+    [ -n "$message" ] && args+=(--mesg "$message")
+    dms dmenu "${args[@]}" <<< "$choices"
+}
+
+# Bars ---------------------------------------------------------------------------------------------
+
+bars() {
+    local shell
+    for shell in "$BARS_DIR"/*/shell.qml; do
+        [ -f "$shell" ] && basename "$(dirname "$shell")"
+    done
+    return 0
+}
+
+is_bar() {
+    [ "$1" != "$DMS" ] && [ -f "$BARS_DIR/$1/shell.qml" ]
+}
+
+bar_running() {
+    qs list --all 2>/dev/null | grep -qF "$BARS_DIR/$1/shell.qml"
+}
+
+current_bar() {
+    local name
+    name=$(recall bar)
+    if [ -n "$name" ] && is_bar "$name"; then echo "$name"; else echo "$DMS"; fi
+}
+
+# DMS watches its settings file and adds or removes its bar at once.
+set_dms_bar() {
+    local actual tmp
+    actual=$(jq --arg id "$DMS_BAR_ID" '.barConfigs[] | select(.id == $id) | .enabled' "$DMS_SETTINGS")
+    [ "$actual" = "$1" ] && return 0
+    tmp=$(mktemp "$DMS_SETTINGS.XXXXXX")
+    jq --arg id "$DMS_BAR_ID" --argjson enabled "$1" \
+        '(.barConfigs[] | select(.id == $id) | .enabled) = $enabled' "$DMS_SETTINGS" > "$tmp"
+    /usr/bin/mv -f "$tmp" "$DMS_SETTINGS"
+}
+
+switch_bar() {
+    local name=$1 other
+    if [ "$name" != "$DMS" ] && ! is_bar "$name"; then
+        echo "$ME: no bar named '$name' in $BARS_DIR" >&2
+        exit 1
+    fi
+    for other in $(bars); do
+        if [ "$other" != "$name" ] && bar_running "$other"; then
+            qs kill -p "$BARS_DIR/$other" >/dev/null
+        fi
+    done
+    if [ "$name" = "$DMS" ]; then
+        set_dms_bar true
+    else
+        set_dms_bar false
+        qs -n -d -p "$BARS_DIR/$name" >/dev/null 2>&1 || true
+    fi
+    remember bar "$name"
+}
+
+pick_bar() {
+    local choice
+    choice=$(pick "Barre" "$( { bars; echo "$DMS"; } )" "$(current_bar)") || return 0
+    [ -n "$choice" ] && switch_bar "$choice"
+}
+
+# Window frames ------------------------------------------------------------------------------------
+
+frames() {
+    "$GEN_BORDERS" --list
+}
+
+is_frame() {
+    [ "$1" = "$NO_FRAME" ] || frames | grep -qxF -- "$1"
+}
+
+current_frame() {
+    local style
+    style=$(recall frame)
+    if [ -n "$style" ] && is_frame "$style"; then echo "$style"; else echo "$DEFAULT_FRAME"; fi
+}
+
+# Prints why the frames cannot be drawn, with the commands that fix it; nothing when they can.
+frame_plugin_problem() {
+    if hyprctl plugin list 2>/dev/null | grep -q "^Plugin $FRAME_PLUGIN "; then
+        return 0
+    fi
+    if hyprpm list 2>/dev/null | grep -q "Plugin $FRAME_PLUGIN\$"; then
+        echo "plugin $FRAME_PLUGIN installé mais pas chargé : hyprpm enable $FRAME_PLUGIN && hyprpm reload"
+    else
+        echo "plugin $FRAME_PLUGIN absent : hyprpm add $FRAME_PLUGIN_URL && hyprpm enable $FRAME_PLUGIN && hyprpm reload"
+    fi
+}
+
+warn_frame_plugin() {
+    local problem
+    problem=$(frame_plugin_problem)
+    [ -z "$problem" ] && return 0
+    echo "$ME: attention, $problem" >&2
+    echo "$ME: le style choisi est mémorisé et s'appliquera une fois le plugin chargé." >&2
+}
+
+switch_frame() {
+    local style=$1
+    if ! is_frame "$style"; then
+        echo "$ME: no frame style named '$style'; styles: $(frames | tr '\n' ' ')$NO_FRAME" >&2
+        exit 1
+    fi
+    warn_frame_plugin
+    if [ "$style" != "$NO_FRAME" ] && ! grep -q "^  $style = " "$BORDERS_META" 2>/dev/null; then
+        "$GEN_BORDERS"
+    fi
+    remember frame "$style"
+    # hyprland.lua reads the choice at load time.
+    hyprctl reload >/dev/null
+}
+
+pick_frame() {
+    local choice problem
+    problem=$(frame_plugin_problem)
+    choice=$(pick "Bordures" "$( { frames; echo "$NO_FRAME"; } )" "$(current_frame)" \
+        "${problem:+Attention : $problem}") || return 0
+    [ -n "$choice" ] && switch_frame "$choice"
+}
+
+# Commands -----------------------------------------------------------------------------------------
+
+marked() {
+    local active=$1 name
+    while read -r name; do
+        if [ "$name" = "$active" ]; then echo "  * $name"; else echo "    $name"; fi
+    done
+}
+
+case "${1:-}" in
+"")
+    kind=$(pick "Thème" "Barre : $(current_bar)"$'\n'"Bordures : $(current_frame)" "") || exit 0
+    case "$kind" in
+    Barre*) pick_bar ;;
+    Bordures*) pick_frame ;;
+    esac
+    ;;
+bar)
+    if [ $# -ge 2 ]; then switch_bar "$2"; else pick_bar; fi
+    ;;
+frame)
+    if [ $# -ge 2 ]; then switch_frame "$2"; else pick_frame; fi
+    ;;
+list)
+    echo "bar"
+    { bars; echo "$DMS"; } | marked "$(current_bar)"
+    echo "frame"
+    { frames; echo "$NO_FRAME"; } | marked "$(current_frame)"
+    warn_frame_plugin
+    ;;
+status)
+    echo "bar: $(current_bar)"
+    echo "frame: $(current_frame)"
+    warn_frame_plugin
+    ;;
+restore)
+    switch_bar "$(current_bar)"
+    ;;
+-h | --help | help)
+    sed -n '2,16p' "$0" | sed 's/^# \?//'
+    ;;
+*)
+    echo "$ME: unknown command '$1'; see $ME help" >&2
+    exit 2
+    ;;
+esac

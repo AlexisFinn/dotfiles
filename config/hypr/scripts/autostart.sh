@@ -25,5 +25,8 @@ hyprpm reload -n || echo "autostart: hyprpm reload failed" >&2
 # Software dimming of every monitor; the backlight itself is left untouched.
 start hyprsunset --gamma 60 --temperature 6000
 start "$hypr_dir/claude/claude_hypr.py" daemon
-# Bar, wallpaper, notifications, launcher, lock screen and polkit agent.
+# Wallpaper, notifications, launcher, lock screen and polkit agent; also the bar, unless a
+# Quickshell bar is chosen.
 start dms run
+# The bar chosen last with hyprland-theme-picker.
+start /home/alexis/bin/hyprland-theme-picker restore
