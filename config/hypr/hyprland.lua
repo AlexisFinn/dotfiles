@@ -10,7 +10,8 @@ local HYPR_DIR = "/home/alexis/.config/hypr"
 local MOD = "SUPER"
 
 local terminal = "foot"
-local launcher = "dms ipc call launcher toggle"
+-- The launcher of the chosen bar, or the DMS one (hyprland-theme-picker launcher).
+local launcher = "/home/alexis/bin/hyprland-theme-picker toggle-launcher"
 local filemanager = "luciole"
 local claude = HYPR_DIR .. "/claude/claude_hypr.py"
 

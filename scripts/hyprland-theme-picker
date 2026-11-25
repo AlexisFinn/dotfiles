@@ -8,12 +8,18 @@
 #   hyprland-theme-picker frame            picks a window frame in the DMS launcher
 #   hyprland-theme-picker frame <style>    switches to that frame style
 #   hyprland-theme-picker frame none       removes the frame, leaving the plain border
+#   hyprland-theme-picker launcher         picks a launcher in the launcher itself
+#   hyprland-theme-picker launcher bar     uses the launcher of the chosen bar, for Super+x and the menus
+#   hyprland-theme-picker launcher dms     uses the DMS launcher whatever the bar
+#   hyprland-theme-picker toggle-launcher  opens or closes the chosen launcher; meant for a key binding
+#   hyprland-theme-picker dmenu [options]  a `dms dmenu` shown by the chosen launcher; meant for scripts
 #   hyprland-theme-picker list             lists the choices, the current ones marked with *
 #   hyprland-theme-picker status           prints the current choices
 #   hyprland-theme-picker restore          starts the bar chosen last; meant for the session autostart
 #
-# A bar is any directory of ~/.config/quickshell holding a shell.qml. The frame styles are those
-# of ~/.config/hypr/scripts/gen-borders.py, drawn by the imgborders plugin.
+# A bar is any directory of ~/.config/quickshell holding a shell.qml; it may bring a launcher of
+# its own, and the DMS one serves when it has none or when the DMS bar is chosen. The frame
+# styles are those of ~/.config/hypr/scripts/gen-borders.py, drawn by the imgborders plugin.
 set -euo pipefail
 
 ME=$(basename "$0")
@@ -43,15 +49,15 @@ recall() {
     cat "$STATE_DIR/$1" 2>/dev/null || true
 }
 
-# Shows the newline-separated choices of $2 in the DMS launcher, the one equal to $3 marked, and
-# prints the chosen one. Fails when the launcher is cancelled.
+# Shows the newline-separated choices of $2 in the chosen launcher, the one equal to $3 marked,
+# and prints the chosen one. Fails when the launcher is cancelled.
 pick() {
     local prompt=$1 choices=$2 active=$3 message=${4:-} index
     index=$(grep -nxF -- "$active" <<< "$choices" | cut -d: -f1 || true)
     local args=(-p "$prompt" --no-custom)
     [ -n "$index" ] && args+=(-a "$((index - 1))")
     [ -n "$message" ] && args+=(--mesg "$message")
-    dms dmenu "${args[@]}" <<< "$choices"
+    menu "${args[@]}" <<< "$choices"
 }
 
 # Bars ---------------------------------------------------------------------------------------------
@@ -113,6 +119,98 @@ pick_bar() {
     local choice
     choice=$(pick "Barre" "$( { bars; echo "$DMS"; } )" "$(current_bar)") || return 0
     [ -n "$choice" ] && switch_bar "$choice"
+}
+
+# Launcher -----------------------------------------------------------------------------------------
+
+BAR_LAUNCHER=bar
+
+current_launcher() {
+    if [ "$(recall launcher)" = "$DMS" ]; then echo "$DMS"; else echo "$BAR_LAUNCHER"; fi
+}
+
+# Prints the directory of the bar whose launcher serves; fails when the DMS one does.
+launcher_bar() {
+    local bar
+    bar=$(current_bar)
+    [ "$(current_launcher)" = "$BAR_LAUNCHER" ] && [ "$bar" != "$DMS" ] && echo "$BARS_DIR/$bar"
+}
+
+toggle_launcher() {
+    local dir
+    if dir=$(launcher_bar) && qs ipc -p "$dir" call launcher toggle >/dev/null 2>&1; then
+        return 0
+    fi
+    dms ipc call launcher toggle >/dev/null
+}
+
+# Prints the JSON list of the row positions in a spec such as "0,3"; fails on any other form.
+positions() {
+    [[ "$1" =~ ^[0-9]+(,[0-9]+)*$ ]] && echo "[$1]"
+}
+
+# `dms dmenu` with the same options, shown by the launcher of the bar where it can be: the rows
+# come on stdin, the choice goes to stdout, and a cancelled menu fails. The options the bar's
+# launcher does not know, and a bar without a launcher, go to DMS.
+menu() {
+    local dir prompt="" message="" placeholder="" active="[]" urgent="[]" format=s
+    local prompt_only=false no_custom=false known=true args=("$@")
+    while [ $# -gt 0 ] && $known; do
+        case "$1" in
+        -p | --prompt) prompt=${2:-}; shift ;;
+        --mesg) message=${2:-}; shift ;;
+        --placeholder) placeholder=${2:-}; shift ;;
+        -a | --active) active=$(positions "${2:-}") || known=false; shift ;;
+        -u | --urgent) urgent=$(positions "${2:-}") || known=false; shift ;;
+        --format) format=${2:-}; [ "$format" = s ] || [ "$format" = i ] || known=false; shift ;;
+        --prompt-only) prompt_only=true ;;
+        --no-custom) no_custom=true ;;
+        -i | --case-insensitive) ;;
+        *) known=false ;;
+        esac
+        shift || true
+    done
+    if ! $known || ! dir=$(launcher_bar); then
+        dms dmenu "${args[@]}"
+        return
+    fi
+
+    local work items status text position
+    work=$(mktemp -d "${XDG_RUNTIME_DIR:-/tmp}/hyprland-theme-picker.XXXXXX")
+    mkfifo "$work/reply"
+    if $prompt_only; then items="[]"; else items=$(jq -Rn '[inputs]'); fi
+    jq -n --argjson items "$items" --argjson active "$active" --argjson urgent "$urgent" \
+        --arg prompt "$prompt" --arg message "$message" --arg placeholder "$placeholder" \
+        --argjson promptOnly "$prompt_only" --argjson noCustom "$no_custom" --arg reply "$work/reply" \
+        '$ARGS.named' > "$work/request.json"
+    # Opened for reading and writing, so that waiting for the answer can time out.
+    exec 3<> "$work/reply"
+    if ! qs ipc -p "$dir" call launcher menu "$work/request.json" >/dev/null 2>&1; then
+        exec 3>&-
+        /usr/bin/rm -rf "$work"
+        jq -r '.[]' <<< "$items" | dms dmenu "${args[@]}"
+        return
+    fi
+    status=cancel
+    read -r -t 3600 -u 3 status && read -r -t 5 -u 3 text && read -r -t 5 -u 3 position || true
+    exec 3>&-
+    /usr/bin/rm -rf "$work"
+    [ "$status" = ok ] || return 1
+    if [ "$format" = i ]; then echo "$position"; else echo "$text"; fi
+}
+
+switch_launcher() {
+    if [ "$1" != "$BAR_LAUNCHER" ] && [ "$1" != "$DMS" ]; then
+        echo "$ME: no launcher named '$1'; launchers: $BAR_LAUNCHER $DMS" >&2
+        exit 1
+    fi
+    remember launcher "$1"
+}
+
+pick_launcher() {
+    local choice
+    choice=$(pick "Lanceur" "$BAR_LAUNCHER"$'\n'"$DMS" "$(current_launcher)") || return 0
+    [ -n "$choice" ] && switch_launcher "$choice"
 }
 
 # Window frames ------------------------------------------------------------------------------------
@@ -185,10 +283,11 @@ marked() {
 
 case "${1:-}" in
 "")
-    kind=$(pick "Thème" "Barre : $(current_bar)"$'\n'"Bordures : $(current_frame)" "") || exit 0
+    kind=$(pick "Thème" "Barre : $(current_bar)"$'\n'"Bordures : $(current_frame)"$'\n'"Lanceur : $(current_launcher)" "") || exit 0
     case "$kind" in
     Barre*) pick_bar ;;
     Bordures*) pick_frame ;;
+    Lanceur*) pick_launcher ;;
     esac
     ;;
 bar)
@@ -197,23 +296,36 @@ bar)
 frame)
     if [ $# -ge 2 ]; then switch_frame "$2"; else pick_frame; fi
     ;;
+launcher)
+    if [ $# -ge 2 ]; then switch_launcher "$2"; else pick_launcher; fi
+    ;;
+toggle-launcher)
+    toggle_launcher
+    ;;
+dmenu)
+    shift
+    menu "$@"
+    ;;
 list)
     echo "bar"
     { bars; echo "$DMS"; } | marked "$(current_bar)"
     echo "frame"
     { frames; echo "$NO_FRAME"; } | marked "$(current_frame)"
+    echo "launcher"
+    printf '%s\n' "$BAR_LAUNCHER" "$DMS" | marked "$(current_launcher)"
     warn_frame_plugin
     ;;
 status)
     echo "bar: $(current_bar)"
     echo "frame: $(current_frame)"
+    echo "launcher: $(current_launcher)"
     warn_frame_plugin
     ;;
 restore)
     switch_bar "$(current_bar)"
     ;;
 -h | --help | help)
-    sed -n '2,16p' "$0" | sed 's/^# \?//'
+    sed -n '2,22p' "$0" | sed 's/^# \?//'
     ;;
 *)
     echo "$ME: unknown command '$1'; see $ME help" >&2

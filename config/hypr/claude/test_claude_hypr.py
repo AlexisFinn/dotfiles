@@ -718,7 +718,7 @@ class Picker(unittest.TestCase):
     def test_rows_go_to_stdin_and_the_answer_is_stripped(self):
         with mock.patch.object(ch.subprocess, "run", return_value=mock.Mock(returncode=0, stdout="3\n")) as run:
             self.assertEqual(ch.picker("--format", "i", rows=["a", "b"]), "3")
-        self.assertEqual(run.call_args.args[0], ["dms", "dmenu", "--format", "i"])
+        self.assertEqual(run.call_args.args[0], [ch.PICKER, "dmenu", "--format", "i"])
         self.assertEqual(run.call_args.kwargs["input"], "a\nb")
 
 

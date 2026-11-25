@@ -35,6 +35,7 @@ Singleton {
     // Glow of lamps, tubes and gauge liquid: the palette accent, pushed bright and saturated.
     readonly property color glow: Qt.hsla(Math.max(accent.hslHue - 0.025, 0), 0.95, 0.62, 1)
     readonly property color glowDeep: Qt.hsla(Math.max(accent.hslHue - 0.05, 0), 0.9, 0.48, 1)
+    readonly property color done: palette.claude_done ?? "#83c983"
     readonly property color alert: Qt.hsla(0.01, 0.7, 0.6, 1)
 
     readonly property string labelFont: "Latin Modern Roman Caps"

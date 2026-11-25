@@ -779,21 +779,25 @@ def acquire_lock(path=LOCK_FILE, signature="", takeover_s=LOCK_TAKEOVER_S, kill=
 # The answer to the rename prompt that removes the label: the DMS prompt ignores Enter on an empty field.
 REMOVE_LABEL = "-"
 
+# Shows a `dms dmenu` in the launcher chosen for the session: the one of the bar, or the DMS one.
+PICKER = "/home/alexis/bin/hyprland-theme-picker"
+
 
 def picker(*args, rows=None):
-    """Runs `dms dmenu` and returns its output, or None when it is cancelled or fails."""
+    """Runs a `dms dmenu` in the session's chosen launcher and returns its output, or None when it is
+    cancelled or fails."""
     try:
-        result = subprocess.run(["dms", "dmenu", *args], input=None if rows is None else "\n".join(rows),
+        result = subprocess.run([PICKER, "dmenu", *args], input=None if rows is None else "\n".join(rows),
                                 stdin=subprocess.DEVNULL if rows is None else None,
                                 stdout=subprocess.PIPE, stderr=subprocess.DEVNULL, text=True)
     except OSError as error:
-        log.error("dms dmenu failed: %s", error)
+        log.error("the picker failed: %s", error)
         return None
-    # dms dmenu exits with 1 when cancelled and 2 when the shell is not running.
+    # The picker exits with 1 when cancelled; dms dmenu exits with 2 when the DMS shell is not running.
     if result.returncode == 2:
-        log.error("dms dmenu failed: the DMS shell is not running")
+        log.error("the picker failed: the DMS shell is not running")
     elif result.returncode not in (0, 1):
-        log.error("dms dmenu failed with exit code %s", result.returncode)
+        log.error("the picker failed with exit code %s", result.returncode)
     if result.returncode != 0:
         return None
     return result.stdout.strip()
